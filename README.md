@@ -8,6 +8,7 @@ Each class will have own Wikis page
 * AlertUtils - toast, alert, confirm, progress, selector
 * DimensionUtils - dip, sp, px2dip, px2sp, dimen
 * JsonUtils - get / create / put value from JSONObject / JSONArray without try-catch
+* NaraePreference - over-load SharedPreferences
 
 ### License 
 ```
