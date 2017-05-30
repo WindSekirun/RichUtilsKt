@@ -2,7 +2,7 @@ package pyxis.uzuki.live.richutilssample
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import pyxis.uzuki.live.richutilskt.dip
+import pyxis.uzuki.live.richutilskt.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,6 +11,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val dip5 = dip(5)
-        println(dip5)
+        val sp12 = sp(12)
+
+        alert(message = "dd", callback = {})
+        alert(message = "dd")
+        confirm(message = "", callback = {})
     }
 }
