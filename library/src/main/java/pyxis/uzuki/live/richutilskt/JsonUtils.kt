@@ -1,10 +1,10 @@
 package pyxis.uzuki.live.richutilskt
 
+import android.content.Context
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
-object JsonUtils {
     fun createObject(token: String): JSONObject? = try { JSONObject(token) } catch (e: JSONException) { null }
     fun createObject(map: Map<*, *>): JSONObject? = try { JSONObject(map) } catch (e: JSONException) { null }
     fun createArray(token: String): JSONArray? = try { JSONArray(token) } catch (e: JSONException) { null }
@@ -26,4 +26,3 @@ object JsonUtils {
     fun put(jsonObject: JSONObject, name: String, value: Any) = jsonObject.put(name, value)
     fun put(jsonArray: JSONArray, index: Int, value: Any) = jsonArray.put(index, value)
     fun put(jsonArray: JSONArray, value: Any) = jsonArray.put(value)
-}
