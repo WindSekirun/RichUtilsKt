@@ -12,8 +12,6 @@ import android.widget.Toast
  * Created by pyxis on 2017. 5. 30..
  */
 
-class AlertUtils(val ctx: Context)
-
 fun Context.toast(message: String, length: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, message, length).show()
 fun Context.toast(message: Int, length: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, message, length).show()
 
