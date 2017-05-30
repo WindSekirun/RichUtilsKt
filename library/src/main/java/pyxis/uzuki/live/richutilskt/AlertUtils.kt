@@ -27,6 +27,28 @@ fun Context.alert(title: String? = "", message: String, positiveButton: String? 
     builder.show()
 }
 
+fun Context.selector(title: String? = "",  items: List<CharSequence>, callback: (DialogInterface, Int) ->  Unit) {
+    val builder = AlertDialog.Builder(this)
+    if (!TextUtils.isEmpty(title))
+        builder.setTitle(title)
+    builder.setItems(Array(items.size) { i -> items[i].toString() }) { dialog, which ->
+        callback(dialog, which)
+    }
+    builder.setCancelable(true)
+    builder.show()
+}
+
+fun <T> Context.selector(title: String? = "",  items: List<T>, callback: (DialogInterface, item: T, Int) ->  Unit) {
+    val builder = AlertDialog.Builder(this)
+    if (!TextUtils.isEmpty(title))
+        builder.setTitle(title)
+    builder.setItems(Array(items.size) { i -> items[i].toString() }) { dialog, which ->
+        callback(dialog, items[which], which)
+    }
+    builder.setCancelable(true)
+    builder.show()
+}
+
 fun Context.confirm(title: String? = "", message: String, positiveButton: String? = null, negitiveButton: String? = null, callback: DialogInterface.() -> Unit) {
     val builder = AlertDialog.Builder(this)
     if (!TextUtils.isEmpty(title))
