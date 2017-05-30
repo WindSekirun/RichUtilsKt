@@ -18,5 +18,7 @@ class MainActivity : AppCompatActivity() {
         confirm(message = "", callback = {})
         val p = progress(message = "")
         p.dismiss()
+
+        var np = NaraePreference.getInstance(c = this)
     }
 }
