@@ -8,6 +8,7 @@ import android.text.TextUtils
 import android.widget.Toast
 
 /**
+ * AlertUtils
  * Created by pyxis on 2017. 5. 30..
  */
 
@@ -37,8 +38,8 @@ fun Context.confirm(title: String? = "", message: String, positiveButton: String
     builder.show()
 }
 
-fun Context.progress(title: String? = null, message: String) {
-    ProgressDialog(this).apply {
+fun Context.progress(title: String? = null, message: String) : DialogInterface {
+    return ProgressDialog(this).apply {
         setProgressStyle(ProgressDialog.STYLE_SPINNER)
         setMessage(message)
         if (title != null) setTitle(title)

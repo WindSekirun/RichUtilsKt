@@ -16,5 +16,7 @@ class MainActivity : AppCompatActivity() {
         alert(message = "dd", callback = {})
         alert(message = "dd")
         confirm(message = "", callback = {})
+        val p = progress(message = "")
+        p.dismiss()
     }
 }
