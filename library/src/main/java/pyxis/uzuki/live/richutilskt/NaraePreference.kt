@@ -12,133 +12,28 @@ import java.util.HashSet
 class NaraePreference private constructor(c: Context) {
     private val editor: SharedPreferences.Editor
     private val pref: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(c)
-    val keyList = ArrayList<String>()
 
     init {
         editor = pref.edit()
         editor.apply()
     }
 
-    fun put(key: String, value: String) {
-        editor.putString(key, value)
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: CharSequence) {
-        editor.putString(key, value.toString())
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: Boolean) {
-        editor.putBoolean(key, value)
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: Int) {
-        editor.putInt(key, value)
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: Long) {
-        editor.putLong(key, value)
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: Float) {
-        editor.putFloat(key, value)
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: Double) {
-        editor.putString(key, value.toString())
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: Char) {
-        editor.putString(key, value.toString())
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: BigInteger) {
-        editor.putString(key, Arrays.toString(value.toByteArray()))
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: Array<Byte>) {
-        editor.putString(key, Arrays.toString(value))
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: Set<String>) {
-        editor.putStringSet(key, value)
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: Any) {
-        editor.putString(key, value as String)
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: ArrayList<String>) {
-        val list = HashSet(value)
-        editor.putStringSet(key, list)
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: Array<String>) {
-        val arraylist = ArrayList(Arrays.asList(*value))
-        val list = HashSet(arraylist)
-        editor.putStringSet(key, list)
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun put(key: String, value: CharArray) {
-        val chars = ArrayList<Char>()
-        val list = ArrayList<String>()
-        for (aValue in value) {
-            chars.add(aValue)
-        }
-        for (aChar in chars) {
-            list.add(aChar.toString())
-        }
-        val setlist = HashSet(list)
-        editor.putStringSet(key, setlist)
-        editor.commit()
-        keyList.add(key)
-    }
-
-    fun getValue(key: String, def: ArrayList<String>): ArrayList<String> {
-        try {
-            return ArrayList(pref.getStringSet(key, null)!!)
-        } catch (e: Exception) {
-            return def
-        }
-
-    }
-
-    fun getValue(key: String, def: Array<String>): Array<String> {
-        try {
-            val stringSet = pref.getStringSet(key, null)
-            return stringSet!!.toTypedArray()
-        } catch (e: Exception) {
-            return def
-        }
-
-    }
+    fun put(key: String, value: String) = editor.putString(key, value).commit()
+    fun put(key: String, value: CharSequence) = editor.putString(key, value.toString()).commit()
+    fun put(key: String, value: Boolean) = editor.putBoolean(key, value).commit()
+    fun put(key: String, value: Int) = editor.putInt(key, value).commit()
+    fun put(key: String, value: Long) = editor.putLong(key, value).commit()
+    fun put(key: String, value: Float) = editor.putFloat(key, value)
+    fun put(key: String, value: Double) = editor.putString(key, value.toString())
+    fun put(key: String, value: Char) = editor.putString(key, value.toString()).commit()
+    fun put(key: String, value: BigInteger) = editor.putString(key, Arrays.toString(value.toByteArray())).commit()
+    fun put(key: String, value: Array<Byte>) = editor.putString(key, Arrays.toString(value)).commit()
+    fun put(key: String, value: Set<String>) = editor.putStringSet(key, value).commit()
+    fun put(key: String, value: ArrayList<String>) = editor.putStringSet(key, HashSet(value)).commit()
+    fun put(key: String, value: Array<String>) = editor.putStringSet(key, HashSet(ArrayList(Arrays.asList(*value)))).commit()
+    fun put(key: String, value: CharArray) = editor.putStringSet(key, HashSet(value.toList().map { it.toString() })).commit()
+    fun getValue(key: String, def: ArrayList<String>? = ArrayList()): ArrayList<String>? = try { ArrayList(pref.getStringSet(key, null)) } catch (e: Exception) { def }
+    fun getValue(key: String, def: Array<String>? = null): Array<String>? = try { pref.getStringSet(key, null)!!.toTypedArray() } catch (e: Exception) { def }
 
     fun getValue(key: String, def: CharArray): CharArray {
         try {
@@ -271,14 +166,11 @@ class NaraePreference private constructor(c: Context) {
     fun delete(key: String) {
         editor.remove(key)
         editor.commit()
-        if (keyList.contains(key))
-            keyList.removeAt(keyList.indexOf(key))
     }
 
     fun clear() {
         editor.clear()
         editor.commit()
-        keyList.clear()
     }
 
     companion object {
