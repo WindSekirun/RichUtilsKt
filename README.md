@@ -5,10 +5,10 @@ Advancement Utils for Android Developer written by Kotlin
 ### Documents
 Each class will have own Wikis page
 
-* AlertUtils - toast, alert, confirm, progress, selector
-* DimensionUtils - dip, sp, px2dip, px2sp, dimen
-* JsonUtils - get / create / put value from JSONObject / JSONArray without try-catch
-* NaraePreference - over-load SharedPreferences
+* [AlertUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/AlertUtils.kt) (Wiki) - toast, alert, confirm, progress, selector
+* [DimensionUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/DimensionUtils.kt) (Wiki) - dip, sp, px2dip, px2sp, dimen
+* [JsonUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/JsonUtils.kt) (Wiki) - get / create / put value from JSONObject / JSONArray without try-catch
+* [NaraePreference](library/src/main/java/pyxis/uzuki/live/richutilskt/NaraePreference.kt) (Wiki) - over-load SharedPreferences
 
 ### License 
 ```
