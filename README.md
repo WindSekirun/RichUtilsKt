@@ -9,6 +9,7 @@ Each class will have own Wikis page
 * [DimensionUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/DimensionUtils.kt) (Wiki) - dip, sp, px2dip, px2sp, dimen
 * [JsonUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/JsonUtils.kt) (Wiki) - get / create / put value from JSONObject / JSONArray without try-catch
 * [NaraePreference](library/src/main/java/pyxis/uzuki/live/richutilskt/NaraePreference.kt) (Wiki) - over-load SharedPreferences
+* [VersionUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/NaraePreference.kt) (Wiki) - load versionName, versionCode of my application
 
 ### License 
 ```
