@@ -20,5 +20,6 @@ class MainActivity : AppCompatActivity() {
         p.dismiss()
 
         var np = NaraePreference.getInstance(c = this)
+        var version = versionName()
     }
 }
