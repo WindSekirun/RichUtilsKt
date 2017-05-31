@@ -10,7 +10,8 @@ Each class will have own Wikis page
 * [JsonUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/JsonUtils.kt) (Wiki) - get / create / put value from JSONObject / JSONArray without try-catch
 * [NaraePreference](library/src/main/java/pyxis/uzuki/live/richutilskt/NaraePreference.kt) (Wiki) - over-load SharedPreferences
 * [VersionUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/NaraePreference.kt) (Wiki) - load versionName, versionCode of my application
-
+* [PhotoUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/PhotoUtils.kt) (Wiki) - get width, height, degree and rotate
+* [BitmapUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/BitmapUtils.kt) (Wiki) - cast to bitmap from drawable, save bitmap to file
 ### License 
 ```
 Copyright 2017 WindSekirun (DongGil, Seo)
