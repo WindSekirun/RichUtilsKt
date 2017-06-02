@@ -13,7 +13,7 @@ Each class will have own Wikis page
 * [PhotoUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/PhotoUtils.kt) (Wiki) - get width, height, degree and rotate
 * [BitmapUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/BitmapUtils.kt) (Wiki) - cast to bitmap from drawable, save bitmap to file
 * [PickMediaManager](library/src/main/java/pyxis/uzuki/live/richutilskt/PickMediaManager.kt) (Wiki) - pick photo from gallery, camera
-* [ThreadUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/ThreadUtils.kt) (Wiki) -
+* [ThreadUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/ThreadUtils.kt) (Wiki) - main, background thread
 
 ### License 
 ```
