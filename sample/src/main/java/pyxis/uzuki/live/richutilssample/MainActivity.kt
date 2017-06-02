@@ -1,7 +1,9 @@
 package pyxis.uzuki.live.richutilssample
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.TextView
 import pyxis.uzuki.live.richutilskt.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,5 +23,18 @@ class MainActivity : AppCompatActivity() {
 
         var np = NaraePreference.getInstance(c = this)
         var version = versionName()
+
+        class pickCallback : PickMediaManager.PickMediaCallback {
+            override fun failPermissionGranted() {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun pickMediaCallback(path: String?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        }
+
+        PickMediaManager.getInstance(this).pickFromCamera(this, callback = pickCallback())
     }
 }
+

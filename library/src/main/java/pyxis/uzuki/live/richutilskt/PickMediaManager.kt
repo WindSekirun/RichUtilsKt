@@ -176,13 +176,8 @@ class PickMediaManager private constructor(c: Context) {
 
     }
 
-    interface PickMediaCallback {
-        fun pickMediaCallback(path: String?)
-
-        fun failPermissionGranted()
-    }
-
     companion object {
+
 
         private var instance:PickMediaManager? = null
 
@@ -200,4 +195,11 @@ class PickMediaManager private constructor(c: Context) {
         val PICK_FROM_VIDEO = 2
         val PICK_FROM_CAMERA_VIDEO = 3
     }
+
+    interface PickMediaCallback {
+        fun pickMediaCallback(path: String?)
+
+        fun failPermissionGranted()
+    }
+
 }

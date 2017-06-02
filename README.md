@@ -17,6 +17,7 @@ Each class will have own Wikis page
 * [DateUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/DateUtils.kt) (Wiki) - parse date
 * [ByteFilter](library/src/main/java/pyxis/uzuki/live/richutilskt/ByteFilter.kt) (Wiki) - filtering by byte (especially korean)
 * [DownloadUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/DownloadUtils.kt) (Wiki) - download bitmap, file to external files dir
+* [StackManager](library/src/main/java/pyxis/uzuki/live/richutilskt/StackManager.kt) (Wiki) - store / finish activity history
 
 ### License 
 ```
