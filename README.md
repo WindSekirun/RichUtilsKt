@@ -14,9 +14,9 @@ Each class will have own Wikis page
 * [BitmapUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/BitmapUtils.kt) (Wiki) - cast to bitmap from drawable, save bitmap to file
 * [PickMediaManager](library/src/main/java/pyxis/uzuki/live/richutilskt/PickMediaManager.kt) (Wiki) - pick photo from gallery, camera
 * [ThreadUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/ThreadUtils.kt) (Wiki) - main, background thread
-* [DateUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/DateUtils.kt) (Wiki) - 
-* [ByteFilter](library/src/main/java/pyxis/uzuki/live/richutilskt/ByteFilter.kt) (Wiki) - 
-* [BitmapDownload](library/src/main/java/pyxis/uzuki/live/richutilskt/BitmapDownload.kt) (Wiki) - 
+* [DateUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/DateUtils.kt) (Wiki) - parse date
+* [ByteFilter](library/src/main/java/pyxis/uzuki/live/richutilskt/ByteFilter.kt) (Wiki) - filtering by byte (especially korean)
+* [Downloadutils](library/src/main/java/pyxis/uzuki/live/richutilskt/Downloadutils.kt) (Wiki) - download bitmap, file to external files dir
 
 ### License 
 ```
