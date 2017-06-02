@@ -5,7 +5,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import java.io.File
-import java.io.FileOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -59,20 +58,13 @@ fun Context.downloadFile(urlPath: String, name: String): Uri? {
                 val file = File(path)
                 file.createNewFile()
 
-                val outStream = FileOutputStream(file)
-
-                val buffer = ByteArray(8 * 1024)
-                var bytesRead: Int
-
-                while (true) {
-                    bytesRead = inputStream.read(buffer)
-                    if (bytesRead <= 0)
-                        break
-
-                    outStream.write(buffer, 0, bytesRead)
+                inputStream.use { input ->
+                    file.outputStream().use { fileOut ->
+                        input.copyTo(fileOut)
+                    }
                 }
 
-                uri = Uri.parse(path)
+                uri = Uri.fromFile(file)
             } finally {
                 inputStream?.close()
                 conn.disconnect()
