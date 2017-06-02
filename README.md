@@ -16,7 +16,7 @@ Each class will have own Wikis page
 * [ThreadUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/ThreadUtils.kt) (Wiki) - main, background thread
 * [DateUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/DateUtils.kt) (Wiki) - parse date
 * [ByteFilter](library/src/main/java/pyxis/uzuki/live/richutilskt/ByteFilter.kt) (Wiki) - filtering by byte (especially korean)
-* [Downloadutils](library/src/main/java/pyxis/uzuki/live/richutilskt/Downloadutils.kt) (Wiki) - download bitmap, file to external files dir
+* [DownloadUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/DownloadUtils.kt) (Wiki) - download bitmap, file to external files dir
 
 ### License 
 ```
