@@ -12,15 +12,15 @@ class StackManager {
     }
 
     fun addActivity(activity: Activity) {
-        activityList!!.add(activity)
+        activityList?.add(activity)
     }
 
-    fun removeActivity(activity: Activity): Boolean {
-        return activityList!!.remove(activity)
+    fun removeActivity(activity: Activity): Boolean? {
+        return activityList?.remove(activity)
     }
 
     fun finishAllActivity() {
-        for (activity in activityList!!) {
+        for (activity in activityList.orEmpty()) {
             activity.finish()
         }
     }
