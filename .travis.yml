@@ -27,12 +27,6 @@ before_install:
   # for gradle output style
   - export TERM=dumb
 
-  # newer version of gradle
-  # - wget http://services.gradle.org/distributions/gradle-1.12-bin.zip
-  # - unzip -qq gradle-1.12-bin.zip
-  # - export GRADLE_HOME=$PWD/gradle-1.11
-  # - export PATH=$GRADLE_HOME/bin:$PATH
-
   # just to test gradle version, against our provided one
   - ./gradlew -v
 
@@ -48,7 +42,7 @@ before_install:
   # Install required components.
   # For a full list, run `android list sdk -a --extended`
   - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter build-tools-24.0.0 --no-ui --force > /dev/null
+  - echo yes | android update sdk --all --filter build-tools-24.0.3 --no-ui --force > /dev/null
   - echo yes | android update sdk --filter android-24 --no-ui --force > /dev/null
   - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
   - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
