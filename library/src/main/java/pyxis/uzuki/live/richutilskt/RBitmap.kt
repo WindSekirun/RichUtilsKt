@@ -13,13 +13,6 @@ import java.io.IOException
 import java.util.*
 
 /**
- * BitmapUtils
- * saveBitmapToFile, drawableToBitmap
- *
- * Created by Pyxis on 2017. 5. 31..
- */
-
-/**
  * Save Bitmap to file
  *
  * @param[bitmap] to save

@@ -8,13 +8,6 @@ import android.text.TextUtils
 import android.widget.Toast
 
 /**
- * AlertUtils
- * toast, selector, confirm, progress
- *
- * Created by Pyxis on 2017. 5. 30..
- */
-
-/**
  * Display Toast Message
  *
  * @param[message] to display

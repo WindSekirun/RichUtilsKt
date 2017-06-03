@@ -5,12 +5,6 @@ import android.content.ClipboardManager
 import android.content.Context
 
 /**
- * ClipboardUtils
-
- * Created by Pyxis on 2017. 6. 3..
- */
-
-/**
  * copy text to clipboard
  *
  * @param[text] to copy

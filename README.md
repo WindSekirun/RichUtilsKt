@@ -10,6 +10,8 @@ Advancement Utils for Android Developer written by Kotlin
 * [RBitmap](library/src/main/java/pyxis/uzuki/live/richutilskt/RBitmap.kt) - cast to bitmap from drawable, save bitmap to file
 * [RClipboard](library/src/main/java/pyxis/uzuki/live/richutilskt/RClipboard.kt) - copy text to clipboard, get text from clipboard
 * [RDate](library/src/main/java/pyxis/uzuki/live/richutilskt/RDate.kt) - parse date
+* [RDownload](library/src/main/java/pyxis/uzuki/live/richutilskt/RDownload.kt) - Download file, bitmap from uri
+* [RThread](library/src/main/java/pyxis/uzuki/live/richutilskt/RThread.kt) - run code in background / ui thread
 
 ### License 
 ```

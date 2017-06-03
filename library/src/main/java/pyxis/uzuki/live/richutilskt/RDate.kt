@@ -5,13 +5,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * DateUtils
- * asString, asDateString, parseDate, toDateString
- *
- * Created by Pyxis on 2017. 6. 2..
- */
-
-/**
  * format date with DateFormat string
  *
  * @param[format] optional. default is yyyy-MM-dd HH:mm:ss (2017-06-02 19:20:00)
