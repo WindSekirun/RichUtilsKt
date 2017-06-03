@@ -13,7 +13,6 @@ Advancement Utils for Android Developer written by Kotlin
 * [PickMediaManager](library/src/main/java/pyxis/uzuki/live/richutilskt/PickMediaManager.kt) - pick photo from gallery, camera
 * [ThreadUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/ThreadUtils.kt) - main, background thread
 * [DownloadUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/DownloadUtils.kt) - download bitmap, file to external files dir
-* [StackManager](library/src/main/java/pyxis/uzuki/live/richutilskt/StackManager.kt) - store / finish activity history
 * [FilePathUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/FilePathUtils.kt) - parsing real sdcard path from result of gallery pick
 * [StringUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/StringUtils.kt) - fill
 * [RebootUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/RebootUtils.kt) - reboot application safety
