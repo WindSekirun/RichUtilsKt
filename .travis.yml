@@ -15,8 +15,11 @@ android:
     
 notifications:
   email: false
+  
+before_install:
+  - export ANDROID_HOME=/usr/local/android-sdk
+  - echo "sdk.dir=$ANDROID_HOME" > local.properties
    
-  # Emulator Management: Create, Start and Wait
 before_script:
   - echo no | android create avd --force -n test -t android-25 --abi armeabi-v7a
   - emulator -avd test -no-audio -no-window &
