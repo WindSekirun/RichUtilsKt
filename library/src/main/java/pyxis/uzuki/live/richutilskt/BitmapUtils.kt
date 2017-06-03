@@ -16,7 +16,7 @@ import java.util.*
  * BitmapUtils
  * saveBitmapToFile, drawableToBitmap
  *
- * Created by pyxis on 2017. 5. 31..
+ * Created by Pyxis on 2017. 5. 31..
  */
 
 /**

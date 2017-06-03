@@ -36,6 +36,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         PickMediaManager.getInstance(this).pickFromCamera(this, callback = pickCallback())
+
+        var date = "2016-11-23 11:11:11".toDateString("yyyy-MM-dd HH:mm:ss", "yyyy.MM.dd")
     }
 }
 

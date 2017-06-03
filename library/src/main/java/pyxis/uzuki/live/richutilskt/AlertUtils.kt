@@ -11,7 +11,7 @@ import android.widget.Toast
  * AlertUtils
  * toast, selector, confirm, progress
  *
- * Created by pyxis on 2017. 5. 30..
+ * Created by Pyxis on 2017. 5. 30..
  */
 
 /**
