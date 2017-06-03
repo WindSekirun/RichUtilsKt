@@ -1,5 +1,6 @@
 package pyxis.uzuki.live.richutilssample
 
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -30,7 +31,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun pickMediaCallback(path: String?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                var orig = getPath(this@MainActivity, Uri.parse(path))
+
             }
         }
 
