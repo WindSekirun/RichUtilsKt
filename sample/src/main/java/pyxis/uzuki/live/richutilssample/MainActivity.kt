@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         val p = progress(message = "")
         p.dismiss()
 
+
         var np = NaraePreference.getInstance(c = this)
         var version = versionName()
 
