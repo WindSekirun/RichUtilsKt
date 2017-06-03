@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="pyxis.uzuki.live.richutilssample.MainActivity">
 
     <Button
@@ -20,8 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="confirm"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="48dp"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="0dp"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -29,8 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="selector"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="96dp"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="0dp"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -38,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="progress"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="144dp"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="0dp"
         tools:ignore="MissingConstraints" />
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -1,35 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="pyxis.uzuki.live.richutilssample.MainActivity">
 
     <Button
         android:id="@+id/alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ALERT"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints" />
+        android:text="ALERT" />
 
     <Button
         android:id="@+id/bitmap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bitmap"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="48dp"
-        tools:ignore="MissingConstraints" />
+        android:text="Bitmap" />
 
     <Button
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="96dp"
-        tools:ignore="MissingConstraints" />
-</android.support.constraint.ConstraintLayout>
+        android:text="Date" />
+</LinearLayout>
