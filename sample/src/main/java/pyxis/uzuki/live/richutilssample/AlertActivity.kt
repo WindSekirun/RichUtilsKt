@@ -5,16 +5,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import pyxis.uzuki.live.richutilskt.*
 
-/**
- * Created by pyxis on 2017. 6. 3..
- */
-
 class AlertActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // alert
         alert(message = "Hello, world!")
 
         confirm(message = "Hello, world!", callback = {
