@@ -6,6 +6,8 @@ jdk:
 env:
   global:
     - ANDROID_SDK_VERSION="r24"
+    
+sudo: required
   
 notifications:
   email: false
