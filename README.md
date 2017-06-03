@@ -1,5 +1,5 @@
 ## RichUtils
-[![Kotlin](https://img.shields.io/badge/kotlin-1.1.2-blue.svg)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.1.2-blue.svg)](http://kotlinlang.org) [![Build Status](https://travis-ci.org/WindSekirun/RichUtilsKt.svg?branch=master)](https://travis-ci.org/WindSekirun/RichUtilsKt)
 
 Advancement Utils for Android Developer written by Kotlin
 
