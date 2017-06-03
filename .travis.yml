@@ -12,6 +12,9 @@ android:
     - extra-android-m2repository
     - addon-google_apis-google-25
     - sys-img-armeabi-v7a-android-25
+    
+notifications:
+  email: false
    
   # Emulator Management: Create, Start and Wait
 before_script:
