@@ -31,15 +31,10 @@ import android.provider.MediaStore
  * MediaStore Uris, and other file-based ContentProviders.
 
  * @param context       The context.
- * *
  * @param uri           The Uri to query.
- * *
  * @param selection     (Optional) Filter used in the query.
- * *
  * @param selectionArgs (Optional) Selection arguments used in the query.
- * *
  * @return The value of the _data column, which is typically a file path.
- * *
  * @author paulburke
  */
 private fun getDataColumn(context: Context, uri: Uri?, selection: String?, selectionArgs: Array<String>?): String {

@@ -27,7 +27,7 @@ fun Context.saveBitmapToFileName(bitmap: Bitmap): String? {
     return null
 }
 
-fun saveBitmapToFile(context: Context, bitmap: Bitmap): File? {
+private fun saveBitmapToFile(context: Context, bitmap: Bitmap): File? {
     try {
         val photo = getOutputMediaFile(context)
         val out = FileOutputStream(photo)
@@ -44,7 +44,7 @@ fun saveBitmapToFile(context: Context, bitmap: Bitmap): File? {
     return null
 }
 
-fun getOutputMediaFile(context: Context): File {
+private fun getOutputMediaFile(context: Context): File {
     val picName = UUID.randomUUID().toString().replace("-".toRegex(), "") + ".jpg"
 
     val folder = context.getExternalFilesDir(null)

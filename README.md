@@ -19,6 +19,8 @@ Each class will have own Wikis page
 * [DownloadUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/DownloadUtils.kt) (Wiki) - download bitmap, file to external files dir
 * [StackManager](library/src/main/java/pyxis/uzuki/live/richutilskt/StackManager.kt) (Wiki) - store / finish activity history
 * [FilePathUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/FilePathUtils.kt) (Wiki) - parsing real sdcard path from result of gallery pick
+* [StringUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/StringUtils.kt) (Wiki) - fill
+* [RebootUtils](library/src/main/java/pyxis/uzuki/live/richutilskt/RebootUtils.kt) (Wiki) - reboot application safety
 
 ### License 
 ```
