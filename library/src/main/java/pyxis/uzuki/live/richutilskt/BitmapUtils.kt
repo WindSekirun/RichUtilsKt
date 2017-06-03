@@ -13,18 +13,26 @@ import java.io.IOException
 import java.util.*
 
 /**
+ * BitmapUtils
+ * saveBitmapToFile, drawableToBitmap
+ *
  * Created by pyxis on 2017. 5. 31..
  */
 
-
-fun Context.saveBitmapToFileName(bitmap: Bitmap): String? {
+/**
+ * Save Bitmap to file
+ *
+ * @param[bitmap] to save
+ * @return path of file
+ */
+fun Context.saveBitmapToFile(bitmap: Bitmap): String? {
     try {
         val file = saveBitmapToFile(this, bitmap)
         return file?.absolutePath
     } catch (e: Exception) {
     }
 
-    return null
+    return ""
 }
 
 private fun saveBitmapToFile(context: Context, bitmap: Bitmap): File? {
@@ -55,6 +63,12 @@ private fun getOutputMediaFile(context: Context): File {
     return File(folder, picName)
 }
 
+/**
+ * Convert Drawable to Bitmap in safe way
+ *
+ * @param[drawable] to convert
+ * @return Bitmap object
+ */
 fun drawableToBitmap(drawable: Drawable): Bitmap {
     if (drawable is BitmapDrawable) {
         return drawable.bitmap

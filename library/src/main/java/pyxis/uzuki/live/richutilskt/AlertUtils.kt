@@ -9,8 +9,8 @@ import android.widget.Toast
 
 /**
  * AlertUtils
- *
  * toast, selector, confirm, progress
+ *
  * Created by pyxis on 2017. 5. 30..
  */
 
@@ -99,7 +99,7 @@ fun Context.confirm(title: String? = "", message: String, positiveButton: String
         builder.setTitle(title)
     builder.setMessage(message)
     builder.setPositiveButton(positiveButton ?: getString(android.R.string.ok), { dialog, _ -> dialog.callback() })
-    builder.setNegativeButton(negativeButton ?: getString(android.R.string.no), { dialog, _ -> run {} })
+    builder.setNegativeButton(negativeButton ?: getString(android.R.string.no), { _, _ -> run {} })
     builder.setCancelable(true)
     builder.show()
 }
@@ -109,6 +109,7 @@ fun Context.confirm(title: String? = "", message: String, positiveButton: String
  *
  * @param[title] optional, title
  * @param[message] optional, message
+ * @return DialogInterface
  */
 fun Context.progress(title: String? = null, message: String): DialogInterface {
     return ProgressDialog(this).apply {
