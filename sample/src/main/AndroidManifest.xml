@@ -12,6 +12,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AlertActivity"/>
+        <activity android:name=".BitmapActivity"/>
+        <activity android:name=".DateActivity"/>
     </application>
 
 </manifest>

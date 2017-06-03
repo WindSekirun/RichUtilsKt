@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
 
 
 android {
@@ -8,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "pyxis.uzuki.live.richutilssample"
-        minSdkVersion 16
+        minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -25,5 +26,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile project(':richutils')
+    compile "org.jetbrains.anko:anko-commons:0.10.1"
+    compile project(':RichUtils')
 }

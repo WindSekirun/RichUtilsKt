@@ -1,1 +1,1 @@
-include ':richutils', ':sample'
+include ':RichUtils', ':sample'

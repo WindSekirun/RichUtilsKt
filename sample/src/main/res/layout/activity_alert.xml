@@ -10,26 +10,35 @@
         android:id="@+id/alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ALERT"
+        android:text="alert"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/bitmap"
+        android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bitmap"
+        android:text="confirm"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="48dp"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/date"
+        android:id="@+id/selector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date"
+        android:text="selector"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="96dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="progress"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="144dp"
         tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>
