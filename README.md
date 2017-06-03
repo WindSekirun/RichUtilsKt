@@ -1,6 +1,5 @@
 ## RichUtils
-[![Kotlin](https://img.shields.io/badge/kotlin-1.1.2-blue.svg)](http://kotlinlang.org) [![CircleCI](https://circleci.com/gh/WindSekirun/RichUtilsKt.svg?style=svg)](https://circleci.com/gh/WindSekirun/RichUtilsKt)
-
+[![](https://jitpack.io/v/WindSekirun/RichUtilsKt.svg)](https://jitpack.io/#WindSekirun/RichUtilsKt)	[![Kotlin](https://img.shields.io/badge/kotlin-1.1.2-blue.svg)](http://kotlinlang.org)	[![CircleCI](https://circleci.com/gh/WindSekirun/RichUtilsKt.svg?style=svg)](https://circleci.com/gh/WindSekirun/RichUtilsKt) 
 
 Advancement Utils for Android Developer written by Kotlin
 
@@ -19,6 +18,24 @@ Advancement Utils for Android Developer written by Kotlin
     - Bitmap to Drawable
 * [RThread](library/src/main/java/pyxis/uzuki/live/richutilskt/RThread.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
     - run code in background / ui thread
+    
+### Usages
+
+**rootProject/build.gradle**
+```	
+allprojects {
+    repositories {
+	maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+**app/build.gradle**
+```
+dependencies {
+    compile 'com.github.WindSekirun:RichUtilsKt:${richutils_version}'
+}
+```
 
 ### License 
 ```
