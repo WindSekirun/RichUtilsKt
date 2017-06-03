@@ -7,11 +7,18 @@ Advancement Utils for Android Developer written by Kotlin
 ### List of Utils Classes (working)
 * [RAlert](library/src/main/java/pyxis/uzuki/live/richutilskt/RAlert.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/AlertActivity.kt) 
     - toast, alert, confirm, progress, selector
-* [RBitmap](library/src/main/java/pyxis/uzuki/live/richutilskt/RBitmap.kt) - cast to bitmap from drawable, save bitmap to file
-* [RClipboard](library/src/main/java/pyxis/uzuki/live/richutilskt/RClipboard.kt) - copy text to clipboard, get text from clipboard
-* [RDate](library/src/main/java/pyxis/uzuki/live/richutilskt/RDate.kt) - parse date
-* [RDownload](library/src/main/java/pyxis/uzuki/live/richutilskt/RDownload.kt) - Download file, bitmap from uri
-* [RThread](library/src/main/java/pyxis/uzuki/live/richutilskt/RThread.kt) - run code in background / ui thread
+* [RBitmap](library/src/main/java/pyxis/uzuki/live/richutilskt/RBitmap.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) 
+    - cast to bitmap from drawable, save bitmap to file
+* [RClipboard](library/src/main/java/pyxis/uzuki/live/richutilskt/RClipboard.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/DateActivity.kt) 
+    - copy text to clipboard, get text from clipboard
+* [RDate](library/src/main/java/pyxis/uzuki/live/richutilskt/RDate.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/DateActivity.kt) 
+    - parse date
+* [RDownload](library/src/main/java/pyxis/uzuki/live/richutilskt/RDownload.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
+    - Download file, bitmap from uri
+* [RDrawable](library/src/main/java/pyxis/uzuki/live/richutilskt/RDrawable.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
+    - Bitmap to Drawable
+* [RThread](library/src/main/java/pyxis/uzuki/live/richutilskt/RThread.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
+    - run code in background / ui thread
 
 ### License 
 ```
