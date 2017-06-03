@@ -1,5 +1,7 @@
 ## RichUtils
-[![Kotlin](https://img.shields.io/badge/kotlin-1.1.2-blue.svg)](http://kotlinlang.org) [![CircleCI](https://circleci.com/gh/WindSekirun/RichUtilsKt.svg?style=svg)](https://circleci.com/gh/WindSekirun/RichUtilsKt) [![](https://jitpack.io/v/WindSekirun/RichUtilsKt.svg)](https://jitpack.io/#WindSekirun/RichUtilsKt)
+[![](https://jitpack.io/v/WindSekirun/RichUtilsKt.svg)](https://jitpack.io/#WindSekirun/RichUtilsKt)	[![Kotlin](https://img.shields.io/badge/kotlin-1.1.2-blue.svg)](http://kotlinlang.org)
+
+[![CircleCI](https://circleci.com/gh/WindSekirun/RichUtilsKt.svg?style=svg)](https://circleci.com/gh/WindSekirun/RichUtilsKt) 
 
 Advancement Utils for Android Developer written by Kotlin
 
@@ -25,7 +27,7 @@ Advancement Utils for Android Developer written by Kotlin
 ```	
 allprojects {
     repositories {
-		maven { url 'https://jitpack.io' }
+	maven { url 'https://jitpack.io' }
     }
 }
 ```
@@ -33,7 +35,7 @@ allprojects {
 **app/build.gradle**
 ```
 dependencies {
-    compile 'com.github.WindSekirun:RichUtilsKt:1.0.0'
+    compile 'com.github.WindSekirun:RichUtilsKt:${richutils_version}'
 }
 ```
 
