@@ -1,4 +1,5 @@
 ## RichUtils
+[![Kotlin](https://img.shields.io/badge/kotlin-1.1.2-blue.svg)](http://kotlinlang.org)
 
 Advancement Utils for Android Developer written by Kotlin
 
