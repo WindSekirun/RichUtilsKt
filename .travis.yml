@@ -12,13 +12,7 @@ android:
     - extra-android-m2repository
     - addon-google_apis-google-25
     - sys-img-armeabi-v7a-android-25
-    
-env:
-  global:
-    - ANDROID_HOME=${TRAVIS_BUILD_DIR}/android-sdk
-    - PATH=${ANDROID_HOME}/:${ANDROID_HOME}/tools/:${ANDROID_HOME}/platform-tools/:${PATH}
-
-  
+   
   # Emulator Management: Create, Start and Wait
 before_script:
   - echo no | android create avd --force -n test -t android-25 --abi armeabi-v7a
