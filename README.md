@@ -5,7 +5,7 @@
 Advancement Utils for Android Developer written by Kotlin
 
 ### List of Utils Classes (working)
-* [RAlert](library/src/main/java/pyxis/uzuki/live/richutilskt/RAlert.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssmaple/AlertActivity.kt) 
+* [RAlert](library/src/main/java/pyxis/uzuki/live/richutilskt/RAlert.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/AlertActivity.kt) 
     - toast, alert, confirm, progress, selector
 * [RBitmap](library/src/main/java/pyxis/uzuki/live/richutilskt/RBitmap.kt) - cast to bitmap from drawable, save bitmap to file
 * [RClipboard](library/src/main/java/pyxis/uzuki/live/richutilskt/RClipboard.kt) - copy text to clipboard, get text from clipboard
