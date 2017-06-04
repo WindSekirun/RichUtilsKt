@@ -19,7 +19,7 @@
         <activity android:name=".AlertActivity"/>
         <activity android:name=".BitmapActivity"/>
         <activity android:name=".DateActivity"/>
-        <activity android:name=".DimenActivity"/>
+        <activity android:name=".JSONActivity"/>
         <activity android:name=".PickMediaActivity"/>
     </application>
 

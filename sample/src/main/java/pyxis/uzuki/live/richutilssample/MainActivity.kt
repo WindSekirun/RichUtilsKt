@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         media.setOnClickListener { startActivity<PickMediaActivity>() }
         btnReboot.setOnClickListener { this.reboot() }
         logo.setOnClickListener { browse("https://github.com/WindSekirun/RichUtilsKt") }
+        json.setOnClickListener { startActivity<JSONActivity>() }
     }
 }
 

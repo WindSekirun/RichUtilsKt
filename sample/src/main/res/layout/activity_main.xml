@@ -52,6 +52,12 @@
                 android:layout_height="wrap_content"
                 android:text="REBOOT"
                 android:id="@+id/btnReboot"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/json"
+                android:text="JSON"/>
         </LinearLayout>
     </ScrollView>
 
