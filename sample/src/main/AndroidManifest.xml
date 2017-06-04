@@ -15,6 +15,7 @@
         <activity android:name=".AlertActivity"/>
         <activity android:name=".BitmapActivity"/>
         <activity android:name=".DateActivity"/>
+        <activity android:name=".DimenActivity"/>
     </application>
 
 </manifest>

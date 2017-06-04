@@ -11,9 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        alert.setOnClickListener({ startActivity<AlertActivity>() })
-        bitmap.setOnClickListener({ startActivity<BitmapActivity>() })
-        date.setOnClickListener({ startActivity<DateActivity>() })
+        alert.setOnClickListener { startActivity<AlertActivity>() }
+        bitmap.setOnClickListener { startActivity<BitmapActivity>() }
+        date.setOnClickListener { startActivity<DateActivity>() }
+        dimen.setOnClickListener { startActivity<DimenActivity>() }
     }
 }
 

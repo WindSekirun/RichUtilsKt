@@ -23,4 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date" />
+
+    <Button
+        android:id="@+id/dimen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dimen" />
 </LinearLayout>
