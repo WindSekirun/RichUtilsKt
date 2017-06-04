@@ -5,7 +5,7 @@
 
 Advancement Utils for Android Developer written by [Kotlin](https://kotlinlang.org)
 
-You can reduce a lots of time to write duplicate, dirty code. RichUtils provided fully Documented and high quality of many utils so more! With [Anko](https://github.com/Kotlin/anko) and [Kotlin android extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html), **your developing time will be happier than before!**
+Are you tired to write duplicate, dirty code to develop your android application? RichUtils provided fully Documented and high quality of many utils so more! With [Anko](https://github.com/Kotlin/anko) and [Kotlin android extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html), **Your developing time will be happier than before!**
 
 Main goals of this library is **Reuse code to help developer can math the due date of Project** (Because i'm agency android developer, time is top priority.)
 
