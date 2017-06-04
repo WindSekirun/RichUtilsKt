@@ -14,6 +14,7 @@ Advancement Utils for Android Developer written by Kotlin
     - parse date
 * [RDimen](library/src/main/java/pyxis/uzuki/live/richutilskt/RDimen.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/DimenActivity.kt) 
     - dip, sp, px2dip, px2sp, dimen
+    - since 1.0.1
 * [RDownload](library/src/main/java/pyxis/uzuki/live/richutilskt/RDownload.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
     - Download file, bitmap from uri
 * [RDrawable](library/src/main/java/pyxis/uzuki/live/richutilskt/RDrawable.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
