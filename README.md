@@ -3,7 +3,11 @@
 
 <img src="richutils-logo.png" alt="RichUtils logo" height="101" width="220" />
 
-Advancement Utils for Android Developer written by Kotlin
+Advancement Utils for Android Developer written by [Kotlin](https://kotlinlang.org)
+
+You can reduce a lots of time to write duplicate, dirty code. RichUtils provided fully Documented and high quality of many utils so more! With [Anko](https://github.com/Kotlin/anko) and [Kotlin android extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html), **your developing time will be happier than before!**
+
+Main goals of this library is **Reuse code to help developer can math the due date of Project** (Because i'm agency android developer, time is top priority.)
 
 ### List of Utils Classes
 * [**RAlert**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RAlert.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/AlertActivity.kt) 
@@ -21,7 +25,7 @@ Advancement Utils for Android Developer written by Kotlin
 * [**RVersion**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RVersion.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 
 #### It will be available next Release
-
+Nothing here! more utils will be added.
 
 ### Usages
 
