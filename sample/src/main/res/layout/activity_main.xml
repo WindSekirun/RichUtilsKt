@@ -25,12 +25,6 @@
         android:text="Date" />
 
     <Button
-        android:id="@+id/dimen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dimen" />
-
-    <Button
         android:id="@+id/media"
         android:text="Pick Media"
         android:layout_width="match_parent"

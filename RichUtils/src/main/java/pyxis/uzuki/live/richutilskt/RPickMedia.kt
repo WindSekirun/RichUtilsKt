@@ -84,7 +84,6 @@ class RPickMedia private constructor(private var context: Context) {
             return
         }
 
-
         val intent = Intent()
 
         when (pickType) {
@@ -221,5 +220,4 @@ class RPickMedia private constructor(private var context: Context) {
 
         fun failPermissionGranted()
     }
-
 }
