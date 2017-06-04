@@ -6,27 +6,53 @@
     android:orientation="vertical"
     tools:context="pyxis.uzuki.live.richutilssample.MainActivity">
 
-    <Button
-        android:id="@+id/alert"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ALERT" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <Button
-        android:id="@+id/bitmap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bitmap" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Date" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="#fff"
+                android:id="@+id/logo"
+                android:src="@drawable/richutils_logo"/>
 
-    <Button
-        android:id="@+id/media"
-        android:text="Pick Media"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/alert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ALERT" />
+
+            <Button
+                android:id="@+id/bitmap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bitmap" />
+
+            <Button
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date" />
+
+            <Button
+                android:id="@+id/media"
+                android:text="Pick Media"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="REBOOT"
+                android:id="@+id/btnReboot"/>
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

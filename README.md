@@ -5,25 +5,19 @@ Advancement Utils for Android Developer written by Kotlin
 
 ### List of Utils Classes (working)
 * [RAlert](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RAlert.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/AlertActivity.kt) 
-    - toast, alert, confirm, progress, selector
 * [RBitmap](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RBitmap.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) 
-    - cast to bitmap from drawable, save bitmap to file
 * [RClipboard](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RClipboard.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/DateActivity.kt) 
-    - copy text to clipboard, get text from clipboard
 * [RDate](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RDate.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/DateActivity.kt) 
-    - parse date
 * [RDimen](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RDimen.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt) 
-    - dip, sp, px2dip, px2sp, dimen
 * [RDownload](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RDownload.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
-    - Download file, bitmap from uri
 * [RDrawable](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RDrawable.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
-    - Bitmap to Drawable
 * [RPickMedia](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RPickMedia.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt)
-    - pick from gallery, camera (Photo, Video supported) with auto-granting permission
 * [RThread](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RThread.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
-    - run code in background / ui thread
+
+    
+#### It will available next Release
+* [RReboot](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RReboot.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt)
 * [RVersion](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RVersion.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
-    - get versionName, versionCode
     
 ### Usages
 
