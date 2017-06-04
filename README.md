@@ -19,6 +19,9 @@ Advancement Utils for Android Developer written by Kotlin
     - Download file, bitmap from uri
 * [RDrawable](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RDrawable.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
     - Bitmap to Drawable
+* [RPickMedia](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RPickMedia.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt)
+    - pick from gallery, camera (Photo, Video supported) with auto-granting permission
+    - since 1.0.1
 * [RThread](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RThread.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
     - run code in background / ui thread
     

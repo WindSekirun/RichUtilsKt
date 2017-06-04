@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         bitmap.setOnClickListener { startActivity<BitmapActivity>() }
         date.setOnClickListener { startActivity<DateActivity>() }
         dimen.setOnClickListener { startActivity<DimenActivity>() }
+        media.setOnClickListener { startActivity<PickMediaActivity>() }
     }
 }
 
