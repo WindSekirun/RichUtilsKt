@@ -7,11 +7,10 @@ import org.json.JSONObject
 /**
  * create JSONObject from String
  *
- * @param[token] String of JSON
  * @return JSONObject object
  */
-fun createJSONObject(token: String): JSONObject? = try {
-    JSONObject(token)
+fun String.createJSONObject(): JSONObject? = try {
+    JSONObject(this)
 } catch (e: JSONException) {
     null
 }
@@ -19,11 +18,10 @@ fun createJSONObject(token: String): JSONObject? = try {
 /**
  * create JSONObject from Map
  *
- * @param[map] map (key-value) to create
  * @return JSONObject object
  */
-fun createJSONObject(map: Map<*, *>): JSONObject? = try {
-    JSONObject(map)
+fun Map<*, *>.createJSONObject(): JSONObject? = try {
+    JSONObject(this)
 } catch (e: JSONException) {
     null
 }
@@ -31,11 +29,10 @@ fun createJSONObject(map: Map<*, *>): JSONObject? = try {
 /**
  * create JSONArray from String
  *
- * @param[token] String of JSON
  * @return JSONObject object
  */
-fun createJSONArray(token: String): JSONArray? = try {
-    JSONArray(token)
+fun String.createJSONArray(): JSONArray? = try {
+    JSONArray(this)
 } catch (e: JSONException) {
     null
 }
@@ -43,11 +40,10 @@ fun createJSONArray(token: String): JSONArray? = try {
 /**
  * create JSONArray from Map
  *
- * @param[list] list to create
  * @return JSONArray object
  */
-fun createJSONArray(list: List<*>): JSONArray? = try {
-    JSONArray(list)
+fun List<*>.createJSONArray(): JSONArray? = try {
+    JSONArray(this)
 } catch (e: JSONException) {
     null
 }
@@ -107,13 +103,12 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = try {
 /**
  * get String from JSONObject
  *
- * @param[jsonObject] target JSONObject
  * @param[name] name of key
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return String object
  */
-fun getJSONString(jsonObject: JSONObject?, name: String, def: String? = ""): String? = try {
-    jsonObject?.getString(name)
+fun JSONObject.getJSONString(name: String, def: String? = ""): String? = try {
+    this.getString(name)
 } catch (e: JSONException) {
     def
 }
@@ -121,13 +116,12 @@ fun getJSONString(jsonObject: JSONObject?, name: String, def: String? = ""): Str
 /**
  * get String from JSONArray
  *
- * @param[jsonArray] target JSONArray
  * @param[index] index of key
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return String object
  */
-fun getJSONString(jsonArray: JSONArray?, index: Int, def: String? = ""): String? = try {
-    jsonArray?.getString(index)
+fun JSONArray.getJSONString(index: Int, def: String? = ""): String? = try {
+    this.getString(index)
 } catch (e: JSONException) {
     def
 }
@@ -135,13 +129,12 @@ fun getJSONString(jsonArray: JSONArray?, index: Int, def: String? = ""): String?
 /**
  * get Int from JSONObject
  *
- * @param[jsonObject] target JSONObject
  * @param[name] name of key
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Int object
  */
-fun getJSONInt(jsonObject: JSONObject?, name: String, def: Int? = 0): Int? = try {
-    jsonObject?.getInt(name)
+fun JSONObject.getJSONInt(name: String, def: Int? = 0): Int? = try {
+    this.getInt(name)
 } catch (e: JSONException) {
     def
 }
@@ -149,13 +142,12 @@ fun getJSONInt(jsonObject: JSONObject?, name: String, def: Int? = 0): Int? = try
 /**
  * get Int from JSONArray
  *
- * @param[jsonArray] target JSONArray
  * @param[index] index of key
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Int object
  */
-fun getJSONInt(jsonArray: JSONArray?, index: Int, def: Int? = 0): Int? = try {
-    jsonArray?.getInt(index)
+fun JSONArray.getJSONInt(index: Int, def: Int? = 0): Int? = try {
+    this.getInt(index)
 } catch (e: JSONException) {
     def
 }
@@ -163,13 +155,12 @@ fun getJSONInt(jsonArray: JSONArray?, index: Int, def: Int? = 0): Int? = try {
 /**
  * get Boolean from JSONObject
  *
- * @param[jsonObject] target JSONObject
  * @param[name] name of key
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Boolean object
  */
-fun getJSONBoolean(jsonObject: JSONObject?, name: String, def: Boolean? = false): Boolean? = try {
-    jsonObject?.getBoolean(name)
+fun JSONObject.getJSONBoolean(name: String, def: Boolean? = false): Boolean? = try {
+    this.getBoolean(name)
 } catch (e: JSONException) {
     def
 }
@@ -177,13 +168,12 @@ fun getJSONBoolean(jsonObject: JSONObject?, name: String, def: Boolean? = false)
 /**
  * get Boolean from JSONArray
  *
- * @param[jsonArray] target JSONArray
  * @param[index] index of key
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Boolean object
  */
-fun getJSONBoolean(jsonArray: JSONArray?, index: Int, def: Boolean? = false): Boolean? = try {
-    jsonArray?.getBoolean(index)
+fun JSONArray.getJSONBoolean(index: Int, def: Boolean? = false): Boolean? = try {
+    this.getBoolean(index)
 } catch (e: JSONException) {
     def
 }
@@ -191,13 +181,12 @@ fun getJSONBoolean(jsonArray: JSONArray?, index: Int, def: Boolean? = false): Bo
 /**
  * get Double from JSONObject
  *
- * @param[jsonObject] target JSONObject
  * @param[name] name of key
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Double object
  */
-fun getJSONDouble(jsonObject: JSONObject?, name: String, def: Double? = 0.toDouble()): Double? = try {
-    jsonObject?.getDouble(name)
+fun JSONObject.getJSONDouble(name: String, def: Double? = 0.toDouble()): Double? = try {
+    this.getDouble(name)
 } catch (e: JSONException) {
     def
 }
@@ -205,13 +194,12 @@ fun getJSONDouble(jsonObject: JSONObject?, name: String, def: Double? = 0.toDoub
 /**
  * get Double from JSONArray
  *
- * @param[jsonArray] target JSONArray
  * @param[index] index of key
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Double object
  */
-fun getJSONDouble(jsonArray: JSONArray?, index: Int, def: Double? = 0.toDouble()): Double? = try {
-    jsonArray?.getDouble(index)
+fun JSONArray.getJSONDouble(index: Int, def: Double? = 0.toDouble()): Double? = try {
+    this.getDouble(index)
 } catch (e: JSONException) {
     def
 }
@@ -219,13 +207,12 @@ fun getJSONDouble(jsonArray: JSONArray?, index: Int, def: Double? = 0.toDouble()
 /**
  * get Long from JSONObject
  *
- * @param[jsonObject] target JSONObject
  * @param[name] name of key
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Long object
  */
-fun getJSONLong(jsonObject: JSONObject?, name: String, def: Long? = 0.toLong()): Long? = try {
-    jsonObject?.getLong(name)
+fun JSONObject.getJSONLong(name: String, def: Long? = 0.toLong()): Long? = try {
+    this.getLong(name)
 } catch (e: JSONException) {
     def
 }
@@ -233,13 +220,12 @@ fun getJSONLong(jsonObject: JSONObject?, name: String, def: Long? = 0.toLong()):
 /**
  * get Long from JSONArray
  *
- * @param[jsonArray] target JSONArray
  * @param[index] index of key
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Long object
  */
-fun getJSONLong(jsonArray: JSONArray?, index: Int, def: Long? = 0.toLong()): Long? = try {
-    jsonArray?.getLong(index)
+fun JSONArray.getJSONLong(index: Int, def: Long? = 0.toLong()): Long? = try {
+    this.getLong(index)
 } catch (e: JSONException) {
     def
 }
