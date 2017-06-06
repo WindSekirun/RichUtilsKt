@@ -220,4 +220,5 @@ class RPickMedia private constructor(private var context: Context) {
 
         fun failPermissionGranted()
     }
+
 }

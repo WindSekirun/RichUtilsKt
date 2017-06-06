@@ -25,7 +25,8 @@ Main goals of this library is **Reuse code to help developer can math the due da
 * [**RVersion**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RVersion.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 
 #### It will be available next Release
-Nothing here! more utils will be added.
+* [**RFilePath**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RFilePath.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt)
+
 
 ### Usages
 
