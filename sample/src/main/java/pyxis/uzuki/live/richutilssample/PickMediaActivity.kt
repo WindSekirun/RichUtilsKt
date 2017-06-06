@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_pick.*
 import pyxis.uzuki.live.richutilskt.RPickMedia
-import pyxis.uzuki.live.richutilskt.getRealPath
+import pyxis.uzuki.live.richutilskt.*
 
 class PickMediaActivity : AppCompatActivity() {
 
@@ -15,7 +15,7 @@ class PickMediaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pick)
 
         /*
-         * You don't have to care about permission, RPickMedia auto granting pick permission.
+         * You don't have to care about permission, RPickMedia will auto granting pick permission.
          */
         class MediaCallback : RPickMedia.PickMediaCallback {
             override fun failPermissionGranted() {
@@ -24,7 +24,12 @@ class PickMediaActivity : AppCompatActivity() {
 
             @SuppressLint("SetTextI18n")
             override fun pickMediaCallback(path: String?) {
-                txtUrl.text = "uri -> ${Uri.parse(path) getRealPath(this@PickMediaActivity)}"
+                val realPath = Uri.parse(path) getRealPath this@PickMediaActivity
+                val width = getPhotoWidth(realPath)
+                val height = getPhotoHeight(realPath)
+                val degree = getPhotoOrientationDegree(realPath)
+
+                txtUrl.text = "uri -> $realPath , width -> $width , height -> $height , degree -> $degree"
             }
         }
 
