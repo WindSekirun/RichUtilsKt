@@ -58,6 +58,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/json"
                 android:text="JSON"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/permission"
+                android:text="PERMISSION"/>
         </LinearLayout>
     </ScrollView>
 

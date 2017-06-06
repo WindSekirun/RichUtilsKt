@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         btnReboot.setOnClickListener { this.reboot() }
         logo.setOnClickListener { browse("https://github.com/WindSekirun/RichUtilsKt") }
         json.setOnClickListener { startActivity<JSONActivity>() }
+        permission.setOnClickListener { startActivity<PermissionActivity>() }
+
     }
 }
 
