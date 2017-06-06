@@ -18,15 +18,15 @@ Main goals of this library is **Reuse code to help developer can math the due da
 * [**RDimen**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RDimen.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt) 
 * [**RDownload**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RDownload.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
 * [**RDrawable**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RDrawable.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
+* [**RFilePath**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RFilePath.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt)
 * [**RJson**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RJson.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/JSONActivity.kt)
+* [**RPhoto**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RPhoto.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt)
 * [**RPickMedia**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RPickMedia.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt)
 * [**RReboot**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RReboot.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt)
 * [**RThread**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RThread.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
 * [**RVersion**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RVersion.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 
 #### It will be available next Release
-* [**RFilePath**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RFilePath.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt)
-* [**RPhoto**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RPhoto.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt)
 
 ### Usages
 
