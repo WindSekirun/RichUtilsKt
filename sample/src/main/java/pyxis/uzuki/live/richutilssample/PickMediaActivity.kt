@@ -32,8 +32,10 @@ class PickMediaActivity : AppCompatActivity() {
 
                 txtUrl.text = "uri -> $realPath , width -> $width , height -> $height , degree -> $degree"
 
-                var bitmap = BitmapFactory.decodeFile(realPath)
+                val bitmap = BitmapFactory.decodeFile(realPath)
                 imgView.setImageBitmap(bitmap)
+
+                requestMediaScanner(realPath)
             }
         }
 

@@ -1,7 +1,6 @@
 package pyxis.uzuki.live.richutilskt
 
 import android.content.Context
-import android.support.annotation.DimenRes
 
 /**
  * convert int to dip
@@ -64,4 +63,4 @@ fun Context.px2sp(px: Int): Float = px.toFloat() / resources.displayMetrics.scal
  * @return proper pixel size
  * @since 1.0.1
  */
-fun Context.dimen(@DimenRes resource: Int): Int = resources.getDimensionPixelSize(resource)
+fun Context.dimen(resource: Int): Int = resources.getDimensionPixelSize(resource)

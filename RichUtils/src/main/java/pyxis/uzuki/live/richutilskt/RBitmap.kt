@@ -1,10 +1,12 @@
 package pyxis.uzuki.live.richutilskt
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.util.Log
 import java.io.File
 import java.io.FileNotFoundException
@@ -78,4 +80,17 @@ fun drawableToBitmap(drawable: Drawable): Bitmap {
     drawable.draw(canvas)
 
     return bitmap
+}
+
+/**
+ * Request MediaScanning
+ *
+ * @param[url] to request
+ */
+fun Context.requestMediaScanner(url: String) {
+    val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+    val f = File(url)
+    val contentUri = Uri.fromFile(f)
+    mediaScanIntent.data = contentUri
+    this.sendBroadcast(mediaScanIntent)
 }

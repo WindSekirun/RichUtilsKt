@@ -42,18 +42,9 @@ class MainActivity : AppCompatActivity() {
         val resCode = conn.responseCode
         if (resCode == HttpURLConnection.HTTP_OK) {
             val inputStream = conn.inputStream
-            var response: String = ""
-            try {
-                inputStream.bufferedReader().use {
-                    response = it.readText()
-                }
-
-                runOnUiThread { parsingReleaseData(response) }
-
-            } finally {
-                inputStream.close()
-                conn.disconnect()
-            }
+            val response: String = inputStream.getString()
+            runOnUiThread { parsingReleaseData(response) }
+            conn.disconnect()
         }
     }
 

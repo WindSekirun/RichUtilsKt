@@ -26,4 +26,10 @@
         android:layout_height="wrap_content"
         android:text="LOCATION"
         android:id="@+id/btnLocation"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="READ_PHONE_STATE"
+        android:id="@+id/btnState"/>
 </LinearLayout>

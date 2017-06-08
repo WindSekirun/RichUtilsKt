@@ -19,5 +19,8 @@ class MiscActivity : AppCompatActivity() {
 
         var px2dip15 = px2dip(15)
         var px2sp12 = px2sp(12)
+
+        var networkState = checkNetwork()
+        var hash = getKeyHash()
     }
 }
