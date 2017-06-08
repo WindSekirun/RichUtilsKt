@@ -21,9 +21,10 @@ dependencies {
 
 dokka {
     moduleName = 'RichUtils'
-    outputFormat = 'javadoc'
+    outputFormat = 'html'
     outputDirectory = "$projectDir/docs"
     sourceDirs = files('src/main/java')
+    skipEmptyPackages = true
     linkMapping {
         dir = "src/main/java"
         url = "https://github.com/WindSekirun/RichUtilsKt/tree/master/RichUtils/src/main/java"
