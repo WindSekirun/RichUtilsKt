@@ -1,6 +1,7 @@
 package pyxis.uzuki.live.richutilssample
 
 import android.annotation.SuppressLint
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -30,6 +31,9 @@ class PickMediaActivity : AppCompatActivity() {
                 val degree = getPhotoOrientationDegree(realPath)
 
                 txtUrl.text = "uri -> $realPath , width -> $width , height -> $height , degree -> $degree"
+
+                var bitmap = BitmapFactory.decodeFile(realPath)
+                imgView.setImageBitmap(bitmap)
             }
         }
 
