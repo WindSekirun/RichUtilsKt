@@ -14,10 +14,7 @@ If you have any feature to make useful develop android application, Please leave
 ### List of Utils Classes
 [JavaDoc Link](https://windsekirun.github.io/RichUtilsKt/)
 
-Total: 22 Utils, List is [Here](https://github.com/WindSekirun/RichUtilsKt/blob/master/LIST_OF_UTILS.md)
-
-#### It will be available next Release
-
+Total: 22 Utils, List is [**Here**](https://github.com/WindSekirun/RichUtilsKt/blob/master/LIST_OF_UTILS.md)
 ### Usages
 
 **rootProject/build.gradle**
