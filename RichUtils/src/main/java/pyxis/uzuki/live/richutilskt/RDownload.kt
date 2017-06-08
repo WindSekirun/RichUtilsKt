@@ -65,20 +65,13 @@ fun Context.downloadFile(urlPath: String, name: String): Uri? {
             val inputStream = conn.inputStream
 
             try {
-
                 val path = this.getExternalFilesDir(null).absolutePath + "/" + name
-                val file = File(path)
+                var file = File(path)
                 file.createNewFile()
 
-                inputStream.use { input ->
-                    file.outputStream().use { fileOut ->
-                        input.copyTo(fileOut)
-                    }
-                }
-
+                file = inputStream.outAsFile(file)
                 uri = Uri.fromFile(file)
             } finally {
-                inputStream?.close()
                 conn.disconnect()
             }
         }
