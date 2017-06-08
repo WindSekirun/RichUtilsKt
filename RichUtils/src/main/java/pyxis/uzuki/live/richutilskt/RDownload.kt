@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import java.io.File
+import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -20,20 +21,18 @@ fun downloadBitmap(imageUrl: String): Bitmap? {
         val url = URL(imageUrl)
         val conn = url.openConnection() as HttpURLConnection
 
-        if (conn != null) {
-            conn.connectTimeout = 10000
-            conn.requestMethod = "GET"
+        conn.connectTimeout = 10000
+        conn.requestMethod = "GET"
 
-            val resCode = conn.responseCode
-            if (resCode == HttpURLConnection.HTTP_OK) {
-                val inputStream = conn.inputStream
-                try {
-                    val bitmap = BitmapFactory.decodeStream(inputStream)
-                    bmp = bitmap
-                } finally {
-                    inputStream?.close()
-                    conn.disconnect()
-                }
+        val resCode = conn.responseCode
+        if (resCode == HttpURLConnection.HTTP_OK) {
+            val inputStream = conn.inputStream
+            try {
+                val bitmap = BitmapFactory.decodeStream(inputStream)
+                bmp = bitmap
+            } finally {
+                inputStream?.close()
+                conn.disconnect()
             }
         }
     } catch (e: Exception) {
@@ -42,6 +41,7 @@ fun downloadBitmap(imageUrl: String): Bitmap? {
 
     return bmp
 }
+
 
 /**
  * Download file from uri
