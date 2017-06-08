@@ -26,6 +26,7 @@
         <activity android:name=".JSONActivity"/>
         <activity android:name=".PickMediaActivity"/>
         <activity android:name=".PermissionActivity"/>
+        <activity android:name=".PreferenceActivity"/>
     </application>
 
 </manifest>

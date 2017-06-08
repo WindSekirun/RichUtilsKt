@@ -48,7 +48,5 @@ class PickMediaActivity : AppCompatActivity() {
         videoc.setOnClickListener {
             RPickMedia.getInstance(this).pickFromVideoCamera(MediaCallback())
         }
-
-
     }
 }

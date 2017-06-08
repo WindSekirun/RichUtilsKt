@@ -20,6 +20,7 @@ Main goals of this library is **Reuse code to help developer can math the due da
 * [**RDrawable**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RDrawable.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt)
 * [**RFilePath**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RFilePath.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt)
 * [**RJson**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RJson.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/JSONActivity.kt)
+* [**RPreference**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RPreference.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PreferenceActivity.kt)
 * [**RPermission**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RPermission.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PermissionActivity.kt)
 * [**RPhoto**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RPhoto.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt)
 * [**RPickMedia**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RPickMedia.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt)
@@ -28,7 +29,7 @@ Main goals of this library is **Reuse code to help developer can math the due da
 * [**RVersion**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RVersion.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 
 #### It will be available next Release
-* [**RPreference**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RPreference.kt)
+
 
 ### Usages
 

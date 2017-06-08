@@ -18,7 +18,7 @@ fun Date.asString(format: String? = "yyyy-MM-dd HH:mm:ss"): String = SimpleDateF
  * @param[format] optional. default is yyyy-MM-dd HH:mm:ss (2017-06-02 19:20:00)
  * @return Formatted Date
  */
-fun Long.asDateString(format: String? = "yyyy-MM-dd HH:mm:ss"): String = Date(this).asString(format)
+fun Long.asDateString(format: String? = "yyyy-MM-dd HH:mm:ss", isMultiplyMS: Boolean = false): String = Date(if (isMultiplyMS) this * 1000 else this).asString(format)
 
 /**
  * parsing date from String

@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         logo.setOnClickListener { browse("https://github.com/WindSekirun/RichUtilsKt") }
         json.setOnClickListener { startActivity<JSONActivity>() }
         permission.setOnClickListener { startActivity<PermissionActivity>() }
+        preference.setOnClickListener { startActivity<PreferenceActivity>() }
 
     }
 }

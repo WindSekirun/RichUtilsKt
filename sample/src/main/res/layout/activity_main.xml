@@ -64,6 +64,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/permission"
                 android:text="PERMISSION"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/preference"
+                android:text="PREFERENCE"/>
         </LinearLayout>
     </ScrollView>
 
