@@ -12,6 +12,8 @@ Main goals of this library is **Reuse code to help developer can math the due da
 If you have any feature to make useful develop android application, Please leave any feature into issue tracker with **Suggestion** tag!
 
 ### List of Utils Classes
+[JavaDoc Link](https://windsekirun.github.io/RichUtilsKt/)
+
 * [**RAlert**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RAlert.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/AlertActivity.kt) 
 * [**RAssets**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RAssets.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/JSONActivity.kt)
 * [**RBitmap**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RBitmap.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) 
@@ -31,7 +33,7 @@ If you have any feature to make useful develop android application, Please leave
 * [**RVersion**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RVersion.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 
 #### It will be available next Release
-
+Nothing here for Now!
 
 ### Usages
 
