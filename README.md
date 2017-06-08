@@ -35,6 +35,7 @@ If you have any feature to make useful develop android application, Please leave
 * [**RStream**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RStream.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt)
 * [**RDeviceId**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RDeviceId.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PermissionActivity.kt)
 * [**RNetwork**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RNetwork.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
+* [**RKeyHash**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RKeyHash.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 
 ### Usages
 
