@@ -3,6 +3,11 @@ package pyxis.uzuki.live.richutilskt
 import java.io.File
 import java.io.InputStream
 
+/**
+ * get response string from InputStream
+ *
+ * @return response string
+ */
 fun InputStream.getString(): String {
     var response: String = ""
 
@@ -19,6 +24,12 @@ fun InputStream.getString(): String {
     return response
 }
 
+/**
+ * write file from InputStream
+ *
+ * @param[file] to write File object
+ * @return File object which gaven as parameter
+ */
 fun InputStream.outAsFile(file: File): File {
     try {
         use { input ->

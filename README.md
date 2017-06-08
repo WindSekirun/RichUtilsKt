@@ -33,7 +33,7 @@ If you have any feature to make useful develop android application, Please leave
 #### It will be available next Release
 * [**RKeyboard**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RKeyboard.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PreferenceActivity.kt)
 * [**RStream**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RStream.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt)
-
+* [**RDeviceId**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RDeviceId.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PermissionActivity.kt)
 
 ### Usages
 
