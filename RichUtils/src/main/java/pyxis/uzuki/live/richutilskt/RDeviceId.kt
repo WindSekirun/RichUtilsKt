@@ -1,5 +1,6 @@
 package pyxis.uzuki.live.richutilskt
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.Settings
@@ -23,17 +24,24 @@ fun Context.getAndroidId(): String {
 /**
  * get IMEI of device
  *
- * Notice! -> you have to grant READ_PHONE_STATE if your application target 23 or above (Runtime permission)
- * you can use RPermission to grant Runtime permission easily.
- *
+ * this methods will grant READ_PHONE_STATE automatically if your application target SDK 23 and above.
  * @return IMEI of device
  */
 @SuppressLint("HardwareIds")
 fun Context.getIMEI() : String {
-    val telephonyManager = this.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-    var imei = telephonyManager.deviceId
-    if (TextUtils.isEmpty(imei))
-        imei = ""
+    val telephonyManager = this@getIMEI.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+    var imei = ""
 
+    class Callback : RPermission.PermissionRequestCallback {
+        override fun onPermissionResult(resultCode: Int, list: ArrayList<String>) {
+            imei = if (TextUtils.isEmpty(telephonyManager.deviceId)) "" else telephonyManager.deviceId
+        }
+    }
+
+    val arrays : Array<String> = arrayOf(Manifest.permission.READ_PHONE_STATE)
+    val value = RPermission.getInstance(this).checkPermission(arrays, Callback())
+
+    if (value)
+        imei = if (TextUtils.isEmpty(telephonyManager.deviceId)) "" else telephonyManager.deviceId
     return imei
 }
