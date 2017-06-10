@@ -17,7 +17,23 @@ If you have any feature to make useful develop android application, Please leave
 Total: 22 Utils, List is [**Here**](https://github.com/WindSekirun/RichUtilsKt/blob/master/LIST_OF_UTILS.md)
 ### Usages
 
-**rootProject/build.gradle**
+#### New version of Gradle
+from *3.0.0-alpha3*, gradle syntax was changed. (as i know, not correctly)
+
+*app/build.gradle*
+```
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.WindSekirun:RichUtilsKt:${richutils_version}'
+}
+```
+
+#### Old version of Gradle
+
+*rootProject/build.gradle*
 ```	
 allprojects {
     repositories {
@@ -26,12 +42,13 @@ allprojects {
 }
 ```
 
-**app/build.gradle**
+*app/build.gradle*
 ```
 dependencies {
     compile 'com.github.WindSekirun:RichUtilsKt:${richutils_version}'
 }
 ```
+
 
 ### License 
 ```
