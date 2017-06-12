@@ -17,6 +17,8 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 import butterknife.BindView;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 import pyxis.uzuki.live.richutilskt.Utils;
 
 public class MainActivity extends BaseActivity {
@@ -37,16 +39,18 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new Thread(this::getLatestReleaseFromGitHub).start();
+        Utils.runAsync(() -> {
+            getLatestReleaseFromGitHub();
+            return Unit.INSTANCE;
+        });
 
         logo.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/WindSekirun/RichUtilsKt"));
             startActivity(intent);
         });
 
-        btnReboot.setOnClickListener(view -> {
-            Utils.reboot(this);
-        });
+        btnReboot.setOnClickListener(view -> Utils.reboot(this));
+        alert.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, AlertActivity.class)));
     }
 
     private void getLatestReleaseFromGitHub() {
