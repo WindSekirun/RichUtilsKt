@@ -7,20 +7,29 @@ Advancement Utils for Android Developer written by [Kotlin](https://kotlinlang.o
 
 Are you tired to write duplicate, dirty code to develop your android application? RichUtils provided fully Documented and high quality of many utils so more! With [Anko](https://github.com/Kotlin/anko) and [Kotlin android extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html), **Your developing time will be happier than before!**
 
-Main goals of this library is **Reuse code to help developer can math the due date of Project** (Because i'm agency android developer, time is top priority.)
+If you are not ready to accept new language, Kotlin? Don't worry, RichUtils has compatibility both language, Kotlin and **Java**!
+
+Main goals of this library is **Reuse code to help developer can math the due date of Project**
 
 If you have any feature to make useful develop android application, Please leave any feature into issue tracker with **Suggestion** tag!
 
-### List of Utils Classes
-[JavaDoc Link](https://windsekirun.github.io/RichUtilsKt/)
+### Main Feature of Library
+* Provide fully documented and High quality of many utils!
+    * [List of Utils](https://github.com/WindSekirun/RichUtilsKt/blob/master/LIST_OF_UTILS.md)
+    * Now RichUtils have **22 Utils**
+    * I accept any possible idea to useful utils!
+* Provide [Web Document](https://windsekirun.github.io/RichUtilsKt/)
+* Provide two sample application. one is [**Kotlin**](/sample), another is [**Java**](/samplejava)
+    * Notice, Sample application of Java is working now.
+* as Kotlin's main goal, RichUtils interoperable with **Java**
 
-Total: 22 Utils, List is [**Here**](https://github.com/WindSekirun/RichUtilsKt/blob/master/LIST_OF_UTILS.md)
 ### Usages
 
 #### New version of Gradle
 from *3.0.0-alpha3*, gradle syntax was changed. (as i know, not correctly)
 
 *app/build.gradle*
+
 ```
 repositories {
     maven { url 'https://jitpack.io' }

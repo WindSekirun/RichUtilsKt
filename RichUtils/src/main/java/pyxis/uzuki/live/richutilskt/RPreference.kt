@@ -1,10 +1,12 @@
+@file:JvmName("RPreference")
+
 package pyxis.uzuki.live.richutilskt
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 
-class RPerference private constructor(c: Context) {
+class RPreference private constructor(c: Context) {
     private val editor: SharedPreferences.Editor
     private val pref: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(c)
 
@@ -195,13 +197,13 @@ class RPerference private constructor(c: Context) {
 
     companion object {
 
-        private var instance: RPerference? = null
+        private var instance: RPreference? = null
 
-        fun getInstance(c: Context): RPerference {
+        fun getInstance(c: Context): RPreference {
             if (instance == null) {
-                instance = RPerference(c)
+                instance = RPreference(c)
             }
-            return instance as RPerference
+            return instance as RPreference
         }
     }
 }

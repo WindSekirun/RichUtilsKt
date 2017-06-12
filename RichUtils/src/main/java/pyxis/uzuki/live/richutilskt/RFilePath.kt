@@ -1,3 +1,6 @@
+@file:JvmName("Utils")
+@file:JvmMultifileClass
+
 /*
  * Copyright (C) 2007-2008 OpenIntents.org
  *

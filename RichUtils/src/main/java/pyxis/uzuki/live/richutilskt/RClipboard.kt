@@ -1,3 +1,6 @@
+@file:JvmName("Utils")
+@file:JvmMultifileClass
+
 package pyxis.uzuki.live.richutilskt
 
 import android.content.ClipData

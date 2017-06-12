@@ -1,3 +1,5 @@
+@file:JvmName("RPickMedia")
+
 package pyxis.uzuki.live.richutilskt
 
 

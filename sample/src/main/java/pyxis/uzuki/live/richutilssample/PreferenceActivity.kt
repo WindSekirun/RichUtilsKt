@@ -3,7 +3,7 @@ package pyxis.uzuki.live.richutilssample
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_preference.*
-import pyxis.uzuki.live.richutilskt.RPerference
+import pyxis.uzuki.live.richutilskt.RPreference
 import pyxis.uzuki.live.richutilskt.hideKeyboard
 
 class PreferenceActivity : AppCompatActivity() {
@@ -12,7 +12,7 @@ class PreferenceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preference)
 
-        var pref:RPerference = RPerference.getInstance(this)
+        var pref: RPreference = RPreference.getInstance(this)
         val key = "preferenceActivity"
         var value = pref.getValue(key = key, def = "")
 
