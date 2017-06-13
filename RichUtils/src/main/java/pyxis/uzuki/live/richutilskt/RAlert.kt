@@ -104,7 +104,7 @@ import android.widget.Toast
  * Display ProgressDialog
  *
  * @param[title] optional, title
- * @param[message] optional, message
+ * @param[message] message
  * @return DialogInterface
  */
 fun Context.progress(title: String? = null, message: String): DialogInterface {
@@ -112,6 +112,20 @@ fun Context.progress(title: String? = null, message: String): DialogInterface {
         setProgressStyle(ProgressDialog.STYLE_SPINNER)
         setMessage(message)
         if (title != null) setTitle(title)
+        show()
+    }
+}
+
+/**
+ * Display ProgressDialog
+ *
+ * @param[message] message
+ * @return DialogInterface
+ */
+fun Context.progress( message: String): DialogInterface {
+    return ProgressDialog(this).apply {
+        setProgressStyle(ProgressDialog.STYLE_SPINNER)
+        setMessage(message)
         show()
     }
 }
