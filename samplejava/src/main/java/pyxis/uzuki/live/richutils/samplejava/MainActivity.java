@@ -2,6 +2,7 @@ package pyxis.uzuki.live.richutils.samplejava;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -51,6 +52,12 @@ public class MainActivity extends BaseActivity {
 
         btnReboot.setOnClickListener(view -> Utils.reboot(this));
         alert.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, AlertActivity.class)));
+        bitmap.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, BitmapActivity.class)));
+        date.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, DateActivity.class)));
+        json.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, JSONActivity.class)));
+        permission.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PermissionActivity.class)));
+        preference.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PreferenceActivity.class)));
+        media.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PickMediaActivity.class)));
     }
 
     private void getLatestReleaseFromGitHub() {
