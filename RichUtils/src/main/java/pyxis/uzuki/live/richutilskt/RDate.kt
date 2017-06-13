@@ -29,7 +29,7 @@ fun Long.asDateString(format: String? = "yyyy-MM-dd HH:mm:ss", isMultiplyMS: Boo
  * @param[format] optional. default is yyyy-MM-dd HH:mm:ss (2017-06-02 19:20:00)
  * @return Date object, Nullable
  */
-fun String.parseDate(format: String? = "yyyy-MM-dd HH:mm:ss"): Date? = try {
+@JvmOverloads fun String.parseDate(format: String? = "yyyy-MM-dd HH:mm:ss"): Date? = try {
     SimpleDateFormat(format, Locale.getDefault()).parse(this)
 } catch (e: Exception) {
     null
