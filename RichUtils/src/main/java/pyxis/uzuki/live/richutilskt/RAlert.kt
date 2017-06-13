@@ -16,7 +16,7 @@ import android.widget.Toast
  * @param[message] to display
  * @param[length] Length of display time of Toast, Default is Toast.LENGTH_SHORT
  */
-fun Context.toast(message: String, length: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, message, length).show()
+@JvmOverloads fun Context.toast(message: String, length: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, message, length).show()
 
 /**
  * Display Toast Message
@@ -24,7 +24,7 @@ fun Context.toast(message: String, length: Int = Toast.LENGTH_SHORT) = Toast.mak
  * @param[message] to display
  * @param[length] Length of display time of Toast, Default is Toast.LENGTH_SHORT
  */
-fun Context.toast(message: Int, length: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, message, length).show()
+@JvmOverloads fun Context.toast(message: Int, length: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, message, length).show()
 
 /**
  * Display AlertDialog instantly
@@ -34,7 +34,7 @@ fun Context.toast(message: Int, length: Int = Toast.LENGTH_SHORT) = Toast.makeTe
  * @param[positiveButton] optional, button text
  * @param[callback] callback of click ok button
  */
-fun Context.alert(title: String? = "", message: String, positiveButton: String? = null, callback: DialogInterface.() -> Unit = {}) {
+@JvmOverloads fun Context.alert(title: String? = "", message: String, positiveButton: String? = null, callback: DialogInterface.() -> Unit = {}) {
     val builder = AlertDialog.Builder(this)
     if (!TextUtils.isEmpty(title))
         builder.setTitle(title)
@@ -51,7 +51,7 @@ fun Context.alert(title: String? = "", message: String, positiveButton: String? 
  * @param[items] list of display item
  * @param[callback] callback of click ok button
  */
-fun Context.selector(title: String? = "", items: List<CharSequence>, callback: (DialogInterface, Int) -> Unit) {
+@JvmOverloads fun Context.selector(title: String? = "", items: List<CharSequence>, callback: (DialogInterface, Int) -> Unit) {
     val builder = AlertDialog.Builder(this)
     if (!TextUtils.isEmpty(title))
         builder.setTitle(title)
@@ -69,7 +69,7 @@ fun Context.selector(title: String? = "", items: List<CharSequence>, callback: (
  * @param[items] list of display item, working with generic. it will display item.toString()
  * @param[callback] callback of click ok button
  */
-fun <T> Context.selector(title: String? = "", items: List<T>, callback: (DialogInterface, item: T, Int) -> Unit) {
+@JvmOverloads fun <T> Context.selector(title: String? = "", items: List<T>, callback: (DialogInterface, item: T, Int) -> Unit) {
     val builder = AlertDialog.Builder(this)
     if (!TextUtils.isEmpty(title))
         builder.setTitle(title)
@@ -89,7 +89,7 @@ fun <T> Context.selector(title: String? = "", items: List<T>, callback: (DialogI
  * @param[negativeButton] optional, button texxt
  * @param[callback] callback of click ok button
  */
-fun Context.confirm(title: String? = "", message: String, positiveButton: String? = null, negativeButton: String? = null, callback: DialogInterface.() -> Unit) {
+@JvmOverloads fun Context.confirm(title: String? = "", message: String, positiveButton: String? = null, negativeButton: String? = null, callback: DialogInterface.() -> Unit) {
     val builder = AlertDialog.Builder(this)
     if (!TextUtils.isEmpty(title))
         builder.setTitle(title)

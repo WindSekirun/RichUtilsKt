@@ -28,10 +28,7 @@ public class AlertActivity extends BaseActivity {
         setContentView(R.layout.activity_alert);
 
         alert.setOnClickListener(view -> {
-            Utils.alert(this, "", "Hello, World!", getString(android.R.string.ok), dialogInterface -> {
-                dialogInterface.dismiss();
-                return Unit.INSTANCE;
-            });
+            Utils.alert(this, "Hello, World!");
         });
 
         selector.setOnClickListener(view -> {
@@ -40,14 +37,14 @@ public class AlertActivity extends BaseActivity {
                 items.add(String.valueOf(i));
             }
 
-            Utils.selector(this, "", items, (dialogInterface, integer) -> {
+            Utils.selector(this, items, (dialogInterface, integer) -> {
                 Utils.toast(AlertActivity.this, "click item -> " + String.valueOf(integer), Toast.LENGTH_SHORT);
                 return Unit.INSTANCE;
             });
         });
 
         confirm.setOnClickListener(view -> {
-            Utils.confirm(this, "", "Hello, world!", getString(android.R.string.ok), getString(android.R.string.no), dialogInterface -> {
+            Utils.confirm(this,  "Hello, world!", dialogInterface -> {
                 Utils.toast(AlertActivity.this, "click confirm button", Toast.LENGTH_SHORT);
                 return Unit.INSTANCE;
             });
