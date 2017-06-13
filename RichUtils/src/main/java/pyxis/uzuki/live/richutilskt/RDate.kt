@@ -13,12 +13,13 @@ import java.util.*
  * @param[format] optional. default is yyyy-MM-dd HH:mm:ss (2017-06-02 19:20:00)
  * @return Formatted Date
  */
-fun Date.asString(format: String? = "yyyy-MM-dd HH:mm:ss"): String = SimpleDateFormat(format, Locale.getDefault()).format(this)
+@JvmOverloads fun Date.asString(format: String? = "yyyy-MM-dd HH:mm:ss"): String = SimpleDateFormat(format, Locale.getDefault()).format(this)
 
 /**
  * get readable string of given timestamp.
  *
  * @param[format] optional. default is yyyy-MM-dd HH:mm:ss (2017-06-02 19:20:00)
+ * @param[isMultiplyMS] optional, automatically multiply by ms
  * @return Formatted Date
  */
 fun Long.asDateString(format: String? = "yyyy-MM-dd HH:mm:ss", isMultiplyMS: Boolean = false): String = Date(if (isMultiplyMS) this * 1000 else this).asString(format)

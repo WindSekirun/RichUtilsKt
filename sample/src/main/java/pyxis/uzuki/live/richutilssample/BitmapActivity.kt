@@ -13,7 +13,7 @@ class BitmapActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bitmap)
 
-        var bitmap:Bitmap? = null
+        var bitmap:Bitmap?
         runAsync {
             bitmap = downloadBitmap("http://images.goodsmile.info/cgm/images/product/20160606/5715/39417/large/f75b5722baec63a2922a81c3c3ca8743.jpg")
             runOnUiThread { init(bitmap) }
