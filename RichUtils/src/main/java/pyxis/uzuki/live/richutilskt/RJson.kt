@@ -110,7 +110,7 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = try {
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return String object
  */
-fun JSONObject.getJSONString(name: String, def: String? = ""): String? = try {
+@JvmOverloads fun JSONObject.getJSONString(name: String, def: String? = ""): String? = try {
     this.getString(name)
 } catch (e: JSONException) {
     def
