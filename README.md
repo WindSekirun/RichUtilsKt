@@ -22,6 +22,8 @@ If you have any feature to make useful develop android application, Please leave
 * Provide two sample application. one is [**Kotlin**](/sample), another is [**Java**](/samplejava)
     * Notice, Sample application of Java is working now.
 * as Kotlin's main goal, RichUtils interoperable with **Java**
+* Lightweight! 
+	* <a href="http://www.methodscount.com/?lib=com.github.WindSekirun%3ARichUtilsKt%3A%2B"><img src="https://img.shields.io/badge/Methods and size-core: 554 | deps: 13859 | 67 KB-e91e63.svg"/></a>
 
 ### Usages
 
