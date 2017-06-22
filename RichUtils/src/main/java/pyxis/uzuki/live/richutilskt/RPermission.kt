@@ -28,7 +28,7 @@ class RPermission private constructor(private var context: Context) {
     }
 
     /**
-     * check and request Permissiom which given.
+     * check and request Permission which given.
      *
      * @param[array] array of Permission to check
      * @param[callback] callback object
