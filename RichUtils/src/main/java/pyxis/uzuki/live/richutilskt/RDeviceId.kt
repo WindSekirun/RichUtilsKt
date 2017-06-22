@@ -35,14 +35,10 @@ fun Context.getIMEI() : String {
     val telephonyManager = this@getIMEI.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
     var imei = ""
 
-    class Callback : RPermission.PermissionRequestCallback {
-        override fun onPermissionResult(resultCode: Int, list: ArrayList<String>) {
-            imei = if (TextUtils.isEmpty(telephonyManager.deviceId)) "" else telephonyManager.deviceId
-        }
-    }
-
     val arrays : Array<String> = arrayOf(Manifest.permission.READ_PHONE_STATE)
-    val value = RPermission.getInstance(this).checkPermission(arrays, Callback())
+    val value = RPermission.getInstance(this).checkPermission(array = arrays, callback = { _: Int, _: ArrayList<String> ->
+        imei = if (TextUtils.isEmpty(telephonyManager.deviceId)) "" else telephonyManager.deviceId
+    })
 
     if (value)
         imei = if (TextUtils.isEmpty(telephonyManager.deviceId)) "" else telephonyManager.deviceId

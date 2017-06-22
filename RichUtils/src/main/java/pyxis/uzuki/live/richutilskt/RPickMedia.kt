@@ -40,7 +40,7 @@ class RPickMedia private constructor(private var context: Context) {
      * @param[callback] callback, should make class PickMediaCallback : PickMediaCallback
      * @since 1.0.1
      */
-    fun pickFromCamera(callback: PickMediaCallback) = requestPhotoPick(context, PICK_FROM_CAMERA, callback)
+    fun pickFromCamera(callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_CAMERA, callback)
 
     /**
      * pick image from Gallery
@@ -48,7 +48,7 @@ class RPickMedia private constructor(private var context: Context) {
      * @param[callback] callback, should make class PickMediaCallback : PickMediaCallback
      * @since 1.0.1
      */
-    fun pickFromGallery(callback: PickMediaCallback) = requestPhotoPick(context, PICK_FROM_GALLERY, callback)
+    fun pickFromGallery(callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_GALLERY, callback)
 
     /**
      * pick image from Video
@@ -56,7 +56,7 @@ class RPickMedia private constructor(private var context: Context) {
      * @param[callback] callback, should make class PickMediaCallback : PickMediaCallback
      * @since 1.0.1
      */
-    fun pickFromVideo(callback: PickMediaCallback) = requestPhotoPick(context, PICK_FROM_VIDEO, callback)
+    fun pickFromVideo(callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_VIDEO, callback)
 
     /**
      * pick image from Camera (Video Mode)
@@ -64,13 +64,13 @@ class RPickMedia private constructor(private var context: Context) {
      * @param[callback] callback, should make class PickMediaCallback : PickMediaCallback
      * @since 1.0.1
      */
-    fun pickFromVideoCamera(callback: PickMediaCallback) = requestPhotoPick(context, PICK_FROM_CAMERA_VIDEO, callback)
+    fun pickFromVideoCamera(callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_CAMERA_VIDEO, callback)
 
     private var currentPhotoPath: String? = null
     private var currentVideoPath: String? = null
 
     @SuppressLint("ValidFragment")
-    private fun requestPhotoPick(context: Context, pickType: Int, callback: PickMediaCallback) {
+    private fun requestPhotoPick(context: Context, pickType: Int, callback: (Int, String) -> Unit) {
 
         val fm = getActivity(context)!!.fragmentManager
         val f = ResultFragment(fm, callback)
@@ -134,7 +134,7 @@ class RPickMedia private constructor(private var context: Context) {
     }
 
     @SuppressLint("ValidFragment")
-    private inner class ResultFragment(private val fm: FragmentManager, private val callback: PickMediaCallback) : Fragment() {
+    private inner class ResultFragment(private val fm: FragmentManager, private val callback: (Int, String) -> Unit) : Fragment() {
 
         override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -142,7 +142,7 @@ class RPickMedia private constructor(private var context: Context) {
             if (grantResults.size == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 requestPhotoPick(activity, requestCode, callback)
             } else {
-                callback.failPermissionGranted()
+                callback(PICK_FAILED, "")
             }
 
             fm.beginTransaction().remove(this).commit()
@@ -155,7 +155,7 @@ class RPickMedia private constructor(private var context: Context) {
                 PICK_FROM_CAMERA ->
 
                     if (resultCode == Activity.RESULT_OK) {
-                        callback.pickMediaCallback(currentPhotoPath)
+                        currentPhotoPath?.let { callback(PICK_SUCCESS, it) }
                     }
 
                 PICK_FROM_GALLERY ->
@@ -167,7 +167,7 @@ class RPickMedia private constructor(private var context: Context) {
                             val path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA))
                             cursor.close()
 
-                            callback.pickMediaCallback(path)
+                            callback(PICK_SUCCESS, path)
                         }
 
                     }
@@ -181,13 +181,13 @@ class RPickMedia private constructor(private var context: Context) {
                             val path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA))
                             cursor.close()
 
-                            callback.pickMediaCallback(path)
+                            callback(PICK_SUCCESS, path)
                         }
 
                     }
 
                 PICK_FROM_CAMERA_VIDEO -> if (resultCode == Activity.RESULT_OK) {
-                    callback.pickMediaCallback(currentVideoPath)
+                    currentVideoPath?.let { callback(PICK_SUCCESS, it) }
                 }
             }
 
@@ -215,12 +215,9 @@ class RPickMedia private constructor(private var context: Context) {
         val PICK_FROM_GALLERY = 1
         val PICK_FROM_VIDEO = 2
         val PICK_FROM_CAMERA_VIDEO = 3
-    }
 
-    interface PickMediaCallback {
-        fun pickMediaCallback(path: String?)
-
-        fun failPermissionGranted()
+        val PICK_SUCCESS = 1
+        val PICK_FAILED = 0
     }
 
 }

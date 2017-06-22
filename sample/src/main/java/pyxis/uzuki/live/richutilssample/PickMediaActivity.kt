@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_pick.*
-import pyxis.uzuki.live.richutilskt.RPickMedia
 import pyxis.uzuki.live.richutilskt.*
 
 class PickMediaActivity : AppCompatActivity() {
@@ -14,45 +13,47 @@ class PickMediaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pick)
-
-        /*
-         * You don't have to care about permission, RPickMedia will auto granting pick permission.
-         */
-        class MediaCallback : RPickMedia.PickMediaCallback {
-            override fun failPermissionGranted() {
-                TODO("not implemented")
-            }
-
-            @SuppressLint("SetTextI18n")
-            override fun pickMediaCallback(path: String?) {
-                val realPath = Uri.parse(path) getRealPath this@PickMediaActivity
-                val width = getPhotoWidth(realPath)
-                val height = getPhotoHeight(realPath)
-                val degree = getPhotoOrientationDegree(realPath)
-
-                txtUrl.text = "uri -> $realPath , width -> $width , height -> $height , degree -> $degree"
-
-                val bitmap = BitmapFactory.decodeFile(realPath)
-                imgView.setImageBitmap(bitmap)
-
-                requestMediaScanner(realPath)
-            }
-        }
-
+        
         gallery.setOnClickListener {
-            RPickMedia.getInstance(this).pickFromGallery(MediaCallback())
+            RPickMedia.getInstance(this).pickFromGallery({ resultCode: Int, path: String ->
+                resultMesage(resultCode, path)
+            })
         }
 
         camera.setOnClickListener {
-            RPickMedia.getInstance(this).pickFromCamera(MediaCallback())
+            RPickMedia.getInstance(this).pickFromCamera({ resultCode: Int, path: String ->
+                resultMesage(resultCode, path)
+            })
         }
 
         video.setOnClickListener {
-            RPickMedia.getInstance(this).pickFromVideo(MediaCallback())
+            RPickMedia.getInstance(this).pickFromVideo({ resultCode: Int, path: String ->
+                resultMesage(resultCode, path)
+            })
         }
 
         videoc.setOnClickListener {
-            RPickMedia.getInstance(this).pickFromVideoCamera(MediaCallback())
+            RPickMedia.getInstance(this).pickFromVideoCamera({ resultCode: Int, path: String ->
+                resultMesage(resultCode, path)
+            })
         }
+    }
+
+    private fun resultMesage(resultCode: Int, path: String) {
+        if (resultCode == RPickMedia.PICK_FAILED) {
+            throw SecurityException("not granted permission to pick media files")
+        }
+
+        val realPath = Uri.parse(path) getRealPath this@PickMediaActivity
+        val width = getPhotoWidth(realPath)
+        val height = getPhotoHeight(realPath)
+        val degree = getPhotoOrientationDegree(realPath)
+
+        txtUrl.text = "uri -> $realPath , width -> $width , height -> $height , degree -> $degree"
+
+        val bitmap = BitmapFactory.decodeFile(realPath)
+        imgView.setImageBitmap(bitmap)
+
+        requestMediaScanner(realPath)
     }
 }
