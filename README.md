@@ -1,4 +1,4 @@
-## RichUtils
+# RichUtils
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-RichUtils-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5854) [![](https://jitpack.io/v/WindSekirun/RichUtilsKt.svg)](https://jitpack.io/#WindSekirun/RichUtilsKt)	[![Kotlin](https://img.shields.io/badge/kotlin-1.1.2-blue.svg)](http://kotlinlang.org)	[![CircleCI](https://circleci.com/gh/WindSekirun/RichUtilsKt.svg?style=svg)](https://circleci.com/gh/WindSekirun/RichUtilsKt) [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
 
 <img src="richutils-logo.png" alt="RichUtils logo" height="101" width="220" />
@@ -22,6 +22,8 @@ If you have any feature to make useful develop android application, Please leave
 * Provide two sample application. one is [**Kotlin**](/sample), another is [**Java**](/samplejava)
     * Notice, Sample application of Java is working now.
 * as Kotlin's main goal, RichUtils interoperable with **Java**
+* Lightweight! 
+	* <a href="http://www.methodscount.com/?lib=com.github.WindSekirun%3ARichUtilsKt%3A%2B"><img src="https://img.shields.io/badge/Methods and size-core: 554 | deps: 13859 | 67 KB-e91e63.svg"/></a>
 
 ### Usages
 
