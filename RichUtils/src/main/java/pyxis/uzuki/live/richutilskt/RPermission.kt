@@ -13,7 +13,6 @@ import android.os.Build
 import android.support.annotation.RequiresApi
 import android.support.v4.content.ContextCompat
 
-
 class RPermission private constructor(private var context: Context) {
 
     private fun getActivity(context: Context): Activity? {
@@ -35,13 +34,12 @@ class RPermission private constructor(private var context: Context) {
      * @param[callback] callback object
      * @return check result
      */
-    fun checkPermission(array: Array<String>, callback: PermissionRequestCallback? = null): Boolean {
+    fun checkPermission(array: Array<String>, callback: (Int, ArrayList<String>) -> Unit): Boolean {
         val permissionList: ArrayList<String> = ArrayList()
         array.forEach { permissionList.add(it) }
 
         return checkPermission(permissionList, callback)
     }
-
 
     /**
      * check and request Permission which given.
@@ -50,10 +48,9 @@ class RPermission private constructor(private var context: Context) {
      * @param[callback] callback object
      * @return check result
      */
-
-    fun checkPermission(list: ArrayList<String>, callback: PermissionRequestCallback? = null): Boolean {
+    fun checkPermission(list: ArrayList<String>, callback: (Int, ArrayList<String>) -> Unit): Boolean {
         if (Build.VERSION.SDK_INT < 23) {
-            callback?.onPermissionResult(PERMISSION_ALREADY, list)
+            callback(PERMISSION_ALREADY, list)
             return true
         }
 
@@ -67,12 +64,13 @@ class RPermission private constructor(private var context: Context) {
         if (notGranted.isNotEmpty())
             requestPermission(notGranted, callback)
         else
-            callback?.onPermissionResult(PERMISSION_ALREADY, list)
+            callback(PERMISSION_ALREADY, list)
 
         return notGranted.isEmpty()
     }
 
-    private fun requestPermission(list: ArrayList<String>, callback: PermissionRequestCallback?) {
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun requestPermission(list: ArrayList<String>, callback: (Int, ArrayList<String>) -> Unit) {
         val fm = getActivity(context)!!.fragmentManager
         val f = RequestFragment(fm, callback)
 
@@ -83,7 +81,7 @@ class RPermission private constructor(private var context: Context) {
     }
 
     @SuppressLint("ValidFragment")
-    private inner class RequestFragment(private val fm: FragmentManager, private val callback: PermissionRequestCallback?) : Fragment() {
+    private inner class RequestFragment(private val fm: FragmentManager, private val callback: (Int, ArrayList<String>) -> Unit) : Fragment() {
 
         override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -91,7 +89,8 @@ class RPermission private constructor(private var context: Context) {
             val permissionList: ArrayList<String> = ArrayList()
             permissions.forEach { permissionList.add(it) }
 
-            callback?.onPermissionResult(if (verifyPermissions(grantResults)) PERMISSION_GRANTED else PERMISSION_FAILED, permissionList)
+            val returnCode = if (verifyPermissions(grantResults)) PERMISSION_GRANTED else PERMISSION_FAILED
+            callback(returnCode, permissionList)
             fm.beginTransaction().remove(this).commit()
         }
 
@@ -120,9 +119,5 @@ class RPermission private constructor(private var context: Context) {
         val PERMISSION_GRANTED = 1
         val PERMISSION_FAILED = 2
         val PERMISSION_ALREADY = 3
-    }
-
-    interface PermissionRequestCallback {
-        fun onPermissionResult(resultCode: Int, list: ArrayList<String>)
     }
 }

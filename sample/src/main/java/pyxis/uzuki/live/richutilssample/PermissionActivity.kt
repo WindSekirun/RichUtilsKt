@@ -15,39 +15,47 @@ class PermissionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_permission)
 
-        class Callback : RPermission.PermissionRequestCallback {
-            override fun onPermissionResult(resultCode: Int, list: ArrayList<String>) {
-                alert(message = "Permission result -> $resultCode / Requested Permission: ${TextUtils.join(",", list)}")
-
-                if (list.contains(Manifest.permission.READ_PHONE_STATE)) {
-                    alert(message = "Your device IMEI -> ${getIMEI()}")
-                }
-            }
-        }
-
         btnCall.setOnClickListener {
-            val arrays : Array<String> = arrayOf(Manifest.permission.CALL_PHONE)
-            RPermission.getInstance(this).checkPermission(arrays, Callback())
+            val arrays: Array<String> = arrayOf(Manifest.permission.CALL_PHONE)
+            RPermission.getInstance(this).checkPermission(array = arrays, callback = { resultCode: Int, list: ArrayList<String> ->
+               resultDisplay(resultCode, list)
+            })
         }
 
         btnSMS.setOnClickListener {
-            val arrays : Array<String> = arrayOf(Manifest.permission.SEND_SMS)
-            RPermission.getInstance(this).checkPermission(arrays, Callback())
+            val arrays: Array<String> = arrayOf(Manifest.permission.SEND_SMS)
+            RPermission.getInstance(this).checkPermission(array = arrays, callback = { resultCode: Int, list: ArrayList<String> ->
+                resultDisplay(resultCode, list)
+            })
         }
 
         btnStorage.setOnClickListener {
-            val arrays : Array<String> = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            RPermission.getInstance(this).checkPermission(arrays, Callback())
+            val arrays: Array<String> = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            RPermission.getInstance(this).checkPermission(array = arrays, callback = { resultCode: Int, list: ArrayList<String> ->
+                resultDisplay(resultCode, list)
+            })
         }
 
         btnLocation.setOnClickListener {
-            val arrays : Array<String> = arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
-            RPermission.getInstance(this).checkPermission(arrays, Callback())
+            val arrays: Array<String> = arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
+            RPermission.getInstance(this).checkPermission(array = arrays, callback = { resultCode: Int, list: ArrayList<String> ->
+                resultDisplay(resultCode, list)
+            })
         }
 
         btnState.setOnClickListener {
-            val arrays : Array<String> = arrayOf(Manifest.permission.READ_PHONE_STATE)
-            RPermission.getInstance(this).checkPermission(arrays, Callback())
+            val arrays: Array<String> = arrayOf(Manifest.permission.READ_PHONE_STATE)
+            RPermission.getInstance(this).checkPermission(array = arrays, callback = { resultCode: Int, list: ArrayList<String> ->
+                resultDisplay(resultCode, list)
+            })
+        }
+    }
+
+    fun resultDisplay(resultCode: Int, list: ArrayList<String>) {
+        alert(message = "Permission result -> $resultCode / Requested Permission: ${TextUtils.join(",", list)}")
+
+        if (list.contains(Manifest.permission.READ_PHONE_STATE)) {
+            alert(message = "Your device IMEI -> ${getIMEI()}")
         }
     }
 }
