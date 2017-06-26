@@ -46,6 +46,12 @@
                 android:text="Bitmap" />
 
             <Button
+                android:id="@+id/contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact" />
+
+            <Button
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

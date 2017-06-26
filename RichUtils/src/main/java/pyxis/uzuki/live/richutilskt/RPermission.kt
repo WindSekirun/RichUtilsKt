@@ -61,12 +61,13 @@ class RPermission private constructor(private var context: Context) {
                 notGranted.add(it)
         })
 
-        if (notGranted.isNotEmpty())
+        if (notGranted.isNotEmpty()) {
             requestPermission(notGranted, callback)
-        else
+            return false
+        } else {
             callback(PERMISSION_ALREADY, list)
-
-        return notGranted.isEmpty()
+            return true
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.M)

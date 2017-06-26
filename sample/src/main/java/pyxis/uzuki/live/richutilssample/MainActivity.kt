@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         json.setOnClickListener { startActivity<JSONActivity>() }
         permission.setOnClickListener { startActivity<PermissionActivity>() }
         preference.setOnClickListener { startActivity<PreferenceActivity>() }
+        contact.setOnClickListener { startActivity<ContactActivity>() }
     }
 
     private fun getLatestReleaseFromGitHub() {
