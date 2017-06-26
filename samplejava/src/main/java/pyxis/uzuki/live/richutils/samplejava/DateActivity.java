@@ -27,5 +27,39 @@ public class DateActivity extends BaseActivity {
         setContentView(R.layout.activity_date);
 
         Date date = Utils.parseDate("2016-11-23 11:11:11");
+        String asString = "";
+        if (date != null) {
+            asString = Utils.asString(date);
+        }
+
+        String formatted = Utils.toDateString("2016-11-23 11:11:11", "yyyy-Mm-dd HH:mm:ss", "yyyy.MM.dd");
+        long timestamp = 149648887L;
+        String tsStr = Utils.asDateString(timestamp, true);
+
+        btnCopy.setOnClickListener(view -> Utils.copyText(this, editCopy.getText().toString()));
+
+        btnLoad.setOnClickListener(view -> {
+            String value = (String) Utils.getTextFromClipboard(this);
+            editCopy.setText(value);
+            editCopy.setSelection(editCopy.length());
+        });
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("parseDate ->")
+                .append(date)
+                .append("\n")
+                .append("asString ->")
+                .append(asString)
+                .append("\n")
+                .append("toDateString ->")
+                .append(formatted)
+                .append("\n")
+                .append("timestamp ->")
+                .append(timestamp)
+                .append("\n")
+                .append("asDateString ->")
+                .append(tsStr);
+
+        txtResult.setText(builder.toString());
     }
 }

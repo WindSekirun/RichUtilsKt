@@ -22,7 +22,7 @@ import java.util.*
  * @param[isMultiplyMS] optional, automatically multiply by ms
  * @return Formatted Date
  */
-fun Long.asDateString(format: String? = "yyyy-MM-dd HH:mm:ss", isMultiplyMS: Boolean = false): String = Date(if (isMultiplyMS) this * 1000 else this).asString(format)
+@JvmOverloads fun Long.asDateString(isMultiplyMS: Boolean = false, format: String? = "yyyy-MM-dd HH:mm:ss"): String = Date(if (isMultiplyMS) this * 1000 else this).asString(format)
 
 /**
  * parsing date from String
