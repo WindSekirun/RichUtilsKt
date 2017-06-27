@@ -16,6 +16,12 @@ data class ContactItem(var name: String, var phoneNumber: String) {
     }
 }
 
+/**
+ * load contact data from device
+ *
+ * it will check permission is granted automatically
+ * @return arrayList of ContactItem
+ */
 fun Context.getContactsList() : ArrayList<ContactItem> {
     val isGranted = RPermission.getInstance(this).checkPermission(arrayOf(Manifest.permission.READ_CONTACTS),
             callback = { resultCode: Int, _: ArrayList<String> ->

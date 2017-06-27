@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         permission.setOnClickListener { startActivity<PermissionActivity>() }
         preference.setOnClickListener { startActivity<PreferenceActivity>() }
         contact.setOnClickListener { startActivity<ContactActivity>() }
+        btnRecycler.setOnClickListener { startActivity<RefreshRecyclerActivity>() }
     }
 
     private fun getLatestReleaseFromGitHub() {
