@@ -28,4 +28,4 @@ Update: 2017.06.27
 
 ## List of Widgets
 
-* [**RefreshRecyclerView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/RefreshRecyclerView.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/RefreshRecyclerActivity.kt)
+* [**RefreshRecyclerView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/RefreshRecyclerView.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/RefreshRecyclerActivity.kt)

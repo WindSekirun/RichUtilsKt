@@ -26,8 +26,6 @@ If you have any feature to make useful develop android application, Please leave
 	* <a href="http://www.methodscount.com/?lib=com.github.WindSekirun%3ARichUtilsKt%3A%2B"><img src="https://img.shields.io/badge/Methods and size-core: 554 | deps: 13859 | 67 KB-e91e63.svg"/></a>
 
 ### Usages
-**2017.06.27 [Due to bug in jitpack](https://jitpack.io/com/github/WindSekirun/RichUtilsKt/1.1.5/build.log), please using 1.1.1. (1.1.5 is not working now)**
-
 
 #### New version of Gradle
 from *3.0.0-alpha3*, gradle syntax was changed. (as i know, not correctly)
