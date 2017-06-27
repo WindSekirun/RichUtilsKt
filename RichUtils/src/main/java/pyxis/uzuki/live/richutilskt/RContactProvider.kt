@@ -1,14 +1,11 @@
+@file:JvmName("Utils")
+@file:JvmMultifileClass
+
 package pyxis.uzuki.live.richutilskt
 
 import android.Manifest
 import android.content.Context
 import android.provider.ContactsContract
-
-
-
-/**
- * Created by winds on 2017-06-26.
- */
 
 data class ContactItem(var name: String, var phoneNumber: String) {
     override fun toString(): String {
