@@ -18,7 +18,7 @@ class PermissionActivity : AppCompatActivity() {
         btnCall.setOnClickListener {
             val arrays: Array<String> = arrayOf(Manifest.permission.CALL_PHONE)
             RPermission.getInstance(this).checkPermission(array = arrays, callback = { resultCode: Int, list: ArrayList<String> ->
-               resultDisplay(resultCode, list)
+                resultDisplay(resultCode, list)
             })
         }
 

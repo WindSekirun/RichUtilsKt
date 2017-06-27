@@ -5,7 +5,10 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_bitmap.*
-import pyxis.uzuki.live.richutilskt.*
+import pyxis.uzuki.live.richutilskt.bitmapToDrawable
+import pyxis.uzuki.live.richutilskt.downloadBitmap
+import pyxis.uzuki.live.richutilskt.runAsync
+import pyxis.uzuki.live.richutilskt.saveBitmapToFile
 
 class BitmapActivity : AppCompatActivity() {
 
@@ -13,14 +16,14 @@ class BitmapActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bitmap)
 
-        var bitmap:Bitmap?
+        var bitmap: Bitmap?
         runAsync {
             bitmap = downloadBitmap("http://images.goodsmile.info/cgm/images/product/20160606/5715/39417/large/f75b5722baec63a2922a81c3c3ca8743.jpg")
             runOnUiThread { init(bitmap) }
         }
     }
 
-    private fun init(bitmap:Bitmap?) {
+    private fun init(bitmap: Bitmap?) {
         if (bitmap == null)
             return
 

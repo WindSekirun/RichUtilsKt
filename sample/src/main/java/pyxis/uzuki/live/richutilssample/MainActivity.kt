@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         if (TextUtils.isEmpty(response))
             return
 
-        val jsonObject:JSONObject? = response.createJSONObject()
+        val jsonObject: JSONObject? = response.createJSONObject()
         val version = jsonObject?.getJSONString(name = "tag_name")
 
         txtVersion.text = "Latest version -> $version"

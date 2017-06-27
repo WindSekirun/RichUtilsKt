@@ -12,10 +12,10 @@ class AlertActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alert)
 
-        alert.setOnClickListener({alert(message = "Hello, world!")})
+        alert.setOnClickListener({ alert(message = "Hello, world!") })
 
         selector.setOnClickListener({
-            val items:ArrayList<String> = ArrayList()
+            val items: ArrayList<String> = ArrayList()
             (1..5).mapTo(items) { it.toString() }
 
             selector(items = items, callback = { _: DialogInterface, i: Int ->
