@@ -1,14 +1,13 @@
 @file:JvmName("Utils")
 @file:JvmMultifileClass
 
-package pyxis.uzuki.live.richutilskt
+package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import java.io.File
-import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
 

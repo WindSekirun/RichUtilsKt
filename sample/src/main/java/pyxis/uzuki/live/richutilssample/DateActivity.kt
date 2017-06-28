@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_date.*
-import pyxis.uzuki.live.richutilskt.*
+import pyxis.uzuki.live.richutilskt.utils.*
 import java.util.*
 
 class DateActivity : AppCompatActivity() {

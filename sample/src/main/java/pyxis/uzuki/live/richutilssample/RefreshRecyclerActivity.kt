@@ -9,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_refresh_recycler.*
 import kotlinx.android.synthetic.main.activity_refresh_recycler_item.view.*
-import pyxis.uzuki.live.richutilskt.inflate
-import pyxis.uzuki.live.richutilskt.toast
+import pyxis.uzuki.live.richutilskt.utils.inflate
+import pyxis.uzuki.live.richutilskt.utils.toast
 
 class RefreshRecyclerActivity : AppCompatActivity() {
     private var itemSet: ArrayList<String> = ArrayList()

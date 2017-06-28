@@ -2,7 +2,6 @@ package pyxis.uzuki.live.richutils.samplejava;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,8 +18,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 import butterknife.BindView;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
-import pyxis.uzuki.live.richutilskt.Utils;
+import pyxis.uzuki.live.richutilskt.utils.Utils;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.logo) ImageView logo;

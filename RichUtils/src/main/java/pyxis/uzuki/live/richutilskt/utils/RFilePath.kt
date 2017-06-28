@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package pyxis.uzuki.live.richutilskt
+package pyxis.uzuki.live.richutilskt.utils
 
 import android.annotation.TargetApi
 import android.content.ContentUris

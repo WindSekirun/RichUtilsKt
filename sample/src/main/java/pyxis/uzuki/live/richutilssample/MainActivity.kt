@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.startActivity
 import org.json.JSONObject
-import pyxis.uzuki.live.richutilskt.*
+import pyxis.uzuki.live.richutilskt.utils.*
 import java.net.HttpURLConnection
 import java.net.URL
 

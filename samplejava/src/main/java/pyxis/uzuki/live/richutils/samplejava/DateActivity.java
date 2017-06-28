@@ -9,7 +9,7 @@ import android.widget.TextView;
 import java.util.Date;
 
 import butterknife.BindView;
-import pyxis.uzuki.live.richutilskt.Utils;
+import pyxis.uzuki.live.richutilskt.utils.Utils;
 
 /**
  * Created by pyxis on 2017. 6. 12..

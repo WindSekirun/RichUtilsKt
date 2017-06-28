@@ -8,8 +8,8 @@ import android.widget.Button;
 
 import butterknife.BindView;
 import kotlin.Unit;
-import pyxis.uzuki.live.richutilskt.RPermission;
-import pyxis.uzuki.live.richutilskt.Utils;
+import pyxis.uzuki.live.richutilskt.utils.RPermission;
+import pyxis.uzuki.live.richutilskt.utils.Utils;
 
 /**
  * Created by pyxis on 2017. 6. 12..
