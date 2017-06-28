@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         date.setOnClickListener { startActivity<DateActivity>() }
         media.setOnClickListener { startActivity<PickMediaActivity>() }
         btnReboot.setOnClickListener { this.reboot() }
+        location.setOnClickListener { startActivity<LocationActivity>() }
         logo.setOnClickListener { browse("https://github.com/WindSekirun/RichUtilsKt") }
         json.setOnClickListener { startActivity<JSONActivity>() }
         permission.setOnClickListener { startActivity<PermissionActivity>() }

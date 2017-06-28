@@ -38,7 +38,7 @@ class RLocationService : Service() {
     private var bearing: Float? = null
     private var axisX: Int = 0
     private var axisY: Int = 0
-    private var currentBestLocation: Location? = null
+    var currentBestLocation: Location? = null
     private var locationCallback: LocationCallback? = null
 
     override fun onBind(intent: Intent?) = localBinder
@@ -93,6 +93,17 @@ class RLocationService : Service() {
         sensorManager.registerListener(sensorEventListener, mSensor, SensorManager.SENSOR_DELAY_NORMAL * 5)
     }
 
+    fun setLocationCallback(callback: (Location) -> Unit) {
+        locationCallback = object : LocationCallback, (Location) -> Unit {
+            override fun invoke(location: Location) {
+                callback.invoke(location)
+            }
+
+            override fun handleNewLocation(location: Location) {
+                callback.invoke(location)
+            }
+        }
+    }
 
 
     fun stopUpdates() {
@@ -224,18 +235,6 @@ class RLocationService : Service() {
     inner class LocalBinder : Binder() {
         val service: RLocationService
             get() = this@RLocationService
-    }
-
-    fun setLocationCallback(callback: Location.() -> Unit) {
-        locationCallback = object : LocationCallback, (Location) -> Unit {
-            override fun invoke(location: Location) {
-                callback.invoke(location)
-            }
-
-            override fun handleNewLocation(location: Location) {
-                callback.invoke(location)
-            }
-        }
     }
 
     interface LocationCallback {
