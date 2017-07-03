@@ -1,12 +1,11 @@
 package pyxis.uzuki.live.richutilssample
 
-import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_pick.*
-import pyxis.uzuki.live.richutilskt.*
+import pyxis.uzuki.live.richutilskt.utils.*
 
 class PickMediaActivity : AppCompatActivity() {
 

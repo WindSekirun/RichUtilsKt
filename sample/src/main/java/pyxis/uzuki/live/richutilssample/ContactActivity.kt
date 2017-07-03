@@ -3,9 +3,9 @@ package pyxis.uzuki.live.richutilssample
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_contacts.*
-import pyxis.uzuki.live.richutilskt.getContactsList
-import pyxis.uzuki.live.richutilskt.progress
-import pyxis.uzuki.live.richutilskt.runAsync
+import pyxis.uzuki.live.richutilskt.utils.getContactsList
+import pyxis.uzuki.live.richutilskt.utils.progress
+import pyxis.uzuki.live.richutilskt.utils.runAsync
 
 /**
  * Created by winds on 2017-06-26.

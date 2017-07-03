@@ -1,6 +1,6 @@
 @file:JvmName("RPermission")
 
-package pyxis.uzuki.live.richutilskt
+package pyxis.uzuki.live.richutilskt.utils
 
 import android.annotation.SuppressLint
 import android.app.Activity

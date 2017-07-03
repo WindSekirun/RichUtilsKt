@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import kotlinx.android.synthetic.main.activity_permission.*
-import pyxis.uzuki.live.richutilskt.RPermission
-import pyxis.uzuki.live.richutilskt.alert
-import pyxis.uzuki.live.richutilskt.getIMEI
+import pyxis.uzuki.live.richutilskt.utils.RPermission
+import pyxis.uzuki.live.richutilskt.utils.alert
+import pyxis.uzuki.live.richutilskt.utils.getIMEI
 
 class PermissionActivity : AppCompatActivity() {
 

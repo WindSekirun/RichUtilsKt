@@ -3,8 +3,8 @@ package pyxis.uzuki.live.richutilssample
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_preference.*
-import pyxis.uzuki.live.richutilskt.RPreference
-import pyxis.uzuki.live.richutilskt.hideKeyboard
+import pyxis.uzuki.live.richutilskt.utils.RPreference
+import pyxis.uzuki.live.richutilskt.utils.hideKeyboard
 
 class PreferenceActivity : AppCompatActivity() {
 

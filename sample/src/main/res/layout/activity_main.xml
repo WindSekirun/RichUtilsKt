@@ -64,6 +64,12 @@
                 android:text="JSON" />
 
             <Button
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location" />
+
+            <Button
                 android:id="@+id/permission"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

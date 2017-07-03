@@ -8,7 +8,7 @@ import android.widget.ImageView;
 
 import butterknife.BindView;
 import kotlin.Unit;
-import pyxis.uzuki.live.richutilskt.Utils;
+import pyxis.uzuki.live.richutilskt.utils.Utils;
 
 /**
  * Created by pyxis on 2017. 6. 12..

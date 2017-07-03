@@ -1,6 +1,6 @@
 @file:JvmName("RPreference")
 
-package pyxis.uzuki.live.richutilskt
+package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
 import android.content.SharedPreferences

@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.startActivity
 import org.json.JSONObject
-import pyxis.uzuki.live.richutilskt.*
+import pyxis.uzuki.live.richutilskt.utils.*
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         date.setOnClickListener { startActivity<DateActivity>() }
         media.setOnClickListener { startActivity<PickMediaActivity>() }
         btnReboot.setOnClickListener { this.reboot() }
+        location.setOnClickListener { startActivity<LocationActivity>() }
         logo.setOnClickListener { browse("https://github.com/WindSekirun/RichUtilsKt") }
         json.setOnClickListener { startActivity<JSONActivity>() }
         permission.setOnClickListener { startActivity<PermissionActivity>() }

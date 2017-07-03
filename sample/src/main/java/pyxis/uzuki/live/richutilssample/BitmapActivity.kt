@@ -5,10 +5,10 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_bitmap.*
-import pyxis.uzuki.live.richutilskt.bitmapToDrawable
-import pyxis.uzuki.live.richutilskt.downloadBitmap
-import pyxis.uzuki.live.richutilskt.runAsync
-import pyxis.uzuki.live.richutilskt.saveBitmapToFile
+import pyxis.uzuki.live.richutilskt.utils.bitmapToDrawable
+import pyxis.uzuki.live.richutilskt.utils.downloadBitmap
+import pyxis.uzuki.live.richutilskt.utils.runAsync
+import pyxis.uzuki.live.richutilskt.utils.saveBitmapToFile
 
 class BitmapActivity : AppCompatActivity() {
 

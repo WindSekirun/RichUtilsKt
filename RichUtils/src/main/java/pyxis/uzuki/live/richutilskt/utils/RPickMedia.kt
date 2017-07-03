@@ -1,6 +1,6 @@
 @file:JvmName("RPickMedia")
 
-package pyxis.uzuki.live.richutilskt
+package pyxis.uzuki.live.richutilskt.utils
 
 
 import android.Manifest
