@@ -65,5 +65,4 @@ public class PickMediaActivity extends BaseActivity {
 
         Utils.requestMediaScanner(this, realPath);
     }
-
 }

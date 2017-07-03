@@ -3,6 +3,7 @@ package pyxis.uzuki.live.richutils.samplejava;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -35,7 +36,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.btnReboot) Button btnReboot;
     @BindView(R.id.contact) Button contact;
     @BindView(R.id.btnRecycler) Button btnRecycler;
-
+    @BindView(R.id.location) Button location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,7 @@ public class MainActivity extends BaseActivity {
         media.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PickMediaActivity.class)));
         contact.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ContactActivity.class)));
         btnRecycler.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RefreshRecyclerActivity.class)));
+        location.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, LocationActivity.class)));
     }
 
     private void getLatestReleaseFromGitHub() {
