@@ -21,7 +21,7 @@ public class PreferenceActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preference);
 
-        RPreference pref = RPreference.Companion.getInstance(this);
+        RPreference pref = RPreference.getInstance(this);
         String key = "preferenceActivity";
         value = pref.getValue(key, "");
 

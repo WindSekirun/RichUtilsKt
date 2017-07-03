@@ -108,7 +108,7 @@ class RPermission private constructor(private var context: Context) {
     companion object {
         private var instance: RPermission? = null
 
-        fun getInstance(c: Context): RPermission {
+        @JvmStatic fun getInstance(c: Context): RPermission {
 
             if (instance == null) {
                 instance = RPermission(c)

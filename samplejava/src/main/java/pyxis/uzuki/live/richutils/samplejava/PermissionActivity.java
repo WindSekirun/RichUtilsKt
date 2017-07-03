@@ -26,7 +26,7 @@ public class PermissionActivity extends BaseActivity {
         btnCall.setOnClickListener(view -> {
             String[] arrays = new String[]{Manifest.permission.CALL_PHONE};
 
-            RPermission.Companion.getInstance(this).checkPermission(arrays, (integer, strings) -> {
+            RPermission.getInstance(this).checkPermission(arrays, (integer, strings) -> {
                 Utils.alert(PermissionActivity.this,
                         "Permission result ->" + integer + " / Requested Permission: " + TextUtils.join(",", strings));
                 return Unit.INSTANCE;

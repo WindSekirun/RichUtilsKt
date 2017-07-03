@@ -199,7 +199,7 @@ class RPreference private constructor(c: Context) {
 
         private var instance: RPreference? = null
 
-        fun getInstance(c: Context): RPreference {
+        @JvmStatic fun getInstance(c: Context): RPreference {
             if (instance == null) {
                 instance = RPreference(c)
             }

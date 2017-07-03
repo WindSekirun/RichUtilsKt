@@ -27,22 +27,22 @@ public class PickMediaActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick);
 
-        gallery.setOnClickListener(v -> RPickMedia.Companion.getInstance(this).pickFromGallery((integer, s) -> {
+        gallery.setOnClickListener(v -> RPickMedia.getInstance(this).pickFromGallery((integer, s) -> {
             resultMessage(integer, s);
             return Unit.INSTANCE;
         }));
 
-        camera.setOnClickListener(v -> RPickMedia.Companion.getInstance(this).pickFromCamera((integer, s) -> {
+        camera.setOnClickListener(v -> RPickMedia.getInstance(this).pickFromCamera((integer, s) -> {
             resultMessage(integer, s);
             return Unit.INSTANCE;
         }));
 
-        video.setOnClickListener(v -> RPickMedia.Companion.getInstance(this).pickFromVideo((integer, s) -> {
+        video.setOnClickListener(v -> RPickMedia.getInstance(this).pickFromVideo((integer, s) -> {
             resultMessage(integer, s);
             return Unit.INSTANCE;
         }));
 
-        videoc.setOnClickListener(v -> RPickMedia.Companion.getInstance(this).pickFromVideoCamera((integer, s) -> {
+        videoc.setOnClickListener(v -> RPickMedia.getInstance(this).pickFromVideoCamera((integer, s) -> {
             resultMessage(integer, s);
             return Unit.INSTANCE;
         }));

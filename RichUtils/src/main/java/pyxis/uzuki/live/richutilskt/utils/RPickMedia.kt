@@ -202,7 +202,7 @@ class RPickMedia private constructor(private var context: Context) {
 
         private var instance: RPickMedia? = null
 
-        fun getInstance(c: Context): RPickMedia {
+        @JvmStatic fun getInstance(c: Context): RPickMedia {
 
             if (instance == null) {
                 instance = RPickMedia(c)
