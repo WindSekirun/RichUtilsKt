@@ -12,12 +12,12 @@ Update: 2017.06.27
 * [**RDownload**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RDownload.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/BitmapActivity.java)
 * [**RDrawable**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RDrawable.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/BitmapActivity.java)
 * [**RFilePath**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RFilePath.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PickMediaActivity.java)
-* [**RInflater**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RInflater.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/RefreshRecyclerActivity.kt)
+* [**RInflater**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RInflater.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/RefreshRecyclerActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/RefreshRecyclerActivity.java)
 * [**RJson**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RJson.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/JSONActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/JSONActivity.java)
-* [**RKeyboard**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RKeyboard.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PreferenceActivity.kt)
+* [**RKeyboard**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RKeyboard.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PreferenceActivity.kt)  [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PreferenceActivity.java)
 * [**RKeyHash**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RKeyHash.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MiscActivity.java)
 * [**RNetwork**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RNetwork.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MiscActivity.java)
-* [**RPreference**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPreference.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PreferenceActivity.kt)
+* [**RPreference**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPreference.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PreferenceActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PreferenceActivity.java)
 * [**RPermission**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPermission.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PermissionActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PermissionActivity.java)
 * [**RPhoto**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPhoto.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PickMediaActivity.java)
 * [**RPickMedia**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPickMedia.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PickMediaActivity.java)
@@ -29,7 +29,7 @@ Update: 2017.06.27
 
 ## List of Widgets
 
-* [**RefreshRecyclerView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/RefreshRecyclerView.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/RefreshRecyclerActivity.kt)
+* [**RefreshRecyclerView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/RefreshRecyclerView.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/RefreshRecyclerActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/RefreshRecyclerActivity.java)
 * [**CenteredIconButton**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CenteredIconButton.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
 
 ## List of Service

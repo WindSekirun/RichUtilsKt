@@ -22,5 +22,5 @@ import android.view.ViewGroup
  *                      the root view in the XML.
  * @return The root View of the inflated hierarchy.
  */
-fun Context.inflate(@LayoutRes layoutRes: Int, parent: ViewGroup? = null, attachToRoot: Boolean = false): View =
+@JvmOverloads fun Context.inflate(@LayoutRes layoutRes: Int, parent: ViewGroup? = null, attachToRoot: Boolean = false): View =
         LayoutInflater.from(this).inflate(layoutRes, parent, attachToRoot)

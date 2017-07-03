@@ -23,8 +23,8 @@ class RefreshRecyclerActivity : AppCompatActivity() {
 
         recyclerView.setOnRefreshListener {
             for (i in finalLoaded..finalLoaded + 9) {
-                itemSet.add(i.toString())
-            }
+            itemSet.add(i.toString())
+        }
             finalLoaded += 9
             adapter?.notifyDataSetChanged()
         }

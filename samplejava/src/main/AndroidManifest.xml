@@ -36,6 +36,7 @@
         <activity android:name=".PickMediaActivity"/>
         <activity android:name=".ContactActivity"/>
         <activity android:name=".MiscActivity"/>
+        <activity android:name=".RefreshRecyclerActivity"/>
     </application>
 
 </manifest>
