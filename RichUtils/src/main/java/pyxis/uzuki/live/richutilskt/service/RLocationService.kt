@@ -63,6 +63,10 @@ class RLocationService : Service() {
         sensorManager?.unregisterListener(sensorEventListener)
     }
 
+    /**
+     * get location of user.
+     * this service using 3 methods for fetch location. (Mobile, GPS, Sensor)
+     */
     fun getLocation() {
         val lastKnownGpsLocation = locationManager?.getLastKnownLocation(LocationManager.GPS_PROVIDER)
         val lastKnownNetworkLocation = locationManager?.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
@@ -103,6 +107,10 @@ class RLocationService : Service() {
         sensorManager?.registerListener(sensorEventListener, mSensor, SensorManager.SENSOR_DELAY_NORMAL * 5)
     }
 
+    /**
+     * Set callback for location service.
+     * any location updates will invoke this callback (except new location data is not-best-location.)
+     */
     fun setLocationCallback(callback: (Location) -> Unit) {
         locationCallback = object : LocationCallback, (Location) -> Unit {
             override fun invoke(location: Location) {
@@ -115,9 +123,13 @@ class RLocationService : Service() {
         }
     }
 
+    /**
+     * stop location update service
+     */
     fun stopUpdates() {
         locationManager?.removeUpdates(gpsLocationListener)
         locationManager?.removeUpdates(networkLocationListener)
+        sensorManager?.unregisterListener(sensorEventListener)
     }
 
     private fun isBetterLocation(location: Location, currentBestLocation: Location?): Boolean {
