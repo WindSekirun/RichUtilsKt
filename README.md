@@ -16,13 +16,19 @@ If you have any feature to make useful develop android application, Please leave
 ### Main Feature of Library
 * Provide fully documented and High quality of many utils!
     * [List of Utils](https://github.com/WindSekirun/RichUtilsKt/blob/master/LIST_OF_UTILS.md)
-    * Now RichUtils have **24 Utils** and **2 Widgets**
+    * Now RichUtils have **24 Utils** and **2 Widgets** and **1 Service**
 * Provide [Web Document](https://windsekirun.github.io/RichUtilsKt/)
 * Provide two sample application. one is [**Kotlin**](/sample), another is [**Java**](/samplejava)
     * Notice, Sample application of Java is working now.
 * as Kotlin's main goal, RichUtils interoperable with **Java**
 * Lightweight! 
 	* <a href="http://www.methodscount.com/?lib=com.github.WindSekirun%3ARichUtilsKt%3A%2B"><img src="https://img.shields.io/badge/Methods and size-core: 554 | deps: 13859 | 67 KB-e91e63.svg"/></a>
+
+## Notice (1.2.0)
+I changed package structure cause there are many utils to make developer confused.
+
+from 1.2.0, all utils and widget have sub package. you should change import statement for library.
+this work will have impact.  
 
 ### Usages
 

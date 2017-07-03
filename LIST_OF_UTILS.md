@@ -32,4 +32,4 @@ Update: 2017.06.27
 * [**CenteredIconButton**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CenteredIconButton.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt)
 
 ## List of Service
-* [**CenteredIconButton**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/RLocationService.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/LocationActivity.kt)
+* [**RLocationService**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/RLocationService.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/LocationActivity.kt)

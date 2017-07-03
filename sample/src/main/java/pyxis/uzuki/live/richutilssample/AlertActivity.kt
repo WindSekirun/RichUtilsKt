@@ -16,12 +16,12 @@ class AlertActivity : AppCompatActivity() {
 
         selector.setOnClickListener({
             val items: ArrayList<String> = ArrayList()
-            (1..5).mapTo(items) { it.toString() }
+        (1..5).mapTo(items) { it.toString() }
 
-            selector(items = items, callback = { _: DialogInterface, i: Int ->
-                toast(message = "click item -> $i")
-            })
+        selector(items = items, callback = { _: DialogInterface, i: Int ->
+            toast(message = "click item -> $i")
         })
+    })
 
         confirm.setOnClickListener({
             confirm(message = "Hello, world!", callback = {
