@@ -37,7 +37,8 @@ fun runDelayed(delayMillis: Long, action: () -> Unit) = Handler().postDelayed(Ru
 fun runDelayedOnUiThread(delayMillis: Long, action: () -> Unit) = Handler(Looper.getMainLooper()).postDelayed(Runnable(action), delayMillis)
 
 /**
- *
+ * run code inside of Background thread with custom pool size and tasksa
+ * this will help in multi-threading working
  */
 @JvmOverloads fun runNaraeAsync(action: () -> Unit,  poolSize: Int = RAsync.instance.settingPoolSize, taskType: String = RAsync.instance.settingTaskType) {
     RAsync.instance.execute(action , 5)
