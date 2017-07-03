@@ -17,6 +17,11 @@ import android.util.Log
 import android.view.Surface
 import android.view.Display
 import android.view.WindowManager
+import android.content.ContentValues.TAG
+import android.location.Address
+import android.location.Geocoder
+import java.io.IOException
+import java.util.*
 
 
 @Suppress("SENSELESS_COMPARISON")
@@ -130,6 +135,86 @@ class RLocationService : Service() {
         locationManager?.removeUpdates(gpsLocationListener)
         locationManager?.removeUpdates(networkLocationListener)
         sensorManager?.unregisterListener(sensorEventListener)
+    }
+
+    /**
+     * get Address from CurrentBestLocation
+     *
+     * @return List<Address> or null
+     */
+    fun Context.getGeocoderAddress(): List<Address>? {
+        if (currentBestLocation != null) {
+            val geocoder = Geocoder(this, Locale.ENGLISH)
+            try {
+                return geocoder.getFromLocation((currentBestLocation as Location).latitude, (currentBestLocation as Location).longitude, 1)
+            } catch (e: IOException) {
+                Log.e(TAG, "Impossible to connect to Geocoder", e)
+            }
+        }
+        return null
+    }
+
+    /**
+     * get AddressLine
+     *
+     * @return addressLine of current Best Location
+     */
+    fun Context.getAddressLine(): String {
+        val addresses = getGeocoderAddress()
+
+        if (addresses != null && addresses.isNotEmpty()) {
+            val address = addresses[0]
+            return address.getAddressLine(0)
+        } else {
+            return ""
+        }
+    }
+
+    /**
+     * get locality
+     *
+     * @return locality of current Best Location
+     */
+    fun Context.getLocality(): String {
+        val addresses = getGeocoderAddress()
+
+        if (addresses != null && addresses.isNotEmpty()) {
+            val address = addresses[0]
+            return address.locality
+        } else {
+            return ""
+        }
+    }
+
+    /**
+     * get postal code
+     *
+     * @return postal code of current Best Location
+     */
+    fun Context.getPostalCode(): String {
+        val addresses = getGeocoderAddress()
+
+        if (addresses != null && addresses.isNotEmpty()) {
+            val address = addresses[0]
+            return address.postalCode
+        } else {
+            return ""
+        }
+    }
+
+    /**
+     * get country name
+     *
+     * @return country name of current Best Location
+     */
+    fun Context.getCountryName(): String {
+        val addresses = getGeocoderAddress()
+        if (addresses != null && addresses.isNotEmpty()) {
+            val address = addresses[0]
+            return address.countryName
+        } else {
+            return ""
+        }
     }
 
     private fun isBetterLocation(location: Location, currentBestLocation: Location?): Boolean {
