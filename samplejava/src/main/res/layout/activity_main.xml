@@ -46,6 +46,13 @@
                 android:text="Bitmap" />
 
             <Button
+                android:id="@+id/contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact" />
+
+
+            <Button
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,11 +82,14 @@
                 android:layout_height="wrap_content"
                 android:text="Pick Media" />
 
-            <Button
+            <pyxis.uzuki.live.richutilskt.widget.CenteredIconButton
                 android:id="@+id/btnReboot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_launcher_round"
+                android:drawablePadding="4dp"
                 android:text="REBOOT" />
+
         </LinearLayout>
     </ScrollView>
 

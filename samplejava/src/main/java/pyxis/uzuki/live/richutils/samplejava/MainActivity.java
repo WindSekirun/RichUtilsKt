@@ -19,6 +19,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 import butterknife.BindView;
 import kotlin.Unit;
+import pyxis.uzuki.live.richutilskt.utils.ContactItem;
 import pyxis.uzuki.live.richutilskt.utils.Utils;
 
 public class MainActivity extends BaseActivity {
@@ -32,6 +33,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.preference) Button preference;
     @BindView(R.id.media) Button media;
     @BindView(R.id.btnReboot) Button btnReboot;
+    @BindView(R.id.contact) Button contact;
 
 
     @Override
@@ -58,6 +60,7 @@ public class MainActivity extends BaseActivity {
         permission.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PermissionActivity.class)));
         preference.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PreferenceActivity.class)));
         media.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PickMediaActivity.class)));
+        contact.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ContactActivity.class)));
     }
 
     private void getLatestReleaseFromGitHub() {

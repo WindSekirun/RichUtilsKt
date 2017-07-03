@@ -20,18 +20,7 @@ data class ContactItem(var name: String, var phoneNumber: String) {
  * @return arrayList of ContactItem
  */
 fun Context.getContactsList() : ArrayList<ContactItem> {
-    val isGranted = RPermission.getInstance(this).checkPermission(arrayOf(Manifest.permission.READ_CONTACTS),
-            callback = { resultCode: Int, _: ArrayList<String> ->
-        when (resultCode) {
-            RPermission.PERMISSION_GRANTED -> getContactsList()
-        }
-    })
-
-    if (isGranted) {
-        return getContacts(this)
-    } else {
-        return arrayListOf()
-    }
+    return getContacts(this)
 }
 
 private fun getContacts(context:Context) : ArrayList<ContactItem> {

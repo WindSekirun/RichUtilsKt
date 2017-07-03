@@ -43,7 +43,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.WindSekirun:RichUtilsKt:${richutils_version}'
+    implementation 'com.github.WindSekirun:RichUtilsKt:$1.1.5.1'
 }
 ```
 
@@ -61,7 +61,7 @@ allprojects {
 *app/build.gradle*
 ```
 dependencies {
-    compile 'com.github.WindSekirun:RichUtilsKt:${richutils_version}'
+    compile 'com.github.WindSekirun:RichUtilsKt:$1.1.5.1'
 }
 ```
 
