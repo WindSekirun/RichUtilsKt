@@ -1,4 +1,4 @@
-package pyxis.uzuki.live.richutilskt.service;
+package pyxis.uzuki.live.richutilskt.service
 
 import android.annotation.SuppressLint
 import android.app.Service
@@ -19,12 +19,13 @@ import android.view.Display
 import android.view.WindowManager
 
 
+@Suppress("SENSELESS_COMPARISON")
 @SuppressLint("MissingPermission")
 class RLocationService : Service() {
 
-    private val locationManager: LocationManager = getLocationManager()
-    private val sensorManager: SensorManager = getSensorManager()
-    private val display: Display = getDisplay()
+    private var locationManager: LocationManager? = null
+    private var sensorManager: SensorManager? = null
+    private var display: Display? = null
     private val gpsLocationListener = LocationChangeListener()
     private val networkLocationListener = LocationChangeListener()
     private val sensorEventListener = SensorListener()
@@ -35,7 +36,7 @@ class RLocationService : Service() {
     private val FASTEST_INTERVAL_IN_MS = 1000L
     private val TAG = "RLocationService"
 
-    private var bearing: Float? = null
+    private var bearing: Float = 0f
     private var axisX: Int = 0
     private var axisY: Int = 0
     var currentBestLocation: Location? = null
@@ -50,18 +51,21 @@ class RLocationService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        display = (getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay
         getLocation()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         stopUpdates()
-        sensorManager.unregisterListener(sensorEventListener)
+        sensorManager?.unregisterListener(sensorEventListener)
     }
 
     fun getLocation() {
-        val lastKnownGpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
-        val lastKnownNetworkLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+        val lastKnownGpsLocation = locationManager?.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+        val lastKnownNetworkLocation = locationManager?.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
         var bestLastKnownLocation = currentBestLocation
 
         if (lastKnownGpsLocation != null && isBetterLocation(lastKnownGpsLocation, bestLastKnownLocation)) {
@@ -73,24 +77,30 @@ class RLocationService : Service() {
         }
 
         currentBestLocation = bestLastKnownLocation
-        if (locationManager.allProviders.contains(LocationManager.GPS_PROVIDER) && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, FASTEST_INTERVAL_IN_MS, 0.0f, gpsLocationListener)
+        val gpsEnabled = locationManager?.allProviders?.contains(LocationManager.GPS_PROVIDER) as Boolean
+                && locationManager?.isProviderEnabled(LocationManager.GPS_PROVIDER) as Boolean
+
+        if (gpsEnabled) {
+            locationManager?.requestLocationUpdates(LocationManager.GPS_PROVIDER, FASTEST_INTERVAL_IN_MS, 0.0f, gpsLocationListener)
         }
 
-        if (locationManager.allProviders.contains(LocationManager.NETWORK_PROVIDER) && locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, FASTEST_INTERVAL_IN_MS, 0.0f, networkLocationListener)
+        val networkEnabled = locationManager?.allProviders?.contains(LocationManager.NETWORK_PROVIDER) as Boolean
+                && locationManager?.isProviderEnabled(LocationManager.NETWORK_PROVIDER) as Boolean
+
+        if (networkEnabled) {
+            locationManager?.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, FASTEST_INTERVAL_IN_MS, 0.0f, networkLocationListener)
         }
 
         if (bestLastKnownLocation != null) {
             Log.i(TAG, "Received last known location via old API: " + bestLastKnownLocation)
             if (bearing != null) {
-                bestLastKnownLocation.bearing = bearing as Float
+                bestLastKnownLocation.bearing = bearing
             }
             locationCallback?.handleNewLocation(currentBestLocation as Location)
         }
 
-        val mSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
-        sensorManager.registerListener(sensorEventListener, mSensor, SensorManager.SENSOR_DELAY_NORMAL * 5)
+        val mSensor = sensorManager?.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
+        sensorManager?.registerListener(sensorEventListener, mSensor, SensorManager.SENSOR_DELAY_NORMAL * 5)
     }
 
     fun setLocationCallback(callback: (Location) -> Unit) {
@@ -105,10 +115,9 @@ class RLocationService : Service() {
         }
     }
 
-
     fun stopUpdates() {
-        locationManager.removeUpdates(gpsLocationListener)
-        locationManager.removeUpdates(networkLocationListener)
+        locationManager?.removeUpdates(gpsLocationListener)
+        locationManager?.removeUpdates(networkLocationListener)
     }
 
     private fun isBetterLocation(location: Location, currentBestLocation: Location?): Boolean {
@@ -169,7 +178,7 @@ class RLocationService : Service() {
             if (isBetterLocation(location, currentBestLocation)) {
                 currentBestLocation = location
                 if (bearing != null) {
-                    (currentBestLocation as Location).bearing = bearing as Float
+                    (currentBestLocation as Location).bearing = bearing
                 }
                 locationCallback?.handleNewLocation(currentBestLocation as Location)
             }
@@ -199,25 +208,23 @@ class RLocationService : Service() {
             val azimuth = Math.toDegrees(orientationValues[0].toDouble())
 
             val newBearing = azimuth
-            val abs = Math.abs(bearing?.minus(newBearing)!!.toFloat()) > MIN_BEARING_DIFF
+            bearing = if (bearing == null) 0f else bearing
+
+            val abs = Math.abs(bearing.minus(newBearing).toFloat()) > MIN_BEARING_DIFF
 
             if (bearing == null || abs) {
                 bearing = newBearing.toFloat()
                 if (currentBestLocation != null) {
-                    (currentBestLocation as Location).bearing = bearing as Float
+                    (currentBestLocation as Location).bearing = bearing
                 }
             }
         }
     }
 
-    private fun Context.getLocationManager() = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-    private fun Context.getSensorManager() = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-    private fun Context.getDisplay() = (getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay
-
     private fun readDisplayRotation() {
         axisX = SensorManager.AXIS_X
         axisY = SensorManager.AXIS_Y
-        when (display.rotation) {
+        when (display?.rotation) {
             Surface.ROTATION_0 -> {}
             Surface.ROTATION_90 -> {
                 axisX = SensorManager.AXIS_Y

@@ -33,6 +33,7 @@
         <activity android:name=".ContactActivity"/>
         <activity android:name=".RefreshRecyclerActivity"/>
         <activity android:name=".LocationActivity"/>
+
     </application>
 
 </manifest>
