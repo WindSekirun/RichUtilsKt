@@ -1,6 +1,7 @@
 package pyxis.uzuki.live.richutilssample
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setStatusNavBarColor(Color.parseColor("#303F9F"))
 
         runAsync { getLatestReleaseFromGitHub() }
 

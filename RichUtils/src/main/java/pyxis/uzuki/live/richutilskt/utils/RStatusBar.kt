@@ -1,3 +1,6 @@
+@file:JvmName("Utils")
+@file:JvmMultifileClass
+
 package pyxis.uzuki.live.richutilskt.utils
 
 import android.app.Activity

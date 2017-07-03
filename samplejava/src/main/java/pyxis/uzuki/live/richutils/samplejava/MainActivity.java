@@ -2,6 +2,7 @@ package pyxis.uzuki.live.richutils.samplejava;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -37,6 +38,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Utils.setStatusNavBarColor(this, Color.parseColor("#303F9F"));
 
         Utils.runAsync(() -> {
             getLatestReleaseFromGitHub();
