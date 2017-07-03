@@ -5,8 +5,7 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Canvas
+import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -16,6 +15,8 @@ import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
+import android.text.TextUtils
+
 
 /**
  * Save Bitmap to file
@@ -31,6 +32,38 @@ fun Context.saveBitmapToFile(bitmap: Bitmap): String? {
     }
 
     return ""
+}
+
+/**
+ * get bitmap from filePath
+ * @return Bitmap object
+ */
+fun getBitmap(filePath: String): Bitmap? {
+    if (TextUtils.isEmpty(filePath)) return null
+    return BitmapFactory.decodeFile(filePath)
+}
+
+/**
+ * Make bitmap corner
+ * @return Bitmap object
+ */
+fun toRoundCorner(original: Bitmap?, radius: Float): Bitmap? {
+    if (original == null)
+        return null
+    val width = original.width
+    val height = original.height
+    val bitmap = Bitmap.createBitmap(width, height, original.config)
+    val paint = Paint()
+    val canvas = Canvas(bitmap)
+    val rect = Rect(0, 0, width, height)
+
+    paint.isAntiAlias = true
+    canvas.drawRoundRect(RectF(rect), radius, radius, paint)
+    paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+    canvas.drawBitmap(original, rect, rect, paint)
+
+    original.recycle()
+    return bitmap
 }
 
 private fun saveBitmapToFile(context: Context, bitmap: Bitmap): File? {
