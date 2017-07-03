@@ -42,10 +42,10 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         Utils.setStatusNavBarColor(this, Color.parseColor("#303F9F"));
 
-        Utils.runAsync(() -> {
+        Utils.runNaraeAsync(() -> {
             getLatestReleaseFromGitHub();
             return Unit.INSTANCE;
-        });
+        }, 5);
 
         logo.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/WindSekirun/RichUtilsKt"));

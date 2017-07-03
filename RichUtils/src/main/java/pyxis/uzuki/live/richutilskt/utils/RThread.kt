@@ -35,3 +35,10 @@ fun runDelayed(delayMillis: Long, action: () -> Unit) = Handler().postDelayed(Ru
  * @param[action] code to execute
  */
 fun runDelayedOnUiThread(delayMillis: Long, action: () -> Unit) = Handler(Looper.getMainLooper()).postDelayed(Runnable(action), delayMillis)
+
+/**
+ *
+ */
+@JvmOverloads fun runNaraeAsync(action: () -> Unit,  poolSize: Int = RAsync.instance.settingPoolSize, taskType: String = RAsync.instance.settingTaskType) {
+    RAsync.instance.execute(action , 5)
+}

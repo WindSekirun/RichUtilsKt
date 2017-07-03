@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setStatusNavBarColor(Color.parseColor("#303F9F"))
 
-        runAsync { getLatestReleaseFromGitHub() }
+        runNaraeAsync({ getLatestReleaseFromGitHub() }, 20)
 
         alert.setOnClickListener { startActivity<AlertActivity>() }
         bitmap.setOnClickListener { startActivity<BitmapActivity>() }
