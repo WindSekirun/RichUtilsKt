@@ -6,40 +6,40 @@ package pyxis.uzuki.live.richutilskt.utils
 import android.content.Context
 
 /**
- * convert int to dip
+ * convert dip to px
  *
  * @param[value] to convert
  * @return calculated dip
  * @since 1.0.1
  */
-fun Context.dip(value: Int): Int = (value * resources.displayMetrics.density).toInt()
+fun Context.dip2px(value: Int): Int = (value * resources.displayMetrics.density).toInt()
 
 /**
- * convert float to dip
+ * convert dip to px
  *
  * @param[value] to convert
  * @return calculated dip
  * @since 1.0.1
  */
-fun Context.dip(value: Float): Int = (value * resources.displayMetrics.density).toInt()
+fun Context.dip2px(value: Float): Int = (value * resources.displayMetrics.density).toInt()
 
 /**
- * convert int to sp
+ * convert sp to px
  *
  * @param[value] to convert
  * @return calculated sp
  * @since 1.0.1
  */
-fun Context.sp(value: Int): Int = (value * resources.displayMetrics.scaledDensity).toInt()
+fun Context.sp2px(value: Int): Int = (value * resources.displayMetrics.scaledDensity).toInt()
 
 /**
- * convert float to sp
+ * convert sp to px
  *
  * @param[value] to convert
  * @return calculated sp
  * @since 1.0.1
  */
-fun Context.sp(value: Float): Int = (value * resources.displayMetrics.scaledDensity).toInt()
+fun Context.sp2px(value: Float): Int = (value * resources.displayMetrics.scaledDensity).toInt()
 
 /**
  * convert px to dip
