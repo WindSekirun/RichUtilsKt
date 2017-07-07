@@ -16,7 +16,7 @@ internal class RAsync {
     internal var settingTaskType = DEFAULT_TASK_TYPE
     internal var bte = BackgroundThreadExecutor()
 
-    @JvmOverloads fun execute(executeProcess: () -> Unit, poolSize: Int = settingPoolSize, taskType: String = settingTaskType) {
+    @JvmOverloads inline fun execute(crossinline executeProcess: () -> Unit, poolSize: Int = settingPoolSize, taskType: String = settingTaskType) {
         bte = BackgroundThreadExecutor()
         bte.setTaskType(taskType)
         bte.setThreadPoolSize(poolSize)
