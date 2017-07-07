@@ -12,10 +12,10 @@ class MiscActivity : AppCompatActivity() {
         var versionCode = versionCode()
         var versionName = versionName()
 
-        var dip15 = dip(15)
-        var sp12 = sp(12)
-        var dip15f = dip(15f)
-        var sp12f = sp(12f)
+        var dip15 = dip2px(15)
+        var sp12 = sp2px(12)
+        var dip15f = dip2px(15f)
+        var sp12f = sp2px(12f)
 
         var px2dip15 = px2dip(15)
         var px2sp12 = px2sp(12)

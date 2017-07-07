@@ -14,10 +14,10 @@ public class MiscActivity extends BaseActivity {
         int versionCode = Utils.versionCode(this);
         String versionName = Utils.versionName(this);
 
-        int dip15 = Utils.dip(this, 15);
-        int sp12 = Utils.sp(this, 12);
-        int dip15f = Utils.dip(this, 15f);
-        int sp12f = Utils.sp(this, 12f);
+        int dip15 = Utils.dip2px(this, 15);
+        int sp12 = Utils.sp2px(this, 12);
+        int dip15f = Utils.dip2px(this, 15f);
+        int sp12f = Utils.sp2px(this, 12f);
 
         float px2dip15 = Utils.px2dip(this, 15);
         float px2sp12 = Utils.px2sp(this, 12);
