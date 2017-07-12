@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_json.*
 import org.json.JSONObject
-import pyxis.uzuki.live.richutilskt.*
+import pyxis.uzuki.live.richutilskt.utils.*
 
 class JSONActivity : AppCompatActivity() {
 

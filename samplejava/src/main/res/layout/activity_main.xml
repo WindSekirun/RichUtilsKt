@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="pyxis.uzuki.live.richutilssample.MainActivity">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -46,6 +46,12 @@
                 android:text="Bitmap" />
 
             <Button
+                android:id="@+id/contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact" />
+
+            <Button
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,6 +62,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="JSON" />
+
+            <Button
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location" />
 
             <Button
                 android:id="@+id/permission"
@@ -75,11 +87,19 @@
                 android:layout_height="wrap_content"
                 android:text="Pick Media" />
 
-            <Button
+            <pyxis.uzuki.live.richutilskt.widget.CenteredIconButton
                 android:id="@+id/btnReboot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_launcher_round"
+                android:drawablePadding="4dp"
                 android:text="REBOOT" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnRecycler"
+                android:text="Refresh recyclerview"/>
         </LinearLayout>
     </ScrollView>
 

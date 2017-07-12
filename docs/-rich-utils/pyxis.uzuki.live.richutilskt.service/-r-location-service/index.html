@@ -1,0 +1,163 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RLocationService - RichUtils</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RichUtils</a>&nbsp;/&nbsp;<a href="../index.html">pyxis.uzuki.live.richutilskt.service</a>&nbsp;/&nbsp;<a href=".">RLocationService</a><br/>
+<br/>
+<h1>RLocationService</h1>
+<code><span class="keyword">class </span><span class="identifier">RLocationService</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-local-binder/index.html">LocalBinder</a></p>
+</td>
+<td>
+<code><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">LocalBinder</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-location-callback/index.html">LocationCallback</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">LocationCallback</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">RLocationService</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="current-best-location.html">currentBestLocation</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">currentBestLocation</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="get-address-line.html">getAddressLine</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">.</span><span class="identifier">getAddressLine</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>get AddressLine</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-country-name.html">getCountryName</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">.</span><span class="identifier">getCountryName</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>get country name</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-geocoder-address.html">getGeocoderAddress</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">.</span><span class="identifier">getGeocoderAddress</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">&gt;</span><span class="symbol">?</span></code>
+<p>get Address from CurrentBestLocation</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-locality.html">getLocality</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">.</span><span class="identifier">getLocality</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>get locality</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-location.html">getLocation</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getLocation</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>get location of user.
+this service using 3 methods for fetch location. (Mobile, GPS, Sensor)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-postal-code.html">getPostalCode</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">.</span><span class="identifier">getPostalCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>get postal code</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-bind.html">onBind</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onBind</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.service.RLocationService$onBind()/intent">intent</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="-local-binder/index.html"><span class="identifier">LocalBinder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-create.html">onCreate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onCreate</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-destroy.html">onDestroy</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onDestroy</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-start-command.html">onStartCommand</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onStartCommand</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.service.RLocationService$onStartCommand(, kotlin.Int, kotlin.Int)/intent">intent</span><span class="symbol">:</span>&nbsp;<span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.service.RLocationService$onStartCommand(, kotlin.Int, kotlin.Int)/flags">flags</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.service.RLocationService$onStartCommand(, kotlin.Int, kotlin.Int)/startId">startId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="set-location-callback.html">setLocationCallback</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setLocationCallback</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.service.RLocationService$setLocationCallback(kotlin.Function1((, kotlin.Unit)))/callback">callback</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Set callback for location service.
+any location updates will invoke this callback (except new location data is not-best-location.)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="stop-updates.html">stopUpdates</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">stopUpdates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>stop location update service</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

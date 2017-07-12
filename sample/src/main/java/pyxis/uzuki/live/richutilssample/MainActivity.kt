@@ -1,6 +1,7 @@
 package pyxis.uzuki.live.richutilssample
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
@@ -8,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.startActivity
 import org.json.JSONObject
-import pyxis.uzuki.live.richutilskt.*
+import pyxis.uzuki.live.richutilskt.utils.*
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -17,19 +18,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setStatusNavBarColor(Color.parseColor("#303F9F"))
 
-        runAsync { getLatestReleaseFromGitHub() }
+        runNaraeAsync({ getLatestReleaseFromGitHub() }, 20)
 
         alert.setOnClickListener { startActivity<AlertActivity>() }
         bitmap.setOnClickListener { startActivity<BitmapActivity>() }
         date.setOnClickListener { startActivity<DateActivity>() }
         media.setOnClickListener { startActivity<PickMediaActivity>() }
         btnReboot.setOnClickListener { this.reboot() }
+        location.setOnClickListener { startActivity<LocationActivity>() }
         logo.setOnClickListener { browse("https://github.com/WindSekirun/RichUtilsKt") }
         json.setOnClickListener { startActivity<JSONActivity>() }
         permission.setOnClickListener { startActivity<PermissionActivity>() }
         preference.setOnClickListener { startActivity<PreferenceActivity>() }
         contact.setOnClickListener { startActivity<ContactActivity>() }
+        btnRecycler.setOnClickListener { startActivity<RefreshRecyclerActivity>() }
     }
 
     private fun getLatestReleaseFromGitHub() {
@@ -54,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         if (TextUtils.isEmpty(response))
             return
 
-        val jsonObject:JSONObject? = response.createJSONObject()
+        val jsonObject: JSONObject? = response.createJSONObject()
         val version = jsonObject?.getJSONString(name = "tag_name")
 
         txtVersion.text = "Latest version -> $version"

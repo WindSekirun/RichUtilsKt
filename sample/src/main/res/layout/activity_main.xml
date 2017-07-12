@@ -64,6 +64,12 @@
                 android:text="JSON" />
 
             <Button
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location" />
+
+            <Button
                 android:id="@+id/permission"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,11 +87,19 @@
                 android:layout_height="wrap_content"
                 android:text="Pick Media" />
 
-            <Button
+            <pyxis.uzuki.live.richutilskt.widget.CenteredIconButton
                 android:id="@+id/btnReboot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_launcher_round"
+                android:drawablePadding="4dp"
                 android:text="REBOOT" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnRecycler"
+                android:text="Refresh recyclerview"/>
         </LinearLayout>
     </ScrollView>
 

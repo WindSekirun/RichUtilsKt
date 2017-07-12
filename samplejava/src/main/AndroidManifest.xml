@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -33,6 +33,10 @@
         <activity android:name=".BitmapActivity"/>
         <activity android:name=".DateActivity"/>
         <activity android:name=".PickMediaActivity"/>
+        <activity android:name=".ContactActivity"/>
+        <activity android:name=".MiscActivity"/>
+        <activity android:name=".RefreshRecyclerActivity"/>
+        <activity android:name=".LocationActivity"/>
     </application>
 
 </manifest>

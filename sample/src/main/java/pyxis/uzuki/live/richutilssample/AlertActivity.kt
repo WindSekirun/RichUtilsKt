@@ -4,7 +4,7 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_alert.*
-import pyxis.uzuki.live.richutilskt.*
+import pyxis.uzuki.live.richutilskt.utils.*
 
 class AlertActivity : AppCompatActivity() {
 
@@ -12,16 +12,16 @@ class AlertActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alert)
 
-        alert.setOnClickListener({alert(message = "Hello, world!")})
+        alert.setOnClickListener({ alert(message = "Hello, world!") })
 
         selector.setOnClickListener({
-            val items:ArrayList<String> = ArrayList()
-            (1..5).mapTo(items) { it.toString() }
+            val items: ArrayList<String> = ArrayList()
+        (1..5).mapTo(items) { it.toString() }
 
-            selector(items = items, callback = { _: DialogInterface, i: Int ->
-                toast(message = "click item -> $i")
-            })
+        selector(items = items, callback = { _: DialogInterface, i: Int ->
+            toast(message = "click item -> $i")
         })
+    })
 
         confirm.setOnClickListener({
             confirm(message = "Hello, world!", callback = {

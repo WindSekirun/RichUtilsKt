@@ -2,7 +2,8 @@ package pyxis.uzuki.live.richutils.samplejava;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,8 +20,8 @@ import javax.net.ssl.HttpsURLConnection;
 
 import butterknife.BindView;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
-import pyxis.uzuki.live.richutilskt.Utils;
+import pyxis.uzuki.live.richutilskt.utils.ContactItem;
+import pyxis.uzuki.live.richutilskt.utils.Utils;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.logo) ImageView logo;
@@ -33,17 +34,20 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.preference) Button preference;
     @BindView(R.id.media) Button media;
     @BindView(R.id.btnReboot) Button btnReboot;
-
+    @BindView(R.id.contact) Button contact;
+    @BindView(R.id.btnRecycler) Button btnRecycler;
+    @BindView(R.id.location) Button location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Utils.setStatusNavBarColor(this, Color.parseColor("#303F9F"));
 
-        Utils.runAsync(() -> {
+        Utils.runNaraeAsync(() -> {
             getLatestReleaseFromGitHub();
             return Unit.INSTANCE;
-        });
+        }, 5);
 
         logo.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/WindSekirun/RichUtilsKt"));
@@ -58,6 +62,9 @@ public class MainActivity extends BaseActivity {
         permission.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PermissionActivity.class)));
         preference.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PreferenceActivity.class)));
         media.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PickMediaActivity.class)));
+        contact.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ContactActivity.class)));
+        btnRecycler.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RefreshRecyclerActivity.class)));
+        location.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, LocationActivity.class)));
     }
 
     private void getLatestReleaseFromGitHub() {
