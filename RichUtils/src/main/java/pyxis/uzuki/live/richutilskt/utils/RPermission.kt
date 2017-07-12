@@ -117,8 +117,8 @@ class RPermission private constructor(private var context: Context) {
             return instance as RPermission
         }
 
-        val PERMISSION_GRANTED = 1
-        val PERMISSION_FAILED = 2
-        val PERMISSION_ALREADY = 3
+        @JvmField val PERMISSION_GRANTED = 1
+        @JvmField val PERMISSION_FAILED = 2
+        @JvmField val PERMISSION_ALREADY = 3
     }
 }
