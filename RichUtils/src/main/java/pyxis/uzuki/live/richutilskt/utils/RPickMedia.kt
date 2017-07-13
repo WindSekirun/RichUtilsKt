@@ -135,11 +135,11 @@ class RPickMedia private constructor(private var context: Context) {
     }
 
     @SuppressLint("ValidFragment")
-    inner class RequestFragment() : Fragment() {
-        var fm : FragmentManager? = null
-        var callback : ((Int, String ) -> Unit)? = null
+    inner class ResultFragment() : Fragment() {
+        var fm: FragmentManager? = null
+        var callback: ((Int, String) -> Unit)? = null
 
-        constructor(fm: FragmentManager, callback: (Int, String ) -> Unit) : this() {
+        constructor(fm: FragmentManager, callback: (Int, String) -> Unit) : this() {
             this.fm = fm
             this.callback = callback
         }
@@ -153,7 +153,7 @@ class RPickMedia private constructor(private var context: Context) {
                 callback?.invoke(PICK_FAILED, "")
             }
 
-            fm?.beginTransaction()?.remove(this).commit()
+            fm?.beginTransaction()?.remove(this)?.commit()
 
         }
 
@@ -161,51 +161,31 @@ class RPickMedia private constructor(private var context: Context) {
             super.onActivityResult(requestCode, resultCode, data)
             when (requestCode) {
                 PICK_FROM_CAMERA ->
-                    if (resultCode == Activity.RESULT_OK) {
-                        currentPhotoPath?.let { callback?.invoke(PICK_SUCCESS, it) }
-                    }
+                    if (resultCode == Activity.RESULT_OK)
+                        currentPhotoPath?.let { callback?.invoke(PICK_SUCCESS, Uri.parse(it) getRealPath (activity)) }
 
                 PICK_FROM_GALLERY ->
-
-                    if (resultCode == Activity.RESULT_OK) {
-                        val cursor = activity.contentResolver.query(data.data, null, null, null, null)
-                        if (cursor!!.moveToNext()) {
-
-                            val path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA))
-                            cursor.close()
-
-                            callback?.invoke(PICK_SUCCESS, path)
-                        }
-
-                    }
+                    if (resultCode == Activity.RESULT_OK)
+                        callback?.invoke(PICK_SUCCESS, data.data getRealPath (activity))
 
                 PICK_FROM_VIDEO ->
+                    if (resultCode == Activity.RESULT_OK)
+                        callback?.invoke(PICK_SUCCESS, data.data getRealPath (activity))
 
+                PICK_FROM_CAMERA_VIDEO ->
                     if (resultCode == Activity.RESULT_OK) {
-                        val cursor = activity.contentResolver.query(data.data, null, null, null, null)
-                        if (cursor!!.moveToNext()) {
-
-                            val path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA))
-                            cursor.close()
-
-                            callback?.invoke(PICK_SUCCESS, path)
+                        var path = data.data.getRealPath(activity)
+                        if (path.isEmpty()) {
+                            path = currentVideoPath as String
                         }
 
+                        path.let {
+                            callback?.invoke(PICK_SUCCESS, path)
+                        }
                     }
-
-                PICK_FROM_CAMERA_VIDEO -> if (resultCode == Activity.RESULT_OK) {
-                    var path = data.data.getRealPath(activity)
-                    if (path.isEmpty()) {
-                        path = currentVideoPath as String
-                    }
-
-                    path.let {
-                        callback?.invoke(PICK_SUCCESS, path)
-                    }
-                }
             }
 
-            fm.beginTransaction().remove(this).commit()
+            fm?.beginTransaction()?.remove(this)?.commit()
 
         }
 
