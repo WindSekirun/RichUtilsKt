@@ -43,4 +43,5 @@ Update: 2017.06.27
 * [**CloseDetectorService**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/CloseDetectorService.kt)
 
 ## List of Module
-* [**RInAppBilling**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module.iap/RInAppBilling.kt)
+* [**RInAppBilling**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/iap/RInAppBilling.kt)
+* [**ImageSliderActivity**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/slider/ImageSliderActivity.kt)

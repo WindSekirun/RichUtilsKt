@@ -18,3 +18,16 @@ fun AssetManager.fileAsString(subdirectory: String, filename: String): String {
         it.readBytes().toString(Charset.defaultCharset())
     }
 }
+
+/**
+ * get File list of specific folder in Assets
+ *
+ * @param[subdirectory] name of directory
+ * @return list of file name
+ */
+fun AssetManager.asList(subdirectory: String): ArrayList<String> {
+    val list = list(subdirectory)
+    val toReturn = ArrayList<String>()
+    toReturn.addAll(list)
+    return toReturn
+}
