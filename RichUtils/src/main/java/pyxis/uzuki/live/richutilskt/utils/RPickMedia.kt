@@ -147,7 +147,7 @@ class RPickMedia private constructor(private var context: Context) {
         override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-            if (grantResults.size == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (verifyPermissions(grantResults)) {
                 requestPhotoPick(activity, requestCode, callback as ((Int, String) -> Unit))
             } else {
                 callback?.invoke(PICK_FAILED, "")
@@ -157,7 +157,7 @@ class RPickMedia private constructor(private var context: Context) {
 
         }
 
-        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
             super.onActivityResult(requestCode, resultCode, data)
             when (requestCode) {
                 PICK_FROM_CAMERA ->
@@ -166,16 +166,16 @@ class RPickMedia private constructor(private var context: Context) {
 
                 PICK_FROM_GALLERY ->
                     if (resultCode == Activity.RESULT_OK)
-                        callback?.invoke(PICK_SUCCESS, data.data getRealPath (activity))
+                        callback?.invoke(PICK_SUCCESS, data?.data?.getRealPath((activity))as String)
 
                 PICK_FROM_VIDEO ->
                     if (resultCode == Activity.RESULT_OK)
-                        callback?.invoke(PICK_SUCCESS, data.data getRealPath (activity))
+                        callback?.invoke(PICK_SUCCESS, data?.data?.getRealPath((activity)) as String)
 
                 PICK_FROM_CAMERA_VIDEO ->
                     if (resultCode == Activity.RESULT_OK) {
-                        var path = data.data.getRealPath(activity)
-                        if (path.isEmpty()) {
+                        var path = data?.data?.getRealPath(activity) as String
+                        if (path?.isEmpty()) {
                             path = currentVideoPath as String
                         }
 
@@ -191,9 +191,10 @@ class RPickMedia private constructor(private var context: Context) {
 
     }
 
+    private fun verifyPermissions(grantResults: IntArray): Boolean =
+            if (grantResults.isEmpty()) false else grantResults.none { it != PackageManager.PERMISSION_GRANTED }
+
     companion object {
-
-
         private var instance: RPickMedia? = null
 
         @JvmStatic fun getInstance(c: Context): RPickMedia {
@@ -210,8 +211,8 @@ class RPickMedia private constructor(private var context: Context) {
         val PICK_FROM_VIDEO = 2
         val PICK_FROM_CAMERA_VIDEO = 3
 
-        val PICK_SUCCESS = 1
-        val PICK_FAILED = 0
+        @JvmField val PICK_SUCCESS = 1
+        @JvmField val PICK_FAILED = 0
     }
 
 }
