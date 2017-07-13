@@ -9,13 +9,13 @@ import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.text.TextUtils
 import android.util.Log
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
-import android.text.TextUtils
 
 
 /**
@@ -38,21 +38,19 @@ fun Context.saveBitmapToFile(bitmap: Bitmap): String? {
  * get bitmap from filePath
  * @return Bitmap object
  */
-fun getBitmap(filePath: String): Bitmap? {
-    if (TextUtils.isEmpty(filePath)) return null
-    return BitmapFactory.decodeFile(filePath)
+fun String.getBitmap(): Bitmap? {
+    if (TextUtils.isEmpty(this)) return null
+    return BitmapFactory.decodeFile(this)
 }
 
 /**
  * Make bitmap corner
  * @return Bitmap object
  */
-fun toRoundCorner(original: Bitmap?, radius: Float): Bitmap? {
-    if (original == null)
-        return null
-    val width = original.width
-    val height = original.height
-    val bitmap = Bitmap.createBitmap(width, height, original.config)
+fun Bitmap.toRoundCorner(radius: Float): Bitmap? {
+    val width = this.width
+    val height = this.height
+    val bitmap = Bitmap.createBitmap(width, height, this.config)
     val paint = Paint()
     val canvas = Canvas(bitmap)
     val rect = Rect(0, 0, width, height)
@@ -60,9 +58,9 @@ fun toRoundCorner(original: Bitmap?, radius: Float): Bitmap? {
     paint.isAntiAlias = true
     canvas.drawRoundRect(RectF(rect), radius, radius, paint)
     paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
-    canvas.drawBitmap(original, rect, rect, paint)
+    canvas.drawBitmap(this, rect, rect, paint)
 
-    original.recycle()
+    this.recycle()
     return bitmap
 }
 
@@ -129,4 +127,73 @@ fun Context.requestMediaScanner(url: String) {
     val contentUri = Uri.fromFile(f)
     mediaScanIntent.data = contentUri
     this.sendBroadcast(mediaScanIntent)
+}
+
+/**
+ * Resizing image
+ *
+ * @param[width] desire width
+ * @param[height] desire height
+ * @param[mode] Resizing mode
+ * @param[isExcludeAlpha] true - exclude alpha (copy as RGB_565) false - include alpha (copy as ARGB_888)
+ */
+@JvmOverloads fun Bitmap.resize(width: Int, height: Int, mode: ResizeMode = ResizeMode.AUTOMATIC, isExcludeAlpha: Boolean = false): Bitmap {
+    var mWidth = width
+    var mHeight = height
+    var mMode = mode
+    val sourceWidth = this.width
+    val sourceHeight = this.height
+
+    if (mode == ResizeMode.AUTOMATIC) {
+        mMode = calculateResizeMode(sourceWidth, sourceHeight)
+    }
+
+    if (mMode == ResizeMode.FIT_TO_WIDTH) {
+        mHeight = calculateHeight(sourceWidth, sourceHeight, width)
+    } else if (mMode == ResizeMode.FIT_TO_HEIGHT) {
+        mWidth = calculateWidth(sourceWidth, sourceHeight, height)
+    }
+
+    val config = if (isExcludeAlpha) Bitmap.Config.RGB_565 else Bitmap.Config.ARGB_8888
+    return Bitmap.createScaledBitmap(this, mWidth, mHeight, true).copy(config, true)
+}
+
+private fun calculateResizeMode(width: Int, height: Int): ResizeMode {
+    if (ImageOrientation.getOrientation(width, height) === ImageOrientation.LANDSCAPE) {
+        return ResizeMode.FIT_TO_WIDTH
+    } else {
+        return ResizeMode.FIT_TO_HEIGHT
+    }
+}
+
+private fun calculateWidth(originalWidth: Int, originalHeight: Int, height: Int): Int {
+    return Math.ceil(originalWidth / (originalHeight.toDouble() / height)).toInt()
+}
+
+private fun calculateHeight(originalWidth: Int, originalHeight: Int, width: Int): Int {
+    return Math.ceil(originalHeight / (originalWidth.toDouble() / width)).toInt()
+}
+
+enum class ResizeMode {
+    AUTOMATIC,
+    FIT_TO_WIDTH,
+    FIT_TO_HEIGHT,
+    FIT_EXACT
+}
+
+private enum class ImageOrientation {
+    PORTRAIT,
+    LANDSCAPE;
+
+    companion object {
+
+        fun getOrientation(width: Int, height: Int): ImageOrientation {
+            if (width >= height) {
+                return ImageOrientation.LANDSCAPE
+            } else {
+                return ImageOrientation.PORTRAIT
+            }
+        }
+    }
+
 }
