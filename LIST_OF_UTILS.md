@@ -36,3 +36,6 @@ Update: 2017.06.27
 ## List of Service
 * [**RLocationService**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/RLocationService.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/LocationActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/LocationActivity.java)
 * [**CloseDetectorService**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/CloseDetectorService.kt)
+
+## List of Module
+* [**RInAppBilling**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module.iap/RInAppBilling.kt)

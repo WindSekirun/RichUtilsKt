@@ -19,6 +19,7 @@ If you have any feature to make useful develop android application, Please leave
     * Now RichUtils have **26 Utils** and **2 Widgets** and **2 Service**
 * Provide [Web Document](https://windsekirun.github.io/RichUtilsKt/)
 * Provide two sample application. one is [**Kotlin**](/sample), another is [**Java**](/samplejava)
+    * Some Utils does not provide Sample yet, but i will working on soon.
 * as Kotlin's main goal, RichUtils interoperable with **Java**
 
 ### Usages
