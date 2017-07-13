@@ -62,7 +62,8 @@ class RHintSpinner(private val context: Context) {
                 }
 
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    onItemSelectedListener?.onItemSelected(position)
+                    if (adapter.getItem(position) != hintText)
+                        onItemSelectedListener?.onItemSelected(position)
                 }
             }
         }

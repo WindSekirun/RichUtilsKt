@@ -36,15 +36,14 @@ class MiscActivity : AppCompatActivity() {
         val spinnerUtils = RHintSpinner(this)
         spinnerUtils.apply {
             spinner = spinSelect
-            setDropdownList("A", "B", "C", "D", "E")
             hintText = "Select Alphabet"
+            setDropdownList("A", "B", "C", "D", "E")
+
             setOnItemSelectedListener({ position: Int ->
                 toast("select pos\$$position")
             })
             apply()
         }
-
-
     }
 
 }
