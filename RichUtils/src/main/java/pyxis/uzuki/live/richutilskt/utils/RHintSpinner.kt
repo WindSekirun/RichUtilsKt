@@ -32,7 +32,7 @@ class RHintSpinner(private val context: Context) {
         }
     }
 
-    fun setOnItemSelectedListener(selectedCallback: (Int) -> Unit, nothingCallback: () -> Unit) {
+    @JvmOverloads fun setOnItemSelectedListener(selectedCallback: (Int) -> Unit, nothingCallback: () -> Unit = {}) {
         this.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(position: Int) {
                 selectedCallback(position)

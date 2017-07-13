@@ -33,6 +33,18 @@ class MiscActivity : AppCompatActivity() {
         applyUnReadCount(5)
         vibrate(100)
 
+        val spinnerUtils = RHintSpinner(this)
+        spinnerUtils.apply {
+            spinner = spinSelect
+            setDropdownList("A", "B", "C", "D", "E")
+            hintText = "Select Alphabet"
+            setOnItemSelectedListener({ position: Int ->
+                toast("select pos\$$position")
+            })
+            apply()
+        }
+
+
     }
 
 }

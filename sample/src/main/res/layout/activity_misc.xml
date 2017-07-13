@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         app:textPrimary="dd"
         app:textSecondary="oo"
+        app:textPrimaryColor="@color/colorPrimary"
         app:textExtraSpace="2"/>
 
     <TextView
@@ -21,4 +22,9 @@
         android:textSize="15sp"
         android:textColor="#000"
         android:id="@+id/txtResult"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/spinSelect"/>
 </LinearLayout>

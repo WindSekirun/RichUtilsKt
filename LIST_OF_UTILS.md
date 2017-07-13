@@ -1,5 +1,5 @@
 ## List of Utils
-Update: 2017.06.27
+Update: 2017.07.14
 
 * [**RAlert**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAlert.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/AlertActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/AlertActivity.java)
 * [**RAssets**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAssets.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/JSONActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/JSONActivity.java)
@@ -13,7 +13,7 @@ Update: 2017.06.27
 * [**RDrawable**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RDrawable.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/BitmapActivity.java)
 * [**RFilePath**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RFilePath.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PickMediaActivity.java)
 * [**RFont**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RFont.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
-* [**RHintSpinner**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RHintSpinner.kt) 
+* [**RHintSpinner**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RHintSpinner.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 * [**RInflater**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RInflater.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/RefreshRecyclerActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/RefreshRecyclerActivity.java)
 * [**RJson**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RJson.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/JSONActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/JSONActivity.java)
 * [**RKeyboard**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RKeyboard.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PreferenceActivity.kt)  [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PreferenceActivity.java)
@@ -36,7 +36,7 @@ Update: 2017.06.27
 * [**RefreshRecyclerView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/RefreshRecyclerView.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/RefreshRecyclerActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/RefreshRecyclerActivity.java)
 * [**CenteredIconButton**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CenteredIconButton.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
 * [**RollingViewPager**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/RollingViewPager.kt)
-* [**CombinedTextView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedTextView.kt)
+* [**CombinedTextView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedTextView.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 
 ## List of Service
 * [**RLocationService**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/RLocationService.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/LocationActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/LocationActivity.java)
