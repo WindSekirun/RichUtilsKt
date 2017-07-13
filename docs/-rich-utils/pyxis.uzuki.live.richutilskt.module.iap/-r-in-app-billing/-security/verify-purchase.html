@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RInAppBilling.Security.verifyPurchase - RichUtils</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">RichUtils</a>&nbsp;/&nbsp;<a href="../../index.html">pyxis.uzuki.live.richutilskt.module.iap</a>&nbsp;/&nbsp;<a href="../index.html">RInAppBilling</a>&nbsp;/&nbsp;<a href="index.html">Security</a>&nbsp;/&nbsp;<a href=".">verifyPurchase</a><br/>
+<br/>
+<h1>verifyPurchase</h1>
+<a name="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$verifyPurchase(kotlin.String, kotlin.String, kotlin.String, kotlin.String)"></a>
+<code><span class="keyword">fun </span><span class="identifier">verifyPurchase</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$verifyPurchase(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/productId">productId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$verifyPurchase(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/base64PublicKey">base64PublicKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$verifyPurchase(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/signedData">signedData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$verifyPurchase(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/signature">signature</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Verifies that the data was signed with the given signature, and returns
+the verified purchase. The data is in JSON format and signed
+with a private key. The data also contains the purchaseState
+and product ID of the purchase.</p>
+<h3>Parameters</h3>
+<p><a name="productId"></a>
+<code>productId</code> - the product Id used for debug validation.</p>
+<p><a name="base64PublicKey"></a>
+<code>base64PublicKey</code> - the base64-encoded public key to use for verifying.</p>
+<p><a name="signedData"></a>
+<code>signedData</code> - the signed JSON string (signed, not encrypted)</p>
+<p><a name="signature"></a>
+<code>signature</code> - the signature for the data, signed with the private key</p>
+</BODY>
+</HTML>

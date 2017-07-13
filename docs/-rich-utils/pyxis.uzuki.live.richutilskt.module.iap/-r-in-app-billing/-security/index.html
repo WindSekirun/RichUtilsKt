@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RInAppBilling.Security - RichUtils</title>
+<link rel="stylesheet" href="../../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../../index.html">RichUtils</a>&nbsp;/&nbsp;<a href="../../index.html">pyxis.uzuki.live.richutilskt.module.iap</a>&nbsp;/&nbsp;<a href="../index.html">RInAppBilling</a>&nbsp;/&nbsp;<a href=".">Security</a><br/>
+<br/>
+<h1>Security</h1>
+<code><span class="keyword">object </span><span class="identifier">Security</span></code>
+<p>Security-related methods. For a secure implementation, all of this code
+should be implemented on a server that communicates with the
+application on the device. For the sake of simplicity and clarity of this
+example, this code is included here and is executed on the device. If you
+must verify the purchases on the phone, you should obfuscate this code to
+make it harder for an attacker to replace the code with stubs that treat all
+purchases as verified.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="generate-public-key.html">generatePublicKey</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">generatePublicKey</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$generatePublicKey(kotlin.String)/encodedPublicKey">encodedPublicKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a></code>
+<p>Generates a PublicKey instance from a string containing the
+Base64-encoded public key.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="verify.html">verify</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">verify</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$verify(java.security.PublicKey, kotlin.String, kotlin.String)/publicKey">publicKey</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/security/PublicKey.html"><span class="identifier">PublicKey</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$verify(java.security.PublicKey, kotlin.String, kotlin.String)/signedData">signedData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$verify(java.security.PublicKey, kotlin.String, kotlin.String)/signature">signature</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Verifies that the signature from the server matches the computed
+signature on the data.  Returns true if the data is correctly signed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="verify-purchase.html">verifyPurchase</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">verifyPurchase</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$verifyPurchase(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/productId">productId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$verifyPurchase(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/base64PublicKey">base64PublicKey</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$verifyPurchase(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/signedData">signedData</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.Security$verifyPurchase(kotlin.String, kotlin.String, kotlin.String, kotlin.String)/signature">signature</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Verifies that the data was signed with the given signature, and returns
+the verified purchase. The data is in JSON format and signed
+with a private key. The data also contains the purchaseState
+and product ID of the purchase.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
