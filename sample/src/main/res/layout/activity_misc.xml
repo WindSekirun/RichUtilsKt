@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_height="match_parent">
+
+    <pyxis.uzuki.live.richutilskt.widget.CombinedTextView
+        android:layout_width="match_parent"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:layout_height="wrap_content"
+        app:textPrimary="dd"
+        app:textSecondary="oo"
+        app:textExtraSpace="2"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:id="@+id/txtResult"/>
+</LinearLayout>

@@ -70,6 +70,12 @@
                 android:text="Location" />
 
             <Button
+                android:id="@+id/misc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Misc" />
+
+            <Button
                 android:id="@+id/permission"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

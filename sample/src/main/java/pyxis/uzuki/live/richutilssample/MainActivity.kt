@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         preference.setOnClickListener { startActivity<PreferenceActivity>() }
         contact.setOnClickListener { startActivity<ContactActivity>() }
         btnRecycler.setOnClickListener { startActivity<RefreshRecyclerActivity>() }
+        misc.setOnClickListener { startActivity<MiscActivity>() }
     }
 
     private fun getLatestReleaseFromGitHub() {
