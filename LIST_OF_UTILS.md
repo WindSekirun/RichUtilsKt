@@ -29,7 +29,7 @@ Update: 2017.06.27
 * [**RThread**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RThread.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/BitmapActivity.java)
 * [**RUnReadCount**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RUnReadCount.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 * [**RVersion**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVersion.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MiscActivity.java)
-* [**RVibrate**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVibrate.kt)
+* [**RVibrate**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVibrate.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 
 ## List of Widgets
 
@@ -40,7 +40,6 @@ Update: 2017.06.27
 
 ## List of Service
 * [**RLocationService**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/RLocationService.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/LocationActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/LocationActivity.java)
-* [**CloseDetectorService**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/CloseDetectorService.kt)
 
 ## List of Module
 * [**RInAppBilling**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/iap/RInAppBilling.kt)

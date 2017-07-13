@@ -31,6 +31,7 @@ class MiscActivity : AppCompatActivity() {
                 "dip15f $dip15f, sp12f $sp12f, px2dip15 $px2dip15, px2sp12 $px2sp12, networkState $networkState, hash $hash"
 
         applyUnReadCount(5)
+        vibrate(100)
 
     }
 
