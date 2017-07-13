@@ -27,6 +27,7 @@ Update: 2017.06.27
 * [**RStream**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RStream.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
 * [**RThread**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RThread.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/BitmapActivity.java)
 * [**RVersion**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVersion.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MiscActivity.java)
+* [**RVibrate**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVibrate.kt)
 
 ## List of Widgets
 
