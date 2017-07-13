@@ -134,7 +134,10 @@ class RPickMedia private constructor(private var context: Context) {
     }
 
     @SuppressLint("ValidFragment")
-    private inner class ResultFragment(private val fm: FragmentManager, private val callback: (Int, String) -> Unit) : Fragment() {
+    inner class ResultFragment(private val fm: FragmentManager, private val callback: (Int, String) -> Unit) : Fragment() {
+
+        fun ResultFragment() {
+        }
 
         override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -187,7 +190,18 @@ class RPickMedia private constructor(private var context: Context) {
                     }
 
                 PICK_FROM_CAMERA_VIDEO -> if (resultCode == Activity.RESULT_OK) {
-                    currentVideoPath?.let { callback(PICK_SUCCESS, it) }
+
+                    if (resultCode == Activity.RESULT_OK) {
+                        var path = data.data.getRealPath(activity)
+                        if (path.isEmpty()) {
+                            path = currentVideoPath as String
+                        }
+
+                        path.let {
+                            callback(PICK_SUCCESS, path)
+                        }
+                    }
+
                 }
             }
 
