@@ -49,7 +49,7 @@ public class PickMediaActivity extends BaseActivity {
     }
 
     private void resultMessage(int resultCode, String path) {
-        if (resultCode == RPickMedia.Companion.getPICK_FAILED()) {
+        if (resultCode == RPickMedia.PICK_FAILED) {
             throw new SecurityException("not granted permission to pick media files");
         }
 
