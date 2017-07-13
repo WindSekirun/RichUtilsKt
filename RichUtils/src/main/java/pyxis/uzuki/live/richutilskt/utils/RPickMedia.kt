@@ -135,21 +135,25 @@ class RPickMedia private constructor(private var context: Context) {
     }
 
     @SuppressLint("ValidFragment")
-    inner class ResultFragment(private val fm: FragmentManager, private val callback: (Int, String) -> Unit) : Fragment() {
+    inner class RequestFragment() : Fragment() {
+        var fm : FragmentManager? = null
+        var callback : ((Int, String ) -> Unit)? = null
 
-        fun ResultFragment() {
+        constructor(fm: FragmentManager, callback: (Int, String ) -> Unit) : this() {
+            this.fm = fm
+            this.callback = callback
         }
 
         override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
             if (grantResults.size == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                requestPhotoPick(activity, requestCode, callback)
+                requestPhotoPick(activity, requestCode, callback as ((Int, String) -> Unit))
             } else {
-                callback(PICK_FAILED, "")
+                callback?.invoke(PICK_FAILED, "")
             }
 
-            fm.beginTransaction().remove(this).commit()
+            fm?.beginTransaction()?.remove(this).commit()
 
         }
 
@@ -157,9 +161,8 @@ class RPickMedia private constructor(private var context: Context) {
             super.onActivityResult(requestCode, resultCode, data)
             when (requestCode) {
                 PICK_FROM_CAMERA ->
-
                     if (resultCode == Activity.RESULT_OK) {
-                        currentPhotoPath?.let { callback(PICK_SUCCESS, it) }
+                        currentPhotoPath?.let { callback?.invoke(PICK_SUCCESS, it) }
                     }
 
                 PICK_FROM_GALLERY ->
@@ -171,7 +174,7 @@ class RPickMedia private constructor(private var context: Context) {
                             val path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA))
                             cursor.close()
 
-                            callback(PICK_SUCCESS, path)
+                            callback?.invoke(PICK_SUCCESS, path)
                         }
 
                     }
@@ -185,7 +188,7 @@ class RPickMedia private constructor(private var context: Context) {
                             val path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA))
                             cursor.close()
 
-                            callback(PICK_SUCCESS, path)
+                            callback?.invoke(PICK_SUCCESS, path)
                         }
 
                     }
@@ -197,7 +200,7 @@ class RPickMedia private constructor(private var context: Context) {
                     }
 
                     path.let {
-                        callback(PICK_SUCCESS, path)
+                        callback?.invoke(PICK_SUCCESS, path)
                     }
                 }
             }

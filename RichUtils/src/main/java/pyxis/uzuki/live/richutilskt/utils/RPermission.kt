@@ -41,6 +41,7 @@ class RPermission private constructor(private var context: Context) {
         return checkPermission(permissionList, callback)
     }
 
+
     /**
      * check and request Permission which given.
      *
@@ -48,6 +49,7 @@ class RPermission private constructor(private var context: Context) {
      * @param[callback] callback object
      * @return check result
      */
+            @SuppressLint("NewApi")
     fun checkPermission(list: ArrayList<String>, callback: (Int, ArrayList<String>) -> Unit): Boolean {
         if (Build.VERSION.SDK_INT < 23) {
             callback(PERMISSION_ALREADY, list)
@@ -82,7 +84,14 @@ class RPermission private constructor(private var context: Context) {
     }
 
     @SuppressLint("ValidFragment")
-    private inner class RequestFragment(private val fm: FragmentManager, private val callback: (Int, ArrayList<String>) -> Unit) : Fragment() {
+    inner class RequestFragment() : Fragment() {
+        var fm : FragmentManager? = null
+        var callback : ((Int, ArrayList<String> ) -> Unit)? = null
+
+        constructor(fm: FragmentManager, callback: (Int, ArrayList<String> ) -> Unit) : this() {
+            this.fm = fm
+            this.callback = callback
+        }
 
         override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -91,8 +100,8 @@ class RPermission private constructor(private var context: Context) {
             permissions.forEach { permissionList.add(it) }
 
             val returnCode = if (verifyPermissions(grantResults)) PERMISSION_GRANTED else PERMISSION_FAILED
-            callback(returnCode, permissionList)
-            fm.beginTransaction().remove(this).commit()
+            callback?.invoke(returnCode, permissionList)
+            fm?.beginTransaction()?.remove(this)?.commit()
         }
 
     }
