@@ -85,16 +85,11 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
     /**
      * Using when try to purchase un-consumable item
      * @param[doneCallback] callback lambda parameter
-     * @param[failedCallback] callback lambda parameter
      */
-    fun setOnInAppBillingCallback(doneCallback: (Transaction) -> Unit, failedCallback: (Int) -> Unit) {
+    fun setOnInAppBillingCallback(doneCallback: (Int, Transaction?) -> Unit) {
         this.billingCallback = object : OnInAppBillingCallback {
-            override fun purchaseDone(transaction: Transaction) {
-                doneCallback.invoke(transaction)
-            }
-
-            override fun purchaseFailed(responseCode: Int) {
-                failedCallback.invoke(responseCode)
+            override fun purchaseResult(responseCode: Int, transaction: Transaction?) {
+                doneCallback.invoke(responseCode, transaction)
             }
         }
     }
@@ -102,16 +97,11 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
     /**
      * Using when try to purchase consumable item, within using AppBillingUtils.setOnInAppBillingCallback(OnInAppBillingCallback)
      * @param[doneCallback] callback lambda parameter
-     * @param[failedCallback] callback lambda parameter
      */
-    fun setOnInAppConsumeCallback(doneCallback: (Transaction) -> Unit, failedCallback: (Int, Transaction) -> Unit) {
+    fun setOnInAppConsumeCallback(doneCallback: (Int, Transaction?) -> Unit) {
         this.consumeCallback = object : OnInAppConsumeCallback {
-            override fun consumeDone(transaction: Transaction) {
-                doneCallback.invoke(transaction)
-            }
-
-            override fun consumeFailed(responseCode: Int, transaction: Transaction) {
-                failedCallback.invoke(responseCode, transaction)
+            override fun consumeResult(responseCode: Int, transaction: Transaction?) {
+                doneCallback.invoke(responseCode, transaction)
             }
         }
     }
@@ -129,7 +119,7 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
         try {
             buyIntentBundle = mService?.getBuyIntent(3, activity.packageName, productId, type, developerPayload)
         } catch (e: RemoteException) {
-            billingCallback?.purchaseFailed(PURCHASE_FAILED_UNKNOWN)
+            billingCallback?.purchaseResult(PURCHASE_FAILED_UNKNOWN, null)
         }
 
         this.developerPayload = developerPayload
@@ -140,11 +130,11 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
                 try {
                     activity.startIntentSenderForResult(pendingIntent.intentSender, 1001, Intent(), 0, 0, 0)
                 } catch (e: Exception) {
-                    billingCallback?.purchaseFailed(PURCHASE_FAILED_UNKNOWN)
+                    billingCallback?.purchaseResult(PURCHASE_FAILED_UNKNOWN, null)
                 }
 
             } else {
-                billingCallback?.purchaseFailed(PURCHASE_FAILED_UNKNOWN)
+                billingCallback?.purchaseResult(PURCHASE_FAILED_UNKNOWN, null)
             }
         }
     }
@@ -158,9 +148,9 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
             runNaraeAsync({
                 val response = mService?.consumePurchase(3, activity.packageName, transaction.purchaseToken) as Int
                 if (response == 0 && consumeCallback != null) {
-                    consumeCallback?.consumeDone(transaction)
+                    consumeCallback?.consumeResult(PURCHASE_SUCCESS, transaction)
                 } else if (consumeCallback != null) {
-                    consumeCallback?.consumeFailed(response, transaction)
+                    consumeCallback?.consumeResult(response, transaction)
                 }
             })
         }
@@ -182,7 +172,7 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
         val jsonObject = JSONObject(jsonStr)
 
         if (jsonObject.getJSONString("developerPayload") != developerPayload) {
-            billingCallback!!.purchaseFailed(PURCHASE_FAILED_INVALID)
+            billingCallback?.purchaseResult(PURCHASE_FAILED_INVALID, null)
             return
         }
 
@@ -193,9 +183,9 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
                 jsonObject.toString(), dataSignature)
 
         if (isValidTransaction(transaction)) {
-            billingCallback!!.purchaseDone(transaction)
+            billingCallback?.purchaseResult(PURCHASE_SUCCESS, transaction)
         } else {
-            billingCallback!!.purchaseFailed(PURCHASE_FAILED_INVALID)
+            billingCallback?.purchaseResult(PURCHASE_FAILED_INVALID, null)
         }
     }
 
@@ -253,7 +243,6 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
             verifyPurchaseSignature(transaction.productId, transaction.purchaseInfo, transaction.dataSignature)
 
 
-
     /**
      * verify signature using BASE64
      * @param productId productId
@@ -270,16 +259,15 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
     }
 
     interface OnInAppBillingCallback {
-        fun purchaseDone(transaction: Transaction)
-        fun purchaseFailed(responseCode: Int)
+        fun purchaseResult(responseCode: Int, transaction: Transaction?)
     }
 
     interface OnInAppConsumeCallback {
-        fun consumeDone(transaction: Transaction)
-        fun consumeFailed(responseCode: Int, transaction: Transaction)
+        fun consumeResult(responseCode: Int, transaction: Transaction?)
     }
 
     companion object {
+        @JvmField val PURCHASE_SUCCESS = 0
         @JvmField val PURCHASE_FAILED_UNKNOWN = -1
         @JvmField val PURCHASE_FAILED_INVALID = -2
     }

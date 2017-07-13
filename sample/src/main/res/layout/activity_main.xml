@@ -58,6 +58,12 @@
                 android:text="Date" />
 
             <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/inapp"
+                android:text="inapp"/>
+
+            <Button
                 android:id="@+id/json"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

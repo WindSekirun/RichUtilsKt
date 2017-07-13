@@ -42,5 +42,5 @@ Update: 2017.07.14
 * [**RLocationService**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/RLocationService.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/LocationActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/LocationActivity.java)
 
 ## List of Module
-* [**RInAppBilling**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/iap/RInAppBilling.kt)
+* [**RInAppBilling**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/iap/RInAppBilling.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/InAppActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/InAppActivity.java)
 * [**ImageSliderActivity**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/slider/ImageSliderActivity.kt)
