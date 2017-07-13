@@ -5,6 +5,7 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
 import android.content.pm.PackageManager
+import pyxis.uzuki.live.richutilskt.widget.CombinedTextView
 
 /**
  * get version code of this application
@@ -29,4 +30,3 @@ fun Context.versionName(): String = try {
 } catch (e: PackageManager.NameNotFoundException) {
     ""
 }
-

@@ -16,7 +16,7 @@ If you have any feature to make useful develop android application, Please leave
 ### Main Feature of Library
 * Provide fully documented and High quality of many utils!
     * [List of Utils](https://github.com/WindSekirun/RichUtilsKt/blob/master/LIST_OF_UTILS.md)
-    * Now RichUtils have **29 Utils** and **3 Widgets** and **2 Service** and **1 Module**
+    * Now RichUtils have **29 Utils** and **4 Widgets** and **2 Service** and **1 Module**
 * Provide [Web Document](https://windsekirun.github.io/RichUtilsKt/)
 * Provide two sample application. one is [**Kotlin**](/sample), another is [**Java**](/samplejava)
     * Some Utils does not provide Sample yet, but i will working on soon.
@@ -24,28 +24,11 @@ If you have any feature to make useful develop android application, Please leave
 
 ### Usages
 
-#### New version of Gradle
-from *3.0.0-alpha3*, gradle syntax was changed. (as i know, not correctly)
-
-*app/build.gradle*
-
-```
-repositories {
-    maven { url 'https://jitpack.io' }
-}
-
-dependencies {
-    implementation 'com.github.WindSekirun:RichUtilsKt:1.2.0'
-}
-```
-
-#### Old version of Gradle
-
 *rootProject/build.gradle*
 ```	
 allprojects {
     repositories {
-	maven { url 'https://jitpack.io' }
+	    maven { url 'https://jitpack.io' }
     }
 }
 ```

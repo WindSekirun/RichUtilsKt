@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CombinedTextView">
+        <attr format="string" name="textPrimary"/>
+        <attr format="string" name="textSecondary"/>
+        <attr format="color" name="textPrimaryColor"/>
+        <attr format="color" name="textSecondaryColor"/>
+        <attr format="dimension" name="textPrimarySize"/>
+        <attr format="dimension" name="textSecondarySize"/>
+        <attr format="integer" name="textExtraSpace"/>
+        <attr format="string" name="fontPrimaryText"/>
+        <attr format="string" name="fontSecondaryText"/>
+    </declare-styleable>
+
+    <dimen name="combined_text_view_default_size">12sp</dimen>
+</resources>

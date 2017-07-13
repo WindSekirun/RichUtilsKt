@@ -14,7 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-class RSystemFontEngine private constructor(private val mApplication: Application) {
+internal class RSystemFontEngine private constructor(private val mApplication: Application) {
     internal var use = false
 
     val refresh: RSystemFontEngine?
