@@ -81,8 +81,9 @@ class RPickMedia private constructor(private var context: Context) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                 (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-                        ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
-            f.requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), pickType)
+                        ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+                        ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)) {
+            f.requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA), pickType)
             return
         }
 
@@ -190,18 +191,14 @@ class RPickMedia private constructor(private var context: Context) {
                     }
 
                 PICK_FROM_CAMERA_VIDEO -> if (resultCode == Activity.RESULT_OK) {
-
-                    if (resultCode == Activity.RESULT_OK) {
-                        var path = data.data.getRealPath(activity)
-                        if (path.isEmpty()) {
-                            path = currentVideoPath as String
-                        }
-
-                        path.let {
-                            callback(PICK_SUCCESS, path)
-                        }
+                    var path = data.data.getRealPath(activity)
+                    if (path.isEmpty()) {
+                        path = currentVideoPath as String
                     }
 
+                    path.let {
+                        callback(PICK_SUCCESS, path)
+                    }
                 }
             }
 
