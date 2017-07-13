@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(setTypeface(R.layout.activity_main))
+
         setStatusNavBarColor(Color.parseColor("#303F9F"))
 
         runNaraeAsync({ getLatestReleaseFromGitHub() }, 20)

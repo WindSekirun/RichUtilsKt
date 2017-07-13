@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(Utils.setTypeface(this, R.layout.activity_main));
         Utils.setStatusNavBarColor(this, Color.parseColor("#303F9F"));
 
         Utils.runNaraeAsync(() -> {
