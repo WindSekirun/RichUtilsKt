@@ -5,7 +5,6 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.text.TextUtils
 
 /**
@@ -36,7 +35,7 @@ private fun applyDefault(context: Context, count: Int, launcherClassName: String
     context.sendBroadcast(intent)
 }
 
-private fun getLauncherClassName(context: Context) : String {
+private fun getLauncherClassName(context: Context): String {
     val intent = Intent(Intent.ACTION_MAIN)
     intent.addCategory(Intent.CATEGORY_LAUNCHER)
     intent.`package` = context.packageName
