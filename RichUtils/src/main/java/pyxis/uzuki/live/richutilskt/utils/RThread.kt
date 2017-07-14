@@ -26,7 +26,7 @@ fun runOnUiThread(action: () -> Unit) = Handler(Looper.getMainLooper()).post(Run
  * @param[delayMillis] delay in ms
  * @param[action] code to execute
  */
-fun runDelayed(delayMillis: Long, action: () -> Unit) = Handler().postDelayed(Runnable(action), delayMillis)
+fun runDelayed(action: () -> Unit, delayMillis: Long) = Handler().postDelayed(Runnable(action), delayMillis)
 
 /**
  * run code inside of UI Thread after given delay
@@ -34,7 +34,7 @@ fun runDelayed(delayMillis: Long, action: () -> Unit) = Handler().postDelayed(Ru
  * @param[delayMillis] delay in ms
  * @param[action] code to execute
  */
-fun runDelayedOnUiThread(delayMillis: Long, action: () -> Unit) = Handler(Looper.getMainLooper()).postDelayed(Runnable(action), delayMillis)
+fun runDelayedOnUiThread(action: () -> Unit, delayMillis: Long) = Handler(Looper.getMainLooper()).postDelayed(Runnable(action), delayMillis)
 
 /**
  * run code inside of Background thread with custom pool size and tasksa

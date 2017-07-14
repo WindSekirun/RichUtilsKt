@@ -32,9 +32,9 @@ class RollingViewPager @JvmOverloads constructor(context: Context, attrs: Attrib
 
     private inner class AutoScrolling : Runnable {
         override fun run() {
-            runDelayed(moveDelay, {
+            runDelayed({
                 setCurrentItem(currentItem + 1, smoothScroll)
-            })
+            }, moveDelay)
 
             handler.removeCallbacks(this)
             handler.postDelayed(this, delay)
