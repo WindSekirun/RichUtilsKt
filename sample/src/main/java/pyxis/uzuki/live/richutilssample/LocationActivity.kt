@@ -53,8 +53,8 @@ class LocationActivity : AppCompatActivity() {
                             "time: ${Calendar.getInstance().time.asString()}"
         })
 
-        if (locationService?.currentBestLocation != null) {
-            val location = locationService?.currentBestLocation
+        if (locationService.currentBestLocation != null) {
+            val location = locationService.currentBestLocation
             txtLocation.text =
                     "${txtLocation.text}\n Location fetch! -> \n lat: ${location?.latitude}\n " +
                             "lng: ${location?.longitude}\n provider: ${location?.provider}\n " +

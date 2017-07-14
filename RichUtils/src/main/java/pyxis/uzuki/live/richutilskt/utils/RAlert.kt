@@ -32,53 +32,56 @@ import android.widget.Toast
  * @param[title] optional, title
  * @param[message] to display
  * @param[positiveButton] optional, button text
+ * @param[cancelable] able to cancel
  * @param[callback] callback of click ok button
  */
-@JvmOverloads fun Context.alert(title: String? = "", message: String, positiveButton: String? = null, callback: DialogInterface.() -> Unit = {}) {
-    val builder = AlertDialog.Builder(this)
-    if (!TextUtils.isEmpty(title))
-        builder.setTitle(title)
-    builder.setMessage(message)
-    builder.setPositiveButton(positiveButton ?: getString(android.R.string.ok), { dialog, _ -> dialog.callback() })
-    builder.setCancelable(true)
-    builder.show()
-}
+@JvmOverloads fun Context.alert(title: String? = "", message: String, positiveButton: String? = null, cancelable: Boolean = true, callback: DialogInterface.() -> Unit = {}) =
+        AlertDialog.Builder(this).apply {
+            if (!TextUtils.isEmpty(title))
+                setTitle(title)
+            setMessage(message)
+            setPositiveButton(positiveButton ?: getString(android.R.string.ok), { dialog, _ -> dialog.callback() })
+            setCancelable(cancelable)
+            show()
+        }
 
 /**
  * Display SelectorDialog instantly
  *
  * @param[title] optional, title
  * @param[items] list of display item
+ * @param[cancelable] able to cancel
  * @param[callback] callback of click ok button
  */
-@JvmOverloads fun Context.selector(title: String? = "", items: List<CharSequence>, callback: (DialogInterface, Int) -> Unit) {
-    val builder = AlertDialog.Builder(this)
-    if (!TextUtils.isEmpty(title))
-        builder.setTitle(title)
-    builder.setItems(Array(items.size) { i -> items[i].toString() }) { dialog, which ->
-        callback(dialog, which)
-    }
-    builder.setCancelable(true)
-    builder.show()
-}
+@JvmOverloads fun Context.selector(title: String? = "", items: List<CharSequence>, cancelable: Boolean = true, callback: (DialogInterface, Int) -> Unit) =
+        AlertDialog.Builder(this).apply {
+            if (!TextUtils.isEmpty(title))
+                setTitle(title)
+            setItems(Array(items.size) { i -> items[i].toString() }) { dialog, which ->
+                callback(dialog, which)
+            }
+            setCancelable(cancelable)
+            show()
+        }
 
 /**
  * Display SelectorDialog instantly
  *
  * @param[title] optional, title
  * @param[items] list of display item, working with generic. it will display item.toString()
+ * @param[cancelable] able to cancel
  * @param[callback] callback of click ok button
  */
-@JvmOverloads fun <T> Context.selector(title: String? = "", items: List<T>, callback: (DialogInterface, item: T, Int) -> Unit) {
-    val builder = AlertDialog.Builder(this)
-    if (!TextUtils.isEmpty(title))
-        builder.setTitle(title)
-    builder.setItems(Array(items.size) { i -> items[i].toString() }) { dialog, which ->
-        callback(dialog, items[which], which)
-    }
-    builder.setCancelable(true)
-    builder.show()
-}
+@JvmOverloads fun <T> Context.selector(title: String? = "", items: List<T>, cancelable: Boolean = true, callback: (DialogInterface, item: T, Int) -> Unit) =
+        AlertDialog.Builder(this).apply {
+            if (!TextUtils.isEmpty(title))
+                setTitle(title)
+            setItems(Array(items.size) { i -> items[i].toString() }) { dialog, which ->
+                callback(dialog, items[which], which)
+            }
+            setCancelable(cancelable)
+            show()
+        }
 
 /**
  * Display AlertDialog instantly with confirm
@@ -86,19 +89,20 @@ import android.widget.Toast
  * @param[title] optional, title
  * @param[message] to display
  * @param[positiveButton] optional, button text
- * @param[negativeButton] optional, button texxt
+ * @param[negativeButton] optional, button text
+ * @param[cancelable] able to cancel
  * @param[callback] callback of click ok button
  */
-@JvmOverloads fun Context.confirm(title: String? = "", message: String, positiveButton: String? = null, negativeButton: String? = null, callback: DialogInterface.() -> Unit) {
-    val builder = AlertDialog.Builder(this)
-    if (!TextUtils.isEmpty(title))
-        builder.setTitle(title)
-    builder.setMessage(message)
-    builder.setPositiveButton(positiveButton ?: getString(android.R.string.ok), { dialog, _ -> dialog.callback() })
-    builder.setNegativeButton(negativeButton ?: getString(android.R.string.no), { _, _ -> run {} })
-    builder.setCancelable(true)
-    builder.show()
-}
+@JvmOverloads fun Context.confirm(title: String? = "", message: String, positiveButton: String? = null, negativeButton: String? = null, cancelable: Boolean = true, callback: DialogInterface.() -> Unit) =
+    AlertDialog.Builder(this).apply {
+        if (!TextUtils.isEmpty(title))
+            setTitle(title)
+        setMessage(message)
+        setPositiveButton(positiveButton ?: getString(android.R.string.ok), { dialog, _ -> dialog.callback() })
+        setNegativeButton(negativeButton ?: getString(android.R.string.no), { _, _ ->  })
+        setCancelable(cancelable)
+        show()
+    }
 
 /**
  * Display ProgressDialog
@@ -107,25 +111,12 @@ import android.widget.Toast
  * @param[message] message
  * @return DialogInterface
  */
-fun Context.progress(title: String? = null, message: String): DialogInterface {
+@JvmOverloads fun Context.progress(title: String? = null, message: String): DialogInterface {
     return ProgressDialog(this).apply {
         setProgressStyle(ProgressDialog.STYLE_SPINNER)
         setMessage(message)
-        if (title != null) setTitle(title)
-        show()
-    }
-}
-
-/**
- * Display ProgressDialog
- *
- * @param[message] message
- * @return DialogInterface
- */
-fun Context.progress( message: String): DialogInterface {
-    return ProgressDialog(this).apply {
-        setProgressStyle(ProgressDialog.STYLE_SPINNER)
-        setMessage(message)
+        if (title != null)
+            setTitle(title)
         show()
     }
 }
