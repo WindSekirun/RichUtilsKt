@@ -23,6 +23,7 @@ If you have any feature to make useful develop android application, Please leave
 * as Kotlin's main goal, RichUtils interoperable with **Java**
 
 ### Usages
+**Some problem is here about Jitpack, i consider to move jCenter. before migrate jitpack to jCenter, use 1.2.0 or [Import 1.2.5 manually](RichUtils-release.aar)**
 
 *rootProject/build.gradle*
 ```	
@@ -36,7 +37,7 @@ allprojects {
 *app/build.gradle*
 ```
 dependencies {
-    compile 'com.github.WindSekirun:RichUtilsKt:1.2.5'
+    compile 'com.github.WindSekirun:RichUtilsKt:1.2.0'
 }
 ```
 
