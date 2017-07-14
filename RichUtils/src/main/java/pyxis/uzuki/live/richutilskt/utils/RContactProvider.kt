@@ -3,7 +3,6 @@
 
 package pyxis.uzuki.live.richutilskt.utils
 
-import android.Manifest
 import android.content.Context
 import android.provider.ContactsContract
 
@@ -20,17 +19,13 @@ data class ContactItem(var name: String, var phoneNumber: String) {
  * @return arrayList of ContactItem
  */
 fun Context.getContactsList() : ArrayList<ContactItem> {
-    return getContacts(this)
-}
-
-private fun getContacts(context:Context) : ArrayList<ContactItem> {
     val uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI
     val projection = arrayOf(ContactsContract.CommonDataKinds.Phone.NUMBER, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
     val selection = ""
     val selectionArgs = emptyArray<String>()
     val sortOrder = "${ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME} COLLATE LOCALIZED ASC"
 
-    val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
+    val cursor = this.contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
 
     val list = ArrayList<ContactItem>(cursor.count)
     cursor.moveToFirst()
@@ -43,7 +38,6 @@ private fun getContacts(context:Context) : ArrayList<ContactItem> {
     }
 
     cursor.close()
-
     return list
 }
 
