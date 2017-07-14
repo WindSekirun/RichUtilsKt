@@ -24,24 +24,17 @@ import java.util.*
  * @param[bitmap] to save
  * @return path of file
  */
-fun Context.saveBitmapToFile(bitmap: Bitmap): String? {
-    try {
-        val file = saveBitmapToFile(this, bitmap)
-        return file?.absolutePath
-    } catch (e: Exception) {
-    }
-
-    return ""
+fun Context.saveBitmapToFile(bitmap: Bitmap): String? = try {
+    saveBitmapToFile(this, bitmap)?.absolutePath
+} catch (e: Exception) {
+    ""
 }
 
 /**
  * get bitmap from filePath
  * @return Bitmap object
  */
-fun String.getBitmap(): Bitmap? {
-    if (TextUtils.isEmpty(this)) return null
-    return BitmapFactory.decodeFile(this)
-}
+fun String.getBitmap(): Bitmap? = if (TextUtils.isEmpty(this)) null else BitmapFactory.decodeFile(this)
 
 /**
  * Make bitmap corner
@@ -123,8 +116,7 @@ fun drawableToBitmap(drawable: Drawable): Bitmap {
  */
 fun Context.requestMediaScanner(url: String) {
     val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
-    val f = File(url)
-    val contentUri = Uri.fromFile(f)
+    val contentUri = Uri.fromFile(File(url))
     mediaScanIntent.data = contentUri
     this.sendBroadcast(mediaScanIntent)
 }
