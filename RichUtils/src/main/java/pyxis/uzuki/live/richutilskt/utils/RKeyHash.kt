@@ -18,8 +18,8 @@ import java.security.MessageDigest
  * @return key hash of application
  */
 @SuppressLint("PackageManagerGetSignatures")
-fun Context.getKeyHash() : String {
-    val hashList:ArrayList<String> = ArrayList()
+fun Context.getKeyHash(): String {
+    val hashList: ArrayList<String> = ArrayList()
     try {
         val info = this.packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
         for (signature in info.signatures) {

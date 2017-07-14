@@ -18,7 +18,7 @@ import java.util.*
 
 @SuppressLint("SetTextI18n")
 class LocationActivity : AppCompatActivity() {
-    var locationService: RLocationService? = null
+    lateinit var locationService: RLocationService
     var mBound = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,15 +46,15 @@ class LocationActivity : AppCompatActivity() {
 
 
     private fun init() {
-        locationService?.setLocationCallback({ location: Location ->
+        locationService.setLocationCallback({ location: Location ->
             txtLocation.text =
                     "${txtLocation.text} \n Location changed! -> \n lat: ${location.latitude}\n " +
                             "lng: ${location.longitude}\n provider: ${location.provider}\n " +
                             "time: ${Calendar.getInstance().time.asString()}"
         })
 
-        if (locationService?.currentBestLocation != null) {
-            val location = locationService?.currentBestLocation
+        if (locationService.currentBestLocation != null) {
+            val location = locationService.currentBestLocation
             txtLocation.text =
                     "${txtLocation.text}\n Location fetch! -> \n lat: ${location?.latitude}\n " +
                             "lng: ${location?.longitude}\n provider: ${location?.provider}\n " +
@@ -67,13 +67,13 @@ class LocationActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         if (mBound) {
-            locationService?.stopUpdates()
+            locationService.stopUpdates()
             unbindService(mConnection)
-        mBound = false
+            mBound = false
+        }
     }
-}
 
-private val mConnection = object : ServiceConnection {
+    private val mConnection = object : ServiceConnection {
 
         override fun onServiceConnected(className: ComponentName, service: IBinder) {
             val binder = service as RLocationService.LocalBinder
@@ -81,7 +81,7 @@ private val mConnection = object : ServiceConnection {
             mBound = true
             println("service connected!")
 
-            if (mBound && locationService != null)
+            if (mBound)
                 init()
         }
 

@@ -92,7 +92,6 @@ internal class RSystemFontEngine private constructor(private val mApplication: A
 
         @JvmStatic fun destroy() = sHelper?.let { sHelper = null }
 
-
         @JvmStatic val instance: RSystemFontEngine?
             get() {
                 if (sHelper == null) {

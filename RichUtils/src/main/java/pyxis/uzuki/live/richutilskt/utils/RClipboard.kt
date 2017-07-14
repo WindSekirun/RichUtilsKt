@@ -22,11 +22,9 @@ fun Context.copyText(text: CharSequence) {
  *
  * @return first object of primaryClip list
  */
-fun Context.getTextFromClipboard(): CharSequence? {
+fun Context.getTextFromClipboard(): String {
     val clipboard = this.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clip = clipboard.primaryClip
-    if (clip != null && clip.itemCount > 0) {
-        return clip.getItemAt(0).coerceToText(this)
-    }
-    return null
+
+    return if (clip != null && clip.itemCount > 0) clip.getItemAt(0).coerceToText(this).toString() else  ""
 }

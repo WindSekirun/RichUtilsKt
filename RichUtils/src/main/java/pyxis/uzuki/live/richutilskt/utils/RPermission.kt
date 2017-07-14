@@ -41,7 +41,6 @@ class RPermission private constructor(private var context: Context) {
         return checkPermission(permissionList, callback)
     }
 
-
     /**
      * check and request Permission which given.
      *
@@ -49,10 +48,10 @@ class RPermission private constructor(private var context: Context) {
      * @param[callback] callback object
      * @return check result
      */
-            @SuppressLint("NewApi")
+    @SuppressLint("NewApi")
     fun checkPermission(list: ArrayList<String>, callback: (Int, ArrayList<String>) -> Unit): Boolean {
         if (Build.VERSION.SDK_INT < 23) {
-            callback(PERMISSION_ALREADY, list)
+            callback(PERMISSION_GRANTED, list)
             return true
         }
 
@@ -67,28 +66,27 @@ class RPermission private constructor(private var context: Context) {
             requestPermission(notGranted, callback)
             return false
         } else {
-            callback(PERMISSION_ALREADY, list)
             return true
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun requestPermission(list: ArrayList<String>, callback: (Int, ArrayList<String>) -> Unit) {
-        val fm = getActivity(context)!!.fragmentManager
-        val f = RequestFragment(fm, callback)
+        val fm = getActivity(context)?.fragmentManager
+        val fragment = RequestFragment(fm as FragmentManager, callback)
 
-        fm.beginTransaction().add(f, "FRAGMENT_TAG").commit()
+        fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commit()
         fm.executePendingTransactions()
 
-        f.requestPermissions(list.toTypedArray(), 72)
+        fragment.requestPermissions(list.toTypedArray(), 72)
     }
 
     @SuppressLint("ValidFragment")
     inner class RequestFragment() : Fragment() {
-        var fm : FragmentManager? = null
-        var callback : ((Int, ArrayList<String> ) -> Unit)? = null
+        var fm: FragmentManager? = null
+        var callback: ((Int, ArrayList<String>) -> Unit)? = null
 
-        constructor(fm: FragmentManager, callback: (Int, ArrayList<String> ) -> Unit) : this() {
+        constructor(fm: FragmentManager, callback: (Int, ArrayList<String>) -> Unit) : this() {
             this.fm = fm
             this.callback = callback
         }
@@ -128,6 +126,5 @@ class RPermission private constructor(private var context: Context) {
 
         @JvmField val PERMISSION_GRANTED = 1
         @JvmField val PERMISSION_FAILED = 2
-        @JvmField val PERMISSION_ALREADY = 3
     }
 }

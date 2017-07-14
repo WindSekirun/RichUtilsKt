@@ -23,7 +23,7 @@ class ContactActivity : AppCompatActivity() {
 
     private fun init() {
         var text = ""
-        val progress = progress("Loading...")
+        val progress = progress(message = "Loading...")
         runAsync {
             val list = getContactsList()
             list.forEach { text = "$text \n$it" }

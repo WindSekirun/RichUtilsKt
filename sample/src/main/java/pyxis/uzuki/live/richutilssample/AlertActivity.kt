@@ -32,9 +32,9 @@ class AlertActivity : AppCompatActivity() {
         progress.setOnClickListener({
             val progress = progress(message = "Loading...")
 
-            runDelayed(10000, {
+            runDelayed( {
                 progress.dismiss()
-            })
+            }, 10000)
 
         })
     }

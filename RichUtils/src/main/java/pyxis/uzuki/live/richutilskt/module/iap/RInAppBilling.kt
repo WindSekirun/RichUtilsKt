@@ -1,6 +1,5 @@
 package pyxis.uzuki.live.richutilskt.module.iap
 
-
 import android.app.Activity
 import android.app.PendingIntent
 import android.content.ComponentName
@@ -15,15 +14,11 @@ import android.util.Base64
 import android.util.Log
 import com.android.vending.billing.IInAppBillingService
 import org.json.JSONObject
-import pyxis.uzuki.live.richutilskt.utils.getJSONInt
-import pyxis.uzuki.live.richutilskt.utils.getJSONLong
-import pyxis.uzuki.live.richutilskt.utils.getJSONString
-import pyxis.uzuki.live.richutilskt.utils.runNaraeAsync
+import pyxis.uzuki.live.richutilskt.utils.*
 import java.security.*
 import java.security.spec.InvalidKeySpecException
 import java.security.spec.X509EncodedKeySpec
 import java.util.*
-
 
 data class Transaction(var autoRenewing: String, var orderId: String, var packageName: String, var productId: String,
                        var purchaseTime: Long = 0, var purchaseState: Int = 0, var developerPayload: String, var purchaseToken: String,
@@ -47,19 +42,20 @@ data class Sku(var productId: String = "", var type: String = "", var price: Str
 }
 
 class RInAppBilling(private val activity: Activity, private val signatureBase64: String) {
-    private var billingCallback: OnInAppBillingCallback? = null
+    private lateinit var billingCallback: OnInAppBillingCallback
     private var consumeCallback: OnInAppConsumeCallback? = null
     private var developerPayload = ""
 
-    private var mService: IInAppBillingService? = null
+    private lateinit var mService: IInAppBillingService
+    private var isBoundService = false
 
     private val mServiceConn = object : ServiceConnection {
         override fun onServiceDisconnected(name: ComponentName) {
-            mService = null
+            isBoundService = false
         }
 
-        override fun onServiceConnected(name: ComponentName,
-                                        service: IBinder) {
+        override fun onServiceConnected(name: ComponentName, service: IBinder) {
+            isBoundService = true
             mService = IInAppBillingService.Stub.asInterface(service)
         }
     }
@@ -77,76 +73,78 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
      * Should be initialized in onDestroy
      */
     fun unBindInAppBilling() {
-        if (mService != null) {
+        if (isBoundService) {
             activity.unbindService(mServiceConn)
         }
     }
 
     /**
      * Using when try to purchase un-consumable item
-     * @param[doneCallback] callback lambda parameter
+     *
+     * @param[callback] callback lambda parameter
      */
-    fun setOnInAppBillingCallback(doneCallback: (Int, Transaction?) -> Unit) {
+    fun setOnInAppBillingCallback(callback: (Int, Transaction?) -> Unit) {
         this.billingCallback = object : OnInAppBillingCallback {
             override fun purchaseResult(responseCode: Int, transaction: Transaction?) {
-                doneCallback.invoke(responseCode, transaction)
+                callback.invoke(responseCode, transaction)
             }
         }
     }
 
     /**
      * Using when try to purchase consumable item, within using AppBillingUtils.setOnInAppBillingCallback(OnInAppBillingCallback)
-     * @param[doneCallback] callback lambda parameter
+     *
+     * @param[callback] callback lambda parameter
      */
-    fun setOnInAppConsumeCallback(doneCallback: (Int, Transaction?) -> Unit) {
+    fun setOnInAppConsumeCallback(callback: (Int, Transaction?) -> Unit) {
         this.consumeCallback = object : OnInAppConsumeCallback {
             override fun consumeResult(responseCode: Int, transaction: Transaction?) {
-                doneCallback.invoke(responseCode, transaction)
+                callback.invoke(responseCode, transaction)
             }
         }
     }
 
     /**
      * Purchase specific item
+     *
      * @param productId to purchase
-     * *
      * @param type inapp or sub
-     * *
      * @param developerPayload for secure working.
      */
     @JvmOverloads fun purchase(productId: String, type: String = "inapp", developerPayload: String = generateDeveloperPayload(productId, type)) {
         var buyIntentBundle: Bundle? = null
+
         try {
-            buyIntentBundle = mService?.getBuyIntent(3, activity.packageName, productId, type, developerPayload)
+            buyIntentBundle = mService.getBuyIntent(3, activity.packageName, productId, type, developerPayload)
         } catch (e: RemoteException) {
-            billingCallback?.purchaseResult(PURCHASE_FAILED_UNKNOWN, null)
+            billingCallback.purchaseResult(PURCHASE_FAILED_UNKNOWN, null)
         }
 
         this.developerPayload = developerPayload
+        if (buyIntentBundle == null)
+            billingCallback.purchaseResult(PURCHASE_FAILED_UNKNOWN, null)
 
-        if (buyIntentBundle != null) {
-            val pendingIntent = buyIntentBundle.getParcelable<PendingIntent>("BUY_INTENT")
-            if (pendingIntent != null) {
-                try {
-                    activity.startIntentSenderForResult(pendingIntent.intentSender, 1001, Intent(), 0, 0, 0)
-                } catch (e: Exception) {
-                    billingCallback?.purchaseResult(PURCHASE_FAILED_UNKNOWN, null)
-                }
-
-            } else {
-                billingCallback?.purchaseResult(PURCHASE_FAILED_UNKNOWN, null)
+        val pendingIntent = buyIntentBundle?.getParcelable<PendingIntent>("BUY_INTENT")
+        if (pendingIntent != null) {
+            try {
+                activity.startIntentSenderForResult(pendingIntent.intentSender, 1001, Intent(), 0, 0, 0)
+            } catch (e: Exception) {
+                billingCallback.purchaseResult(PURCHASE_FAILED_UNKNOWN, null)
             }
+        } else {
+            billingCallback.purchaseResult(PURCHASE_FAILED_UNKNOWN, null)
         }
     }
 
     /**
      * Consume specific item which consumable item
+     *
      * @param transaction transaction object
      */
     fun consumePurchase(transaction: Transaction?) {
         if (transaction != null) {
             runNaraeAsync({
-                val response = mService?.consumePurchase(3, activity.packageName, transaction.purchaseToken) as Int
+                val response = mService.consumePurchase(3, activity.packageName, transaction.purchaseToken)
                 if (response == 0 && consumeCallback != null) {
                     consumeCallback?.consumeResult(PURCHASE_SUCCESS, transaction)
                 } else if (consumeCallback != null) {
@@ -158,6 +156,7 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
 
     /**
      * Purchase Result billingCallback, just pass Activity's onActivityResult.
+     *
      * @param requestCode requestcode
      * @param resultCode resultCode
      * @param data intent
@@ -172,7 +171,7 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
         val jsonObject = JSONObject(jsonStr)
 
         if (jsonObject.getJSONString("developerPayload") != developerPayload) {
-            billingCallback?.purchaseResult(PURCHASE_FAILED_INVALID, null)
+            billingCallback.purchaseResult(PURCHASE_FAILED_INVALID, null)
             return
         }
 
@@ -183,16 +182,16 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
                 jsonObject.toString(), dataSignature)
 
         if (isValidTransaction(transaction)) {
-            billingCallback?.purchaseResult(PURCHASE_SUCCESS, transaction)
+            billingCallback.purchaseResult(PURCHASE_SUCCESS, transaction)
         } else {
-            billingCallback?.purchaseResult(PURCHASE_FAILED_INVALID, null)
+            billingCallback.purchaseResult(PURCHASE_FAILED_INVALID, null)
         }
     }
 
     /**
      * get Available 'inapp' package of own package name.
+     *
      * @param items Strings of item's id
-     * *
      * @return ArrayList of [sku][Sku]
      */
     fun getAvailableInappPackage(items: ArrayList<String>): ArrayList<Sku> {
@@ -200,7 +199,7 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
         val querySkus = Bundle()
         querySkus.putStringArrayList("ITEM_ID_LIST", items)
 
-        val skuDetails = mService!!.getSkuDetails(3, activity.packageName, "inapp", querySkus)
+        val skuDetails = mService.getSkuDetails(3, activity.packageName, "inapp", querySkus)
         val response = skuDetails.getInt("RESPONSE_CODE")
 
         if (response != 0)
@@ -224,7 +223,8 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
     }
 
     /**
-     * generate developerpayload using nonce(UUID)
+     * generate developerPayload using nonce(UUID)
+     *
      * @param productId productId of product
      * @param type inapp or sub
      * @return random generated developerPayload
@@ -232,19 +232,18 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
     fun generateDeveloperPayload(productId: String, type: String): String =
             "$productId:$type:${UUID.randomUUID().toString().replace("-".toRegex(), "")}"
 
-
     /**
      * Checking transaction is valid.
-     * @param transaction transcation object
-     * *
+     *
+     * @param transaction transaction object
      * @return true - valid, false - invalid
      */
     fun isValidTransaction(transaction: Transaction): Boolean =
             verifyPurchaseSignature(transaction.productId, transaction.purchaseInfo, transaction.dataSignature)
 
-
     /**
      * verify signature using BASE64
+     *
      * @param productId productId
      * @param purchaseData purchaseData (full-jsonStr)
      * @param dataSignature signature key
@@ -272,7 +271,7 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
         @JvmField val PURCHASE_FAILED_INVALID = -2
     }
 
-    /* Copyright (c) 2012 Google Inc.
+     /* Copyright (c) 2012 Google Inc.
       *
       * Licensed under the Apache License, Version 2.0 (the "License");
       * you may not use this file except in compliance with the License.
@@ -383,5 +382,4 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
             return false
         }
     }
-
 }

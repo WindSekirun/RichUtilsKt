@@ -53,10 +53,10 @@ public class AlertActivity extends BaseActivity {
         progress.setOnClickListener(view -> {
             ProgressDialog dialog = (ProgressDialog) Utils.progress(this, "", "Loading...");
 
-            Utils.runDelayed(10000, () -> {
+            Utils.runDelayed(() -> {
                 dialog.dismiss();
                 return Unit.INSTANCE;
-            });
+            }, 10000);
         });
     }
 }

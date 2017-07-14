@@ -7,6 +7,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.support.v4.app.ActivityCompat
 
 /**
  * Reboot application
@@ -30,5 +31,7 @@ private fun finishAffinity(activity: Activity) {
         activity.finishAffinity()
     } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
         activity.runOnUiThread { activity.finishAffinity() }
+    } else {
+        ActivityCompat.finishAffinity(activity)
     }
 }

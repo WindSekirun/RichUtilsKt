@@ -18,8 +18,8 @@ import android.view.ViewGroup
  * @param[parent] ViewGroup object
  * @param[isAttachedRoot] isAttachedRoot
  */
-@JvmOverloads fun Context.setTypeface(@LayoutRes layoutRes: Int, parent: ViewGroup? = null, isAttachedRoot: Boolean = false) : View? =
-    RSystemFontEngine.instance?.setTypeface(this, layoutRes, parent, isAttachedRoot)
+@JvmOverloads fun Context.setTypeface(@LayoutRes layoutRes: Int, parent: ViewGroup? = null, isAttachedRoot: Boolean = false): View? =
+        RSystemFontEngine.instance?.setTypeface(this, layoutRes, parent, isAttachedRoot)
 
 /**
  * Set system font into ViewGroup
@@ -30,8 +30,8 @@ import android.view.ViewGroup
  * @param[parent] ViewGroup object
  * @param[isAttachedRoot] isAttachedRoot
  */
-@JvmOverloads fun Context.setTypeface(view: ViewGroup, parent: ViewGroup? = null, isAttachedRoot: Boolean = false) : View? =
-    RSystemFontEngine.instance?.setTypeface(this, view, parent, isAttachedRoot)
+@JvmOverloads fun Context.setTypeface(view: ViewGroup, parent: ViewGroup? = null, isAttachedRoot: Boolean = false): View? =
+        RSystemFontEngine.instance?.setTypeface(this, view, parent, isAttachedRoot)
 
 /**
  * Initialize SystemFontEngine

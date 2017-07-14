@@ -5,15 +5,11 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import android.app.Activity
 import android.content.Context
-import android.view.WindowManager
 import android.os.Build
 import android.support.annotation.ColorInt
 import android.support.annotation.IntRange
 import android.view.Window
-import android.support.annotation.NonNull
-
-
-
+import android.view.WindowManager
 /**
  * Set Color of status bar and navigation bar
  *
@@ -38,7 +34,7 @@ import android.support.annotation.NonNull
  * @param[alpha] alpha value
  * @return applyed color
  */
-fun applyAlphaIntoColor(@ColorInt color: Int, @IntRange(from = 0, to=255) alpha: Int): Int {
+fun applyAlphaIntoColor(@ColorInt color: Int, @IntRange(from = 0, to = 255) alpha: Int): Int {
     if (alpha == 0) return color
     val a = 1 - alpha / 255f
     var red = color shr 16 and 0xff

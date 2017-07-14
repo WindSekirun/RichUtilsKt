@@ -15,8 +15,7 @@ import java.util.*
  */
 
 class RHintSpinner(private val context: Context) {
-    var spinner: Spinner? = null
-    private var adapter: ArrayAdapter<String>? = null
+    lateinit var spinner: Spinner
     var dropdownList: ArrayList<String> = ArrayList()
     var hintText = ""
 
@@ -45,7 +44,6 @@ class RHintSpinner(private val context: Context) {
     }
 
     fun apply() {
-        checkAvailable()
         val adapter = ListAdapter()
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         adapter += dropdownList
@@ -53,7 +51,7 @@ class RHintSpinner(private val context: Context) {
         if (hintText.isNotEmpty())
             adapter.add(hintText)
 
-        spinner?.let {
+        spinner.let {
             it.adapter = adapter
             it.setSelection(adapter.count)
             it.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -68,17 +66,6 @@ class RHintSpinner(private val context: Context) {
             }
         }
     }
-
-    private fun checkAvailable() {
-        if (spinner == null) {
-            throw NullPointerException("Spinner is null")
-        }
-
-        if (dropdownList.isEmpty()) {
-            throw NullPointerException("Empty list")
-        }
-    }
-
 
     private inner class ListAdapter : ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item) {
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {

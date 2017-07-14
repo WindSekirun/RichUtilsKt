@@ -18,24 +18,27 @@ import pyxis.uzuki.live.richutilskt.utils.inflate
 
 @Suppress("UNCHECKED_CAST")
 abstract class ImageSliderActivity : AppCompatActivity() {
-    private var viewPager: ViewPager? = null
-    private var imageList: ArrayList<String>? = null
+
+    private val viewPager by lazy {
+        findViewById(R.id.viewPager) as ViewPager
+    }
+
+    private lateinit var imageList: ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_slider)
-        viewPager = findViewById(R.id.viewPager) as ViewPager
 
-        imageList = intent.getSerializableExtra(IMAGE_LIST) as ArrayList<String>?
+        imageList = intent.getSerializableExtra(IMAGE_LIST) as ArrayList<String>
 
         val pagerAdapter = DemoPagerAdapter(supportFragmentManager)
-        viewPager?.adapter = pagerAdapter
+        viewPager.adapter = pagerAdapter
     }
 
     private inner class DemoPagerAdapter internal constructor(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 
         override fun getCount(): Int {
-            return imageList?.size as Int
+            return imageList.size
         }
 
         override fun getItem(position: Int): Fragment {
@@ -54,8 +57,8 @@ abstract class ImageSliderActivity : AppCompatActivity() {
             val v = inflate(R.layout.fragment_slider, container)
             val imgDemo = v.findViewById(R.id.imgDemo) as ImageView
 
-            imgDemo.setImageBitmap(imageList?.get(arguments.getInt("pos"))?.getBitmap())
-            return super.onCreateView(inflater, container, savedInstanceState)
+            imgDemo.setImageBitmap(imageList[arguments.getInt("pos")].getBitmap())
+            return v
         }
     }
 

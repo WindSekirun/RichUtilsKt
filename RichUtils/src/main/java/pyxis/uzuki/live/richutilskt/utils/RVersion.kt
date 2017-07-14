@@ -4,29 +4,16 @@
 package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
-import android.content.pm.PackageManager
-import pyxis.uzuki.live.richutilskt.widget.CombinedTextView
+import pyxis.uzuki.live.richutilskt.getValue
 
 /**
  * get version code of this application
- *
  * @return version code
- * @since 1.0.2
  */
-fun Context.versionCode(): Int = try {
-    this.packageManager.getPackageInfo(this.packageName, 0).versionCode
-} catch (e: PackageManager.NameNotFoundException) {
-    0
-}
+fun Context.versionCode(): Int = getValue({ this.packageManager.getPackageInfo(this.packageName, 0).versionCode }, 0)
 
 /**
  * get version name of this application
- *
  * @return version code
- * @since 1.0.2
  */
-fun Context.versionName(): String = try {
-    this.packageManager.getPackageInfo(this.packageName, 0).versionName
-} catch (e: PackageManager.NameNotFoundException) {
-    ""
-}
+fun Context.versionName(): String = getValue({ this.packageManager.getPackageInfo(this.packageName, 0).versionName }, "")

@@ -44,15 +44,17 @@ class MainActivity : AppCompatActivity() {
 
         val url = URL(apiPath)
         val conn = url.openConnection() as HttpURLConnection
-        conn.connectTimeout = 10000
-        conn.requestMethod = "GET"
 
-        val resCode = conn.responseCode
-        if (resCode == HttpURLConnection.HTTP_OK) {
-            val inputStream = conn.inputStream
-            val response: String = inputStream.getString()
-            runOnUiThread { parsingReleaseData(response) }
-            conn.disconnect()
+        conn.use {
+            conn.connectTimeout = 10000
+            conn.requestMethod = "GET"
+
+            val resCode = conn.responseCode
+            if (resCode == HttpURLConnection.HTTP_OK) {
+                val inputStream = conn.inputStream
+                val response: String = inputStream.getString()
+                runOnUiThread { parsingReleaseData(response) }
+            }
         }
     }
 
