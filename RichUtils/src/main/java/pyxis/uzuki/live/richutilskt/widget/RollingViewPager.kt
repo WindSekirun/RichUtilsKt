@@ -13,10 +13,6 @@ class RollingViewPager @JvmOverloads constructor(context: Context, attrs: Attrib
     private var moveDelay = 100L
     private val autoScrolling: AutoScrolling = AutoScrolling()
 
-    init {
-
-    }
-
     override fun onInterceptTouchEvent(event: MotionEvent): Boolean {
         try {
             return flingAble && super.onInterceptTouchEvent(event)

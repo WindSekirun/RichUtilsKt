@@ -59,8 +59,7 @@ class RefreshRecyclerView : RecyclerView {
     fun setOnRefreshListener(callback: () -> Unit) {
        refreshCallback = object : OnRefreshListener {
            override fun onRefresh() {
-               callback.invoke()
-
+               callback()
            }
        }
     }
