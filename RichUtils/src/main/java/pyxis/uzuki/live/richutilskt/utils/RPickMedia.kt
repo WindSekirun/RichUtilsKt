@@ -72,10 +72,10 @@ class RPickMedia private constructor(private var context: Context) {
     @SuppressLint("ValidFragment")
     private fun requestPhotoPick(context: Context, pickType: Int, callback: (Int, String) -> Unit) {
 
-        val fm = getActivity(context)!!.fragmentManager
-        val f = ResultFragment(fm, callback)
+        val fm = getActivity(context)?.fragmentManager
+        val fragment = ResultFragment(fm as FragmentManager, callback)
 
-        fm.beginTransaction().add(f, "FRAGMENT_TAG").commit()
+        fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commit()
         fm.executePendingTransactions()
 
 
@@ -83,7 +83,7 @@ class RPickMedia private constructor(private var context: Context) {
                 (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
                         ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
                         ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)) {
-            f.requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA), pickType)
+            fragment.requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA), pickType)
             return
         }
 
@@ -115,7 +115,7 @@ class RPickMedia private constructor(private var context: Context) {
             }
         }
 
-        f.startActivityForResult(intent, pickType)
+        fragment.startActivityForResult(intent, pickType)
     }
 
     private fun createImageUri(context: Context): Uri {
@@ -166,7 +166,7 @@ class RPickMedia private constructor(private var context: Context) {
 
                 PICK_FROM_GALLERY ->
                     if (resultCode == Activity.RESULT_OK)
-                        callback?.invoke(PICK_SUCCESS, data?.data?.getRealPath((activity))as String)
+                        callback?.invoke(PICK_SUCCESS, data?.data?.getRealPath((activity)) as String)
 
                 PICK_FROM_VIDEO ->
                     if (resultCode == Activity.RESULT_OK)
@@ -175,7 +175,7 @@ class RPickMedia private constructor(private var context: Context) {
                 PICK_FROM_CAMERA_VIDEO ->
                     if (resultCode == Activity.RESULT_OK) {
                         var path = data?.data?.getRealPath(activity) as String
-                        if (path?.isEmpty()) {
+                        if (path.isEmpty()) {
                             path = currentVideoPath as String
                         }
 
