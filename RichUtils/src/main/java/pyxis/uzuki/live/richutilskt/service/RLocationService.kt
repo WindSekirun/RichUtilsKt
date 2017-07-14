@@ -20,7 +20,6 @@ import android.view.WindowManager
 import java.io.IOException
 import java.util.*
 
-@Suppress("SENSELESS_COMPARISON")
 @SuppressLint("MissingPermission")
 class RLocationService : Service() {
 
@@ -44,12 +43,11 @@ class RLocationService : Service() {
     private val TWO_MINUTES = 1000 * 60 * 2
     private val MIN_BEARING_DIFF = 2.0f
     private val FASTEST_INTERVAL_IN_MS = 1000L
-    private val TAG = "RLocationService"
 
     private var bearing: Float = 0f
     private var axisX: Int = 0
     private var axisY: Int = 0
-    var currentBestLocation: Location? = null
+    lateinit var currentBestLocation: Location
     private var locationCallback: LocationCallback? = null
 
     override fun onBind(intent: Intent?) = localBinder
@@ -97,13 +95,8 @@ class RLocationService : Service() {
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, FASTEST_INTERVAL_IN_MS, 0.0f, networkLocationListener)
         }
 
-        if (bestLastKnownLocation != null) {
-            Log.i(TAG, "Received last known location via old API: " + bestLastKnownLocation)
-            if (bearing != null) {
-                bestLastKnownLocation.bearing = bearing
-            }
-            locationCallback?.handleNewLocation(currentBestLocation as Location)
-        }
+        bestLastKnownLocation.bearing = bearing
+        locationCallback?.handleNewLocation(currentBestLocation)
 
         val mSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
         sensorManager.registerListener(sensorEventListener, mSensor, SensorManager.SENSOR_DELAY_NORMAL * 5)
@@ -139,20 +132,19 @@ class RLocationService : Service() {
      *
      * @return List<Address> or null
      */
-    fun Context.getGeocoderAddress(): List<Address>? {
-        if (currentBestLocation != null) {
-            val geocoder = Geocoder(this, Locale.ENGLISH)
-            try {
-                return geocoder.getFromLocation((currentBestLocation as Location).latitude, (currentBestLocation as Location).longitude, 1)
-            } catch (e: IOException) {
-                Log.e(TAG, "Impossible to connect to Geocoder", e)
-            }
+    fun Context.getGeoCoderAddress(): List<Address>? {
+        val geoCoder = Geocoder(this, Locale.ENGLISH)
+        try {
+            return geoCoder.getFromLocation(currentBestLocation.latitude, (currentBestLocation as Location).longitude, 1)
+        } catch (e: IOException) {
+            Log.e(RLocationService::class.java.simpleName, "Impossible to connect to Geocoder", e)
         }
+
         return null
     }
 
     private fun Context.getFirstAddress(): Address? {
-        val addresses = getGeocoderAddress()
+        val addresses = getGeoCoderAddress()
         if (addresses != null && addresses.isNotEmpty())
             return addresses[0]
         else
@@ -224,7 +216,6 @@ class RLocationService : Service() {
 
     private fun isSameProvider(provider1: String?, provider2: String?): Boolean = if (provider1 == null) provider2 == null else provider1 == provider2
 
-
     private inner class LocationChangeListener : android.location.LocationListener {
         override fun onLocationChanged(location: Location?) {
             if (location == null) {
@@ -233,9 +224,7 @@ class RLocationService : Service() {
 
             if (isBetterLocation(location, currentBestLocation)) {
                 currentBestLocation = location
-                if (bearing != null) {
-                    (currentBestLocation as Location).bearing = bearing
-                }
+                (currentBestLocation as Location).bearing = bearing
                 locationCallback?.handleNewLocation(currentBestLocation as Location)
             }
         }
@@ -248,7 +237,7 @@ class RLocationService : Service() {
     private inner class SensorListener : SensorEventListener {
         override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
             if (sensor?.type == Sensor.TYPE_ROTATION_VECTOR) {
-                Log.i(TAG, "Rotation sensor accuracy changed to: " + accuracy)
+                Log.i(RLocationService::class.java.simpleName, "Rotation sensor accuracy changed to: " + accuracy)
             }
         }
 
@@ -264,15 +253,11 @@ class RLocationService : Service() {
             val azimuth = Math.toDegrees(orientationValues[0].toDouble())
 
             val newBearing = azimuth
-            bearing = if (bearing == null) 0f else bearing
-
             val abs = Math.abs(bearing.minus(newBearing).toFloat()) > MIN_BEARING_DIFF
 
-            if (bearing == null || abs) {
+            if (abs) {
                 bearing = newBearing.toFloat()
-                if (currentBestLocation != null) {
-                    (currentBestLocation as Location).bearing = bearing
-                }
+                currentBestLocation.bearing = bearing
             }
         }
     }
@@ -280,9 +265,7 @@ class RLocationService : Service() {
     private fun readDisplayRotation() {
         axisX = SensorManager.AXIS_X
         axisY = SensorManager.AXIS_Y
-        when (display?.rotation) {
-            Surface.ROTATION_0 -> {
-            }
+        when (display.rotation) {
             Surface.ROTATION_90 -> {
                 axisX = SensorManager.AXIS_Y
                 axisY = SensorManager.AXIS_MINUS_X
@@ -291,8 +274,6 @@ class RLocationService : Service() {
             Surface.ROTATION_270 -> {
                 axisX = SensorManager.AXIS_MINUS_Y
                 axisY = SensorManager.AXIS_X
-            }
-            else -> {
             }
         }
     }
