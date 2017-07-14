@@ -3,6 +3,8 @@
 
 package pyxis.uzuki.live.richutilskt.utils
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import java.io.File
 import java.io.InputStream
 
@@ -47,4 +49,23 @@ fun InputStream.outAsFile(file: File): File {
     }
 
     return file
+}
+
+/**
+ * get Bitmap from InputStream
+ *
+ * @return Bitmap object
+ */
+fun InputStream.outAsBitmap(): Bitmap? {
+    var bitmap: Bitmap? = null
+
+    try {
+        bitmap = BitmapFactory.decodeStream(this)
+    } catch (e: Exception) {
+        println(e.message)
+    } finally {
+        this.close()
+    }
+
+    return bitmap
 }

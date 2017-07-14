@@ -10,7 +10,6 @@ import android.content.Context
  *
  * @param[value] to convert
  * @return calculated dip
- * @since 1.0.1
  */
 fun Context.dip2px(value: Int): Int = (value * resources.displayMetrics.density).toInt()
 
@@ -28,7 +27,6 @@ fun Context.dip2px(value: Float): Int = (value * resources.displayMetrics.densit
  *
  * @param[value] to convert
  * @return calculated sp
- * @since 1.0.1
  */
 fun Context.sp2px(value: Int): Int = (value * resources.displayMetrics.scaledDensity).toInt()
 
@@ -37,25 +35,22 @@ fun Context.sp2px(value: Int): Int = (value * resources.displayMetrics.scaledDen
  *
  * @param[value] to convert
  * @return calculated sp
- * @since 1.0.1
  */
 fun Context.sp2px(value: Float): Int = (value * resources.displayMetrics.scaledDensity).toInt()
 
 /**
  * convert px to dip
  *
- * @param[value] to convert
+ * @param[px] to convert
  * @return calculated dip
- * @since 1.0.1
  */
 fun Context.px2dip(px: Int): Float = px.toFloat() / resources.displayMetrics.density
 
 /**
  * convert px to sp
  *
- * @param[value] to convert
+ * @param[px] to convert
  * @return calculated sp
- * @since 1.0.1
  */
 fun Context.px2sp(px: Int): Float = px.toFloat() / resources.displayMetrics.scaledDensity
 
@@ -64,6 +59,5 @@ fun Context.px2sp(px: Int): Float = px.toFloat() / resources.displayMetrics.scal
  *
  * @param[resource] dimen res to convert
  * @return proper pixel size
- * @since 1.0.1
  */
 fun Context.dimen(resource: Int): Int = resources.getDimensionPixelSize(resource)

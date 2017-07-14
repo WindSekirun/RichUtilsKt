@@ -28,14 +28,7 @@ fun downloadBitmap(imageUrl: String): Bitmap? {
 
         val resCode = conn.responseCode
         if (resCode == HttpURLConnection.HTTP_OK) {
-            val inputStream = conn.inputStream
-            try {
-                val bitmap = BitmapFactory.decodeStream(inputStream)
-                bmp = bitmap
-            } finally {
-                inputStream?.close()
-                conn.disconnect()
-            }
+            bmp = conn.inputStream.outAsBitmap()
         }
     } catch (e: Exception) {
         println(e.toString())
@@ -43,7 +36,6 @@ fun downloadBitmap(imageUrl: String): Bitmap? {
 
     return bmp
 }
-
 
 /**
  * Download file from uri
