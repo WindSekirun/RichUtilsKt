@@ -5,7 +5,6 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import java.io.File
 import java.net.HttpURLConnection
@@ -18,23 +17,20 @@ import java.net.URL
  * @return Bitmap object
  */
 fun downloadBitmap(imageUrl: String): Bitmap? {
-    var bmp: Bitmap? = null
-    try {
-        val url = URL(imageUrl)
-        val conn = url.openConnection() as HttpURLConnection
+    var bitmap: Bitmap? = null
+    val url = URL(imageUrl)
+    val conn = url.openConnection() as HttpURLConnection
 
+    conn.use {
         conn.connectTimeout = 10000
         conn.requestMethod = "GET"
-
         val resCode = conn.responseCode
         if (resCode == HttpURLConnection.HTTP_OK) {
-            bmp = conn.inputStream.outAsBitmap()
+            bitmap = conn.inputStream.outAsBitmap()
         }
-    } catch (e: Exception) {
-        println(e.toString())
     }
 
-    return bmp
+    return bitmap
 }
 
 /**
@@ -46,32 +42,44 @@ fun downloadBitmap(imageUrl: String): Bitmap? {
  */
 fun Context.downloadFile(urlPath: String, name: String): Uri? {
     var uri: Uri? = null
-    try {
-        val url = URL(urlPath)
-        val conn = url.openConnection() as HttpURLConnection
+    val url = URL(urlPath)
+    val conn = url.openConnection() as HttpURLConnection
 
+    conn.use {
         conn.connectTimeout = 10000
         conn.requestMethod = "GET"
         val resCode = conn.responseCode
 
         if (resCode == HttpURLConnection.HTTP_OK) {
-
-            val inputStream = conn.inputStream
-
-            try {
-                val path = this.getExternalFilesDir(null).absolutePath + "/" + name
-                var file = File(path)
-                file.createNewFile()
-
-                file = inputStream.outAsFile(file)
-                uri = Uri.fromFile(file)
-            } finally {
-                conn.disconnect()
-            }
+            val path = this.getExternalFilesDir(null).absolutePath + "/" + name
+            uri = Uri.fromFile(conn.inputStream.outAsFile(File(path)))
         }
-    } catch (e: Exception) {
-        println(e.toString())
     }
 
     return uri
+}
+
+/**
+ * Executes the given [block] function on this resource and then closes it down correctly whether an exception
+ * is thrown or not.
+ *
+ * @param block a function to process this [HttpURLConnection] resource.
+ * @return the result of [block] function invoked on this resource.
+ */
+inline fun <R> HttpURLConnection.use(block: (HttpURLConnection) -> R): R {
+    var closed = false
+    try {
+        return block(this)
+    } catch (e: Exception) {
+        closed = true
+        try {
+            this.disconnect()
+        } catch (closeException: Exception) {
+        }
+        throw e
+    } finally {
+        if (!closed) {
+            this.disconnect()
+        }
+    }
 }

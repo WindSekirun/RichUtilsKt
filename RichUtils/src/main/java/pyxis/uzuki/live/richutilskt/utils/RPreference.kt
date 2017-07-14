@@ -5,6 +5,7 @@ package pyxis.uzuki.live.richutilskt.utils
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+import pyxis.uzuki.live.richutilskt.getValue
 
 class RPreference private constructor(c: Context) {
     private val editor: SharedPreferences.Editor
@@ -86,11 +87,7 @@ class RPreference private constructor(c: Context) {
      * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
      * @return String object
      */
-    fun getValue(key: String, def: String = ""): String = try {
-        pref.getString(key, def)
-    } catch (e: Exception) {
-        def
-    }
+    @JvmOverloads fun getString(key: String, def: String = ""): String = getValue({ pref.getString(key, def) }, def)
 
     /**
      * get Char value from SharedPreference
@@ -99,11 +96,7 @@ class RPreference private constructor(c: Context) {
      * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
      * @return Char object
      */
-    fun getValue(key: String, def: Char = '\u0000'): Char = try {
-        pref.getString(key, def.toString())[0]
-    } catch (e: Exception) {
-        def
-    }
+    @JvmOverloads fun getChar(key: String, def: Char = '\u0000'): Char = getValue({ pref.getString(key, def.toString())[0] }, def)
 
     /**
      * get CharSequence value from SharedPreference
@@ -112,11 +105,7 @@ class RPreference private constructor(c: Context) {
      * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
      * @return CharSequence object
      */
-    fun getValue(key: String, def: CharSequence = ""): CharSequence = try {
-        pref.getString(key, def.toString())
-    } catch (e: Exception) {
-        def
-    }
+    @JvmOverloads fun getCharSequence(key: String, def: CharSequence = ""): CharSequence = getValue({ pref.getString(key, def.toString()) }, def)
 
     /**
      * get Int value from SharedPreference
@@ -125,11 +114,7 @@ class RPreference private constructor(c: Context) {
      * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
      * @return Int object
      */
-    fun getValue(key: String, def: Int = 0): Int = try {
-        pref.getInt(key, def)
-    } catch (e: Exception) {
-        def
-    }
+    @JvmOverloads fun getInt(key: String, def: Int = 0): Int = getValue({ pref.getInt(key, def) }, def)
 
     /**
      * get Long value from SharedPreference
@@ -138,11 +123,7 @@ class RPreference private constructor(c: Context) {
      * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
      * @return Long object
      */
-    fun getValue(key: String, def: Long = 0): Long = try {
-        pref.getLong(key, def)
-    } catch (e: Exception) {
-        def
-    }
+    @JvmOverloads fun getLong(key: String, def: Long = 0): Long = getValue({ pref.getLong(key, def) }, def)
 
     /**
      * get Float value from SharedPreference
@@ -151,11 +132,7 @@ class RPreference private constructor(c: Context) {
      * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
      * @return Float object
      */
-    fun getValue(key: String, def: Float = 0f): Float = try {
-        pref.getFloat(key, def)
-    } catch (e: Exception) {
-        def
-    }
+    @JvmOverloads fun getFloat(key: String, def: Float = 0f): Float = getValue({ pref.getFloat(key, def) }, def)
 
     /**
      * get Double value from SharedPreference
@@ -164,11 +141,7 @@ class RPreference private constructor(c: Context) {
      * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
      * @return Double object
      */
-    fun getValue(key: String, def: Double = 0.toDouble()): Double = try {
-        pref.getString(key, def.toString()).toDouble()
-    } catch (e: Exception) {
-        def
-    }
+    @JvmOverloads fun getDouble(key: String, def: Double = 0.toDouble()): Double = getValue({ pref.getString(key, def.toString()).toDouble() }, def)
 
     /**
      * get Boolean value from SharedPreference
@@ -177,15 +150,10 @@ class RPreference private constructor(c: Context) {
      * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
      * @return Boolean object
      */
-    fun getValue(key: String, def: Boolean = false): Boolean = try {
-        pref.getBoolean(key, def)
-    } catch (e: Exception) {
-        def
-    }
+    @JvmOverloads fun getBoolean(key: String, def: Boolean = false): Boolean = getValue({ pref.getBoolean(key, def) }, def)
 
     /**
      * delete key-value from SharedPreference
-     *
      * @param[key] key to delete
      */
     fun delete(key: String) = editor.remove(key).commit()

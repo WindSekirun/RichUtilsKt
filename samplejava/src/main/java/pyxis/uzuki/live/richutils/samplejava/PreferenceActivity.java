@@ -23,7 +23,7 @@ public class PreferenceActivity extends BaseActivity {
 
         RPreference pref = RPreference.getInstance(this);
         String key = "preferenceActivity";
-        value = pref.getValue(key, "");
+        value = pref.getString(key);
 
         editPref.setText(value);
         editPref.setSelection(editPref.length());
@@ -35,7 +35,7 @@ public class PreferenceActivity extends BaseActivity {
 
         btnLoad.setOnClickListener(v -> {
             Utils.hideKeyboard(this);
-            value = pref.getValue(key, "");
+            value = pref.getString(key);
 
             editPref.setText(value);
             editPref.setSelection(editPref.length());

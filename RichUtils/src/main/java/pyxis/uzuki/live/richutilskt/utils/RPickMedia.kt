@@ -2,7 +2,6 @@
 
 package pyxis.uzuki.live.richutilskt.utils
 
-
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity

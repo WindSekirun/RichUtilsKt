@@ -14,7 +14,7 @@ class PreferenceActivity : AppCompatActivity() {
 
         var pref: RPreference = RPreference.getInstance(this)
         val key = "preferenceActivity"
-        var value = pref.getValue(key = key, def = "")
+        var value = pref.getString(key = key)
 
         editPref.setText(value)
         editPref.setSelection(editPref.length())
@@ -26,7 +26,7 @@ class PreferenceActivity : AppCompatActivity() {
 
         btnLoad.setOnClickListener {
             hideKeyboard()
-            value = pref.getValue(key = key, def = "")
+            value = pref.getString(key = key)
 
             editPref.setText(value)
             editPref.setSelection(editPref.length())

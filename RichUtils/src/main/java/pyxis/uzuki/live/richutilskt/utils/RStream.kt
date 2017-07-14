@@ -13,20 +13,8 @@ import java.io.InputStream
  *
  * @return response string
  */
-fun InputStream.getString(): String {
-    var response: String = ""
-
-    try {
-        this.bufferedReader().use {
-            response = it.readText()
-        }
-    } catch (e: Exception) {
-        println(e.message)
-    } finally {
-        this.close()
-    }
-
-    return response
+fun InputStream.getString(): String = this.bufferedReader().use {
+    it.readText()
 }
 
 /**
@@ -36,18 +24,13 @@ fun InputStream.getString(): String {
  * @return File object which gaven as parameter
  */
 fun InputStream.outAsFile(file: File): File {
-    try {
-        use { input ->
-            file.outputStream().use { fileOut ->
-                input.copyTo(fileOut)
-            }
-        }
-    } catch (e: Exception) {
-        println(e.message)
-    } finally {
-        this.close()
-    }
+    file.createNewFile()
 
+    use { input ->
+        file.outputStream().use { fileOut ->
+            input.copyTo(fileOut)
+        }
+    }
     return file
 }
 
@@ -56,16 +39,6 @@ fun InputStream.outAsFile(file: File): File {
  *
  * @return Bitmap object
  */
-fun InputStream.outAsBitmap(): Bitmap? {
-    var bitmap: Bitmap? = null
-
-    try {
-        bitmap = BitmapFactory.decodeStream(this)
-    } catch (e: Exception) {
-        println(e.message)
-    } finally {
-        this.close()
-    }
-
-    return bitmap
+fun InputStream.outAsBitmap(): Bitmap? = use {
+    BitmapFactory.decodeStream(it)
 }

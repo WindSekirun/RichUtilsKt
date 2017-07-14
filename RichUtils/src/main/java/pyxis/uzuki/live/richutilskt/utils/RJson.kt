@@ -4,52 +4,33 @@
 package pyxis.uzuki.live.richutilskt.utils
 
 import org.json.JSONArray
-import org.json.JSONException
 import org.json.JSONObject
+import pyxis.uzuki.live.richutilskt.convert
+import pyxis.uzuki.live.richutilskt.convertAcceptNull
 
 /**
  * create JSONObject from String
- *
  * @return JSONObject object
  */
-fun String.createJSONObject(): JSONObject? = try {
-    JSONObject(this)
-} catch (e: JSONException) {
-    null
-}
+fun String.createJSONObject(): JSONObject? = this.convertAcceptNull({ JSONObject(this) }, null)
 
 /**
  * create JSONObject from Map
- *
  * @return JSONObject object
  */
-fun Map<*, *>.createJSONObject(): JSONObject? = try {
-    JSONObject(this)
-} catch (e: JSONException) {
-    null
-}
+fun Map<*, *>.createJSONObject(): JSONObject? = this.convertAcceptNull({ JSONObject(this) }, null)
 
 /**
  * create JSONArray from String
- *
  * @return JSONObject object
  */
-fun String.createJSONArray(): JSONArray? = try {
-    JSONArray(this)
-} catch (e: JSONException) {
-    null
-}
+fun String.createJSONArray(): JSONArray? = this.convertAcceptNull({ JSONArray(this) }, null)
 
 /**
  * create JSONArray from Map
- *
  * @return JSONArray object
  */
-fun List<*>.createJSONArray(): JSONArray? = try {
-    JSONArray(this)
-} catch (e: JSONException) {
-    null
-}
+fun List<*>.createJSONArray(): JSONArray? = this.convertAcceptNull({ JSONArray(this) }, null)
 
 /**
  * get JSONObject from JSONObject
@@ -58,11 +39,7 @@ fun List<*>.createJSONArray(): JSONArray? = try {
  * @param[name] name of key
  * @return JSONObject object
  */
-fun getJSONObject(jsonObject: JSONObject?, name: String): JSONObject? = try {
-    jsonObject?.getJSONObject(name)
-} catch (e: JSONException) {
-    null
-}
+fun getJSONObject(jsonObject: JSONObject?, name: String): JSONObject? = jsonObject.convertAcceptNull({ it?.getJSONObject(name) }, null)
 
 /**
  * get JSONObject from JSONArray
@@ -71,11 +48,7 @@ fun getJSONObject(jsonObject: JSONObject?, name: String): JSONObject? = try {
  * @param[index] index of key
  * @return JSONObject object
  */
-fun getJSONObject(jsonArray: JSONArray?, index: Int): JSONObject? = try {
-    jsonArray?.getJSONObject(index)
-} catch (e: JSONException) {
-    null
-}
+fun getJSONObject(jsonArray: JSONArray?, index: Int): JSONObject? = jsonArray.convertAcceptNull({ it?.getJSONObject(index) }, null)
 
 /**
  * get JSONArray from JSONObject
@@ -84,11 +57,7 @@ fun getJSONObject(jsonArray: JSONArray?, index: Int): JSONObject? = try {
  * @param[name] name of key
  * @return JSONArray object
  */
-fun getJSONArray(jsonObject: JSONObject?, name: String): JSONArray? = try {
-    jsonObject?.getJSONArray(name)
-} catch (e: JSONException) {
-    null
-}
+fun getJSONArray(jsonObject: JSONObject?, name: String): JSONArray? = jsonObject.convertAcceptNull({ it?.getJSONArray(name) }, null)
 
 /**
  * get JSONArray from JSONArray
@@ -97,11 +66,7 @@ fun getJSONArray(jsonObject: JSONObject?, name: String): JSONArray? = try {
  * @param[index] index of key
  * @return JSONArray object
  */
-fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = try {
-    jsonArray?.getJSONArray(index)
-} catch (e: JSONException) {
-    null
-}
+fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = jsonArray.convertAcceptNull({ it?.getJSONArray(index) }, null)
 
 /**
  * get String from JSONObject
@@ -110,12 +75,7 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = try {
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return String object
  */
-@JvmOverloads fun JSONObject.getJSONString(name: String, def: String = ""): String = try {
-    this.getString(name)
-} catch (e: JSONException) {
-    def
-}
-
+@JvmOverloads fun JSONObject.getJSONString(name: String, def: String = ""): String = this.convert({ it.getString(name) }, def)
 
 /**
  * get String from JSONArray
@@ -124,11 +84,7 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = try {
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return String object
  */
-@JvmOverloads fun JSONArray.getJSONString(index: Int, def: String = ""): String = try {
-    this.getString(index)
-} catch (e: JSONException) {
-    def
-}
+@JvmOverloads fun JSONArray.getJSONString(index: Int, def: String = ""): String = this.convert({ it.getString(index) }, def)
 
 /**
  * get Int from JSONObject
@@ -137,11 +93,7 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = try {
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Int object
  */
-@JvmOverloads fun JSONObject.getJSONInt(name: String, def: Int = 0): Int = try {
-    this.getInt(name)
-} catch (e: JSONException) {
-    def
-}
+@JvmOverloads fun JSONObject.getJSONInt(name: String, def: Int = 0): Int = this.convert({ it.getInt(name) }, def)
 
 /**
  * get Int from JSONArray
@@ -150,12 +102,7 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = try {
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Int object
  */
-@JvmOverloads fun JSONArray.getJSONInt(index: Int, def: Int = 0): Int = try {
-    this.getInt(index)
-} catch (e: JSONException) {
-    def
-}
-
+@JvmOverloads fun JSONArray.getJSONInt(index: Int, def: Int = 0): Int = this.convert({ it.getInt(index) }, def)
 
 /**
  * get Boolean from JSONObject
@@ -164,11 +111,7 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = try {
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Boolean object
  */
-@JvmOverloads fun JSONObject.getJSONBoolean(name: String, def: Boolean = false): Boolean = try {
-    this.getBoolean(name)
-} catch (e: JSONException) {
-    def
-}
+@JvmOverloads fun JSONObject.getJSONBoolean(name: String, def: Boolean = false): Boolean = this.convert({ it.getBoolean(name) }, def)
 
 /**
  * get Boolean from JSONArray
@@ -177,11 +120,7 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = try {
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Boolean object
  */
-@JvmOverloads fun JSONArray.getJSONBoolean(index: Int, def: Boolean = false): Boolean = try {
-    this.getBoolean(index)
-} catch (e: JSONException) {
-    def
-}
+@JvmOverloads fun JSONArray.getJSONBoolean(index: Int, def: Boolean = false): Boolean = this.convert({ it.getBoolean(index) }, def)
 
 /**
  * get Double from JSONObject
@@ -190,11 +129,7 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = try {
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Double object
  */
-@JvmOverloads fun JSONObject.getJSONDouble(name: String, def: Double = 0.toDouble()): Double = try {
-    this.getDouble(name)
-} catch (e: JSONException) {
-    def
-}
+@JvmOverloads fun JSONObject.getJSONDouble(name: String, def: Double = 0.toDouble()): Double = this.convert({ it.getDouble(name) }, def)
 
 /**
  * get Double from JSONArray
@@ -203,25 +138,16 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = try {
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Double object
  */
-@JvmOverloads fun JSONArray.getJSONDouble(index: Int, def: Double = 0.toDouble()): Double = try {
-    this.getDouble(index)
-} catch (e: JSONException) {
-    def
-}
+@JvmOverloads fun JSONArray.getJSONDouble(index: Int, def: Double = 0.toDouble()): Double = this.convert({ it.getDouble(index) }, def)
 
 /**
  * get Long from JSONObject
  *
- * @param[name]
- * name of key
+ * @param[name] name of key
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Long object
  */
-@JvmOverloads fun JSONObject.getJSONLong(name: String, def: Long = 0.toLong()): Long = try {
-    this.getLong(name)
-} catch (e: JSONException) {
-    def
-}
+@JvmOverloads fun JSONObject.getJSONLong(name: String, def: Long = 0.toLong()): Long = this.convert({ it.getLong(name) }, def)
 
 /**
  * get Long from JSONArray
@@ -230,11 +156,7 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = try {
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Long object
  */
-@JvmOverloads fun JSONArray.getJSONLong(index: Int, def: Long = 0.toLong()): Long = try {
-    this.getLong(index)
-} catch (e: JSONException) {
-    def
-}
+@JvmOverloads fun JSONArray.getJSONLong(index: Int, def: Long = 0.toLong()): Long = this.convert({ it.getLong(index) }, def)
 
 /**
  * put value to JSONObject
