@@ -26,10 +26,6 @@ internal class RAsync {
     companion object {
         private val DEFAULT_POOL_SIZE = Attributes.coresCount + 1
         private val DEFAULT_TASK_TYPE = "NaraeAsync_" + Attributes.randomTaskType
-
-        private val CPU_COUNT = Runtime.getRuntime().availableProcessors()
-        private val CORE_POOL_SIZE = CPU_COUNT + 1
-
         @JvmStatic var instance: RAsync = RAsync()
     }
 
@@ -62,10 +58,12 @@ internal class RAsync {
                 val lockObject = ""
                 synchronized(lockObject) {
                     var executor: Executor? = BackgroundThreadExecutor.sCachedExecutors[executorId]
+
                     if (executor == null) {
                         executor = Executors.newFixedThreadPool(settingPoolSize)
                         BackgroundThreadExecutor.sCachedExecutors.put(executorId, executor)
                     }
+
                     return executor!!
                 }
             }
@@ -97,6 +95,7 @@ internal class RAsync {
                         return java.util.regex.Pattern.matches("cpu[0-9]+", pathname.name)
                     }
                 }
+
                 try {
                     val dir = java.io.File("/sys/devices/system/cpu/")
                     val files = dir.listFiles(CpuFilter())
@@ -112,10 +111,7 @@ internal class RAsync {
         val randomTaskType: String
             get() {
                 val buffer = StringBuilder()
-
-                val chars = "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z"
-                        .split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-
+                val chars = "a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z".split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
                 for (i in 0..4)
                     buffer.append(chars[random.nextInt(chars.size)])
 
