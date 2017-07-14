@@ -47,7 +47,7 @@ class RLocationService : Service() {
     private var bearing: Float = 0f
     private var axisX: Int = 0
     private var axisY: Int = 0
-    lateinit var currentBestLocation: Location
+    var currentBestLocation: Location? = null
     private var locationCallback: LocationCallback? = null
 
     override fun onBind(intent: Intent?) = localBinder
@@ -95,8 +95,8 @@ class RLocationService : Service() {
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, FASTEST_INTERVAL_IN_MS, 0.0f, networkLocationListener)
         }
 
-        bestLastKnownLocation.bearing = bearing
-        locationCallback?.handleNewLocation(currentBestLocation)
+        bestLastKnownLocation?.bearing = bearing
+        locationCallback?.handleNewLocation(currentBestLocation as Location)
 
         val mSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR)
         sensorManager.registerListener(sensorEventListener, mSensor, SensorManager.SENSOR_DELAY_NORMAL * 5)
@@ -135,7 +135,7 @@ class RLocationService : Service() {
     fun Context.getGeoCoderAddress(): List<Address>? {
         val geoCoder = Geocoder(this, Locale.ENGLISH)
         try {
-            return geoCoder.getFromLocation(currentBestLocation.latitude, (currentBestLocation as Location).longitude, 1)
+            return geoCoder.getFromLocation(currentBestLocation?.latitude ?: 0.0, currentBestLocation?.longitude ?: 0.0, 1)
         } catch (e: IOException) {
             Log.e(RLocationService::class.java.simpleName, "Impossible to connect to Geocoder", e)
         }
@@ -224,7 +224,7 @@ class RLocationService : Service() {
 
             if (isBetterLocation(location, currentBestLocation)) {
                 currentBestLocation = location
-                (currentBestLocation as Location).bearing = bearing
+                currentBestLocation?.bearing = bearing
                 locationCallback?.handleNewLocation(currentBestLocation as Location)
             }
         }
@@ -257,7 +257,7 @@ class RLocationService : Service() {
 
             if (abs) {
                 bearing = newBearing.toFloat()
-                currentBestLocation.bearing = bearing
+                currentBestLocation?.bearing = bearing
             }
         }
     }
