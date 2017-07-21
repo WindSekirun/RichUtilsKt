@@ -75,7 +75,7 @@ class RPermission private constructor(private var context: Context) {
         val fm = getActivity(context)?.fragmentManager
         val fragment = RequestFragment(fm as FragmentManager, callback)
 
-        fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commit()
+        fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commitAllowingStateLoss()
         fm.executePendingTransactions()
 
         fragment.requestPermissions(list.toTypedArray(), 72)
@@ -99,7 +99,7 @@ class RPermission private constructor(private var context: Context) {
 
             val returnCode = if (verifyPermissions(grantResults)) PERMISSION_GRANTED else PERMISSION_FAILED
             callback?.invoke(returnCode, permissionList)
-            fm?.beginTransaction()?.remove(this)?.commit()
+            fm?.beginTransaction()?.remove(this)?.commitAllowingStateLoss()
         }
 
     }

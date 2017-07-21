@@ -74,7 +74,7 @@ class RPickMedia private constructor(private var context: Context) {
         val fm = getActivity(context)?.fragmentManager
         val fragment = ResultFragment(fm as FragmentManager, callback)
 
-        fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commit()
+        fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commitAllowingStateLoss()
         fm.executePendingTransactions()
 
 
@@ -152,7 +152,7 @@ class RPickMedia private constructor(private var context: Context) {
                 callback?.invoke(PICK_FAILED, "")
             }
 
-            fm?.beginTransaction()?.remove(this)?.commit()
+            fm?.beginTransaction()?.remove(this)?.commitAllowingStateLoss()
 
         }
 
