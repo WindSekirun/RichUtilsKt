@@ -34,7 +34,7 @@ class RPermission private constructor(private var context: Context) {
      * @param[callback] callback object
      * @return check result
      */
-    fun checkPermission(array: Array<String>, callback: (Int, ArrayList<String>) -> Unit): Boolean {
+    @JvmOverloads fun checkPermission(array: Array<String>, callback: (Int, ArrayList<String>) -> Unit = { _, _ -> }): Boolean {
         val permissionList: ArrayList<String> = ArrayList()
         array.forEach { permissionList.add(it) }
 
@@ -94,14 +94,12 @@ class RPermission private constructor(private var context: Context) {
         override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-            val permissionList: ArrayList<String> = ArrayList()
-            permissions.forEach { permissionList.add(it) }
+            val permissionList: ArrayList<String> = getVerifiedPermissions(permissions)
 
             val returnCode = if (verifyPermissions(grantResults)) PERMISSION_GRANTED else PERMISSION_FAILED
             callback?.invoke(returnCode, permissionList)
             fm?.beginTransaction()?.remove(this)?.commit()
         }
-
     }
 
     private fun verifyPermissions(grantResults: IntArray): Boolean {
@@ -110,6 +108,16 @@ class RPermission private constructor(private var context: Context) {
         }
 
         return grantResults.none { it != PackageManager.PERMISSION_GRANTED }
+    }
+
+    private fun getVerifiedPermissions(permissions: Array<String>): ArrayList<String> {
+        val permissionList: ArrayList<String> = ArrayList()
+        permissions.forEach {
+            if (ContextCompat.checkSelfPermission(context, it) == PackageManager.PERMISSION_GRANTED)
+                permissionList.add(it)
+        }
+
+        return permissionList
     }
 
     companion object {
