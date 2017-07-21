@@ -16,7 +16,7 @@ If you have any feature to make useful develop android application, Please leave
 ### Main Feature of Library
 * Provide fully documented and High quality of many utils!
     * [List of Utils](https://github.com/WindSekirun/RichUtilsKt/blob/master/LIST_OF_UTILS.md)
-    * Now RichUtils have **29 Utils** and **4 Widgets** and **1 Service** and **2 Module**
+    * Now RichUtils have **29 Utils** and **3 Widgets** and **1 Service** and **1 Module**
 * Provide [Web Document](https://windsekirun.github.io/RichUtilsKt/)
 * Provide two sample application. one is [**Kotlin**](/sample), another is [**Java**](/samplejava)
     * Some Utils does not provide Sample yet, but i will working on soon.
@@ -36,7 +36,7 @@ allprojects {
 *app/build.gradle*
 ```
 dependencies {
-    compile 'com.github.WindSekirun:RichUtilsKt:1.2.5.1'
+    compile 'com.github.WindSekirun:RichUtilsKt:1.3.0'
 }
 ```
 

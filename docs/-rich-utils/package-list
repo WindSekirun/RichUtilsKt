@@ -70,7 +70,6 @@ $dokka.location:pyxis.uzuki.live.richutilskt.utils$versionName(android.content.C
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$vibrate(android.content.Context, kotlin.Long)pyxis.uzuki.live.richutilskt.utils/android.content.-context/vibrate.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$vibrate(android.content.Context, kotlin.LongArray, kotlin.Int)pyxis.uzuki.live.richutilskt.utils/android.content.-context/vibrate.html
 pyxis.uzuki.live.richutilskt.module.iap
-pyxis.uzuki.live.richutilskt.module.slider
 pyxis.uzuki.live.richutilskt.service
 pyxis.uzuki.live.richutilskt.utils
 pyxis.uzuki.live.richutilskt.widget
