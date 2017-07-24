@@ -62,7 +62,7 @@ class RPreference private constructor(c: Context) {
      * @param[key] key of preference
      * @param[value] value to input
      */
-    fun put(key: String, value: Float) = editor.putFloat(key, value)
+    fun put(key: String, value: Float) = editor.putFloat(key, value).commit()
 
     /**
      * put Double to SharedPreference
@@ -70,7 +70,7 @@ class RPreference private constructor(c: Context) {
      * @param[key] key of preference
      * @param[value] value to input
      */
-    fun put(key: String, value: Double) = editor.putString(key, value.toString())
+    fun put(key: String, value: Double) = editor.putString(key, value.toString()).commit()
 
     /**
      * put Char to SharedPreference
@@ -79,6 +79,26 @@ class RPreference private constructor(c: Context) {
      * @param[value] value to input
      */
     fun put(key: String, value: Char) = editor.putString(key, value.toString()).commit()
+
+    /**
+     * Put any value to SharedPreference
+     *
+     * @param[pair] Pair of String and Any
+     */
+    fun put(pair: Pair<String, Any>) {
+        val key = pair.first
+        val value = pair.second
+        when (value) {
+            is String -> put(key, value)
+            is CharSequence -> put(key, value)
+            is Boolean -> put(key, value)
+            is Int -> put(key, value)
+            is Long -> put(key, value)
+            is Float -> put(key, value)
+            is Double -> put(key, value)
+            is Char -> put(key, value)
+        }
+    }
 
     /**
      * get String value from SharedPreference

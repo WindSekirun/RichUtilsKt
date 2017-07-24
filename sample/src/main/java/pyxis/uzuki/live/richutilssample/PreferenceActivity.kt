@@ -21,7 +21,7 @@ class PreferenceActivity : AppCompatActivity() {
 
         btnSave.setOnClickListener {
             hideKeyboard()
-            pref.put(key, editPref.text.toString())
+            pref.put(key to editPref.text.toString())
         }
 
         btnLoad.setOnClickListener {
