@@ -21,7 +21,7 @@ import javax.net.ssl.HttpsURLConnection;
 import butterknife.BindView;
 import kotlin.Unit;
 import pyxis.uzuki.live.richutilskt.utils.ContactItem;
-import pyxis.uzuki.live.richutilskt.utils.Utils;
+import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.logo) ImageView logo;
@@ -41,10 +41,10 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(Utils.setTypeface(this, R.layout.activity_main));
-        Utils.setStatusNavBarColor(this, Color.parseColor("#303F9F"));
+        setContentView(RichUtils.setTypeface(this, R.layout.activity_main));
+        RichUtils.setStatusNavBarColor(this, Color.parseColor("#303F9F"));
 
-        Utils.runNaraeAsync(() -> {
+        RichUtils.runNaraeAsync(() -> {
             getLatestReleaseFromGitHub();
             return Unit.INSTANCE;
         }, 5);
@@ -54,7 +54,7 @@ public class MainActivity extends BaseActivity {
             startActivity(intent);
         });
 
-        btnReboot.setOnClickListener(view -> Utils.reboot(this));
+        btnReboot.setOnClickListener(view -> RichUtils.reboot(this));
         alert.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, AlertActivity.class)));
         bitmap.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, BitmapActivity.class)));
         date.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, DateActivity.class)));
@@ -78,7 +78,7 @@ public class MainActivity extends BaseActivity {
             int resCode = connection.getResponseCode();
             if (resCode == HttpsURLConnection.HTTP_OK) {
                 InputStream stream = connection.getInputStream();
-                String response = Utils.getString(stream);
+                String response = RichUtils.getString(stream);
                 runOnUiThread(() -> parsingReleaseData(response));
                 connection.disconnect();
             }
@@ -92,9 +92,9 @@ public class MainActivity extends BaseActivity {
         if (TextUtils.isEmpty(response))
             return;
 
-        JSONObject jsonObject = Utils.createJSONObject(response);
+        JSONObject jsonObject = RichUtils.createJSONObject(response);
         if (jsonObject != null) {
-            String version = Utils.getJSONString(jsonObject, "tag_name", "");
+            String version = RichUtils.getJSONString(jsonObject, "tag_name", "");
             txtVersion.setText("Latest version -> " + version);
         }
     }

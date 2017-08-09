@@ -8,7 +8,7 @@ import android.widget.TextView;
 import org.json.JSONObject;
 
 import butterknife.BindView;
-import pyxis.uzuki.live.richutilskt.utils.Utils;
+import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 /**
  * Created by pyxis on 2017. 6. 12..
@@ -23,8 +23,8 @@ public class JSONActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json);
 
-        String jsonStr = Utils.fileAsString(this.getAssets(), "json", "customer.json");
-        JSONObject jsonObject = Utils.createJSONObject(jsonStr);
+        String jsonStr = RichUtils.fileAsString(this.getAssets(), "json", "customer.json");
+        JSONObject jsonObject = RichUtils.createJSONObject(jsonStr);
 
         if (jsonObject == null) {
             txtResult.setText("Json file isn't given!");
@@ -32,9 +32,9 @@ public class JSONActivity extends BaseActivity {
         }
 
 
-        String firstName = Utils.getJSONString(jsonObject, "firstName");
-        String lastName = Utils.getJSONString(jsonObject, "lastName");
-        int age = Utils.getJSONInt(jsonObject, "age");
+        String firstName = RichUtils.getJSONString(jsonObject, "firstName");
+        String lastName = RichUtils.getJSONString(jsonObject, "lastName");
+        int age = RichUtils.getJSONInt(jsonObject, "age");
 
 
 

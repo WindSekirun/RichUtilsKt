@@ -7,7 +7,7 @@ import android.widget.EditText;
 
 import butterknife.BindView;
 import pyxis.uzuki.live.richutilskt.utils.RPreference;
-import pyxis.uzuki.live.richutilskt.utils.Utils;
+import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 public class PreferenceActivity extends BaseActivity {
     @BindView(R.id.editPref) EditText editPref;
@@ -29,12 +29,12 @@ public class PreferenceActivity extends BaseActivity {
         editPref.setSelection(editPref.length());
 
         btnSave.setOnClickListener(v -> {
-            Utils.hideKeyboard(this);
+            RichUtils.hideKeyboard(this);
             pref.put(key, editPref.getText().toString());
         });
 
         btnLoad.setOnClickListener(v -> {
-            Utils.hideKeyboard(this);
+            RichUtils.hideKeyboard(this);
             value = pref.getString(key);
 
             editPref.setText(value);
@@ -42,7 +42,7 @@ public class PreferenceActivity extends BaseActivity {
         });
 
         btnClear.setOnClickListener(v -> {
-            Utils.hideKeyboard(this);
+            RichUtils.hideKeyboard(this);
             pref.clear();
 
             editPref.setText("");

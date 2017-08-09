@@ -9,7 +9,7 @@ import android.widget.TextView;
 import java.util.Date;
 
 import butterknife.BindView;
-import pyxis.uzuki.live.richutilskt.utils.Utils;
+import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 /**
  * Created by pyxis on 2017. 6. 12..
@@ -26,20 +26,20 @@ public class DateActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date);
 
-        Date date = Utils.parseDate("2016-11-23 11:11:11");
+        Date date = RichUtils.parseDate("2016-11-23 11:11:11");
         String asString = "";
         if (date != null) {
-            asString = Utils.asString(date);
+            asString = RichUtils.asString(date);
         }
 
-        String formatted = Utils.toDateString("2016-11-23 11:11:11", "yyyy-Mm-dd HH:mm:ss", "yyyy.MM.dd");
+        String formatted = RichUtils.toDateString("2016-11-23 11:11:11", "yyyy-Mm-dd HH:mm:ss", "yyyy.MM.dd");
         long timestamp = 149648887L;
-        String tsStr = Utils.asDateString(timestamp, true);
+        String tsStr = RichUtils.asDateString(timestamp, true);
 
-        btnCopy.setOnClickListener(view -> Utils.copyText(this, editCopy.getText().toString()));
+        btnCopy.setOnClickListener(view -> RichUtils.copyText(this, editCopy.getText().toString()));
 
         btnLoad.setOnClickListener(view -> {
-            String value = (String) Utils.getTextFromClipboard(this);
+            String value = (String) RichUtils.getTextFromClipboard(this);
             editCopy.setText(value);
             editCopy.setSelection(editCopy.length());
         });

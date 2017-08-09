@@ -9,7 +9,7 @@ import android.widget.Button;
 import butterknife.BindView;
 import kotlin.Unit;
 import pyxis.uzuki.live.richutilskt.utils.RPermission;
-import pyxis.uzuki.live.richutilskt.utils.Utils;
+import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 /**
  * Created by pyxis on 2017. 6. 12..
@@ -27,7 +27,7 @@ public class PermissionActivity extends BaseActivity {
             String[] arrays = new String[]{Manifest.permission.CALL_PHONE};
 
             RPermission.getInstance(this).checkPermission(arrays, (integer, strings) -> {
-                Utils.alert(PermissionActivity.this,
+                RichUtils.alert(PermissionActivity.this,
                         "Permission result ->" + integer + " / Requested Permission: " + TextUtils.join(",", strings));
                 return Unit.INSTANCE;
             });

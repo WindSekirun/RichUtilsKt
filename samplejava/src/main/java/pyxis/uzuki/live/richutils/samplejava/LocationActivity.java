@@ -20,7 +20,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import pyxis.uzuki.live.richutilskt.service.RLocationService;
 import pyxis.uzuki.live.richutilskt.utils.RPermission;
-import pyxis.uzuki.live.richutilskt.utils.Utils;
+import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 @SuppressLint("SetTextI18n")
 public class LocationActivity extends BaseActivity {
@@ -33,7 +33,7 @@ public class LocationActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
-        txtLocation.setText("Ready for fetch... \nnow time is " + Utils.asString(Calendar.getInstance().getTime()) + "\n=========================");
+        txtLocation.setText("Ready for fetch... \nnow time is " + RichUtils.asString(Calendar.getInstance().getTime()) + "\n=========================");
 
         String[] arrays = new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
 
@@ -56,14 +56,14 @@ public class LocationActivity extends BaseActivity {
     private void init() {
         locationService.setLocationCallback(location -> {
             txtLocation.setText(txtLocation.getText().toString() + "\n Location changed! -> \nlat: " + location.getLatitude() +
-            "\nlng: " + location.getLongitude() + "\n provider: " + location.getProvider() + "\n time: " +  Utils.asString(Calendar.getInstance().getTime()));
+            "\nlng: " + location.getLongitude() + "\n provider: " + location.getProvider() + "\n time: " +  RichUtils.asString(Calendar.getInstance().getTime()));
             return Unit.INSTANCE;
         });
 
         if (locationService.getCurrentBestLocation() != null) {
             Location location = locationService.getCurrentBestLocation();
             txtLocation.setText(txtLocation.getText().toString() + "\n Location changed! -> \nlat: " + location.getLatitude() +
-                    "\nlng: " + location.getLongitude() + "\n provider: " + location.getProvider() + "\n time: " +  Utils.asString(Calendar.getInstance().getTime()));
+                    "\nlng: " + location.getLongitude() + "\n provider: " + location.getProvider() + "\n time: " +  RichUtils.asString(Calendar.getInstance().getTime()));
         } else {
             txtLocation.setText(txtLocation.getText().toString() + "\nNot fetched...");
             txtLocation.setText(txtLocation.getText().toString() + "\nNot fetched...");

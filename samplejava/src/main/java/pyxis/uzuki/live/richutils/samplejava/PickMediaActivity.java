@@ -10,9 +10,8 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function2;
 import pyxis.uzuki.live.richutilskt.utils.RPickMedia;
-import pyxis.uzuki.live.richutilskt.utils.Utils;
+import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 public class PickMediaActivity extends BaseActivity {
     @BindView(R.id.gallery) Button gallery;
@@ -27,22 +26,22 @@ public class PickMediaActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick);
 
-        gallery.setOnClickListener(v -> RPickMedia.getInstance(this).pickFromGallery((integer, s) -> {
+        gallery.setOnClickListener(v -> new RPickMedia().pickFromGallery(this, (integer, s) -> {
             resultMessage(integer, s);
             return Unit.INSTANCE;
         }));
 
-        camera.setOnClickListener(v -> RPickMedia.getInstance(this).pickFromCamera((integer, s) -> {
+        camera.setOnClickListener(v -> new RPickMedia().pickFromCamera(this, (integer, s) -> {
             resultMessage(integer, s);
             return Unit.INSTANCE;
         }));
 
-        video.setOnClickListener(v -> RPickMedia.getInstance(this).pickFromVideo((integer, s) -> {
+        video.setOnClickListener(v -> new RPickMedia().pickFromVideo(this, (integer, s) -> {
             resultMessage(integer, s);
             return Unit.INSTANCE;
         }));
 
-        videoc.setOnClickListener(v -> RPickMedia.getInstance(this).pickFromVideoCamera((integer, s) -> {
+        videoc.setOnClickListener(v -> new RPickMedia().pickFromVideoCamera(this, (integer, s) -> {
             resultMessage(integer, s);
             return Unit.INSTANCE;
         }));
@@ -53,16 +52,16 @@ public class PickMediaActivity extends BaseActivity {
             throw new SecurityException("not granted permission to pick media files");
         }
 
-        String realPath = Utils.getRealPath(Uri.parse(path), this);
-        int width = Utils.getPhotoWidth(realPath);
-        int height = Utils.getPhotoHeight(realPath);
-        int degree = Utils.getPhotoOrientationDegree(realPath);
+        String realPath = RichUtils.getRealPath(Uri.parse(path), this);
+        int width = RichUtils.getPhotoWidth(realPath);
+        int height = RichUtils.getPhotoHeight(realPath);
+        int degree = RichUtils.getPhotoOrientationDegree(realPath);
 
-        txtUrl.setText("url -> " + realPath + ", width -> " + width + ", height ->" + height + ", degree -> "+ degree);
+        txtUrl.setText("url -> " + realPath + ", width -> " + width + ", height ->" + height + ", degree -> " + degree);
 
-        Bitmap bitmap = Utils.getBitmap(realPath);
+        Bitmap bitmap = RichUtils.getBitmap(realPath);
         imgView.setImageBitmap(bitmap);
 
-        Utils.requestMediaScanner(this, realPath);
+        RichUtils.requestMediaScanner(this, realPath);
     }
 }

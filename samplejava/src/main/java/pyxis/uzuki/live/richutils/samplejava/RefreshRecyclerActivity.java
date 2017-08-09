@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
-import pyxis.uzuki.live.richutilskt.utils.Utils;
+import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 import pyxis.uzuki.live.richutilskt.widget.RefreshRecyclerView;
 
 /**
@@ -57,7 +57,7 @@ public class RefreshRecyclerActivity extends BaseActivity {
 
         @Override
         public ListHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-            return new ListHolder(Utils.inflate(viewGroup.getContext(), R.layout.activity_refresh_recycler_item, viewGroup));
+            return new ListHolder(RichUtils.inflate(viewGroup.getContext(), R.layout.activity_refresh_recycler_item, viewGroup));
         }
 
         @SuppressLint("SetTextI18n")

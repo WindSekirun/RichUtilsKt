@@ -14,25 +14,25 @@ class PickMediaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pick)
         
         gallery.setOnClickListener {
-            RPickMedia.getInstance(this).pickFromGallery({ resultCode: Int, path: String ->
+            RPickMedia().pickFromGallery(this, { resultCode: Int, path: String ->
                 resultMesage(resultCode, path)
             })
         }
 
         camera.setOnClickListener {
-            RPickMedia.getInstance(this).pickFromCamera({ resultCode: Int, path: String ->
+            RPickMedia().pickFromCamera(this, { resultCode: Int, path: String ->
                 resultMesage(resultCode, path)
             })
         }
 
         video.setOnClickListener {
-            RPickMedia.getInstance(this).pickFromVideo({ resultCode: Int, path: String ->
+            RPickMedia().pickFromVideo(this, { resultCode: Int, path: String ->
                 resultMesage(resultCode, path)
             })
         }
 
         videoc.setOnClickListener {
-            RPickMedia.getInstance(this).pickFromVideoCamera({ resultCode: Int, path: String ->
+            RPickMedia().pickFromVideoCamera(this, { resultCode: Int, path: String ->
                 resultMesage(resultCode, path)
             })
         }

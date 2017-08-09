@@ -12,7 +12,7 @@ import butterknife.BindView;
 import kotlin.Unit;
 import pyxis.uzuki.live.richutilskt.utils.ContactItem;
 import pyxis.uzuki.live.richutilskt.utils.RPermission;
-import pyxis.uzuki.live.richutilskt.utils.Utils;
+import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 public class ContactActivity extends BaseActivity {
     @BindView(R.id.txtResult) TextView txtResult;
@@ -35,8 +35,8 @@ public class ContactActivity extends BaseActivity {
     }
 
     private void init() {
-        Utils.runAsync(() -> {
-            ArrayList<ContactItem> list = Utils.getContactsList(ContactActivity.this);
+        RichUtils.runAsync(() -> {
+            ArrayList<ContactItem> list = RichUtils.getContactsList(ContactActivity.this);
             for (ContactItem item : list) {
                 text += "\n" + item;
             }

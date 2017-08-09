@@ -1,4 +1,4 @@
-@file:JvmName("Utils")
+@file:JvmName("RichUtils")
 @file:JvmMultifileClass
 
 /*

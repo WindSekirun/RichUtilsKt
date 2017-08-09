@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import kotlin.Unit;
-import pyxis.uzuki.live.richutilskt.utils.Utils;
+import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 /**
  * Created by pyxis on 2017. 6. 12..
@@ -28,7 +28,7 @@ public class AlertActivity extends BaseActivity {
         setContentView(R.layout.activity_alert);
 
         alert.setOnClickListener(view -> {
-            Utils.alert(this, "Hello, World!");
+            RichUtils.alert(this, "Hello, World!");
         });
 
         selector.setOnClickListener(view -> {
@@ -37,23 +37,23 @@ public class AlertActivity extends BaseActivity {
                 items.add(String.valueOf(i));
             }
 
-            Utils.selector(this, items, (dialogInterface, integer) -> {
-                Utils.toast(AlertActivity.this, "click item -> " + String.valueOf(integer), Toast.LENGTH_SHORT);
+            RichUtils.selector(this, items, (dialogInterface, integer) -> {
+                RichUtils.toast(AlertActivity.this, "click item -> " + String.valueOf(integer), Toast.LENGTH_SHORT);
                 return Unit.INSTANCE;
             });
         });
 
         confirm.setOnClickListener(view -> {
-            Utils.confirm(this,  "Hello, world!", dialogInterface -> {
-                Utils.toast(AlertActivity.this, "click confirm button", Toast.LENGTH_SHORT);
+            RichUtils.confirm(this,  "Hello, world!", dialogInterface -> {
+                RichUtils.toast(AlertActivity.this, "click confirm button", Toast.LENGTH_SHORT);
                 return Unit.INSTANCE;
             });
         });
 
         progress.setOnClickListener(view -> {
-            ProgressDialog dialog = (ProgressDialog) Utils.progress(this, "", "Loading...");
+            ProgressDialog dialog = (ProgressDialog) RichUtils.progress(this, "", "Loading...");
 
-            Utils.runDelayed(() -> {
+            RichUtils.runDelayed(() -> {
                 dialog.dismiss();
                 return Unit.INSTANCE;
             }, 10000);
