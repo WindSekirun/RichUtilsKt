@@ -37,9 +37,9 @@ public class AlertActivity extends BaseActivity {
                 items.add(String.valueOf(i));
             }
 
-            RichUtils.selector(this, items, (dialogInterface, integer) -> {
-                RichUtils.toast(AlertActivity.this, "click item -> " + String.valueOf(integer), Toast.LENGTH_SHORT);
-            });
+//            RichUtils.selector(this, items, (dialogInterface, integer) -> {
+//                RichUtils.toast(AlertActivity.this, "click item -> " + String.valueOf(integer), Toast.LENGTH_SHORT);
+//            });
         });
 
         confirm.setOnClickListener(view -> {
