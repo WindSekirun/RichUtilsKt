@@ -39,7 +39,6 @@ public class AlertActivity extends BaseActivity {
 
             RichUtils.selector(this, items, (dialogInterface, integer) -> {
                 RichUtils.toast(AlertActivity.this, "click item -> " + String.valueOf(integer), Toast.LENGTH_SHORT);
-                return Unit.INSTANCE;
             });
         });
 

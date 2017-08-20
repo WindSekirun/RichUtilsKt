@@ -34,13 +34,14 @@ fun downloadBitmap(imageUrl: String): Bitmap? {
 }
 
 /**
- * Download file from uri
- *
+ * Download file from
  * @param[urlPath] path of file
  * @param[name] name of file
- * @return Uri object
+ * @param[isFullPath] true - custom path, false - name only (default - /sdcard/android/data/{package-name}/files
+ * @return Uri object uri
+ *
  */
-fun Context.downloadFile(urlPath: String, name: String): Uri? {
+@JvmOverloads fun Context.downloadFile(urlPath: String, name: String, isFullPath: Boolean = false): Uri? {
     var uri: Uri? = null
     val url = URL(urlPath)
     val conn = url.openConnection() as HttpURLConnection
@@ -51,7 +52,8 @@ fun Context.downloadFile(urlPath: String, name: String): Uri? {
         val resCode = conn.responseCode
 
         if (resCode == HttpURLConnection.HTTP_OK) {
-            val path = this.getExternalFilesDir(null).absolutePath + "/" + name
+
+            val path = if (isFullPath) name else this.getExternalFilesDir(null).absolutePath + "/" + name
             uri = Uri.fromFile(conn.inputStream.outAsFile(File(path)))
         }
     }
