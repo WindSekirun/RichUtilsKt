@@ -58,9 +58,9 @@
                 android:text="Date" />
 
             <Button
+                android:id="@+id/inapp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/inapp"
                 android:text="inapp"/>
 
             <Button
@@ -106,12 +106,6 @@
                 android:drawableLeft="@mipmap/ic_launcher_round"
                 android:drawablePadding="4dp"
                 android:text="REBOOT" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnRecycler"
-                android:text="Refresh recyclerview"/>
         </LinearLayout>
     </ScrollView>
 

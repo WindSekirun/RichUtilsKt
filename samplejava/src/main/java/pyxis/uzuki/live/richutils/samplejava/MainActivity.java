@@ -35,7 +35,6 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.media) Button media;
     @BindView(R.id.btnReboot) Button btnReboot;
     @BindView(R.id.contact) Button contact;
-    @BindView(R.id.btnRecycler) Button btnRecycler;
     @BindView(R.id.location) Button location;
 
     @Override
@@ -64,7 +63,6 @@ public class MainActivity extends BaseActivity {
         preference.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PreferenceActivity.class)));
         media.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, PickMediaActivity.class)));
         contact.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ContactActivity.class)));
-        btnRecycler.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RefreshRecyclerActivity.class)));
         location.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, LocationActivity.class)));
     }
 

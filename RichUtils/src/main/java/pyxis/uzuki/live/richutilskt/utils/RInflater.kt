@@ -4,7 +4,6 @@
 package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
-import android.support.annotation.LayoutRes
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,5 +21,5 @@ import android.view.ViewGroup
  *                      the root view in the XML.
  * @return The root View of the inflated hierarchy.
  */
-@JvmOverloads fun Context.inflate(@LayoutRes layoutRes: Int, parent: ViewGroup? = null, attachToRoot: Boolean = false): View =
+@JvmOverloads fun Context.inflate(layoutRes: Int, parent: ViewGroup? = null, attachToRoot: Boolean = false): View =
         LayoutInflater.from(this).inflate(layoutRes, parent, attachToRoot)

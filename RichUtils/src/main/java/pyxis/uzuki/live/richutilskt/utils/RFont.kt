@@ -5,7 +5,6 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import android.app.Application
 import android.content.Context
-import android.support.annotation.LayoutRes
 import android.view.View
 import android.view.ViewGroup
 
@@ -18,7 +17,7 @@ import android.view.ViewGroup
  * @param[parent] ViewGroup object
  * @param[isAttachedRoot] isAttachedRoot
  */
-@JvmOverloads fun Context.setTypeface(@LayoutRes layoutRes: Int, parent: ViewGroup? = null, isAttachedRoot: Boolean = false): View? =
+@JvmOverloads fun Context.setTypeface(layoutRes: Int, parent: ViewGroup? = null, isAttachedRoot: Boolean = false): View? =
         RSystemFontEngine.instance?.setTypeface(this, layoutRes, parent, isAttachedRoot)
 
 /**
