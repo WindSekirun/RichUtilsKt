@@ -7,13 +7,6 @@ import android.os.Handler
 import android.os.Looper
 
 /**
- * run code inside of Background Thread
- *
- * @param[action] code to execute
- */
-fun runAsync(action: () -> Unit) = Thread(Runnable(action)).start()
-
-/**
  * run code inside of UI Thread
  *
  * @param[action] code to execute
@@ -40,6 +33,6 @@ fun runDelayedOnUiThread(action: () -> Unit, delayMillis: Long) = Handler(Looper
  * run code inside of Background thread with custom pool size and tasksa
  * this will help in multi-threading working
  */
-@JvmOverloads fun runNaraeAsync(action: () -> Unit,  poolSize: Int = RAsync.instance.settingPoolSize, taskType: String = RAsync.instance.settingTaskType) {
+@JvmOverloads fun runAsync(poolSize: Int = RAsync.instance.settingPoolSize, taskType: String = RAsync.instance.settingTaskType, action: () -> Unit) {
     RAsync.instance.execute(action , 5)
 }
