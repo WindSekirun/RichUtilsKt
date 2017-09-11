@@ -36,7 +36,7 @@ allprojects {
 *app/build.gradle*
 ```
 dependencies {
-    compile 'com.github.WindSekirun:RichUtilsKt:1.5.0'
+    compile 'com.github.WindSekirun:RichUtilsKt:1.6.0'
 }
 ```
 
