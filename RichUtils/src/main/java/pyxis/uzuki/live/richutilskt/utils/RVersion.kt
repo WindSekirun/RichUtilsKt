@@ -4,7 +4,6 @@
 package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
-import pyxis.uzuki.live.richutilskt.getValue
 
 /**
  * get version code of this application
