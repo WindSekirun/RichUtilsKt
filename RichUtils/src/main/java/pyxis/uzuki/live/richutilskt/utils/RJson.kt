@@ -5,8 +5,6 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import org.json.JSONArray
 import org.json.JSONObject
-import pyxis.uzuki.live.richutilskt.convert
-import pyxis.uzuki.live.richutilskt.convertAcceptNull
 
 /**
  * create JSONObject from String
@@ -75,7 +73,8 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = jsonArray.conv
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return String object
  */
-@JvmOverloads fun JSONObject.getJSONString(name: String, def: String = ""): String = this.convert({ it.getString(name) }, def)
+@JvmOverloads
+fun JSONObject.getJSONString(name: String, def: String = ""): String = this.convert({ it.getString(name) }, def)
 
 /**
  * get String from JSONArray
@@ -84,7 +83,8 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = jsonArray.conv
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return String object
  */
-@JvmOverloads fun JSONArray.getJSONString(index: Int, def: String = ""): String = this.convert({ it.getString(index) }, def)
+@JvmOverloads
+fun JSONArray.getJSONString(index: Int, def: String = ""): String = this.convert({ it.getString(index) }, def)
 
 /**
  * get Int from JSONObject
@@ -93,7 +93,8 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = jsonArray.conv
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Int object
  */
-@JvmOverloads fun JSONObject.getJSONInt(name: String, def: Int = 0): Int = this.convert({ it.getInt(name) }, def)
+@JvmOverloads
+fun JSONObject.getJSONInt(name: String, def: Int = 0): Int = this.convert({ it.getInt(name) }, def)
 
 /**
  * get Int from JSONArray
@@ -102,7 +103,8 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = jsonArray.conv
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Int object
  */
-@JvmOverloads fun JSONArray.getJSONInt(index: Int, def: Int = 0): Int = this.convert({ it.getInt(index) }, def)
+@JvmOverloads
+fun JSONArray.getJSONInt(index: Int, def: Int = 0): Int = this.convert({ it.getInt(index) }, def)
 
 /**
  * get Boolean from JSONObject
@@ -111,7 +113,8 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = jsonArray.conv
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Boolean object
  */
-@JvmOverloads fun JSONObject.getJSONBoolean(name: String, def: Boolean = false): Boolean = this.convert({ it.getBoolean(name) }, def)
+@JvmOverloads
+fun JSONObject.getJSONBoolean(name: String, def: Boolean = false): Boolean = this.convert({ it.getBoolean(name) }, def)
 
 /**
  * get Boolean from JSONArray
@@ -120,7 +123,8 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = jsonArray.conv
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Boolean object
  */
-@JvmOverloads fun JSONArray.getJSONBoolean(index: Int, def: Boolean = false): Boolean = this.convert({ it.getBoolean(index) }, def)
+@JvmOverloads
+fun JSONArray.getJSONBoolean(index: Int, def: Boolean = false): Boolean = this.convert({ it.getBoolean(index) }, def)
 
 /**
  * get Double from JSONObject
@@ -129,7 +133,8 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = jsonArray.conv
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Double object
  */
-@JvmOverloads fun JSONObject.getJSONDouble(name: String, def: Double = 0.toDouble()): Double = this.convert({ it.getDouble(name) }, def)
+@JvmOverloads
+fun JSONObject.getJSONDouble(name: String, def: Double = 0.toDouble()): Double = this.convert({ it.getDouble(name) }, def)
 
 /**
  * get Double from JSONArray
@@ -138,7 +143,8 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = jsonArray.conv
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Double object
  */
-@JvmOverloads fun JSONArray.getJSONDouble(index: Int, def: Double = 0.toDouble()): Double = this.convert({ it.getDouble(index) }, def)
+@JvmOverloads
+fun JSONArray.getJSONDouble(index: Int, def: Double = 0.toDouble()): Double = this.convert({ it.getDouble(index) }, def)
 
 /**
  * get Long from JSONObject
@@ -147,7 +153,8 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = jsonArray.conv
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Long object
  */
-@JvmOverloads fun JSONObject.getJSONLong(name: String, def: Long = 0.toLong()): Long = this.convert({ it.getLong(name) }, def)
+@JvmOverloads
+fun JSONObject.getJSONLong(name: String, def: Long = 0.toLong()): Long = this.convert({ it.getLong(name) }, def)
 
 /**
  * get Long from JSONArray
@@ -156,7 +163,8 @@ fun getJSONArray(jsonArray: JSONArray?, index: Int): JSONArray? = jsonArray.conv
  * @param[def] optional, if key is not presented or some unexpected problem happened, it will be return
  * @return Long object
  */
-@JvmOverloads fun JSONArray.getJSONLong(index: Int, def: Long = 0.toLong()): Long = this.convert({ it.getLong(index) }, def)
+@JvmOverloads
+fun JSONArray.getJSONLong(index: Int, def: Long = 0.toLong()): Long = this.convert({ it.getLong(index) }, def)
 
 /**
  * put value to JSONObject
@@ -183,3 +191,16 @@ fun put(jsonArray: JSONArray?, index: Int, value: Any) = jsonArray?.put(index, v
  * @param[value] actual value to input
  */
 fun put(jsonArray: JSONArray?, value: Any) = jsonArray?.put(value)
+
+/**
+ * invoke [action] every JSONObject
+ */
+inline fun JSONArray.forEach(action: (JSONObject) -> Unit) {
+    for (i in 0 until this.length()) action(getJSONObject(i))
+}
+
+/**
+ * convert JSONArray to List<JSONObject>
+ */
+@JvmName("toArrayList")
+fun JSONArray.toList(): List<JSONObject> = List<JSONObject>(length()) { index -> getJSONObject(index) }
