@@ -3,7 +3,9 @@
 
 package pyxis.uzuki.live.richutilskt.utils
 
+import android.content.Context
 import android.content.res.AssetManager
+import java.io.File
 import java.nio.charset.Charset
 
 /**
@@ -25,9 +27,29 @@ fun AssetManager.fileAsString(subdirectory: String, filename: String): String {
  * @param[subdirectory] name of directory
  * @return list of file name
  */
-fun AssetManager.asList(subdirectory: String): ArrayList<String> {
-    val list = list(subdirectory)
-    val toReturn = ArrayList<String>()
-    toReturn.addAll(list)
-    return toReturn
+fun AssetManager.asList(subdirectory: String) = list(subdirectory).toList()
+
+/**
+ * Assets to Internal storage
+ * @param [path] path to copy
+ */
+fun Context.copyAssets(path: String) {
+    this.assets.list(path).tryCatch {
+        if (it.isEmpty()) {
+            copyFile(path)
+            return
+        }
+
+        "${this.getExternalFilesDir(null)}/$path".toFile().mkdirs()
+        it.forEach {
+            val dirPath = if (path == "") "" else path + "/"
+            copyAssets("$dirPath$it")
+        }
+    }
+}
+
+private fun Context.copyFile(filename: String) {
+    this.assets.open(filename).use { stream ->
+        "${this.getExternalFilesDir(null)}/$filename".toFile().outputStream().use { stream.copyTo(it) }
+    }
 }
