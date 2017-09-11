@@ -6,6 +6,7 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import android.util.Log
 import java.io.File
+import java.text.DecimalFormat
 
 inline fun <T, R> T.tryCatch(block: (T) -> R): R {
     try {
@@ -37,4 +38,15 @@ internal inline fun <T, R> T.convertAcceptNull(block: (T) -> R, def: Any?): R? =
             def as R
         }
 
+/**
+ * make String to File
+ */
 fun String.toFile() = File(this)
+
+/**
+ * formatting number like 1,000,000
+ */
+fun toNumFormat(num: String): String {
+    val df = DecimalFormat("#,###")
+    return df.format(Integer.parseInt(num))
+}
