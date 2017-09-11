@@ -16,7 +16,8 @@ import android.widget.Toast
  * @param[message] to display
  * @param[length] Length of display time of Toast, Default is Toast.LENGTH_SHORT
  */
-@JvmOverloads fun Context.toast(message: String, length: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, message, length).show()
+@JvmOverloads
+fun Context.toast(message: String, length: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, message, length).show()
 
 /**
  * Display Toast Message
@@ -24,7 +25,8 @@ import android.widget.Toast
  * @param[message] to display
  * @param[length] Length of display time of Toast, Default is Toast.LENGTH_SHORT
  */
-@JvmOverloads fun Context.toast(message: Int, length: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, message, length).show()
+@JvmOverloads
+fun Context.toast(message: Int, length: Int = Toast.LENGTH_SHORT) = Toast.makeText(this, message, length).show()
 
 /**
  * Display AlertDialog instantly
@@ -35,7 +37,8 @@ import android.widget.Toast
  * @param[cancelable] able to cancel
  * @param[callback] callback of click ok button
  */
-@JvmOverloads fun Context.alert(title: String? = "", message: String, positiveButton: String? = null, cancelable: Boolean = true, callback: DialogInterface.() -> Unit = {}) =
+@JvmOverloads
+fun Context.alert(message: String, title: String? = "", positiveButton: String? = null, cancelable: Boolean = true, callback: DialogInterface.() -> Unit = {}) =
         AlertDialog.Builder(this).apply {
             if (!TextUtils.isEmpty(title))
                 setTitle(title)
@@ -49,30 +52,12 @@ import android.widget.Toast
  * Display SelectorDialog instantly
  *
  * @param[title] optional, title
- * @param[items] list of display item
- * @param[cancelable] able to cancel
- * @param[callback] callback of click ok button
- */
-@JvmOverloads fun Context.selector(title: String? = "", items: List<CharSequence>, cancelable: Boolean = true, callback: (DialogInterface, Int) -> Unit) =
-        AlertDialog.Builder(this).apply {
-            if (!TextUtils.isEmpty(title))
-                setTitle(title)
-            setItems(Array(items.size) { i -> items[i].toString() }) { dialog, which ->
-                callback(dialog, which)
-            }
-            setCancelable(cancelable)
-            show()
-        }
-
-/**
- * Display SelectorDialog instantly
- *
- * @param[title] optional, title
  * @param[items] list of display item, working with generic. it will display item.toString()
  * @param[cancelable] able to cancel
  * @param[callback] callback of click ok button
  */
-@JvmOverloads fun <T> Context.selector(title: String? = "", items: List<T>, cancelable: Boolean = true, callback: (DialogInterface, item: T, Int) -> Unit) =
+@JvmOverloads
+fun <T> Context.selector(items: List<T>, callback: (DialogInterface, item: T, Int) -> Unit, title: String? = "", cancelable: Boolean = true) =
         AlertDialog.Builder(this).apply {
             if (!TextUtils.isEmpty(title))
                 setTitle(title)
@@ -93,16 +78,17 @@ import android.widget.Toast
  * @param[cancelable] able to cancel
  * @param[callback] callback of click ok button
  */
-@JvmOverloads fun Context.confirm(title: String? = "", message: String, positiveButton: String? = null, negativeButton: String? = null, cancelable: Boolean = true, callback: DialogInterface.() -> Unit) =
-    AlertDialog.Builder(this).apply {
-        if (!TextUtils.isEmpty(title))
-            setTitle(title)
-        setMessage(message)
-        setPositiveButton(positiveButton ?: getString(android.R.string.ok), { dialog, _ -> dialog.callback() })
-        setNegativeButton(negativeButton ?: getString(android.R.string.no), { _, _ ->  })
-        setCancelable(cancelable)
-        show()
-    }
+@JvmOverloads
+fun Context.confirm(message: String, callback: DialogInterface.() -> Unit, title: String? = "", positiveButton: String? = null, negativeButton: String? = null, cancelable: Boolean = true) =
+        AlertDialog.Builder(this).apply {
+            if (!TextUtils.isEmpty(title))
+                setTitle(title)
+            setMessage(message)
+            setPositiveButton(positiveButton ?: getString(android.R.string.ok), { dialog, _ -> dialog.callback() })
+            setNegativeButton(negativeButton ?: getString(android.R.string.no), { _, _ -> })
+            setCancelable(cancelable)
+            show()
+        }
 
 /**
  * Display ProgressDialog
@@ -111,7 +97,8 @@ import android.widget.Toast
  * @param[message] message
  * @return DialogInterface
  */
-@JvmOverloads fun Context.progress(title: String? = null, message: String): DialogInterface {
+@JvmOverloads
+fun Context.progress(title: String? = null, message: String): DialogInterface {
     return ProgressDialog(this).apply {
         setProgressStyle(ProgressDialog.STYLE_SPINNER)
         setMessage(message)

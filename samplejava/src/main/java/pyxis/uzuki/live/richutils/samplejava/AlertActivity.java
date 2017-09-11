@@ -1,6 +1,7 @@
 package pyxis.uzuki.live.richutils.samplejava;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 /**
@@ -37,14 +39,15 @@ public class AlertActivity extends BaseActivity {
                 items.add(String.valueOf(i));
             }
 
-//            RichUtils.selector(this, items, (dialogInterface, integer) -> {
-//                RichUtils.toast(AlertActivity.this, "click item -> " + String.valueOf(integer), Toast.LENGTH_SHORT);
-//            });
+            RichUtils.selector(this, items, (dialogInterface, item, integer) -> {
+                RichUtils.toast(AlertActivity.this, "click item -> " + String.valueOf(integer), Toast.LENGTH_SHORT);
+                return Unit.INSTANCE;
+            });
         });
 
         confirm.setOnClickListener(view -> {
-            RichUtils.confirm(this,  "Hello, world!", dialogInterface -> {
-                RichUtils.toast(AlertActivity.this, "click confirm button", Toast.LENGTH_SHORT);
+            RichUtils.confirm(this, "Hello, world!", dialogInterface -> {
+                RichUtils.toast(AlertActivity.this, "clicked positive button!");
                 return Unit.INSTANCE;
             });
         });
