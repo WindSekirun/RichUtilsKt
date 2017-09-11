@@ -11,6 +11,8 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.text.TextUtils
 import java.io.File
+import java.net.HttpURLConnection
+import java.net.URL
 import java.util.*
 
 
@@ -95,6 +97,26 @@ fun Context.requestMediaScanner(url: String) {
     mediaScanIntent.data = contentUri
     this.sendBroadcast(mediaScanIntent)
 }
+
+/**
+ * Download bitmap from uri
+ *
+ * @param[imageUrl] imageUri
+ * @return Bitmap object
+ */
+fun downloadBitmap(imageUrl: String): Bitmap? {
+    var bitmap: Bitmap? = null
+    val url = URL(imageUrl)
+    val conn = url.openConnection() as HttpURLConnection
+
+    if (conn.responseCode == HttpURLConnection.HTTP_OK) {
+        bitmap = conn.inputStream.outAsBitmap()
+    }
+    conn.disconnect()
+
+    return bitmap
+}
+
 
 /**
  * Resizing image

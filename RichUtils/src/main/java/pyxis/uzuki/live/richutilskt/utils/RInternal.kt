@@ -38,10 +38,6 @@ internal inline fun <T, R> T.convertAcceptNull(block: (T) -> R, def: Any?): R? =
             def as R
         }
 
-/**
- * make String to File
- */
-fun String.toFile() = File(this)
 
 /**
  * formatting number like 1,000,000
