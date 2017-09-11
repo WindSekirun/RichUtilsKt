@@ -10,25 +10,9 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.text.TextUtils
-import android.util.Log
 import java.io.File
-import java.io.FileNotFoundException
-import java.io.FileOutputStream
-import java.io.IOException
 import java.util.*
 
-
-/**
- * Save Bitmap to file
- *
- * @param[bitmap] to save
- * @return path of file
- */
-fun Context.saveBitmapToFile(bitmap: Bitmap): String? = try {
-    saveBitmapToFile(this, bitmap)?.absolutePath
-} catch (e: Exception) {
-    ""
-}
 
 /**
  * get bitmap from filePath
@@ -57,27 +41,18 @@ fun Bitmap.toRoundCorner(radius: Float): Bitmap? {
     return bitmap
 }
 
-private fun saveBitmapToFile(context: Context, bitmap: Bitmap): File? {
-    try {
-        val photo = getOutputMediaFile(context)
-        val out = FileOutputStream(photo)
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)
-        out.close()
-
-        return photo
-    } catch (exception: FileNotFoundException) {
-        Log.e("FileNotFoundException", exception.message)
-    } catch (exception: IOException) {
-        Log.e("IOException", exception.message)
+private fun Context.saveBitmapToFile(bitmap: Bitmap): File? {
+    val file = getOutputMediaFile()
+    file.outputStream().use {
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
     }
-
-    return null
+    return file
 }
 
-private fun getOutputMediaFile(context: Context): File {
+private fun Context.getOutputMediaFile(): File {
     val picName = UUID.randomUUID().toString().replace("-".toRegex(), "") + ".jpg"
 
-    val folder = context.getExternalFilesDir(null)
+    val folder = this.getExternalFilesDir(null)
     if (!folder.isDirectory) {
         folder.mkdirs()
     }
@@ -129,7 +104,8 @@ fun Context.requestMediaScanner(url: String) {
  * @param[mode] Resizing mode
  * @param[isExcludeAlpha] true - exclude alpha (copy as RGB_565) false - include alpha (copy as ARGB_888)
  */
-@JvmOverloads fun Bitmap.resize(width: Int, height: Int, mode: ResizeMode = ResizeMode.AUTOMATIC, isExcludeAlpha: Boolean = false): Bitmap {
+@JvmOverloads
+fun Bitmap.resize(width: Int, height: Int, mode: ResizeMode = ResizeMode.AUTOMATIC, isExcludeAlpha: Boolean = false): Bitmap {
     var mWidth = width
     var mHeight = height
     var mMode = mode
@@ -158,34 +134,23 @@ private fun calculateResizeMode(width: Int, height: Int): ResizeMode {
     }
 }
 
-private fun calculateWidth(originalWidth: Int, originalHeight: Int, height: Int): Int {
-    return Math.ceil(originalWidth / (originalHeight.toDouble() / height)).toInt()
-}
+private fun calculateWidth(originalWidth: Int, originalHeight: Int, height: Int): Int
+    = Math.ceil(originalWidth / (originalHeight.toDouble() / height)).toInt()
 
-private fun calculateHeight(originalWidth: Int, originalHeight: Int, width: Int): Int {
-    return Math.ceil(originalHeight / (originalWidth.toDouble() / width)).toInt()
-}
+
+private fun calculateHeight(originalWidth: Int, originalHeight: Int, width: Int): Int
+    = Math.ceil(originalHeight / (originalWidth.toDouble() / width)).toInt()
 
 enum class ResizeMode {
-    AUTOMATIC,
-    FIT_TO_WIDTH,
-    FIT_TO_HEIGHT,
-    FIT_EXACT
+    AUTOMATIC, FIT_TO_WIDTH, FIT_TO_HEIGHT, FIT_EXACT
 }
 
 private enum class ImageOrientation {
-    PORTRAIT,
-    LANDSCAPE;
+    PORTRAIT, LANDSCAPE;
 
     companion object {
-
-        fun getOrientation(width: Int, height: Int): ImageOrientation {
-            if (width >= height) {
-                return ImageOrientation.LANDSCAPE
-            } else {
-                return ImageOrientation.PORTRAIT
-            }
-        }
+        fun getOrientation(width: Int, height: Int): ImageOrientation =
+                if (width >= height)  ImageOrientation.LANDSCAPE else  ImageOrientation.PORTRAIT
     }
 
 }
