@@ -17,11 +17,9 @@ import android.net.ConnectivityManager
  */
 fun Context.checkNetwork(): Int {
     val connMgr = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    val now = connMgr.activeNetworkInfo
-
-    when (now.type) {
-        ConnectivityManager.TYPE_WIFI -> return 2
-        ConnectivityManager.TYPE_MOBILE -> return 1
-        else -> return 0
+    return when (connMgr.activeNetworkInfo.type) {
+        ConnectivityManager.TYPE_WIFI -> 2
+        ConnectivityManager.TYPE_MOBILE -> 1
+        else -> 0
     }
 }
