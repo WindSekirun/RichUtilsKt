@@ -13,7 +13,7 @@ class ContactActivity : AppCompatActivity() {
         setContentView(R.layout.activity_contacts)
 
         val arrays: Array<String> = arrayOf(Manifest.permission.READ_CONTACTS)
-        val isGranted = RPermission.getInstance(this).checkPermission(array = arrays, callback = { _: Int, _: ArrayList<String> ->
+        val isGranted = RPermission.getInstance(this).checkPermission(array = arrays, callback = { _: Int, _: List<String> ->
             init()
         })
 

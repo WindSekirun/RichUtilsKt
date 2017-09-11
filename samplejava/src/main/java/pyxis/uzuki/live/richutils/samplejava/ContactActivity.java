@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import kotlin.Unit;
@@ -36,7 +37,7 @@ public class ContactActivity extends BaseActivity {
 
     private void init() {
         RichUtils.runAsync(() -> {
-            ArrayList<ContactItem> list = RichUtils.getContactsList(ContactActivity.this);
+            List<ContactItem> list = RichUtils.getContactsList(ContactActivity.this);
             for (ContactItem item : list) {
                 text += "\n" + item;
             }

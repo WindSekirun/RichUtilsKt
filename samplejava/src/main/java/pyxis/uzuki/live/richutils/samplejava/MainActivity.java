@@ -44,7 +44,8 @@ public class MainActivity extends BaseActivity {
         setContentView(RichUtils.setTypeface(this, R.layout.activity_main));
         RichUtils.setStatusNavBarColor(this, Color.parseColor("#303F9F"));
 
-        RichUtils.runNaraeAsync(() -> {
+
+        RichUtils.runAsync(() -> {
             getLatestReleaseFromGitHub();
             return Unit.INSTANCE;
         }, 5);

@@ -14,7 +14,10 @@ import android.util.Base64
 import android.util.Log
 import com.android.vending.billing.IInAppBillingService
 import org.json.JSONObject
-import pyxis.uzuki.live.richutilskt.utils.*
+import pyxis.uzuki.live.richutilskt.utils.getJSONInt
+import pyxis.uzuki.live.richutilskt.utils.getJSONLong
+import pyxis.uzuki.live.richutilskt.utils.getJSONString
+import pyxis.uzuki.live.richutilskt.utils.runAsync
 import java.security.*
 import java.security.spec.InvalidKeySpecException
 import java.security.spec.X509EncodedKeySpec
@@ -111,7 +114,8 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
      * @param type inapp or sub
      * @param developerPayload for secure working.
      */
-    @JvmOverloads fun purchase(productId: String, type: String = "inapp", developerPayload: String = generateDeveloperPayload(productId, type)) {
+    @JvmOverloads
+    fun purchase(productId: String, type: String = "inapp", developerPayload: String = generateDeveloperPayload(productId, type)) {
         var buyIntentBundle: Bundle? = null
 
         try {
@@ -143,14 +147,14 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
      */
     fun consumePurchase(transaction: Transaction?) {
         if (transaction != null) {
-            runNaraeAsync({
+            runAsync {
                 val response = mService.consumePurchase(3, activity.packageName, transaction.purchaseToken)
                 if (response == 0 && consumeCallback != null) {
                     consumeCallback?.consumeResult(PURCHASE_SUCCESS, transaction)
                 } else if (consumeCallback != null) {
                     consumeCallback?.consumeResult(response, transaction)
                 }
-            })
+            }
         }
     }
 
@@ -266,25 +270,28 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
     }
 
     companion object {
-        @JvmField val PURCHASE_SUCCESS = 0
-        @JvmField val PURCHASE_FAILED_UNKNOWN = -1
-        @JvmField val PURCHASE_FAILED_INVALID = -2
+        @JvmField
+        val PURCHASE_SUCCESS = 0
+        @JvmField
+        val PURCHASE_FAILED_UNKNOWN = -1
+        @JvmField
+        val PURCHASE_FAILED_INVALID = -2
     }
 
-     /* Copyright (c) 2012 Google Inc.
-      *
-      * Licensed under the Apache License, Version 2.0 (the "License");
-      * you may not use this file except in compliance with the License.
-      * You may obtain a copy of the License at
-      *
-      *     http://www.apache.org/licenses/LICENSE-2.0
-      *
-      * Unless required by applicable law or agreed to in writing, software
-      * distributed under the License is distributed on an "AS IS" BASIS,
-      * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      * See the License for the specific language governing permissions and
-      * limitations under the License.
-      */
+    /* Copyright (c) 2012 Google Inc.
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *     http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
 
     /**
      * Security-related methods. For a secure implementation, all of this code

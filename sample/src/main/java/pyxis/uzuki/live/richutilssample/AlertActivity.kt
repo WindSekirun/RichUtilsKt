@@ -18,7 +18,7 @@ class AlertActivity : AppCompatActivity() {
             val items: ArrayList<String> = ArrayList()
         (1..5).mapTo(items) { it.toString() }
 
-        selector(items = items, callback = { _: DialogInterface, i: Int ->
+        selector(items = items, callback = { _: DialogInterface, _,  i: Int ->
             toast(message = "click item -> $i")
         })
     })

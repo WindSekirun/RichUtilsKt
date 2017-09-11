@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
+import java.io.File;
+
 import butterknife.BindView;
 import kotlin.Unit;
 import pyxis.uzuki.live.richutilskt.utils.RichUtils;
@@ -35,7 +37,7 @@ public class BitmapActivity extends BaseActivity {
             return;
 
         Drawable drawable = RichUtils.bitmapToDrawable(this, bitmap);
-        String file = RichUtils.saveBitmapToFile(this, bitmap);
+        File file = RichUtils.saveBitmapToFile(this, bitmap);
 
         imgView.setImageBitmap(bitmap);
     }
