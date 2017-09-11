@@ -52,7 +52,7 @@ internal class RAsync {
             executor.execute(command)
         }
 
-        internal val executor: java.util.concurrent.Executor
+        private val executor: java.util.concurrent.Executor
             get() {
                 val executorId = ExecutorId(settingPoolSize, settingTaskType)
                 val lockObject = ""
@@ -96,12 +96,12 @@ internal class RAsync {
                     }
                 }
 
-                try {
+                return try {
                     val dir = java.io.File("/sys/devices/system/cpu/")
                     val files = dir.listFiles(CpuFilter())
-                    return files.size
+                    files.size
                 } catch (e: Exception) {
-                    return Math.max(1, Runtime.getRuntime().availableProcessors())
+                    Math.max(1, Runtime.getRuntime().availableProcessors())
                 }
 
             }
