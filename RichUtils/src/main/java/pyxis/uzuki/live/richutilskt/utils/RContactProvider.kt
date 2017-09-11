@@ -15,29 +15,23 @@ data class ContactItem(var name: String, var phoneNumber: String) {
 /**
  * load contact data from device
  *
- * it will check permission is granted automatically
  * @return arrayList of ContactItem
  */
-fun Context.getContactsList() : ArrayList<ContactItem> {
+fun Context.getContactsList() : List<ContactItem> {
     val uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI
     val projection = arrayOf(ContactsContract.CommonDataKinds.Phone.NUMBER, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
-    val selection = ""
-    val selectionArgs = emptyArray<String>()
     val sortOrder = "${ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME} COLLATE LOCALIZED ASC"
+    val numberColumn = ContactsContract.CommonDataKinds.Phone.NUMBER
+    val displayNameColumn = ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME
 
-    val cursor = this.contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
-
-    val list = ArrayList<ContactItem>(cursor.count)
-    cursor.moveToFirst()
-
-    while (!cursor.isAfterLast) {
-        val contractPhone = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
-        val contractName = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME))
-        list.add(ContactItem(contractName, contractPhone))
-        cursor.moveToNext()
-    }
+    val cursor = this.contentResolver.query(uri, projection, "", emptyArray<String>(), sortOrder)
+    val list = generateSequence { if (cursor.moveToNext()) cursor else null }
+            .map { ContactItem(it.getString(it.getColumnIndex(numberColumn)), it.getString(cursor.getColumnIndex(displayNameColumn))) }
+            .toList()
 
     cursor.close()
+
     return list
 }
+
 
