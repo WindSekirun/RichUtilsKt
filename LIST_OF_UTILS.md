@@ -33,7 +33,6 @@ Update: 2017.07.14
 
 ## List of Widgets
 
-* [**RefreshRecyclerView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/RefreshRecyclerView.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/RefreshRecyclerActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/RefreshRecyclerActivity.java)
 * [**CenteredIconButton**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CenteredIconButton.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
 * [**CombinedTextView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedTextView.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 
