@@ -19,7 +19,7 @@ import android.support.v4.content.ContextCompat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class RPickMedia {
+class RPickMedia private constructor() {
 
     private fun getActivity(context: Context): Activity? {
         var c = context
@@ -37,7 +37,6 @@ class RPickMedia {
      * pick image from Camera
      *
      * @param[callback] callback, should make class PickMediaCallback : PickMediaCallback
-     * @since 1.0.1
      */
     fun pickFromCamera(context: Context, callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_CAMERA, callback)
 
@@ -45,25 +44,22 @@ class RPickMedia {
      * pick image from Gallery
      *
      * @param[callback] callback, should make class PickMediaCallback : PickMediaCallback
-     * @since 1.0.1
      */
-    fun pickFromGallery(context: Context,callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_GALLERY, callback)
+    fun pickFromGallery(context: Context, callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_GALLERY, callback)
 
     /**
      * pick image from Video
      *
      * @param[callback] callback, should make class PickMediaCallback : PickMediaCallback
-     * @since 1.0.1
      */
-    fun pickFromVideo(context: Context,callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_VIDEO, callback)
+    fun pickFromVideo(context: Context, callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_VIDEO, callback)
 
     /**
      * pick image from Camera (Video Mode)
      *
      * @param[callback] callback, should make class PickMediaCallback : PickMediaCallback
-     * @since 1.0.1
      */
-    fun pickFromVideoCamera(context: Context,callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_CAMERA_VIDEO, callback)
+    fun pickFromVideoCamera(context: Context, callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_CAMERA_VIDEO, callback)
 
     private var currentPhotoPath: String? = null
     private var currentVideoPath: String? = null
@@ -76,7 +72,6 @@ class RPickMedia {
 
         fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commitAllowingStateLoss()
         fm.executePendingTransactions()
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                 (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
@@ -194,15 +189,18 @@ class RPickMedia {
             if (grantResults.isEmpty()) false else grantResults.none { it != PackageManager.PERMISSION_GRANTED }
 
     companion object {
-        @JvmField var instance: RPickMedia = RPickMedia()
+        @JvmField
+        var instance: RPickMedia = RPickMedia()
 
         val PICK_FROM_CAMERA = 0
         val PICK_FROM_GALLERY = 1
         val PICK_FROM_VIDEO = 2
         val PICK_FROM_CAMERA_VIDEO = 3
 
-        @JvmField val PICK_SUCCESS = 1
-        @JvmField val PICK_FAILED = 0
+        @JvmField
+        val PICK_SUCCESS = 1
+        @JvmField
+        val PICK_FAILED = 0
     }
 
 }

@@ -34,12 +34,9 @@ class RPermission private constructor(private var context: Context) {
      * @param[callback] callback object
      * @return check result
      */
-    @JvmOverloads fun checkPermission(array: Array<String>, callback: (Int, ArrayList<String>) -> Unit = { _, _ -> }): Boolean {
-        val permissionList: ArrayList<String> = ArrayList()
-        array.forEach { permissionList.add(it) }
-
-        return checkPermission(permissionList, callback)
-    }
+    @JvmOverloads
+    fun checkPermission(array: Array<String>, callback: (Int, List<String>) -> Unit = { _, _ -> }): Boolean
+            = checkPermission(List(array.size) { array[it] }, callback)
 
     /**
      * check and request Permission which given.
@@ -49,29 +46,29 @@ class RPermission private constructor(private var context: Context) {
      * @return check result
      */
     @SuppressLint("NewApi")
-    fun checkPermission(list: ArrayList<String>, callback: (Int, ArrayList<String>) -> Unit): Boolean {
+    fun checkPermission(list: List<String>, callback: (Int, List<String>) -> Unit): Boolean {
         if (Build.VERSION.SDK_INT < 23) {
             callback(PERMISSION_GRANTED, list)
             return true
         }
 
         val notGranted: ArrayList<String> = ArrayList()
-        list.forEach({
+        list.forEach {
             val result = ContextCompat.checkSelfPermission(context, it)
             if (result != PackageManager.PERMISSION_GRANTED)
                 notGranted.add(it)
-        })
+        }
 
-        if (notGranted.isNotEmpty()) {
+        return if (notGranted.isNotEmpty()) {
             requestPermission(notGranted, callback)
-            return false
+            false
         } else {
-            return true
+            true
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun requestPermission(list: ArrayList<String>, callback: (Int, ArrayList<String>) -> Unit) {
+    private fun requestPermission(list: List<String>, callback: (Int, ArrayList<String>) -> Unit) {
         val fm = getActivity(context)?.fragmentManager
         val fragment = RequestFragment(fm as FragmentManager, callback)
 
@@ -93,22 +90,15 @@ class RPermission private constructor(private var context: Context) {
 
         override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
             val permissionList: ArrayList<String> = getVerifiedPermissions(permissions)
-
             val returnCode = if (verifyPermissions(grantResults)) PERMISSION_GRANTED else PERMISSION_FAILED
             callback?.invoke(returnCode, permissionList)
             fm?.beginTransaction()?.remove(this)?.commitAllowingStateLoss()
         }
     }
 
-    private fun verifyPermissions(grantResults: IntArray): Boolean {
-        if (grantResults.isEmpty()) {
-            return false
-        }
-
-        return grantResults.none { it != PackageManager.PERMISSION_GRANTED }
-    }
+    private fun verifyPermissions(grantResults: IntArray): Boolean =
+            if (grantResults.isEmpty()) false else grantResults.none { it != PackageManager.PERMISSION_GRANTED }
 
     private fun getVerifiedPermissions(permissions: Array<String>): ArrayList<String> {
         val permissionList: ArrayList<String> = ArrayList()
@@ -123,7 +113,8 @@ class RPermission private constructor(private var context: Context) {
     companion object {
         private var instance: RPermission? = null
 
-        @JvmStatic fun getInstance(c: Context): RPermission {
+        @JvmStatic
+        fun getInstance(c: Context): RPermission {
 
             if (instance == null) {
                 instance = RPermission(c)
@@ -132,7 +123,9 @@ class RPermission private constructor(private var context: Context) {
             return instance as RPermission
         }
 
-        @JvmField val PERMISSION_GRANTED = 1
-        @JvmField val PERMISSION_FAILED = 2
+        @JvmField
+        val PERMISSION_GRANTED = 1
+        @JvmField
+        val PERMISSION_FAILED = 2
     }
 }

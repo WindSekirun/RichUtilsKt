@@ -5,11 +5,10 @@ package pyxis.uzuki.live.richutilskt.utils
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
-import pyxis.uzuki.live.richutilskt.getValue
 
-class RPreference private constructor(c: Context) {
+class RPreference private constructor(context: Context) {
     private val editor: SharedPreferences.Editor
-    private val pref: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(c)
+    private val pref: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
 
     init {
         editor = pref.edit()
