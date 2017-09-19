@@ -20,6 +20,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class RPickMedia private constructor() {
+    private var IMAGE_CONTENT_URL = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+    private var VIDEO_CONTENT_URL = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
 
     private fun getActivity(context: Context): Activity? {
         var c = context
@@ -31,6 +33,21 @@ class RPickMedia private constructor() {
             c = c.baseContext
         }
         return null
+    }
+
+    /**
+     * enable internal storage mode
+     *
+     * @param [isInternal] capture Image/Video in internal storage
+     */
+    fun setInternalStorage(isInternal: Boolean) {
+        if (isInternal) {
+            IMAGE_CONTENT_URL = MediaStore.Images.Media.INTERNAL_CONTENT_URI
+            VIDEO_CONTENT_URL = MediaStore.Video.Media.INTERNAL_CONTENT_URI
+        } else {
+            IMAGE_CONTENT_URL = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            VIDEO_CONTENT_URL = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+        }
     }
 
     /**
