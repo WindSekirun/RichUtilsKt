@@ -134,7 +134,7 @@ class RPickMedia private constructor() {
         val cv = ContentValues()
         val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
         cv.put(MediaStore.Images.Media.TITLE, timeStamp)
-        return contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cv)
+        return contentResolver.insert(IMAGE_CONTENT_URL, cv)
     }
 
     private fun createVideoUri(context: Context): Uri {
@@ -142,7 +142,7 @@ class RPickMedia private constructor() {
         val cv = ContentValues()
         val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
         cv.put(MediaStore.Images.Media.TITLE, timeStamp)
-        return contentResolver.insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, cv)
+        return contentResolver.insert(VIDEO_CONTENT_URL, cv)
     }
 
     @SuppressLint("ValidFragment")
