@@ -3,7 +3,7 @@
 
 <img src="richutils-logo.png" alt="RichUtils logo" height="101" width="220" />
 
-Advancement Utils for Android Developer written by [Kotlin](https://kotlinlang.org)
+Advancement Utils for Android Developer written in [Kotlin](https://kotlinlang.org)
 
 Are you tired to write duplicate, dirty code to develop your android application? RichUtils provided fully Documented and high quality of many utils so more! With [Anko](https://github.com/Kotlin/anko) and [Kotlin android extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html), **Your developing time will be happier than before!**
 
