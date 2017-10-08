@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import java.io.File;
 
 import butterknife.BindView;
-import kotlin.Unit;
 import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 /**
@@ -28,7 +27,6 @@ public class BitmapActivity extends BaseActivity {
         RichUtils.runAsync(() -> {
             bitmap = RichUtils.downloadBitmap("http://images.goodsmile.info/cgm/images/product/20160606/5715/39417/large/f75b5722baec63a2922a81c3c3ca8743.jpg");
             runOnUiThread(this::init);
-            return Unit.INSTANCE;
         });
     }
 

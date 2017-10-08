@@ -14,6 +14,7 @@ import android.util.Base64
 import android.util.Log
 import com.android.vending.billing.IInAppBillingService
 import org.json.JSONObject
+import pyxis.uzuki.live.richutilskt.impl.F2
 import pyxis.uzuki.live.richutilskt.utils.getJSONInt
 import pyxis.uzuki.live.richutilskt.utils.getJSONLong
 import pyxis.uzuki.live.richutilskt.utils.getJSONString
@@ -95,11 +96,37 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
     }
 
     /**
+     * Using when try to purchase un-consumable item
+     *
+     * @param[callback] callback lambda parameter
+     */
+    fun setOnInAppBillingCallback(callback: F2<Int, Transaction>) {
+        this.billingCallback = object : OnInAppBillingCallback {
+            override fun purchaseResult(responseCode: Int, transaction: Transaction?) {
+                callback.invoke(responseCode, transaction)
+            }
+        }
+    }
+
+    /**
      * Using when try to purchase consumable item, within using AppBillingUtils.setOnInAppBillingCallback(OnInAppBillingCallback)
      *
      * @param[callback] callback lambda parameter
      */
     fun setOnInAppConsumeCallback(callback: (Int, Transaction?) -> Unit) {
+        this.consumeCallback = object : OnInAppConsumeCallback {
+            override fun consumeResult(responseCode: Int, transaction: Transaction?) {
+                callback.invoke(responseCode, transaction)
+            }
+        }
+    }
+
+    /**
+     * Using when try to purchase consumable item, within using AppBillingUtils.setOnInAppBillingCallback(OnInAppBillingCallback)
+     *
+     * @param[callback] callback lambda parameter
+     */
+    fun setOnInAppConsumeCallback(callback: F2<Int, Transaction>) {
         this.consumeCallback = object : OnInAppConsumeCallback {
             override fun consumeResult(responseCode: Int, transaction: Transaction?) {
                 callback.invoke(responseCode, transaction)

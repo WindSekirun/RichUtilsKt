@@ -3,7 +3,6 @@ package pyxis.uzuki.live.richutils.samplejava;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,8 +18,6 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 import butterknife.BindView;
-import kotlin.Unit;
-import pyxis.uzuki.live.richutilskt.utils.ContactItem;
 import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 public class MainActivity extends BaseActivity {
@@ -44,10 +41,7 @@ public class MainActivity extends BaseActivity {
         RichUtils.setStatusNavBarColor(this, Color.parseColor("#303F9F"));
 
 
-        RichUtils.runAsync(() -> {
-            getLatestReleaseFromGitHub();
-            return Unit.INSTANCE;
-        }, 5);
+        RichUtils.runAsync(this::getLatestReleaseFromGitHub, 5);
 
         logo.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/WindSekirun/RichUtilsKt"));

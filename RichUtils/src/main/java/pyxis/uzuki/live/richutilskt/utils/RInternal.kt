@@ -1,5 +1,6 @@
 @file:JvmName("RichUtils")
 @file:JvmMultifileClass
+@file:Suppress("UNCHECKED_CAST")
 
 
 package pyxis.uzuki.live.richutilskt.utils

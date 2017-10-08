@@ -13,7 +13,7 @@ import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_location.*
 import pyxis.uzuki.live.richutilskt.service.RLocationService
 import pyxis.uzuki.live.richutilskt.utils.RPermission
-import pyxis.uzuki.live.richutilskt.utils.asString
+import pyxis.uzuki.live.richutilskt.utils.asDateString
 import java.util.*
 
 @SuppressLint("SetTextI18n")
@@ -25,7 +25,7 @@ class LocationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location)
 
-        txtLocation.text = "Ready for fetch... \nnow time is ${Calendar.getInstance().time.asString()}\n========================="
+        txtLocation.text = "Ready for fetch... \nnow time is ${Calendar.getInstance().time.asDateString()}\n========================="
 
         val arrays: Array<String> = arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
         val isGranted = RPermission.getInstance(this).checkPermission(array = arrays, callback = { _: Int, _: List<String> ->
@@ -50,7 +50,7 @@ class LocationActivity : AppCompatActivity() {
             txtLocation.text =
                     "${txtLocation.text} \n Location changed! -> \n lat: ${location.latitude}\n " +
                             "lng: ${location.longitude}\n provider: ${location.provider}\n " +
-                            "time: ${Calendar.getInstance().time.asString()}"
+                            "time: ${Calendar.getInstance().time.asDateString()}"
         })
 
         if (locationService.currentBestLocation != null) {
@@ -58,7 +58,7 @@ class LocationActivity : AppCompatActivity() {
             txtLocation.text =
                     "${txtLocation.text}\n Location fetch! -> \n lat: ${location?.latitude}\n " +
                             "lng: ${location?.longitude}\n provider: ${location?.provider}\n " +
-                            "time: ${Calendar.getInstance().time.asString()}"
+                            "time: ${Calendar.getInstance().time.asDateString()}"
         } else {
             txtLocation.text = "${txtLocation.text}\nNot fetched..."
         }

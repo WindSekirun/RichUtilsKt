@@ -3,14 +3,11 @@ package pyxis.uzuki.live.richutils.samplejava;
 import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import kotlin.Unit;
 import pyxis.uzuki.live.richutilskt.utils.ContactItem;
 import pyxis.uzuki.live.richutilskt.utils.RPermission;
 import pyxis.uzuki.live.richutilskt.utils.RichUtils;
@@ -26,13 +23,9 @@ public class ContactActivity extends BaseActivity {
 
         String[] arrays = new String[]{Manifest.permission.READ_CONTACTS};
 
-        boolean isGranted = RPermission.Companion.getInstance(this).checkPermission(arrays, (integer, strings) -> {
+        RPermission.getInstance(this).checkPermission(arrays, (integer, strings) -> {
             init();
-            return Unit.INSTANCE;
         });
-
-        if (isGranted)
-            init();
     }
 
     private void init() {
@@ -42,11 +35,7 @@ public class ContactActivity extends BaseActivity {
                 text += "\n" + item;
             }
 
-            runOnUiThread(() -> {
-                txtResult.setText(text);
-            });
-
-            return Unit.INSTANCE;
+            runOnUiThread(() -> txtResult.setText(text));
         });
     }
 }

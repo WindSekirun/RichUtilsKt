@@ -16,6 +16,7 @@ import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
 import android.support.v4.content.ContextCompat
+import pyxis.uzuki.live.richutilskt.impl.F2
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -53,30 +54,58 @@ class RPickMedia private constructor() {
     /**
      * pick image from Camera
      *
-     * @param[callback] callback, should make class PickMediaCallback : PickMediaCallback
+     * @param[callback] callback
      */
     fun pickFromCamera(context: Context, callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_CAMERA, callback)
 
     /**
+     * pick image from Camera
+     *
+     * @param[callback] callback
+     */
+    fun pickFromCamera(context: Context, callback: F2<Int, String>?) = requestPhotoPick(context, PICK_FROM_CAMERA, { code, uri -> callback?.invoke(code, uri) })
+
+    /**
      * pick image from Gallery
      *
-     * @param[callback] callback, should make class PickMediaCallback : PickMediaCallback
+     * @param[callback] callback
      */
     fun pickFromGallery(context: Context, callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_GALLERY, callback)
 
     /**
+     * pick image from Gallery
+     *
+     * @param[callback] callback
+     */
+    fun pickFromGallery(context: Context, callback: F2<Int, String>?) = requestPhotoPick(context, PICK_FROM_GALLERY, {code, uri -> callback?.invoke(code, uri)})
+
+    /**
      * pick image from Video
      *
-     * @param[callback] callback, should make class PickMediaCallback : PickMediaCallback
+     * @param[callback] callback
      */
     fun pickFromVideo(context: Context, callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_VIDEO, callback)
 
     /**
+     * pick image from Video
+     *
+     * @param[callback] callback
+     */
+    fun pickFromVideo(context: Context, callback: F2<Int, String>?) = requestPhotoPick(context, PICK_FROM_VIDEO, {code, uri -> callback?.invoke(code, uri)})
+
+    /**
      * pick image from Camera (Video Mode)
      *
-     * @param[callback] callback, should make class PickMediaCallback : PickMediaCallback
+     * @param[callback] callback
      */
     fun pickFromVideoCamera(context: Context, callback: (Int, String) -> Unit) = requestPhotoPick(context, PICK_FROM_CAMERA_VIDEO, callback)
+
+    /**
+     * pick image from Camera (Video Mode)
+     *
+     * @param[callback] callback
+     */
+    fun pickFromVideoCamera(context: Context, callback: F2<Int, String>?) = requestPhotoPick(context, PICK_FROM_CAMERA_VIDEO, {code, uri -> callback?.invoke(code, uri)})
 
     private var currentPhotoPath: String? = null
     private var currentVideoPath: String? = null

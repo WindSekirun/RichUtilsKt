@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import butterknife.BindView;
-import kotlin.Unit;
 import pyxis.uzuki.live.richutilskt.utils.RPickMedia;
 import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
@@ -26,25 +25,13 @@ public class PickMediaActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick);
 
-        gallery.setOnClickListener(v -> RPickMedia.instance.pickFromGallery(this, (integer, s) -> {
-            resultMessage(integer, s);
-            return Unit.INSTANCE;
-        }));
+        gallery.setOnClickListener(v -> RPickMedia.instance.pickFromGallery(this, this::resultMessage));
 
-        camera.setOnClickListener(v -> RPickMedia.instance.pickFromCamera(this, (integer, s) -> {
-            resultMessage(integer, s);
-            return Unit.INSTANCE;
-        }));
+        camera.setOnClickListener(v -> RPickMedia.instance.pickFromCamera(this, this::resultMessage));
 
-        video.setOnClickListener(v -> RPickMedia.instance.pickFromVideo(this, (integer, s) -> {
-            resultMessage(integer, s);
-            return Unit.INSTANCE;
-        }));
+        video.setOnClickListener(v -> RPickMedia.instance.pickFromVideo(this, this::resultMessage));
 
-        videoc.setOnClickListener(v -> RPickMedia.instance.pickFromVideoCamera(this, (integer, s) -> {
-            resultMessage(integer, s);
-            return Unit.INSTANCE;
-        }));
+        videoc.setOnClickListener(v -> RPickMedia.instance.pickFromVideoCamera(this, this::resultMessage));
     }
 
     private void resultMessage(int resultCode, String path) {

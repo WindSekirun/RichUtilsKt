@@ -41,12 +41,13 @@ internal class RSystemFontEngine private constructor(private val mApplication: A
         }
     }
 
-    fun setTypeface(context: Context, @LayoutRes layoutRes: Int, parent: ViewGroup? = null, isAttachedRoot: Boolean = false): View {
+    @JvmOverloads fun setTypeface(context: Context, @LayoutRes layoutRes: Int, parent: ViewGroup? = null, isAttachedRoot: Boolean = false): View {
         val view = LayoutInflater.from(context).inflate(layoutRes, parent, isAttachedRoot) as ViewGroup
         setTypefaceViewGroup(view)
         return view
     }
 
+    @Suppress("UNUSED_PARAMETER")
     fun setTypeface(context: Context, view: ViewGroup, parent: ViewGroup? = null, isAttachedRoot: Boolean = false): View {
         setTypefaceViewGroup(view)
         return view

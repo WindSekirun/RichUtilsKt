@@ -13,8 +13,8 @@ import java.util.concurrent.Executors
  */
 internal class RAsync {
     internal var settingPoolSize = DEFAULT_POOL_SIZE
-    internal var settingTaskType = DEFAULT_TASK_TYPE
-    internal var bte = BackgroundThreadExecutor()
+    private var settingTaskType = DEFAULT_TASK_TYPE
+    private var bte = BackgroundThreadExecutor()
 
     @JvmOverloads fun execute( executeProcess: () -> Unit, poolSize: Int = settingPoolSize, taskType: String = settingTaskType) {
         bte = BackgroundThreadExecutor()
@@ -35,8 +35,8 @@ internal class RAsync {
     }
 
     class BackgroundThreadExecutor : BackgroundExecutor {
-        internal var settingTaskType: String = ""
-        internal var settingPoolSize: Int = 0
+        private var settingTaskType: String = ""
+        private var settingPoolSize: Int = 0
 
         override fun setTaskType(taskType: String): BackgroundExecutor {
             settingTaskType = taskType

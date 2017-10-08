@@ -148,20 +148,19 @@ fun Bitmap.resize(width: Int, height: Int, mode: ResizeMode = ResizeMode.AUTOMAT
     return Bitmap.createScaledBitmap(this, mWidth, mHeight, true).copy(config, true)
 }
 
-private fun calculateResizeMode(width: Int, height: Int): ResizeMode {
-    if (ImageOrientation.getOrientation(width, height) === ImageOrientation.LANDSCAPE) {
-        return ResizeMode.FIT_TO_WIDTH
-    } else {
-        return ResizeMode.FIT_TO_HEIGHT
-    }
-}
+private fun calculateResizeMode(width: Int, height: Int): ResizeMode =
+        if (ImageOrientation.getOrientation(width, height) === ImageOrientation.LANDSCAPE) {
+            ResizeMode.FIT_TO_WIDTH
+        } else {
+            ResizeMode.FIT_TO_HEIGHT
+        }
 
 private fun calculateWidth(originalWidth: Int, originalHeight: Int, height: Int): Int
-    = Math.ceil(originalWidth / (originalHeight.toDouble() / height)).toInt()
+        = Math.ceil(originalWidth / (originalHeight.toDouble() / height)).toInt()
 
 
 private fun calculateHeight(originalWidth: Int, originalHeight: Int, width: Int): Int
-    = Math.ceil(originalHeight / (originalWidth.toDouble() / width)).toInt()
+        = Math.ceil(originalHeight / (originalWidth.toDouble() / width)).toInt()
 
 enum class ResizeMode {
     AUTOMATIC, FIT_TO_WIDTH, FIT_TO_HEIGHT, FIT_EXACT
@@ -172,7 +171,7 @@ private enum class ImageOrientation {
 
     companion object {
         fun getOrientation(width: Int, height: Int): ImageOrientation =
-                if (width >= height)  ImageOrientation.LANDSCAPE else  ImageOrientation.PORTRAIT
+                if (width >= height) ImageOrientation.LANDSCAPE else ImageOrientation.PORTRAIT
     }
 
 }

@@ -16,13 +16,7 @@ import android.text.TextUtils
  * @return androidId of device
  */
 @SuppressLint("HardwareIds")
-fun Context.getAndroidId(): String {
-    var androidId = Settings.Secure.getString(this.contentResolver, Settings.Secure.ANDROID_ID)
-    if (TextUtils.isEmpty(androidId))
-        androidId = ""
-
-    return androidId
-}
+fun Context.getAndroidId(): String = Settings.Secure.getString(this.contentResolver, Settings.Secure.ANDROID_ID) ?: ""
 
 /**
  * get IMEI of device
@@ -30,7 +24,7 @@ fun Context.getAndroidId(): String {
  * this methods will grant READ_PHONE_STATE automatically if your application target SDK 23 and above.
  * @return IMEI of device
  */
-@SuppressLint("HardwareIds")
+@SuppressLint("HardwareIds", "MissingPermission")
 fun Context.getIMEI() : String {
     val telephonyManager = this@getIMEI.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
     var imei = ""
@@ -51,7 +45,7 @@ fun Context.getIMEI() : String {
  * this methods will grant READ_PHONE_STATE automatically if your application target SDK 23 and above.
  * @return Line1Number of device
  */
-@SuppressLint("HardwareIds")
+@SuppressLint("HardwareIds", "MissingPermission")
 fun Context.getLine1Number() : String {
     val telephonyManager = this@getLine1Number.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
     var number = ""

@@ -29,17 +29,17 @@ public class DateActivity extends BaseActivity {
         Date date = RichUtils.parseDate("2016-11-23 11:11:11");
         String asString = "";
         if (date != null) {
-            asString = RichUtils.asString(date);
+            asString = RichUtils.asDateString(date);
         }
 
         String formatted = RichUtils.toDateString("2016-11-23 11:11:11", "yyyy-Mm-dd HH:mm:ss", "yyyy.MM.dd");
-        long timestamp = 149648887L;
-        String tsStr = RichUtils.asDateString(timestamp, true);
+        long timestamp = 149648887L * 1000;
+        String tsStr = RichUtils.asDateString(timestamp);
 
         btnCopy.setOnClickListener(view -> RichUtils.copyText(this, editCopy.getText().toString()));
 
         btnLoad.setOnClickListener(view -> {
-            String value = (String) RichUtils.getTextFromClipboard(this);
+            String value = RichUtils.getTextFromClipboard(this);
             editCopy.setText(value);
             editCopy.setSelection(editCopy.length());
         });

@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.widget.Button;
 
 import butterknife.BindView;
-import kotlin.Unit;
 import pyxis.uzuki.live.richutilskt.utils.RPermission;
 import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
@@ -29,7 +28,6 @@ public class PermissionActivity extends BaseActivity {
             RPermission.getInstance(this).checkPermission(arrays, (integer, strings) -> {
                 RichUtils.alert(PermissionActivity.this,
                         "Permission result ->" + integer + " / Requested Permission: " + TextUtils.join(",", strings));
-                return Unit.INSTANCE;
             });
         });
     }

@@ -27,11 +27,9 @@ import android.support.v4.app.ActivityCompat
 
 private fun finishAffinity(activity: Activity) {
     activity.setResult(Activity.RESULT_CANCELED)
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        activity.finishAffinity()
-    } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-        activity.runOnUiThread { activity.finishAffinity() }
-    } else {
-        ActivityCompat.finishAffinity(activity)
+    when {
+        Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP -> activity.finishAffinity()
+        Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN -> activity.runOnUiThread { activity.finishAffinity() }
+        else -> ActivityCompat.finishAffinity(activity)
     }
 }

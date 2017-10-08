@@ -14,11 +14,11 @@ class DateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_date)
 
-        var date: Date? = "2016-11-23 11:11:11".parseDate()
-        var string1 = date?.asString()
-        var formatted = "2016-11-23 11:11:11".toDateString(fromFormat = "yyyy-MM-dd HH:mm:ss", toFormat = "yyyy.mm.dd")
-        var timestamp = 1496488887.toLong()
-        var tsStr = timestamp.asDateString(isMultiplyMS = true)
+        val date: Date? = "2016-11-23 11:11:11".parseDate()
+        val string1 = date?.asDateString()
+        val formatted = "2016-11-23 11:11:11".toDateString(fromFormat = "yyyy-MM-dd HH:mm:ss", toFormat = "yyyy.mm.dd")
+        val timestamp = 1496488887.toLong() * 1000
+        val tsStr = timestamp.asDateString()
 
         btnCopy.setOnClickListener {
             copyText(editCopy.text.toString())

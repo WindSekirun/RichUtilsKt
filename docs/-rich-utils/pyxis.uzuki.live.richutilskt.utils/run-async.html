@@ -2,17 +2,23 @@
 <HEAD>
 <meta charset="UTF-8">
 <title>runAsync - RichUtils</title>
-<link rel="stylesheet" href="..\..\style.css">
+<link rel="stylesheet" href="../../style.css">
 </HEAD>
 <BODY>
 <a href="../index.html">RichUtils</a>&nbsp;/&nbsp;<a href="index.html">pyxis.uzuki.live.richutilskt.utils</a>&nbsp;/&nbsp;<a href=".">runAsync</a><br/>
 <br/>
 <h1>runAsync</h1>
+<a name="pyxis.uzuki.live.richutilskt.utils$runAsync(kotlin.Function0((kotlin.Unit)), kotlin.Int)"></a>
+<code><span class="keyword">fun </span><span class="identifier">runAsync</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$runAsync(kotlin.Function0((kotlin.Unit)), kotlin.Int)/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$runAsync(kotlin.Function0((kotlin.Unit)), kotlin.Int)/poolSize">poolSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;RAsync.instance.settingPoolSize<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<a name="pyxis.uzuki.live.richutilskt.utils$runAsync(pyxis.uzuki.live.richutilskt.impl.F0, kotlin.Int)"></a>
+<code><span class="keyword">fun </span><span class="identifier">runAsync</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$runAsync(pyxis.uzuki.live.richutilskt.impl.F0, kotlin.Int)/action">action</span><span class="symbol">:</span>&nbsp;<a href="../pyxis.uzuki.live.richutilskt.impl/-f0/index.html"><span class="identifier">F0</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$runAsync(pyxis.uzuki.live.richutilskt.impl.F0, kotlin.Int)/poolSize">poolSize</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;RAsync.instance.settingPoolSize<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>run code inside of Background thread with custom pool size
+this will help in multi-threading working</p>
 <a name="pyxis.uzuki.live.richutilskt.utils$runAsync(kotlin.Function0((kotlin.Unit)))"></a>
-<code><span class="keyword">fun </span><span class="identifier">runAsync</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$runAsync(kotlin.Function0((kotlin.Unit)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>run code inside of Background Thread</p>
-<h3>Parameters</h3>
-<p><a name="action"></a>
-<code>action</code> - code to execute</p>
+<code><span class="keyword">fun </span><span class="identifier">runAsync</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$runAsync(kotlin.Function0((kotlin.Unit)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<a name="pyxis.uzuki.live.richutilskt.utils$runAsync(pyxis.uzuki.live.richutilskt.impl.F0)"></a>
+<code><span class="keyword">fun </span><span class="identifier">runAsync</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$runAsync(pyxis.uzuki.live.richutilskt.impl.F0)/action">action</span><span class="symbol">:</span>&nbsp;<a href="../pyxis.uzuki.live.richutilskt.impl/-f0/index.html"><span class="identifier">F0</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>run code inside of Background thread with default pool size
+this will help in multi-threading working</p>
 </BODY>
 </HTML>

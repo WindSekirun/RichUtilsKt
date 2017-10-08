@@ -195,6 +195,7 @@ fun put(jsonArray: JSONArray?, value: Any) = jsonArray?.put(value)
 /**
  * invoke [action] every JSONObject
  */
+@JvmName("forObjectEach")
 inline fun JSONArray.forEach(action: (JSONObject) -> Unit) {
     for (i in 0 until this.length()) action(getJSONObject(i))
 }
@@ -202,5 +203,5 @@ inline fun JSONArray.forEach(action: (JSONObject) -> Unit) {
 /**
  * convert JSONArray to List<JSONObject>
  */
-@JvmName("toArrayList")
+@JvmName("toObjectList")
 fun JSONArray.toList(): List<JSONObject> = List<JSONObject>(length()) { index -> getJSONObject(index) }

@@ -12,6 +12,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.support.annotation.RequiresApi
 import android.support.v4.content.ContextCompat
+import pyxis.uzuki.live.richutilskt.impl.F2
 
 class RPermission private constructor(private var context: Context) {
 
@@ -41,12 +42,35 @@ class RPermission private constructor(private var context: Context) {
     /**
      * check and request Permission which given.
      *
+     * @param[array] array of Permission to check
+     * @param[callback] callback object
+     * @return check result
+     */
+    fun checkPermission(array: Array<String>, callback: F2<Int, List<String>>?): Boolean
+            = checkPermission(List(array.size) { array[it] }, callback)
+
+    /**
+     * check and request Permission which given.
+     *
      * @param[list] list of Permission to check
      * @param[callback] callback object
      * @return check result
      */
+    fun checkPermission(list: List<String>, callback: (Int, List<String>) -> Unit): Boolean
+            = processGrantPermission(list, callback)
+
+    /**
+     * check and request Permission which given.
+     *
+     * @param[list] list of Permission to check
+     * @param[callback] callback object
+     * @return check result
+     */
+    fun checkPermission(list: List<String>, callback: F2<Int, List<String>>?): Boolean
+            = processGrantPermission(list, { code, arrays -> callback?.invoke(code, arrays) })
+
     @SuppressLint("NewApi")
-    fun checkPermission(list: List<String>, callback: (Int, List<String>) -> Unit): Boolean {
+    private fun processGrantPermission(list: List<String>, callback: (Int, List<String>) -> Unit): Boolean {
         if (Build.VERSION.SDK_INT < 23) {
             callback(PERMISSION_GRANTED, list)
             return true
@@ -63,6 +87,7 @@ class RPermission private constructor(private var context: Context) {
             requestPermission(notGranted, callback)
             false
         } else {
+            callback(PERMISSION_GRANTED, list)
             true
         }
     }

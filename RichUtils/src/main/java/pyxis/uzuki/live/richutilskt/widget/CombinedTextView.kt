@@ -109,7 +109,7 @@ class CombinedTextView constructor(context: Context, val attrs: AttributeSet? = 
 
         var contentString = textPrimary
         if (textExtraSpace != 0)
-            for (i in 0..textExtraSpace - 1)
+            for (i in 0 until textExtraSpace)
                 contentString += " "
 
         contentString += textSecondary

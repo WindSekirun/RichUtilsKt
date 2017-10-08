@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
+import pyxis.uzuki.live.richutilskt.impl.F1
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
@@ -22,7 +23,7 @@ import java.nio.charset.Charset
  * @param[localPath] full path of file to saved
  * @return Uri object
  */
-fun downloadFile(urlPath: String, localPath: String, callback: (Uri) -> Unit = {}): Uri? {
+fun downloadFile(urlPath: String, localPath: String, callback: (Uri?) -> Unit = {}): Uri? {
     var uri: Uri? = null
     val connection = URL(urlPath).openConnection() as HttpURLConnection;
 
@@ -30,7 +31,30 @@ fun downloadFile(urlPath: String, localPath: String, callback: (Uri) -> Unit = {
         uri = Uri.fromFile(connection.inputStream.outAsFile(localPath.toFile()))
     }
     connection.disconnect()
-    callback(uri as Uri)
+    if (uri is Uri) {
+        callback(uri)
+    } else {
+        callback(null)
+    }
+    return uri
+}
+
+/**
+ * Download file from uri
+ *
+ * @param[urlPath] path of file
+ * @param[localPath] full path of file to saved
+ * @return Uri object
+ */
+fun downloadFile(urlPath: String, localPath: String, callback: F1<Uri>?): Uri? {
+    var uri: Uri? = null
+    val connection = URL(urlPath).openConnection() as HttpURLConnection
+
+    if (connection.responseCode == HttpURLConnection.HTTP_OK) {
+        uri = Uri.fromFile(connection.inputStream.outAsFile(localPath.toFile()))
+    }
+    connection.disconnect()
+    callback?.invoke(uri)
     return uri
 }
 

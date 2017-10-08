@@ -17,6 +17,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Surface
 import android.view.WindowManager
+import pyxis.uzuki.live.richutilskt.impl.F1
 import java.io.IOException
 import java.util.*
 
@@ -107,6 +108,22 @@ class RLocationService : Service() {
      * any location updates will invoke this callback (except new location data is not-best-location.)
      */
     fun setLocationCallback(callback: (Location) -> Unit) {
+        locationCallback = object : LocationCallback, (Location) -> Unit {
+            override fun invoke(location: Location) {
+                callback.invoke(location)
+            }
+
+            override fun handleNewLocation(location: Location) {
+                callback.invoke(location)
+            }
+        }
+    }
+
+    /**
+     * Set callback for location service.
+     * any location updates will invoke this callback (except new location data is not-best-location.)
+     */
+    fun setLocationCallback(callback: F1<Location>) {
         locationCallback = object : LocationCallback, (Location) -> Unit {
             override fun invoke(location: Location) {
                 callback.invoke(location)
