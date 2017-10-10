@@ -16,6 +16,7 @@ import pyxis.uzuki.live.richutilskt.utils.RichUtils;
 
 public class PermissionActivity extends BaseActivity {
     @BindView(R.id.btnCall) Button btnCall;
+    @BindView(R.id.btnLocation) Button btnLocation;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,7 +26,26 @@ public class PermissionActivity extends BaseActivity {
         btnCall.setOnClickListener(view -> {
             String[] arrays = new String[]{Manifest.permission.CALL_PHONE};
 
-            RPermission.getInstance(this).checkPermission(arrays, (integer, strings) -> {
+            RPermission.instance.checkPermission(this, arrays, (integer, strings) -> {
+                if (integer == RPermission.PERMISSION_GRANTED) {
+                    // 성공
+                } else {
+                    // 실패
+                }
+                RichUtils.alert(PermissionActivity.this,
+                        "Permission result ->" + integer + " / Requested Permission: " + TextUtils.join(",", strings));
+            });
+        });
+
+        btnLocation.setOnClickListener(view -> {
+            String[] arrays = new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
+
+            RPermission.instance.checkPermission(this, arrays, (integer, strings) -> {
+                if (integer == RPermission.PERMISSION_GRANTED) {
+                    // 성공
+                } else {
+                    // 실패
+                }
                 RichUtils.alert(PermissionActivity.this,
                         "Permission result ->" + integer + " / Requested Permission: " + TextUtils.join(",", strings));
             });

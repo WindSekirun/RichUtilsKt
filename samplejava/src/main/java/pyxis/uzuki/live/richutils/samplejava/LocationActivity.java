@@ -53,7 +53,7 @@ public class LocationActivity extends BaseActivity {
 
         String[] arrays = new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
 
-        boolean isGranted = RPermission.getInstance(this).checkPermission(arrays, (integer, strings) -> {
+        boolean isGranted = RPermission.instance.checkPermission(this, arrays, (integer, strings) -> {
             start();
         });
 

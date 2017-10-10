@@ -28,7 +28,7 @@ class LocationActivity : AppCompatActivity() {
         txtLocation.text = "Ready for fetch... \nnow time is ${Calendar.getInstance().time.asDateString()}\n========================="
 
         val arrays: Array<String> = arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
-        val isGranted = RPermission.getInstance(this).checkPermission(array = arrays, callback = { _: Int, _: List<String> ->
+        val isGranted = RPermission.instance.checkPermission(this, array = arrays, callback = { _: Int, _: List<String> ->
             start()
         })
 

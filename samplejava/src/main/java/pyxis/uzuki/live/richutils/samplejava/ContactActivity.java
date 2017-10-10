@@ -23,7 +23,7 @@ public class ContactActivity extends BaseActivity {
 
         String[] arrays = new String[]{Manifest.permission.READ_CONTACTS};
 
-        RPermission.getInstance(this).checkPermission(arrays, (integer, strings) -> {
+        RPermission.instance.checkPermission(this, arrays, (integer, strings) -> {
             init();
         });
     }

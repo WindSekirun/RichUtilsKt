@@ -17,35 +17,35 @@ class PermissionActivity : AppCompatActivity() {
 
         btnCall.setOnClickListener {
             val arrays: Array<String> = arrayOf(Manifest.permission.CALL_PHONE)
-            RPermission.getInstance(this).checkPermission(array = arrays, callback = { resultCode: Int, list: List<String> ->
+            RPermission.instance.checkPermission(this, array = arrays, callback = { resultCode: Int, list: List<String> ->
                 resultDisplay(resultCode, list)
             })
         }
 
         btnSMS.setOnClickListener {
             val arrays: Array<String> = arrayOf(Manifest.permission.SEND_SMS)
-            RPermission.getInstance(this).checkPermission(array = arrays, callback = { resultCode: Int, list: List<String> ->
+            RPermission.instance.checkPermission(this, array = arrays, callback = { resultCode: Int, list: List<String> ->
                 resultDisplay(resultCode, list)
             })
         }
 
         btnStorage.setOnClickListener {
             val arrays: Array<String> = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            RPermission.getInstance(this).checkPermission(array = arrays, callback = { resultCode: Int, list: List<String> ->
+            RPermission.instance.checkPermission(this, array = arrays, callback = { resultCode: Int, list: List<String> ->
                 resultDisplay(resultCode, list)
             })
         }
 
         btnLocation.setOnClickListener {
             val arrays: Array<String> = arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
-            RPermission.getInstance(this).checkPermission(array = arrays, callback = { resultCode: Int, list: List<String> ->
+            RPermission.instance.checkPermission(this, array = arrays, callback = { resultCode: Int, list: List<String> ->
                 resultDisplay(resultCode, list)
             })
         }
 
         btnState.setOnClickListener {
             val arrays: Array<String> = arrayOf(Manifest.permission.READ_PHONE_STATE)
-            RPermission.getInstance(this).checkPermission(array = arrays, callback = { resultCode: Int, list: List<String> ->
+            RPermission.instance.checkPermission(this, array = arrays, callback = { resultCode: Int, list: List<String> ->
                 resultDisplay(resultCode, list)
             })
         }

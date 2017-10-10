@@ -14,7 +14,7 @@ import android.support.annotation.RequiresApi
 import android.support.v4.content.ContextCompat
 import pyxis.uzuki.live.richutilskt.impl.F2
 
-class RPermission private constructor(private var context: Context) {
+class RPermission private constructor() {
 
     private fun getActivity(context: Context): Activity? {
         var c = context
@@ -36,8 +36,8 @@ class RPermission private constructor(private var context: Context) {
      * @return check result
      */
     @JvmOverloads
-    fun checkPermission(array: Array<String>, callback: (Int, List<String>) -> Unit = { _, _ -> }): Boolean
-            = checkPermission(List(array.size) { array[it] }, callback)
+    fun checkPermission(context: Context, array: Array<String>, callback: (Int, List<String>) -> Unit = { _, _ -> }): Boolean
+            = checkPermission(context, List(array.size) { array[it] }, callback)
 
     /**
      * check and request Permission which given.
@@ -46,8 +46,8 @@ class RPermission private constructor(private var context: Context) {
      * @param[callback] callback object
      * @return check result
      */
-    fun checkPermission(array: Array<String>, callback: F2<Int, List<String>>?): Boolean
-            = checkPermission(List(array.size) { array[it] }, callback)
+    fun checkPermission(context: Context, array: Array<String>, callback: F2<Int, List<String>>?): Boolean
+            = checkPermission(context, List(array.size) { array[it] }, callback)
 
     /**
      * check and request Permission which given.
@@ -56,8 +56,8 @@ class RPermission private constructor(private var context: Context) {
      * @param[callback] callback object
      * @return check result
      */
-    fun checkPermission(list: List<String>, callback: (Int, List<String>) -> Unit): Boolean
-            = processGrantPermission(list, callback)
+    fun checkPermission(context: Context, list: List<String>, callback: (Int, List<String>) -> Unit): Boolean
+            = context.processGrantPermission(list, callback)
 
     /**
      * check and request Permission which given.
@@ -66,11 +66,11 @@ class RPermission private constructor(private var context: Context) {
      * @param[callback] callback object
      * @return check result
      */
-    fun checkPermission(list: List<String>, callback: F2<Int, List<String>>?): Boolean
-            = processGrantPermission(list, { code, arrays -> callback?.invoke(code, arrays) })
+    fun checkPermission(context: Context, list: List<String>, callback: F2<Int, List<String>>?): Boolean
+            = context.processGrantPermission(list, { code, arrays -> callback?.invoke(code, arrays) })
 
     @SuppressLint("NewApi")
-    private fun processGrantPermission(list: List<String>, callback: (Int, List<String>) -> Unit): Boolean {
+    private fun Context.processGrantPermission(list: List<String>, callback: (Int, List<String>) -> Unit): Boolean {
         if (Build.VERSION.SDK_INT < 23) {
             callback(PERMISSION_GRANTED, list)
             return true
@@ -78,7 +78,7 @@ class RPermission private constructor(private var context: Context) {
 
         val notGranted: ArrayList<String> = ArrayList()
         list.forEach {
-            val result = ContextCompat.checkSelfPermission(context, it)
+            val result = ContextCompat.checkSelfPermission(this, it)
             if (result != PackageManager.PERMISSION_GRANTED)
                 notGranted.add(it)
         }
@@ -93,8 +93,8 @@ class RPermission private constructor(private var context: Context) {
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun requestPermission(list: List<String>, callback: (Int, ArrayList<String>) -> Unit) {
-        val fm = getActivity(context)?.fragmentManager
+    private fun Context.requestPermission(list: List<String>, callback: (Int, ArrayList<String>) -> Unit) {
+        val fm = getActivity(this)?.fragmentManager
         val fragment = RequestFragment(fm as FragmentManager, callback)
 
         fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commitAllowingStateLoss()
@@ -115,7 +115,7 @@ class RPermission private constructor(private var context: Context) {
 
         override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-            val permissionList: ArrayList<String> = getVerifiedPermissions(permissions)
+            val permissionList: ArrayList<String> = context.getVerifiedPermissions(permissions)
             val returnCode = if (verifyPermissions(grantResults)) PERMISSION_GRANTED else PERMISSION_FAILED
             callback?.invoke(returnCode, permissionList)
             fm?.beginTransaction()?.remove(this)?.commitAllowingStateLoss()
@@ -125,10 +125,10 @@ class RPermission private constructor(private var context: Context) {
     private fun verifyPermissions(grantResults: IntArray): Boolean =
             if (grantResults.isEmpty()) false else grantResults.none { it != PackageManager.PERMISSION_GRANTED }
 
-    private fun getVerifiedPermissions(permissions: Array<String>): ArrayList<String> {
+    private fun Context.getVerifiedPermissions(permissions: Array<String>): ArrayList<String> {
         val permissionList: ArrayList<String> = ArrayList()
         permissions.forEach {
-            if (ContextCompat.checkSelfPermission(context, it) == PackageManager.PERMISSION_GRANTED)
+            if (ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED)
                 permissionList.add(it)
         }
 
@@ -136,17 +136,8 @@ class RPermission private constructor(private var context: Context) {
     }
 
     companion object {
-        private var instance: RPermission? = null
-
-        @JvmStatic
-        fun getInstance(c: Context): RPermission {
-
-            if (instance == null) {
-                instance = RPermission(c)
-            }
-
-            return instance as RPermission
-        }
+        @JvmField
+        var instance: RPermission = RPermission()
 
         @JvmField
         val PERMISSION_GRANTED = 1
