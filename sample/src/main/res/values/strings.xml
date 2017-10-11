@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RichUtils Sample</string>
+    <string name="test_combined"><![CDATA[<b>OOP</b>]]></string>
 </resources>

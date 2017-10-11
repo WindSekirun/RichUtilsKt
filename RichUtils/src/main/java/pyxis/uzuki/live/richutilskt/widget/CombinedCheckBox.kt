@@ -2,40 +2,88 @@ package pyxis.uzuki.live.richutilskt.widget
 
 import android.content.Context
 import android.graphics.Color
-import android.graphics.Paint
 import android.graphics.Typeface
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.Spanned
-import android.text.TextPaint
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
-import android.text.style.MetricAffectingSpan
+import android.text.style.StyleSpan
 import android.util.AttributeSet
 import android.util.LruCache
 import android.widget.CheckBox
 import pyxis.uzuki.live.richutilskt.R
 
-/*
-        app:textPrimary="WindSekirun"
-        app:textPrimaryColor="#0fb2fb"
-        app:textPrimarySize="15sp"
-        app:textSecondary="\@WindSekirun"
-        app:textSecondaryColor="#828282"
-        app:textSecondarySize="10sp"
- */
-class CombinedCheckBox constructor(context: Context, val attrs: AttributeSet? = null) : CheckBox(context, attrs) {
+class CombinedCheckBox constructor(context: Context, private val attrs: AttributeSet? = null) : CheckBox(context, attrs) {
+    private var fontPrimaryTypeface: Typeface? = null
+    private var fontSecondaryTypeface: Typeface? = null
+
     var textPrimary: String = ""
+        set(value) {
+            field = value
+            apply()
+        }
+
     var textSecondary = ""
+        set(value) {
+            field = value
+            apply()
+        }
+
     var textPrimaryColor: Int = 0
+        set(value) {
+            field = value
+            apply()
+        }
+
     var textSecondaryColor: Int = 0
+        set(value) {
+            field = value
+            apply()
+        }
+
     var textPrimarySize: Float = 0.toFloat()
+        set(value) {
+            field = value
+            apply()
+        }
+
     var textSecondarySize: Float = 0.toFloat()
+        set(value) {
+            field = value
+            apply()
+        }
+
     var textExtraSpace: Int = 0
+        set(value) {
+            field = value
+            apply()
+        }
+
     var fontPrimaryText: String? = ""
+        set(value) {
+            field = value
+            apply()
+        }
+
     var fontSecondaryText: String? = ""
-    var fontPrimaryTypeface: Typeface? = null
-    var fontSecondaryTypeface: Typeface? = null
+        set(value) {
+            field = value
+            apply()
+        }
+
+    var textPrimaryStyle = 0
+        set(value) {
+            field = value
+            apply()
+        }
+
+    var textSecondaryStyle = 0
+        set(value) {
+            field = value
+            apply()
+        }
+
 
     init {
         initView()
@@ -52,6 +100,8 @@ class CombinedCheckBox constructor(context: Context, val attrs: AttributeSet? = 
         textExtraSpace = typedArray.getInt(R.styleable.CombinedTextView_textExtraSpace, 1)
         fontPrimaryText = typedArray.getString(R.styleable.CombinedTextView_fontPrimaryText)
         fontSecondaryText = typedArray.getString(R.styleable.CombinedTextView_fontSecondaryText)
+        textPrimaryStyle = typedArray.getInt(R.styleable.CombinedTextView_textPrimaryStyle, 0)
+        textSecondaryStyle = typedArray.getInt(R.styleable.CombinedTextView_textSecondaryStyle, 0)
 
         typedArray.recycle()
     }
@@ -123,46 +173,28 @@ class CombinedCheckBox constructor(context: Context, val attrs: AttributeSet? = 
         spannableStringBuilder.setSpan(AbsoluteSizeSpan(textSecondarySize.toInt()), textPrimary.length, contentString.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannableStringBuilder.setSpan(ForegroundColorSpan(textPrimaryColor), 0, textPrimary.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannableStringBuilder.setSpan(ForegroundColorSpan(textSecondaryColor), textPrimary.length, contentString.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        if (primarySpan != null)
+
+        if (primarySpan != null) {
             spannableStringBuilder.setSpan(primarySpan, 0, textPrimary.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        if (secondarySpan != null)
+        } else {
+            when (textPrimaryStyle) {
+                1 -> spannableStringBuilder.setSpan(StyleSpan(Typeface.BOLD), 0, textPrimary.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                2 -> spannableStringBuilder.setSpan(StyleSpan(Typeface.ITALIC), 0, textPrimary.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                3 -> spannableStringBuilder.setSpan(StyleSpan(Typeface.BOLD_ITALIC), 0, textPrimary.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            }
+        }
+
+        if (secondarySpan != null) {
             spannableStringBuilder.setSpan(secondarySpan, textPrimary.length, contentString.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        } else {
+            when (textSecondaryStyle) {
+                1 -> spannableStringBuilder.setSpan(StyleSpan(Typeface.BOLD), textPrimary.length, contentString.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                2 -> spannableStringBuilder.setSpan(StyleSpan(Typeface.ITALIC), textPrimary.length, contentString.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                3 -> spannableStringBuilder.setSpan(StyleSpan(Typeface.BOLD_ITALIC), textPrimary.length, contentString.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            }
+        }
 
         text = spannableStringBuilder
-    }
-
-
-    /**
-     * Custom Typeface span class
-     */
-    private inner class TypefaceSpan internal constructor(inputTypeface: Typeface?) : MetricAffectingSpan() {
-        private var mTypeface: Typeface? = null
-
-        init {
-            if (inputTypeface != null)
-                mTypeface = inputTypeface
-        }
-
-        /**
-         * Passes updateMeasureState through to the underlying [MetricAffectingSpan].
-         */
-        override fun updateMeasureState(p: TextPaint?) {
-            if (p != null && mTypeface != null) {
-                p.typeface = mTypeface
-                p.flags = p.flags or Paint.FILTER_BITMAP_FLAG
-            }
-
-        }
-
-        /**
-         * Passes updateDrawState through to the underlying [MetricAffectingSpan].
-         */
-        override fun updateDrawState(tp: TextPaint?) {
-            if (tp != null && mTypeface != null) {
-                tp.typeface = mTypeface
-                tp.flags = tp.flags or Paint.FILTER_BITMAP_FLAG
-            }
-        }
     }
 
     companion object {

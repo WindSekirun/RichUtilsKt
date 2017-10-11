@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="CombinedTextView">
-        <attr format="string" name="textPrimary"/>
-        <attr format="string" name="textSecondary"/>
-        <attr format="color" name="textPrimaryColor"/>
-        <attr format="color" name="textSecondaryColor"/>
-        <attr format="dimension" name="textPrimarySize"/>
-        <attr format="dimension" name="textSecondarySize"/>
-        <attr format="integer" name="textExtraSpace"/>
-        <attr format="string" name="fontPrimaryText"/>
-        <attr format="string" name="fontSecondaryText"/>
+        <attr name="textPrimary" format="string"/>
+        <attr name="textSecondary" format="string"/>
+        <attr name="textPrimaryColor" format="color"/>
+        <attr name="textSecondaryColor" format="color"/>
+        <attr name="textPrimarySize" format="dimension"/>
+        <attr name="textSecondarySize" format="dimension"/>
+        <attr name="textExtraSpace" format="integer"/>
+        <attr name="fontPrimaryText" format="string"/>
+        <attr name="fontSecondaryText" format="string"/>
+        <attr name="textPrimaryStyle" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="bold" value="1"/>
+            <enum name="italic" value="2"/>
+            <enum name="boldItalic" value="3"/>
+        </attr>
+        <attr name="textSecondaryStyle" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="bold" value="1"/>
+            <enum name="italic" value="2"/>
+            <enum name="boldItalic" value="3"/>
+        </attr>
     </declare-styleable>
 
     <dimen name="combined_text_view_default_size">12sp</dimen>

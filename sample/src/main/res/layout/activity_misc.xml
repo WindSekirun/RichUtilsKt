@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:padding="16dp"
-    android:layout_height="match_parent">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="16dp">
 
     <pyxis.uzuki.live.richutilskt.widget.CombinedTextView
         android:layout_width="match_parent"
-        android:textSize="15sp"
-        android:textColor="#000"
         android:layout_height="wrap_content"
-        app:textPrimary="dd"
-        app:textSecondary="oo"
+        android:textColor="#000"
+        android:textSize="15sp"
+        app:textExtraSpace="2"
+        app:textPrimary="OOP"
         app:textPrimaryColor="@color/colorPrimary"
-        app:textExtraSpace="2"/>
+        app:textPrimaryStyle="bold"
+        app:textSecondary="oo"
+        app:textSecondaryStyle="italic"/>
 
     <TextView
+        android:id="@+id/txtResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
         android:textColor="#000"
-        android:id="@+id/txtResult"/>
+        android:textSize="15sp"/>
 
     <Spinner
+        android:id="@+id/spinSelect"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:id="@+id/spinSelect"/>
+        android:layout_height="56dp"/>
 </LinearLayout>
