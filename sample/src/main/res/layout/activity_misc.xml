@@ -29,4 +29,9 @@
         android:id="@+id/spinSelect"
         android:layout_width="match_parent"
         android:layout_height="56dp"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroup"></RadioGroup>
 </LinearLayout>
