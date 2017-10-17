@@ -3,8 +3,10 @@ package pyxis.uzuki.live.richutilssample
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.RadioButton
 import kotlinx.android.synthetic.main.activity_misc.*
 import pyxis.uzuki.live.richutilskt.utils.*
+import pyxis.uzuki.live.richutilskt.widget.CombinedRadioButton
 
 class MiscActivity : AppCompatActivity() {
 
@@ -43,6 +45,14 @@ class MiscActivity : AppCompatActivity() {
                 toast("select pos\$$position")
             })
             apply()
+        }
+
+        for (i in 1 until 6) {
+            val radioButton = inflate(R.layout.view_radiobutton, null) as CombinedRadioButton
+            radioButton.textPrimary = "AA"
+            radioButton.textSecondary = "bb"
+            radioButton.apply()
+            radioGroup.addView(radioButton)
         }
     }
 
