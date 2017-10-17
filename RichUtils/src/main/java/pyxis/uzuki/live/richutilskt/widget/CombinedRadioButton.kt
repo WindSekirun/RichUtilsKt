@@ -94,18 +94,19 @@ class CombinedRadioButton constructor(context: Context, private val attrs: Attri
             return
         }
 
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CombinedTextView)
-        textPrimary = typedArray.getString(R.styleable.CombinedTextView_textPrimary)
-        textSecondary = typedArray.getString(R.styleable.CombinedTextView_textSecondary)
-        textPrimaryColor = typedArray.getColor(R.styleable.CombinedTextView_textPrimaryColor, Color.BLACK)
-        textSecondaryColor = typedArray.getColor(R.styleable.CombinedTextView_textSecondaryColor, Color.BLACK)
-        textPrimarySize = typedArray.getDimension(R.styleable.CombinedTextView_textPrimarySize, resources.getDimensionPixelSize(R.dimen.combined_text_view_default_size).toFloat())
-        textSecondarySize = typedArray.getDimension(R.styleable.CombinedTextView_textSecondarySize, resources.getDimensionPixelSize(R.dimen.combined_text_view_default_size).toFloat())
-        textExtraSpace = typedArray.getInt(R.styleable.CombinedTextView_textExtraSpace, 1)
-        fontPrimaryText = typedArray.getString(R.styleable.CombinedTextView_fontPrimaryText)
-        fontSecondaryText = typedArray.getString(R.styleable.CombinedTextView_fontSecondaryText)
-        textPrimaryStyle = typedArray.getInt(R.styleable.CombinedTextView_textPrimaryStyle, 0)
-        textSecondaryStyle = typedArray.getInt(R.styleable.CombinedTextView_textSecondaryStyle, 0)
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CombinedRadioButton) ?: return
+
+        textPrimary = typedArray.getString(R.styleable.CombinedRadioButton_textPrimary)
+        textSecondary = typedArray.getString(R.styleable.CombinedRadioButton_textSecondary)
+        textPrimaryColor = typedArray.getColor(R.styleable.CombinedRadioButton_textPrimaryColor, Color.BLACK)
+        textSecondaryColor = typedArray.getColor(R.styleable.CombinedRadioButton_textSecondaryColor, Color.BLACK)
+        textPrimarySize = typedArray.getDimension(R.styleable.CombinedRadioButton_textPrimarySize, resources.getDimensionPixelSize(R.dimen.combined_text_view_default_size).toFloat())
+        textSecondarySize = typedArray.getDimension(R.styleable.CombinedRadioButton_textSecondarySize, resources.getDimensionPixelSize(R.dimen.combined_text_view_default_size).toFloat())
+        textExtraSpace = typedArray.getInt(R.styleable.CombinedRadioButton_textExtraSpace, 1)
+        fontPrimaryText = typedArray.getString(R.styleable.CombinedRadioButton_fontPrimaryText)
+        fontSecondaryText = typedArray.getString(R.styleable.CombinedRadioButton_fontSecondaryText)
+        textPrimaryStyle = typedArray.getInt(R.styleable.CombinedRadioButton_textPrimaryStyle, 0)
+        textSecondaryStyle = typedArray.getInt(R.styleable.CombinedRadioButton_textSecondaryStyle, 0)
 
         typedArray.recycle()
     }

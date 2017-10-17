@@ -24,5 +24,47 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="CombinedButton">
+        <attr name="textPrimary"/>
+        <attr name="textSecondary" />
+        <attr name="textPrimaryColor"/>
+        <attr name="textSecondaryColor" />
+        <attr name="textPrimarySize" />
+        <attr name="textSecondarySize" />
+        <attr name="textExtraSpace" />
+        <attr name="fontPrimaryText"/>
+        <attr name="fontSecondaryText" />
+        <attr name="textPrimaryStyle" />
+        <attr name="textSecondaryStyle" />
+    </declare-styleable>
+
+    <declare-styleable name="CombinedCheckBox">
+        <attr name="textPrimary"/>
+        <attr name="textSecondary" />
+        <attr name="textPrimaryColor"/>
+        <attr name="textSecondaryColor" />
+        <attr name="textPrimarySize" />
+        <attr name="textSecondarySize" />
+        <attr name="textExtraSpace" />
+        <attr name="fontPrimaryText"/>
+        <attr name="fontSecondaryText" />
+        <attr name="textPrimaryStyle" />
+        <attr name="textSecondaryStyle" />
+    </declare-styleable>
+
+    <declare-styleable name="CombinedRadioButton">
+        <attr name="textPrimary"/>
+        <attr name="textSecondary" />
+        <attr name="textPrimaryColor"/>
+        <attr name="textSecondaryColor" />
+        <attr name="textPrimarySize" />
+        <attr name="textSecondarySize" />
+        <attr name="textExtraSpace" />
+        <attr name="fontPrimaryText"/>
+        <attr name="fontSecondaryText" />
+        <attr name="textPrimaryStyle" />
+        <attr name="textSecondaryStyle" />
+    </declare-styleable>
+
     <dimen name="combined_text_view_default_size">12sp</dimen>
 </resources>
