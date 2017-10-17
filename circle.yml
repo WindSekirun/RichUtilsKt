@@ -20,7 +20,12 @@ dependencies:
     override:
         - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
 
+compile:
+    override:
+       - (./gradlew dependencies):
+                  timeout: 360
+
 test:
     override:
-        - (./gradlew assemble):
+        - (./gradlew test):
             timeout: 360
