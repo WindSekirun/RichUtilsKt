@@ -90,6 +90,10 @@ class CombinedRadioButton constructor(context: Context, private val attrs: Attri
     }
 
     private fun initView() {
+        if (attrs == null) {
+            return
+        }
+
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CombinedTextView)
         textPrimary = typedArray.getString(R.styleable.CombinedTextView_textPrimary)
         textSecondary = typedArray.getString(R.styleable.CombinedTextView_textSecondary)
