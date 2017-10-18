@@ -79,12 +79,13 @@ fun getPhotoOrientationDegree(filePath: String?): Int {
 
     if (exif != null) {
         val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, -1)
-
         if (orientation != -1) {
-            when (orientation) {
-                ExifInterface.ORIENTATION_ROTATE_90 -> degree = 90
-                ExifInterface.ORIENTATION_ROTATE_180 -> degree = 180
-                ExifInterface.ORIENTATION_ROTATE_270 -> degree = 270
+            degree = when (orientation) {
+                ExifInterface.ORIENTATION_NORMAL, ExifInterface.ORIENTATION_FLIP_HORIZONTAL -> 0
+                ExifInterface.ORIENTATION_ROTATE_180, ExifInterface.ORIENTATION_FLIP_VERTICAL -> 180
+                ExifInterface.ORIENTATION_ROTATE_90, ExifInterface.ORIENTATION_TRANSPOSE -> 90
+                ExifInterface.ORIENTATION_ROTATE_270, ExifInterface.ORIENTATION_TRANSVERSE -> 270
+                else -> 0
             }
         }
     }
