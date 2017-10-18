@@ -11,8 +11,6 @@ dependencies:
     pre:
         - echo y | android update sdk --no-ui --all --filter tools,platform-tools,android-26
         - echo y | android update sdk --no-ui --all --filter build-tools-26.0.2
-        - echo y | android update sdk --no-ui --all --filter android-26
-        - echo y | android update sdk --no-ui --all --filter tools
     override:
         - ANDROID_HOME=/usr/local/android-sdk-linux
 
