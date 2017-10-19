@@ -65,10 +65,12 @@ dependencies {
 * [**RReboot**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RReboot.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
 * [**RStatusBar**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RStatusBar.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
 * [**RStream**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RStream.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
+* [**RSystemService**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RSystemService.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
 * [**RThread**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RThread.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/BitmapActivity.java)
 * [**RUnReadCount**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RUnReadCount.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 * [**RVersion**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVersion.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MiscActivity.java)
 * [**RVibrate**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVibrate.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
+* [**RView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RView.kt)
 
 #### Widgets
 * [**CenteredIconButton**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CenteredIconButton.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)

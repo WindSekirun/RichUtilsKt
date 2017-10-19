@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.startActivity
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(setTypeface(R.layout.activity_main))
 
         setStatusNavBarColor(Color.parseColor("#303F9F"))
+
+        Log.d("goat", userManager.isUserAGoat.toString() + "")
 
         runAsync { getLatestReleaseFromGitHub() }
 

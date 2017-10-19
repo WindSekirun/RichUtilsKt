@@ -41,7 +41,6 @@ public class MainActivity extends BaseActivity {
         setContentView(RichUtils.setTypeface(this, R.layout.activity_main));
         RichUtils.setStatusNavBarColor(this, Color.parseColor("#303F9F"));
         RichUtils.runAsync(this::getLatestReleaseFromGitHub, 5);
-        RichUtils.vibrate(this, 1000);
 
         Log.d("goat", RichUtils.getUserManager(this).isUserAGoat() + "");
 
