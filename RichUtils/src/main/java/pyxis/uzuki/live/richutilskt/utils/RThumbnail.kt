@@ -2,7 +2,6 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.ContentValues.TAG
 import android.content.Context
-import android.database.Cursor
 import android.graphics.Bitmap
 import android.net.Uri
 import android.provider.MediaStore
@@ -21,9 +20,6 @@ fun isMediaUri(uri: Uri?): Boolean = if (uri != null) {
 
 /**
  * Convert File into Uri.
- *
- * @param file
- * @return uri
  */
 fun getUri(file: File?): Uri? {
     return if (file != null) {
@@ -41,10 +37,6 @@ fun Context.getMimeType(file: File): String {
 
 /**
  * Gets the extension of a file name, like ".png" or ".jpg".
- *
- * @param uri
- * @return Extension including the dot("."); "" if there is no extension;
- * null if uri was null.
  */
 fun Context.getExtension(uri: String?): String {
     if (uri == null) {
@@ -62,11 +54,6 @@ fun Context.getExtension(uri: String?): String {
 /**
  * Attempt to retrieve the thumbnail of given File from the MediaStore. This
  * should not be called on the UI thread.
- *
- * @param context
- * @param file
- * @return
- * @author paulburke
  */
 fun Context.getThumbnail(file: File): Bitmap? {
     return getThumbnail(getUri(file), getMimeType(file))
@@ -75,11 +62,6 @@ fun Context.getThumbnail(file: File): Bitmap? {
 /**
  * Attempt to retrieve the thumbnail of given Uri from the MediaStore. This
  * should not be called on the UI thread.
- *
- * @param context
- * @param uri
- * @return
- * @author paulburke
  */
 fun Context.getThumbnail(uri: Uri): Bitmap? {
     return getThumbnail(uri, getMimeType(File(uri.path)))
@@ -88,12 +70,6 @@ fun Context.getThumbnail(uri: Uri): Bitmap? {
 /**
  * Attempt to retrieve the thumbnail of given Uri from the MediaStore. This
  * should not be called on the UI thread.
- *
- * @param context
- * @param uri
- * @param mimeType
- * @return
- * @author paulburke
  */
 fun Context.getThumbnail(uri: Uri?, mimeType: String): Bitmap? {
     if (!isMediaUri(uri)) {
@@ -102,28 +78,20 @@ fun Context.getThumbnail(uri: Uri?, mimeType: String): Bitmap? {
     }
 
     val cursor = this.contentResolver.query(uri, null, null, null, null)
-    val list = generateSequence { if (cursor.moveToNext()) cursor else null }
-            .map {  }
-
-    var bm: Bitmap? = null
-    if (uri != null) {
-        val resolver = contentResolver
-        var cursor: Cursor? = null
-        try {
-            cursor = resolver.query(uri, null, null, null, null)
-            if (cursor!!.moveToFirst()) {
-                val id = cursor!!.getInt(0)
-                if (mimeType.contains("video")) {
-                    bm = MediaStore.Video.Thumbnails.getThumbnail(resolver, id.toLong(), MediaStore.Video.Thumbnails.MINI_KIND, null)
-                } else if (mimeType.contains("image/*")) {
-                    bm = MediaStore.Images.Thumbnails.getThumbnail(resolver, id.toLong(), MediaStore.Images.Thumbnails.MINI_KIND, null)
-                }
+    cursor.use {
+        val results = generateSequence { if (cursor.moveToNext()) cursor else null }.map {
+            val id = it.getInt(0)
+            when {
+                mimeType.contains("video") -> MediaStore.Video.Thumbnails.getThumbnail(contentResolver, id.toLong(), MediaStore.Video.Thumbnails.MINI_KIND, null)
+                mimeType.contains("image/*") -> MediaStore.Images.Thumbnails.getThumbnail(contentResolver, id.toLong(), MediaStore.Images.Thumbnails.MINI_KIND, null)
+                else -> null
             }
-        } catch (e: Exception) {
-        } finally {
-            if (cursor != null)
-                cursor!!.close()
+        }.filter { it != null }.toList()
+
+        return if (results.isNotEmpty()) {
+            results[0]
+        } else {
+            null
         }
     }
-    return bm
 }
