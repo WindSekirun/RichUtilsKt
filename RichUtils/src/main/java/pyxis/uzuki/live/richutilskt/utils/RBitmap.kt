@@ -43,12 +43,25 @@ fun Bitmap.toRoundCorner(radius: Float): Bitmap? {
     return bitmap
 }
 
+/**
+ * Save Bitmap to generated File
+ */
 fun Context.saveBitmapToFile(bitmap: Bitmap): File? {
     val file = getOutputMediaFile()
     file.outputStream().use {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
     }
     return file
+}
+
+/**
+ * Save Bitmap to given File
+ */
+fun File.saveBitmapToFile(bitmap: Bitmap): File? {
+    this.outputStream().use {
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
+    }
+    return this
 }
 
 private fun Context.getOutputMediaFile(): File {
