@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,9 +40,10 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(RichUtils.setTypeface(this, R.layout.activity_main));
         RichUtils.setStatusNavBarColor(this, Color.parseColor("#303F9F"));
-
-
         RichUtils.runAsync(this::getLatestReleaseFromGitHub, 5);
+        RichUtils.vibrate(this, 1000);
+
+        Log.d("goat", RichUtils.getUserManager(this).isUserAGoat() + "");
 
         logo.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/WindSekirun/RichUtilsKt"));

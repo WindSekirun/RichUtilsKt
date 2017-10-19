@@ -4,7 +4,6 @@
 package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
-import android.os.Vibrator
 
 /**
  * Vibrate
@@ -13,7 +12,6 @@ import android.os.Vibrator
  * @param[millSec] duration of vibrate
  */
 fun Context.vibrate(millSec: Long) {
-    val vibrator = getVibrator(this)
     vibrator.vibrate(millSec)
 }
 
@@ -24,12 +22,10 @@ fun Context.vibrate(millSec: Long) {
  * @param[pattern] vibrate pattern
  * @param[repeat] count of repeat, if once, give repeat as -1
  */
-@JvmOverloads fun Context.vibrate(pattern: LongArray, repeat: Int = -1) {
-    val vibrator = getVibrator(this)
+@JvmOverloads
+fun Context.vibrate(pattern: LongArray, repeat: Int = -1) {
     vibrator.vibrate(pattern, repeat)
 }
-
-private fun getVibrator(context: Context) : Vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
 /**
  * get Intensity (Desired Strength) of Vibrate

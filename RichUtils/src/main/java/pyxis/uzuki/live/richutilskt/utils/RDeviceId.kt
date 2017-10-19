@@ -26,7 +26,6 @@ fun Context.getAndroidId(): String = Settings.Secure.getString(this.contentResol
  */
 @SuppressLint("HardwareIds", "MissingPermission")
 fun Context.getIMEI() : String {
-    val telephonyManager = this@getIMEI.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
     var imei = ""
 
     val arrays : Array<String> = arrayOf(Manifest.permission.READ_PHONE_STATE)
@@ -47,7 +46,6 @@ fun Context.getIMEI() : String {
  */
 @SuppressLint("HardwareIds", "MissingPermission")
 fun Context.getLine1Number() : String {
-    val telephonyManager = this@getLine1Number.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
     var number = ""
 
     val arrays : Array<String> = arrayOf(Manifest.permission.READ_PHONE_STATE)

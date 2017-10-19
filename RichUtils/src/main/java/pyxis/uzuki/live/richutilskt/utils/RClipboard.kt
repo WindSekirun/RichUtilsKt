@@ -13,8 +13,7 @@ import android.content.Context
  * @param[text] to copy
  */
 fun Context.copyText(text: CharSequence) {
-    val clipboard = this.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-    clipboard.primaryClip = ClipData.newPlainText("text", text)
+    clipboardManager.primaryClip = ClipData.newPlainText("text", text)
 }
 
 /**
@@ -23,8 +22,7 @@ fun Context.copyText(text: CharSequence) {
  * @return first object of primaryClip list
  */
 fun Context.getTextFromClipboard(): String {
-    val clipboard = this.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-    val clip = clipboard.primaryClip
+    val clip = clipboardManager.primaryClip
 
     return if (clip != null && clip.itemCount > 0) clip.getItemAt(0).coerceToText(this).toString() else  ""
 }

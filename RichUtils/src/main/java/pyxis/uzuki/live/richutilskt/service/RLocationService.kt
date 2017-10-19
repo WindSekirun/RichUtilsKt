@@ -18,23 +18,14 @@ import android.util.Log
 import android.view.Surface
 import android.view.WindowManager
 import pyxis.uzuki.live.richutilskt.impl.F1
+import pyxis.uzuki.live.richutilskt.utils.locationManager
+import pyxis.uzuki.live.richutilskt.utils.sensorManager
+import pyxis.uzuki.live.richutilskt.utils.windowManager
 import java.io.IOException
 import java.util.*
 
 @SuppressLint("MissingPermission")
 class RLocationService : Service() {
-
-    private val locationManager by lazy {
-        getSystemService(Context.LOCATION_SERVICE) as LocationManager
-    }
-
-    private val sensorManager by lazy {
-        getSystemService(Context.SENSOR_SERVICE) as SensorManager
-    }
-
-    private val display by lazy {
-        (getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay
-    }
 
     private val gpsLocationListener = LocationChangeListener()
     private val networkLocationListener = LocationChangeListener()
@@ -282,7 +273,7 @@ class RLocationService : Service() {
     private fun readDisplayRotation() {
         axisX = SensorManager.AXIS_X
         axisY = SensorManager.AXIS_Y
-        when (display.rotation) {
+        when (windowManager.defaultDisplay.rotation) {
             Surface.ROTATION_90 -> {
                 axisX = SensorManager.AXIS_Y
                 axisY = SensorManager.AXIS_MINUS_X
