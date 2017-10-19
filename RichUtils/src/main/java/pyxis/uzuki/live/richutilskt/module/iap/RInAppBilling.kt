@@ -9,16 +9,12 @@ import android.content.ServiceConnection
 import android.os.Bundle
 import android.os.IBinder
 import android.os.RemoteException
-import android.text.TextUtils
 import android.util.Base64
 import android.util.Log
 import com.android.vending.billing.IInAppBillingService
 import org.json.JSONObject
 import pyxis.uzuki.live.richutilskt.impl.F2
-import pyxis.uzuki.live.richutilskt.utils.getJSONInt
-import pyxis.uzuki.live.richutilskt.utils.getJSONLong
-import pyxis.uzuki.live.richutilskt.utils.getJSONString
-import pyxis.uzuki.live.richutilskt.utils.runAsync
+import pyxis.uzuki.live.richutilskt.utils.*
 import java.security.*
 import java.security.spec.InvalidKeySpecException
 import java.security.spec.X509EncodedKeySpec
@@ -281,10 +277,10 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
      * @return value, true - valid, false - invalid
      */
     private fun verifyPurchaseSignature(productId: String, purchaseData: String, dataSignature: String): Boolean {
-        try {
-            return TextUtils.isEmpty(signatureBase64) || Security.verifyPurchase(productId, signatureBase64, purchaseData, dataSignature)
+        return try {
+            signatureBase64.isEmpty() || Security.verifyPurchase(productId, signatureBase64, purchaseData, dataSignature)
         } catch (e: Exception) {
-            return false
+            false
         }
     }
 
@@ -346,7 +342,7 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
          * @param signature the signature for the data, signed with the private key
          */
         fun verifyPurchase(productId: String, base64PublicKey: String, signedData: String, signature: String): Boolean {
-            if (TextUtils.isEmpty(signedData) || TextUtils.isEmpty(base64PublicKey) || TextUtils.isEmpty(signature)) {
+            if (signedData.isEmpty() || base64PublicKey.isEmpty() || signature.isEmpty()) {
 
                 if (productId == "android.test.purchased" || productId == "android.test.canceled" ||
                         productId == "android.test.refunded" || productId == "android.test.item_unavailable")

@@ -5,7 +5,6 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
 import android.content.Intent
-import android.text.TextUtils
 
 /**
  * apply count of UnRead
@@ -14,7 +13,7 @@ import android.text.TextUtils
  */
 fun Context.applyUnReadCount(count: Int) {
     val launcherClassName = getLauncherClassName(this)
-    if (TextUtils.isEmpty(launcherClassName)) return
+    if (launcherClassName.isEmpty()) return
     applyDefault(this, count, launcherClassName)
 }
 

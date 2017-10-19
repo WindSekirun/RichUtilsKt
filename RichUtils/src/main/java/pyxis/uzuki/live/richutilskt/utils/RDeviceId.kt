@@ -7,8 +7,6 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.Settings
-import android.telephony.TelephonyManager
-import android.text.TextUtils
 
 /**
  * get androidId of device
@@ -29,12 +27,9 @@ fun Context.getIMEI() : String {
     var imei = ""
 
     val arrays : Array<String> = arrayOf(Manifest.permission.READ_PHONE_STATE)
-    val value = RPermission.instance.checkPermission(this, array = arrays, callback = { _: Int, _: List<String> ->
-        imei = if (TextUtils.isEmpty(telephonyManager.deviceId)) "" else telephonyManager.deviceId
+    RPermission.instance.checkPermission(this, array = arrays, callback = { _: Int, _: List<String> ->
+        imei = telephonyManager.deviceId.isEmptyOrReturn()
     })
-
-    if (value)
-        imei = if (TextUtils.isEmpty(telephonyManager.deviceId)) "" else telephonyManager.deviceId
     return imei
 }
 
@@ -49,11 +44,9 @@ fun Context.getLine1Number() : String {
     var number = ""
 
     val arrays : Array<String> = arrayOf(Manifest.permission.READ_PHONE_STATE)
-    val value = RPermission.instance.checkPermission(this, array = arrays, callback = { _: Int, _: List<String> ->
-        number = if (TextUtils.isEmpty(telephonyManager.line1Number)) "" else telephonyManager.line1Number
+     RPermission.instance.checkPermission(this, array = arrays, callback = { _: Int, _: List<String> ->
+         number = telephonyManager.line1Number.isEmptyOrReturn()
     })
 
-    if (value)
-        number = if (TextUtils.isEmpty(telephonyManager.line1Number)) "" else telephonyManager.line1Number
     return number
 }

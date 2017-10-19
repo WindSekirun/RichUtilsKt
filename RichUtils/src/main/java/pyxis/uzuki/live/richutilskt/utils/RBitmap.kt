@@ -9,7 +9,6 @@ import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.text.TextUtils
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
@@ -20,7 +19,7 @@ import java.util.*
  * get bitmap from filePath
  * @return Bitmap object
  */
-fun String.getBitmap(): Bitmap? = if (TextUtils.isEmpty(this)) null else BitmapFactory.decodeFile(this)
+fun String.getBitmap(): Bitmap? = if (this.isEmpty()) null else BitmapFactory.decodeFile(this)
 
 /**
  * Make bitmap corner

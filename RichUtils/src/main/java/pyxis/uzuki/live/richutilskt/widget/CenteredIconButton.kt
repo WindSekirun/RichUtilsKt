@@ -2,9 +2,6 @@ package pyxis.uzuki.live.richutilskt.widget
 
 import android.content.Context
 import android.graphics.Rect
-import android.graphics.drawable.Drawable
-import android.text.TextPaint
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.widget.Button
 
@@ -20,7 +17,7 @@ class CenteredIconButton @JvmOverloads constructor(context: Context, attrs: Attr
             return
 
         val text = text
-        if (!TextUtils.isEmpty(text)) {
+        if (text.isEmpty().not()) {
             val textPaint = paint
             textPaint.getTextBounds(text.toString(), 0, text.length, textBounds)
         } else {

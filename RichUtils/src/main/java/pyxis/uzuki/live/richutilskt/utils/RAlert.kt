@@ -7,7 +7,6 @@ import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.text.TextUtils
 import android.widget.Toast
 import pyxis.uzuki.live.richutilskt.impl.F1
 import pyxis.uzuki.live.richutilskt.impl.F3
@@ -40,9 +39,9 @@ fun Context.toast(message: Int, length: Int = Toast.LENGTH_SHORT) = Toast.makeTe
  * @param[callback] callback of click ok button
  */
 @JvmOverloads
-fun Context.alert(message: String, title: String? = "", positiveButton: String? = null, cancelable: Boolean = true, callback: (DialogInterface) -> Unit = {}) =
+fun Context.alert(message: String, title: String = "", positiveButton: String? = null, cancelable: Boolean = true, callback: (DialogInterface) -> Unit = {}) =
         AlertDialog.Builder(this).apply {
-            if (!TextUtils.isEmpty(title))
+            if (title.isEmpty().not())
                 setTitle(title)
             setMessage(message)
             setPositiveButton(positiveButton ?: getString(android.R.string.ok), { dialog, _ -> callback(dialog) })
@@ -61,9 +60,9 @@ fun Context.alert(message: String, title: String? = "", positiveButton: String? 
  * @param[callback] callback of click ok button
  */
 @JvmOverloads
-fun Context.alert(message: String, title: String? = "", positiveButton: String? = null, cancelable: Boolean = true, callback: F1<DialogInterface>?) =
+fun Context.alert(message: String, title: String = "", positiveButton: String? = null, cancelable: Boolean = true, callback: F1<DialogInterface>?) =
         AlertDialog.Builder(this).apply {
-            if (!TextUtils.isEmpty(title))
+            if (title.isEmpty().not())
                 setTitle(title)
             setMessage(message)
             setPositiveButton(positiveButton ?: getString(android.R.string.ok), { dialog, _ -> callback?.invoke(dialog) })
@@ -80,9 +79,9 @@ fun Context.alert(message: String, title: String? = "", positiveButton: String? 
  * @param[callback] callback of click ok button
  */
 @JvmOverloads
-fun <T> Context.selector(items: List<T>, callback: (DialogInterface, item: T, Int) -> Unit, title: String? = "", cancelable: Boolean = true) =
+fun <T> Context.selector(items: List<T>, callback: (DialogInterface, item: T, Int) -> Unit, title: String = "", cancelable: Boolean = true) =
         AlertDialog.Builder(this).apply {
-            if (!TextUtils.isEmpty(title))
+            if (title.isEmpty().not())
                 setTitle(title)
             setItems(Array(items.size) { i -> items[i].toString() }) { dialog, which ->
                 callback(dialog, items[which], which)
@@ -101,9 +100,9 @@ fun <T> Context.selector(items: List<T>, callback: (DialogInterface, item: T, In
  * @param[callback] callback of click ok button
  */
 @JvmOverloads
-fun <T> Context.selector(items: List<T>, callback: F3<DialogInterface, T, Int>?, title: String? = "", cancelable: Boolean = true) =
+fun <T> Context.selector(items: List<T>, callback: F3<DialogInterface, T, Int>?, title: String = "", cancelable: Boolean = true) =
         AlertDialog.Builder(this).apply {
-            if (!TextUtils.isEmpty(title))
+            if (title.isEmpty().not())
                 setTitle(title)
             setItems(Array(items.size) { i -> items[i].toString() }) { dialog, which ->
                 callback?.invoke(dialog, items[which], which)
@@ -123,9 +122,9 @@ fun <T> Context.selector(items: List<T>, callback: F3<DialogInterface, T, Int>?,
  * @param[callback] callback of click ok button
  */
 @JvmOverloads
-fun Context.confirm(message: String, callback: DialogInterface.() -> Unit, title: String? = "", positiveButton: String? = null, negativeButton: String? = null, cancelable: Boolean = true) =
+fun Context.confirm(message: String, callback: DialogInterface.() -> Unit, title: String = "", positiveButton: String? = null, negativeButton: String? = null, cancelable: Boolean = true) =
         AlertDialog.Builder(this).apply {
-            if (!TextUtils.isEmpty(title))
+            if (title.isEmpty().not())
                 setTitle(title)
             setMessage(message)
             setPositiveButton(positiveButton ?: getString(android.R.string.ok), { dialog, _ -> dialog.callback() })
@@ -146,9 +145,9 @@ fun Context.confirm(message: String, callback: DialogInterface.() -> Unit, title
  * @param[callback] callback of click ok button
  */
 @JvmOverloads
-fun Context.confirm(message: String, callback: F1<DialogInterface>?, title: String? = "", positiveButton: String? = null, negativeButton: String? = null, cancelable: Boolean = true) =
+fun Context.confirm(message: String, callback: F1<DialogInterface>?, title: String = "", positiveButton: String? = null, negativeButton: String? = null, cancelable: Boolean = true) =
         AlertDialog.Builder(this).apply {
-            if (!TextUtils.isEmpty(title))
+            if (title.isEmpty().not())
                 setTitle(title)
             setMessage(message)
             setPositiveButton(positiveButton ?: getString(android.R.string.ok), { dialog, _ -> callback?.invoke(dialog) })
@@ -166,11 +165,11 @@ fun Context.confirm(message: String, callback: F1<DialogInterface>?, title: Stri
  * @return DialogInterface
  */
 @JvmOverloads
-fun Context.progress(message: String, cancelable: Boolean = true, title: String? = null): DialogInterface {
+fun Context.progress(message: String, cancelable: Boolean = true, title: String = ""): DialogInterface {
     return ProgressDialog(this).apply {
         setProgressStyle(ProgressDialog.STYLE_SPINNER)
         setMessage(message)
-        if (title != null)
+        if (title.isEmpty().not())
             setTitle(title)
         setCancelable(cancelable)
         show()
