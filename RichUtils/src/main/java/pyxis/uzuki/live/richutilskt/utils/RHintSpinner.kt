@@ -70,7 +70,7 @@ class RHintSpinner(private val context: Context) {
     private inner class ListAdapter : ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item) {
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val v = super.getView(position, convertView, parent)
-            val textView = v.findViewById(android.R.id.text1) as TextView
+            val textView = v.findViewById<TextView>(android.R.id.text1)
 
             if (position == count) {
                 textView.text = ""
