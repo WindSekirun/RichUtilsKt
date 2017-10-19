@@ -9,11 +9,6 @@ import android.widget.Spinner
 import android.widget.TextView
 import java.util.*
 
-/**
- * RHintSpinner
- * Created by WindSekirun 2016-01-09.
- */
-
 class RHintSpinner(private val context: Context) {
     lateinit var spinner: Spinner
     var dropdownList: ArrayList<String> = ArrayList()
