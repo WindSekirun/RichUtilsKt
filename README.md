@@ -78,6 +78,7 @@ dependencies {
 * [**CombinedButton**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedButton.kt)
 * [**CombinedCheckBox**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedCheckBox.kt)
 * [**CombinedRadioButton**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedRadioButton.kt)
+* [**HTMLTextView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/HTMLTextView.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
 
 #### Service
 * [**RLocationService**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/RLocationService.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/LocationActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/LocationActivity.java)

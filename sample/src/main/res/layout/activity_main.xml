@@ -23,7 +23,7 @@
                 android:background="#fff"
                 android:src="@drawable/richutils_logo" />
 
-            <TextView
+            <pyxis.uzuki.live.richutilskt.widget.HTMLTextView
                 android:id="@+id/txtVersion"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

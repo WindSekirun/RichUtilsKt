@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         val jsonObject: JSONObject? = response.createJSONObject()
         val version = jsonObject?.getJSONString(name = "tag_name")
 
-        txtVersion.text = "Latest version -> $version"
+        txtVersion.setHtmlText(String.format(getString(R.string.txt_version), version))
     }
 }
 

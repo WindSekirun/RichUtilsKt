@@ -1,6 +1,7 @@
 package pyxis.uzuki.live.richutils.samplejava;
 
 import android.annotation.SuppressLint;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -43,6 +44,7 @@ public class MainActivity extends BaseActivity {
         RichUtils.runAsync(this::getLatestReleaseFromGitHub, 5);
 
         Log.d("goat", RichUtils.getUserManager(this).isUserAGoat() + "");
+        NotificationManager manager = RichUtils.getNotificationManager(this);
 
         logo.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/WindSekirun/RichUtilsKt"));
