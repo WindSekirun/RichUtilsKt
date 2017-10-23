@@ -41,6 +41,9 @@ dependencies {
 ### Contents
 
 #### Utils
+
+Most of methods list within description is [here](https://blog.uzuki.live/richutils-index-eng-kor/)
+
 * [**RAlert**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAlert.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/AlertActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/AlertActivity.java)
 * [**RAssets**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAssets.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/JSONActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/JSONActivity.java)
 * [**RBitmap**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RBitmap.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/BitmapActivity.java)
