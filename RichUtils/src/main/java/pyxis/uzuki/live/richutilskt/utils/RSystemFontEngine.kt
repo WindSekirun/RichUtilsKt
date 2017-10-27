@@ -27,7 +27,7 @@ internal class RSystemFontEngine private constructor(private val mApplication: A
     private fun <V : ViewGroup> setTypefaceViewGroup(viewGroup: V) {
         val count = viewGroup.childCount
 
-        for (i in 0..count - 1) {
+        for (i in 0 until count) {
             val child = viewGroup.getChildAt(i)
 
             if (child is ViewGroup) {
@@ -56,8 +56,8 @@ internal class RSystemFontEngine private constructor(private val mApplication: A
     private val typefaceSpan: TypefaceSpan
         get() = TypefaceSpan(typeface)
 
-    fun getStringTypeface(str: String): SpannableString {
-        val s = SpannableString(str)
+    fun String.getStringTypeface(): SpannableString {
+        val s = SpannableString(this)
         s.setSpan(typefaceSpan, 0, s.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         return s
     }
