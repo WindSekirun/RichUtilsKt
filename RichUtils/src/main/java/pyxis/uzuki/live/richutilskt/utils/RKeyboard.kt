@@ -25,3 +25,12 @@ fun Dialog.hideKeyboard() {
         this.context.inputMethodManager.hideSoftInputFromWindow(it.windowToken, 0)
     }
 }
+
+/**
+ * toggle keyboard open / close
+ */
+fun Context.toggleKeyboard() {
+    if (inputMethodManager.isActive) {
+        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS)
+    }
+}
