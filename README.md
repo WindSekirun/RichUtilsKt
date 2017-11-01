@@ -42,8 +42,12 @@ dependencies {
 
 ### Contents
 
-#### Utils
+#### Notice
+I'm prepare 'RichUtils 2.0.0 Release' will occur in November 27, 2017. 
 
+Any idea to improve this utils is always welcome! if you don't familiar with Kotlin, just give me as Java. I'll convert them for you.
+
+#### Utils
 Most of methods list within description is [here](https://blog.uzuki.live/richutils-index-eng-kor/)
 
 * [**RAlert**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAlert.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/AlertActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/AlertActivity.java)
@@ -90,7 +94,6 @@ Most of methods list within description is [here](https://blog.uzuki.live/richut
 
 #### Module
 * [**RInAppBilling**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/iap/RInAppBilling.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/InAppActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/InAppActivity.java)
-
 
 ### License 
 ```
