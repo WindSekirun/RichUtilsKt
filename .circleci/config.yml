@@ -9,19 +9,19 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "richutils/build.gradle" }}
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
       - save_cache:
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "richutils/build.gradle" }}
       - run:
           name: Run Tests
           command: ./gradlew lint test
       - store_artifacts:
-          path: app/build/reports
+          path: richutils/build/reports
           destination: reports
       - store_test_results:
-          path: app/build/test-results
+          path: richutils/build/test-results
