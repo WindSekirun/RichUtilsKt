@@ -3,59 +3,78 @@
 
 package pyxis.uzuki.live.richutilskt.utils
 
+import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.media.ExifInterface
+import android.support.annotation.DrawableRes
 import java.io.IOException
 
-/**
- * get width of photo from ExifInterface
- *
- * @param[filePath] real path of photo
- * @return width of photo
- */
-fun getPhotoWidth(filePath: String?): Int {
-    var width = 0
-    var exif: ExifInterface? = null
-
-    if (filePath == null)
-        return width
-
-    try {
-        exif = ExifInterface(filePath)
-    } catch (e: IOException) {
-        println("Error: " + e.message)
-    }
-
-    if (exif != null)
-        width = exif.getAttributeInt(ExifInterface.TAG_IMAGE_WIDTH, -1)
-
-    return width
+private val options: BitmapFactory.Options by lazy {
+    val opt = BitmapFactory.Options()
+    opt.inJustDecodeBounds = true
+    opt
 }
 
 /**
- * get height of photo from ExifInterface
+ * get Width of Image which given String
  *
- * @param[filePath] real path of photo
- * @return height of photo
+ * @return Width of Image
  */
-fun getPhotoHeight(filePath: String?): Int {
-    var height = 0
-    var exif: ExifInterface? = null
+fun String.getImageWidth(): Int {
+    BitmapFactory.decodeFile(this, options)
+    return options.outWidth
+}
 
-    if (filePath == null)
-        return height
+/**
+ * get Height of Image which given String
+ *
+ * @return Height of Image
+ */
+fun String.getImageHeight(): Int {
+    BitmapFactory.decodeFile(this, options)
+    return options.outHeight
+}
 
-    try {
-        exif = ExifInterface(filePath)
-    } catch (e: IOException) {
-        println("Error: " + e.message)
-    }
+/**
+ * get MimeType of Image which given String
+ *
+ * @return MimeType of Image
+ */
+fun String.getImageMimeType(): String {
+    BitmapFactory.decodeFile(this, options)
+    return options.outMimeType ?: ""
+}
 
-    if (exif != null)
-        height = exif.getAttributeInt(ExifInterface.TAG_IMAGE_LENGTH, -1)
+/**
+ * get Width of Image which given Drawable Resources
+ *
+ * @return Width of Image
+ */
+fun Context.getImageWidth(@DrawableRes resId: Int): Int {
+    BitmapFactory.decodeResource(this.resources, resId, options)
+    return options.outWidth
+}
 
-    return height
+/**
+ * get Height of Image which given Drawable Resources
+ *
+ * @return Height of Image
+ */
+fun Context.getImageHeight(@DrawableRes resId: Int): Int {
+    BitmapFactory.decodeResource(this.resources, resId, options)
+    return options.outHeight
+}
+
+/**
+ * get MimeType of Image which given Drawable Resources
+ *
+ * @return MimeType of Image
+ */
+fun Context.getImageMimeType(@DrawableRes resId: Int): String {
+    BitmapFactory.decodeResource(this.resources, resId, options)
+    return options.outMimeType ?: ""
 }
 
 /**
