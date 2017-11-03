@@ -22,3 +22,23 @@ fun Context.checkNetwork(): Int {
         else -> 0
     }
 }
+
+/**
+ * get Wifi connection check
+ */
+fun Context.isWifiConnected() = checkNetwork() == 2
+
+/**
+ * get Mobile connection check
+ */
+fun Context.isMobileConnected() = checkNetwork() == 1
+
+/**
+ * get state of not connected
+ */
+fun Context.isNotConnected() = isConnected().not()
+
+/***
+ * get state of connected
+ */
+fun Context.isConnected() = checkNetwork() != 0
