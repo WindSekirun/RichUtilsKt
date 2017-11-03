@@ -36,8 +36,8 @@ class PickMediaActivity : AppCompatActivity() {
         }
 
         val realPath = Uri.parse(path) getRealPath this@PickMediaActivity
-        val width = getPhotoWidth(realPath)
-        val height = getPhotoHeight(realPath)
+        val width = realPath.getImageWidth()
+        val height = realPath.getImageHeight()
         val degree = getPhotoOrientationDegree(realPath)
 
         txtUrl.text = "uri -> $realPath , width -> $width , height -> $height , degree -> $degree"

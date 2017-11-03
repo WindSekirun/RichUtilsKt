@@ -40,8 +40,8 @@ public class PickMediaActivity extends BaseActivity {
         }
 
         String realPath = RichUtils.getRealPath(Uri.parse(path), this);
-        int width = RichUtils.getPhotoWidth(realPath);
-        int height = RichUtils.getPhotoHeight(realPath);
+        int width = RichUtils.getImageWidth(realPath);
+        int height = RichUtils.getImageHeight(realPath);
         int degree = RichUtils.getPhotoOrientationDegree(realPath);
 
         txtUrl.setText("url -> " + realPath + ", width -> " + width + ", height ->" + height + ", degree -> " + degree);
