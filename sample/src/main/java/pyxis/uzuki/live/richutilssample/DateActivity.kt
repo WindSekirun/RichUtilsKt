@@ -16,7 +16,7 @@ class DateActivity : AppCompatActivity() {
 
         val date: Date? = "2016-11-23 11:11:11".parseDate()
         val string1 = date?.asDateString()
-        val formatted = "2016-11-23 11:11:11".toDateString(fromFormat = "yyyy-MM-dd HH:mm:ss", toFormat = "yyyy.mm.dd")
+        val formatted = "2016-11-23 11:11:11".toDateString("yyyy-MM-dd HH:mm:ss", "yyyy.mm.dd")
         val timestamp = 1496488887.toLong() * 1000
         val tsStr = timestamp.asDateString()
 

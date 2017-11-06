@@ -21,7 +21,7 @@ fun Context.getMainData(): ArrayList<MainItem> {
     list.add(MainItem(CategoryItem.BITMAP, "utils/RBitmap.kt", "Bitmap", getString(R.string.bitmap_category_content), getBitmapSet()))
     list.add(MainItem(CategoryItem.CLIPBOARD, "utils/RClipboard.kt", "Clipboard", getString(R.string.clipboard_category_content), getClipboardSet()))
     list.add(MainItem(CategoryItem.CONTACT, "utils/RContactProvider.kt", "Contact", getString(R.string.contact_category_content), getContactSet()))
-    list.add(MainItem(CategoryItem.DATE, "utils/RDate.kt", "Date", "", empty))
+    list.add(MainItem(CategoryItem.DATE, "utils/RDate.kt", "Date", getString(R.string.date_category_content), getDateSet()))
     list.add(MainItem(CategoryItem.DEVICEID, "utils/RDeviceId.kt", "DeviceId", "", empty))
     list.add(MainItem(CategoryItem.DIMEN, "utils/RDimen.kt", "Dimen", "", empty))
     list.add(MainItem(CategoryItem.DRAWABLE, "utils/RDrawable.kt", "Drawable", "", empty))

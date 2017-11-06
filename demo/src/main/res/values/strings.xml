@@ -23,4 +23,9 @@
     <string name="clipboard.message.gettextfromclipboard">get text of clipboard list</string>
     <string name="contact_category_content">get ContactList of Device</string>
     <string name="contact.message.getcontactslist">load contact data from device</string>
+    <string name="date.category.content">Tools about Date</string>
+    <string name="date.message.asdatestring.date">format date with DateFormat string</string>
+    <string name="date.message.asdatestring.long">get readable string of given timestamp</string>
+    <string name="date.message.parsedate">parsing date from String</string>
+    <string name="date.message.todatestring">format formatted date to another formatted date</string>
 </resources>

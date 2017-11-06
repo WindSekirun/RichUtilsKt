@@ -16,7 +16,7 @@ fun Context.getContactSet() : ArrayList<ExecuteItem> {
     val getContactsList = generateExecuteItem(CategoryItem.CONTACT, "getContactsList",
             getString(R.string.contact_message_getcontactslist),
             "getContactsList()",
-            "RichUtils.getContactsList(ContactActivity.this);")
+            "RichUtils.getContactsList(this);")
 
     list.add(getContactsList)
 
