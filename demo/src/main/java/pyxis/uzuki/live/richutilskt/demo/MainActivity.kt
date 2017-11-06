@@ -30,6 +30,16 @@ class MainActivity : InjectActivity() {
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if (dy > 0 && fab.visibility == View.VISIBLE) {
+                    fab.hide()
+                } else if (dy < 0 && fab.visibility != View.VISIBLE) {
+                    fab.show()
+                }
+            }
+        })
 
         itemList.addAll(getMainData())
         adapter.notifyDataSetChanged()
