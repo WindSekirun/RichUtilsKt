@@ -42,6 +42,7 @@ class MainActivity : InjectActivity() {
         })
 
         itemList.addAll(getMainData())
+        itemList.sortBy { it.title }
         adapter.notifyDataSetChanged()
 
         fab.setOnClickListener {

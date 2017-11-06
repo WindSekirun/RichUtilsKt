@@ -46,6 +46,8 @@ class IndexActivity : AppCompatActivity() {
             }
         })
 
+        supportActionBar?.title = "${item.title} :: RichUtils"
+
         adapter.notifyDataSetChanged()
 
         fab.setOnClickListener {
