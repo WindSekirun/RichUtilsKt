@@ -32,4 +32,10 @@
     <string name="deviceid.message.androidid">get androidId of device</string>
     <string name="deviceid.message.imei">get IMEI of device</string>
     <string name="deviceid.message.line1number">get Line1Number of device</string>
+    <string name="dimen.category.content">Tools about Dimen</string>
+    <string name="dimen.message.dip2px">convert dip to px</string>
+    <string name="dimen.message.sp2px">convert sp to px</string>
+    <string name="dimen.message.px2dip">convert px to dip</string>
+    <string name="dimen.message.px2sp">convert px to sp</string>
+    <string name="dimen.message.dimen">get pixel size from DimenRes</string>
 </resources>

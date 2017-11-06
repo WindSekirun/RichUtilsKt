@@ -23,7 +23,7 @@ fun Context.getMainData(): ArrayList<MainItem> {
     list.add(MainItem(CategoryItem.CONTACT, "utils/RContactProvider.kt", "Contact", getString(R.string.contact_category_content), getContactSet()))
     list.add(MainItem(CategoryItem.DATE, "utils/RDate.kt", "Date", getString(R.string.date_category_content), getDateSet()))
     list.add(MainItem(CategoryItem.DEVICEID, "utils/RDeviceId.kt", "DeviceId", getString(R.string.deviceid_category_content), getDeviceIdSet()))
-    list.add(MainItem(CategoryItem.DIMEN, "utils/RDimen.kt", "Dimen", "", empty))
+    list.add(MainItem(CategoryItem.DIMEN, "utils/RDimen.kt", "Dimen", getString(R.string.dimen_category_content), getDimenSet()))
     list.add(MainItem(CategoryItem.DRAWABLE, "utils/RDrawable.kt", "Drawable", "", empty))
     list.add(MainItem(CategoryItem.FILE, "utils/RFile.kt", "File", "", empty))
     list.add(MainItem(CategoryItem.FONT, "utils/RFont.kt", "Font", "", empty))

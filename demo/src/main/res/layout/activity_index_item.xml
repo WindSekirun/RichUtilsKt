@@ -7,10 +7,10 @@
 
 
     <LinearLayout
+        android:id="@+id/containerTitle"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal"
-        android:id="@+id/containerTitle"
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
@@ -56,27 +56,27 @@
         android:background="#808080" />
 
     <LinearLayout
+        android:id="@+id/containerMore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/containerMore"
-        android:visibility="gone"
-        tools:visibility="visible"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <Button
             android:id="@+id/btnExecute"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:background="@color/colorPrimary"
             android:elevation="2dp"
             android:text="Execute"
             android:textColor="#fff"
             android:textSize="18sp" />
 
-        <ScrollView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="#292929"
             android:padding="16dp">
@@ -89,21 +89,21 @@
                 android:textColor="#fff"
                 android:textSize="12sp"
                 tools:text="RichUtils.kt" />
-        </ScrollView>
+        </FrameLayout>
 
         <Switch
+            android:id="@+id/btnSampleSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:id="@+id/btnSampleSwitch"
-            android:text="Java Sample"/>
+            android:text="Java Sample" />
 
     </LinearLayout>
 
     <View
+        android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:id="@+id/divider"
         android:background="#808080" />
 
 </LinearLayout>

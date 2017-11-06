@@ -108,11 +108,6 @@ class IndexActivity : AppCompatActivity() {
                 itemView.txtSample.text = item.kotlinSample
             }
 
-            itemView.imgExpand.setOnClickListener {
-                itemView.imgExpand.isSelected = !show
-                adapter.notifyDataSetChanged()
-            }
-
             itemView.containerTitle.setOnClickListener {
                 itemView.imgExpand.isSelected = !show
                 adapter.notifyDataSetChanged()
