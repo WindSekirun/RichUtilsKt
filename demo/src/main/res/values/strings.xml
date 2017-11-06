@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">RichUtils Code Dictionary</string>
+    <string name="alert.category.content">Display Toast / Dialog</string>
+    <string name="alert.message.toast">Display Toast Message</string>
+    <string name="alert.message.alert">Display AlertDialog instantly</string>
+    <string name="alert.message.selector">Dialog SelectorDialog instantly</string>
+    <string name="alert.message.confirm">Display AlertDialog instantly with confirm</string>
+    <string name="alert.message.progress">Display ProgressDialog</string>
+    <string name="assets.category.content">Tools about assets folder</string>
+    <string name="assets.message.fileasstring">get String from Assets file</string>
+    <string name="assets.message.aslist">get File list of specific folder in Assets</string>
+    <string name="assets.message.copyassets">Assets to Internal storage</string>
 </resources>

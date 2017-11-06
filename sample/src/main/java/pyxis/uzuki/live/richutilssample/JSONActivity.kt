@@ -14,7 +14,7 @@ class JSONActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_json)
 
-        var jsonStr = this.assets.fileAsString(subdirectory = "json", filename = "customer.json")
+        var jsonStr = this.assets.fileAsString("json", "customer.json")
         var jsonObject: JSONObject? = jsonStr.createJSONObject()
 
         var firstName = jsonObject?.getJSONString(name = "firstName")

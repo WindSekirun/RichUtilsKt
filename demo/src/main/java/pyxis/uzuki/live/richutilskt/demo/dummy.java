@@ -1,4 +1,4 @@
-package pyxis.uzuki.live.richutilskt.demo.set;
+package pyxis.uzuki.live.richutilskt.demo;
 
 import android.support.v7.app.AppCompatActivity;
 

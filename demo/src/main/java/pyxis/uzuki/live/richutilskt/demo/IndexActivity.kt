@@ -9,10 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_index.*
 import kotlinx.android.synthetic.main.activity_index_item.view.*
-import pyxis.uzuki.live.richutilskt.demo.item.CategoryItem
 import pyxis.uzuki.live.richutilskt.demo.item.ExecuteItem
 import pyxis.uzuki.live.richutilskt.demo.item.MainItem
-import pyxis.uzuki.live.richutilskt.demo.set.getAlertSet
 import pyxis.uzuki.live.richutilskt.utils.inflate
 
 /**
@@ -31,7 +29,9 @@ class IndexActivity : AppCompatActivity() {
         setContentView(R.layout.activity_index)
 
         val item = intent.getSerializableExtra("index") as MainItem
-        itemList.addAll(getItemSet(item.categoryItem))
+        itemList.addAll(item.list)
+
+        itemList.sortBy { it.title }
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
@@ -71,6 +71,8 @@ class IndexActivity : AppCompatActivity() {
             itemView.txtTitle.text = item.title
             itemView.txtSummary.text = item.message
 
+            itemView.btnExecute.visibility = if (item.execute == null) View.GONE else View.VISIBLE
+
             itemView.btnExecute.setOnClickListener {
                 item.execute?.invoke(context)
             }
@@ -104,12 +106,6 @@ class IndexActivity : AppCompatActivity() {
             itemView.btnSampleSwitch.setOnCheckedChangeListener { _, _ ->
                 adapter.notifyDataSetChanged()
             }
-        }
-    }
-
-    fun getItemSet(categoryItem: CategoryItem): ArrayList<ExecuteItem> {
-        return when (categoryItem) {
-            CategoryItem.ALERT -> getAlertSet()
         }
     }
 }

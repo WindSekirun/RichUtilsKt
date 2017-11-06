@@ -27,6 +27,7 @@ fun AssetManager.fileAsString(subdirectory: String, filename: String): String {
  * @param[subdirectory] name of directory
  * @return list of file name
  */
+@JvmName("asAssetsList")
 fun AssetManager.asList(subdirectory: String) = list(subdirectory).toList()
 
 /**

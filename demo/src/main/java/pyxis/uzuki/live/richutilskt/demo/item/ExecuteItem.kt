@@ -1,6 +1,7 @@
 package pyxis.uzuki.live.richutilskt.demo.item
 
 import android.content.Context
+import java.io.Serializable
 
 /**
  * RichUtilsKt
@@ -10,7 +11,7 @@ import android.content.Context
  * Description:
  */
 data class ExecuteItem(val category: CategoryItem, val title: String, val message: String, val execute: ((Context) -> Unit)? = null,
-                       val kotlinSample: String, val javaSample: String)
+                       val kotlinSample: String, val javaSample: String) : Serializable
 
 
 fun generateExecuteItem(category: CategoryItem, title: String, message: String = "",

@@ -1,5 +1,7 @@
 package pyxis.uzuki.live.richutilskt.demo.set
 
+import android.content.Context
+import pyxis.uzuki.live.richutilskt.demo.R
 import pyxis.uzuki.live.richutilskt.demo.item.CategoryItem
 import pyxis.uzuki.live.richutilskt.demo.item.ExecuteItem
 import pyxis.uzuki.live.richutilskt.demo.item.generateExecuteItem
@@ -14,11 +16,11 @@ import pyxis.uzuki.live.richutilskt.utils.*
  * Description:
  */
 
-fun getAlertSet(): ArrayList<ExecuteItem> {
+fun Context.getAlertSet(): ArrayList<ExecuteItem> {
     val list = arrayListOf<ExecuteItem>()
 
     val toast = generateExecuteItem(CategoryItem.ALERT, "toast",
-            "Display Toast Message", "toast(${"Toast!".toEscape()})",
+            getString(R.string.alert_message_toast), "toast(${"Toast!".toEscape()})",
             "RichUtils.toast(context, ${"Toast!".toEscape()})") {
         it.toast("Toast!")
     }
@@ -26,7 +28,7 @@ fun getAlertSet(): ArrayList<ExecuteItem> {
     list.add(toast)
 
     val alert = generateExecuteItem(CategoryItem.ALERT, "alert",
-            "Display AlertDialog instantly",
+            getString(R.string.alert_message_alert),
             "alert(${"Alert!".toEscape()})",
             "RichUtils.alert(context, ${"Alert!".toEscape()})") {
         it.alert("Alert!")
@@ -35,7 +37,7 @@ fun getAlertSet(): ArrayList<ExecuteItem> {
     list.add(alert)
 
     val selector = generateExecuteItem(CategoryItem.ALERT, "selector",
-            "Dialog SelectorDialog instantly",
+            getString(R.string.alert_message_selector),
             "selector(arrayListOf(\"a\", \"b\"), {_, _, pos ->  it.toast(\"selected \$pos\") })",
             "ArrayList<String> objects = new ArrayList<String>();\n" +
                     "object.add(\"a\");\n" +
@@ -49,7 +51,7 @@ fun getAlertSet(): ArrayList<ExecuteItem> {
     list.add(selector)
 
     val confirm = generateExecuteItem(CategoryItem.ALERT, "confirm",
-            "Display AlertDialog instantly with confirm",
+            getString(R.string.alert_message_confirm),
             "confirm(${"Confirm?".toEscape()}, {})",
             "RichUtils.confirm(this, ${"Confirm?".toEscape()}, object -> {});") {
         it.confirm("Confirm?", {})
@@ -58,7 +60,7 @@ fun getAlertSet(): ArrayList<ExecuteItem> {
     list.add(confirm)
 
     val progress = generateExecuteItem(CategoryItem.ALERT, "progress",
-            "Display ProgressDialog", "progress(${"loading".toEscape()})",
+            getString(R.string.alert_message_progress), "progress(${"loading".toEscape()})",
             "RichUtils.progress(this, ${"loading".toEscape()});"
     ) { it.progress("loading") }
 
