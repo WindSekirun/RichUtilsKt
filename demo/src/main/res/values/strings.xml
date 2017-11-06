@@ -28,4 +28,8 @@
     <string name="date.message.asdatestring.long">get readable string of given timestamp</string>
     <string name="date.message.parsedate">parsing date from String</string>
     <string name="date.message.todatestring">format formatted date to another formatted date</string>
+    <string name="deviceid.category.content">get Device Unique Id</string>
+    <string name="deviceid.message.androidid">get androidId of device</string>
+    <string name="deviceid.message.imei">get IMEI of device</string>
+    <string name="deviceid.message.line1number">get Line1Number of device</string>
 </resources>

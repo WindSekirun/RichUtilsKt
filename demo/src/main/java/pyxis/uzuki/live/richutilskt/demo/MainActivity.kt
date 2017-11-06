@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main_item.view.*
 import pyxis.uzuki.live.pyxinjector.base.InjectActivity
-import pyxis.uzuki.live.richutilskt.demo.item.CategoryItem
 import pyxis.uzuki.live.richutilskt.demo.item.MainItem
 import pyxis.uzuki.live.richutilskt.demo.set.getMainData
 import pyxis.uzuki.live.richutilskt.utils.browse
@@ -41,7 +40,7 @@ class MainActivity : InjectActivity() {
             }
         })
 
-        itemList.addAll(getMainData())
+        itemList.addAll(getMainData().filter { it.content.isNotEmpty() })
         itemList.sortBy { it.title }
         adapter.notifyDataSetChanged()
 

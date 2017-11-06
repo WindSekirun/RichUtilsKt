@@ -1,5 +1,6 @@
 package pyxis.uzuki.live.richutilskt.demo
 
+import android.Manifest
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -9,8 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_index.*
 import kotlinx.android.synthetic.main.activity_index_item.view.*
+import pyxis.uzuki.live.richutilskt.demo.item.CategoryItem
 import pyxis.uzuki.live.richutilskt.demo.item.ExecuteItem
 import pyxis.uzuki.live.richutilskt.demo.item.MainItem
+import pyxis.uzuki.live.richutilskt.utils.RPermission
 import pyxis.uzuki.live.richutilskt.utils.inflate
 
 /**
@@ -53,6 +56,16 @@ class IndexActivity : AppCompatActivity() {
         fab.setOnClickListener {
             browseToFile(item.link)
         }
+
+        val permissionArray = when (item.categoryItem) {
+            CategoryItem.DEVICEID -> arrayOf(Manifest.permission.READ_PHONE_STATE)
+            else -> null
+        }
+
+        if (permissionArray != null) {
+            RPermission.instance.checkPermission(this, permissionArray)
+        }
+
     }
 
     inner class ListAdapter : RecyclerView.Adapter<ViewHolder>() {
