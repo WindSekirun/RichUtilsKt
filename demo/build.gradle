@@ -6,7 +6,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "pyxis.uzuki.live.richutilskt.demo"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"

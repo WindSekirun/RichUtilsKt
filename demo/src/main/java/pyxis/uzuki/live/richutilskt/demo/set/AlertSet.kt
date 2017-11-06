@@ -17,61 +17,50 @@ import pyxis.uzuki.live.richutilskt.utils.*
 fun getAlertSet(): ArrayList<ExecuteItem> {
     val list = arrayListOf<ExecuteItem>()
 
-    val toast = generateExecuteItem(
-            CategoryItem.ALERT,
-            "Toast",
-            "Display Toast Message",
-            { it.toast("Toast!") },
-            "Context.toast(${"Toast!".toEscape()})",
-            "RichUtils.toast(context, ${"Toast!".toEscape()})"
-    )
+    val toast = generateExecuteItem(CategoryItem.ALERT, "toast",
+            "Display Toast Message", "toast(${"Toast!".toEscape()})",
+            "RichUtils.toast(context, ${"Toast!".toEscape()})") {
+        it.toast("Toast!")
+    }
 
     list.add(toast)
 
-    val alert = generateExecuteItem(
-            CategoryItem.ALERT,
-            "Alert",
+    val alert = generateExecuteItem(CategoryItem.ALERT, "alert",
             "Display AlertDialog instantly",
-            { it.alert("Alert!") },
-            "Context.alert(${"Alert!".toEscape()})",
-            "RichUtils.alert(context, ${"Toast!".toEscape()})"
-    )
+            "alert(${"Alert!".toEscape()})",
+            "RichUtils.alert(context, ${"Alert!".toEscape()})") {
+        it.alert("Alert!")
+    }
 
     list.add(alert)
 
-    val selector = generateExecuteItem(
-            CategoryItem.ALERT,
-            "Selector",
+    val selector = generateExecuteItem(CategoryItem.ALERT, "selector",
             "Dialog SelectorDialog instantly",
-            { it.selector(arrayListOf("a", "b"), { _, _, pos -> it.toast("selected $pos") }) },
-            "Context.selector(arrayListOf(\"a\", \"b\"), {_, _,pos ->  it.toast(\"selected \$pos\") })",
+            "selector(arrayListOf(\"a\", \"b\"), {_, _, pos ->  it.toast(\"selected \$pos\") })",
             "ArrayList<String> objects = new ArrayList<String>();\n" +
                     "object.add(\"a\");\n" +
                     "object.add(\"b\");\n" +
-                    "RichUtils.selector(this, objects, (dialog, item, position) -> {RichUtils.toast(this, \"selected \" + position);});"
-    )
+                    "RichUtils.selector(this, objects, (dialog, item, position) -> {RichUtils.toast(this, \"selected \" + position);});") {
+        it.selector(arrayListOf("a", "b"), { _, _, pos ->
+            it.toast("selected $pos")
+        })
+    }
 
     list.add(selector)
 
-    val confirm = generateExecuteItem(
-            CategoryItem.ALERT,
-            "Confirm",
+    val confirm = generateExecuteItem(CategoryItem.ALERT, "confirm",
             "Display AlertDialog instantly with confirm",
-            { it.confirm("Confirm?", {}) },
-            "Context.confirm(\"Confirm?\", {})",
-            "RichUtils.confirm(this, \"Confirm?\", object -> {});"
-    )
+            "confirm(${"Confirm?".toEscape()}, {})",
+            "RichUtils.confirm(this, ${"Confirm?".toEscape()}, object -> {});") {
+        it.confirm("Confirm?", {})
+    }
 
     list.add(confirm)
 
-    val progress = generateExecuteItem(
-            CategoryItem.ALERT,
-            "Progress",
-            "Display ProgressDialog",
-            { it.progress("loading") },
-            "Context.progress(\"loading\")",
-            "RichUtils.progress(this, \"loading\");"
-    )
+    val progress = generateExecuteItem(CategoryItem.ALERT, "progress",
+            "Display ProgressDialog", "progress(${"loading".toEscape()})",
+            "RichUtils.progress(this, ${"loading".toEscape()});"
+    ) { it.progress("loading") }
 
     list.add(progress)
 

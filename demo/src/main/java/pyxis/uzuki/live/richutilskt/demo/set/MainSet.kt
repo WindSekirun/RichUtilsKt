@@ -13,7 +13,7 @@ import pyxis.uzuki.live.richutilskt.demo.item.MainItem
 fun getMainData(): ArrayList<MainItem> {
     val list = arrayListOf<MainItem>()
 
-    list.add(MainItem(CategoryItem.ALERT))
+    list.add(MainItem(CategoryItem.ALERT, "Alert", "Display Toast / Dialog"))
 
     return list
 }

@@ -2,40 +2,108 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        android:id="@+id/containerTitle"
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
-        <TextView
-            android:id="@+id/txtTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:textColor="#000"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="Tools" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtSummary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:textColor="#888"
-            android:textSize="15sp"
-            tools:text="Tools Summary" />
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="Tools" />
+
+            <TextView
+                android:id="@+id/txtSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="#888"
+                android:textSize="15sp"
+                tools:text="Tools Summary" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgExpand"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_expand_selector" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:background="#808080" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/containerMore"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btnExecute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:elevation="2dp"
+            android:text="Execute"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:background="#292929"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/txtSample"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hack"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                tools:text="RichUtils.kt" />
+        </ScrollView>
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/btnSampleSwitch"
+            android:text="Java Sample"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/divider"
         android:background="#808080" />
 
 </LinearLayout>

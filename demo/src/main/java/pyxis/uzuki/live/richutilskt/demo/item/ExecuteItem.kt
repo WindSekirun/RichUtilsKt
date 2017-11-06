@@ -13,8 +13,8 @@ data class ExecuteItem(val category: CategoryItem, val title: String, val messag
                        val kotlinSample: String, val javaSample: String)
 
 
-fun generateExecuteItem(category: CategoryItem, title: String, message: String = "", execute: ((Context) -> Unit)? = null,
-                        kotlinSample: String = "", javaSample: String = ""): ExecuteItem {
+fun generateExecuteItem(category: CategoryItem, title: String, message: String = "",
+                        kotlinSample: String = "", javaSample: String = "", execute: ((Context) -> Unit)? = null): ExecuteItem {
     return ExecuteItem(category, title, message, execute, kotlinSample, javaSample)
 }
 
