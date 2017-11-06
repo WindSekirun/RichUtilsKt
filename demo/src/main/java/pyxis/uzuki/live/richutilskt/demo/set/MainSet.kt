@@ -18,7 +18,7 @@ fun Context.getMainData(): ArrayList<MainItem> {
 
     list.add(MainItem(CategoryItem.ALERT, "utils/RAlert.kt", "Alert", getString(R.string.alert_category_content), getAlertSet()))
     list.add(MainItem(CategoryItem.ASSETS, "utils/RAssets.kt", "Assets", getString(R.string.assets_category_content), getAssetsSet()))
-    list.add(MainItem(CategoryItem.BITMAP, "utils/RBitmap.kt", "Bitmap", "", empty))
+    list.add(MainItem(CategoryItem.BITMAP, "utils/RBitmap.kt", "Bitmap", getString(R.string.bitmap_category_content), getBitmapSet()))
     list.add(MainItem(CategoryItem.CLIPBOARD, "utils/RClipboard.kt", "Clipboard", "", empty))
     list.add(MainItem(CategoryItem.CONTACT, "utils/RContactProvider.kt", "Contact", "", empty))
     list.add(MainItem(CategoryItem.DATE, "utils/RDate.kt", "Date", "", empty))

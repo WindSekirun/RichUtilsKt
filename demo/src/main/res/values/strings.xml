@@ -10,4 +10,12 @@
     <string name="assets.message.fileasstring">get String from Assets file</string>
     <string name="assets.message.aslist">get File list of specific folder in Assets</string>
     <string name="assets.message.copyassets">Assets to Internal storage</string>
+    <string name="bitmap.category.content">Tools about Bitmap</string>
+    <string name="bitmap.message.getbitmap">get bitmap from filePath</string>
+    <string name="bitmap.message.toroundcorner">Make bitmap corner</string>
+    <string name="bitmap.message.savebitmaptofile">Save Bitmap to given File</string>
+    <string name="bitmap.message.drawabletobitmap">Convert Drawable to Bitmap in safe way</string>
+    <string name="bitmap.message.mediascanning">Request MediaScanning</string>
+    <string name="bitmap.message.downloadbitmap">Download bitmap from uri</string>
+    <string name="bitmap.message.resize">Resizing image</string>
 </resources>

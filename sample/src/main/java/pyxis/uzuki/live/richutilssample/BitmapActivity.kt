@@ -31,7 +31,7 @@ class BitmapActivity : AppCompatActivity() {
         // it will be compile error cause drawable is Drawable?
         // var bitmap2 = drawableToBitmap(drawable = drawable)
 
-        var file = saveBitmapToFile(bitmap = bitmap)
+        var file = saveBitmapToFile(bitmap)
 
         imgView.setImageBitmap(bitmap)
     }
