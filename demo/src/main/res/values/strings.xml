@@ -38,4 +38,15 @@
     <string name="dimen.message.px2dip">convert px to dip</string>
     <string name="dimen.message.px2sp">convert px to sp</string>
     <string name="dimen.message.dimen">get pixel size from DimenRes</string>
+    <string name="drawable.category.content">Tools about Drawable</string>
+    <string name="category.message.bitmaptodrawable">Bitmap to Drawable</string>
+    <string name="file.category.content">Tools about File</string>
+    <string name="file.message.downloadfile">Download file from uri</string>
+    <string name="file.message.tofile">make String to File</string>
+    <string name="file.message.savefile">save file with content</string>
+    <string name="file.message.readfile">read file to string</string>
+    <string name="file.message.getrealpath">Get real sd-card path from file-based ContentProviders</string>
+    <string name="font.category.content">Apply System Font in view</string>
+    <string name="font.message.initializefontengine">Initialize SystemFontEngine</string>
+    <string name="font.message.settypeface">Set system font into ViewGroup</string>
 </resources>
