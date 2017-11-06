@@ -82,7 +82,7 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/txtSample"
+                android:id="@+id/txtKotlinSample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/hack"
@@ -91,12 +91,22 @@
                 tools:text="RichUtils.kt" />
         </FrameLayout>
 
-        <Switch
-            android:id="@+id/btnSampleSwitch"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Java Sample" />
+            android:layout_marginTop="5dp"
+            android:background="#292929"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/txtJavaSample"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hack"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                tools:text="RichUtils.kt" />
+        </FrameLayout>
 
     </LinearLayout>
 

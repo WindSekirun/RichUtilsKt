@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.transition.TransitionManager
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_index.*
@@ -80,9 +81,13 @@ class IndexActivity : AppCompatActivity() {
         override fun getItemCount(): Int = itemList.size
     }
 
+    var extendedPosition = -1
+
     inner class ViewHolder(private val context: Context, itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindData(item: ExecuteItem) {
+            val isShow = extendedPosition == adapterPosition
+
             itemView.txtTitle.text = item.title
             itemView.txtSummary.text = item.message
 
@@ -92,8 +97,7 @@ class IndexActivity : AppCompatActivity() {
                 item.execute?.invoke(context)
             }
 
-            val show = itemView.imgExpand.isSelected
-            if (show) {
+            if (isShow) {
                 itemView.containerMore.visibility = View.VISIBLE
                 itemView.divider.visibility = View.VISIBLE
             } else {
@@ -101,19 +105,11 @@ class IndexActivity : AppCompatActivity() {
                 itemView.divider.visibility = View.GONE
             }
 
-            val javaSample = itemView.btnSampleSwitch.isChecked
-            if (javaSample) {
-                itemView.txtSample.text = item.javaSample
-            } else {
-                itemView.txtSample.text = item.kotlinSample
-            }
+            itemView.txtKotlinSample.text = item.kotlinSample
+            itemView.txtJavaSample.text = item.javaSample
 
             itemView.containerTitle.setOnClickListener {
-                itemView.imgExpand.isSelected = !show
-                adapter.notifyDataSetChanged()
-            }
-
-            itemView.btnSampleSwitch.setOnCheckedChangeListener { _, _ ->
+                extendedPosition = if (isShow) -1 else adapterPosition
                 adapter.notifyDataSetChanged()
             }
         }
