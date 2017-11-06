@@ -1,11 +1,13 @@
 package pyxis.uzuki.live.richutilskt.module.crash.item
 
 /**
- * RichCrashCollector
- * CrashConfig
- * Created by pyxis on 2017. 3. 17..
+ * RichUtilsKt
+ * Class: CrashConfig
+ * Created by Pyxis on 2017-11-06.
+ *
+ * Description:
  */
 
 enum class LogLevel {
-    MESSAGE, STACKTRACE
+    NONE, STACKTRACE
 }

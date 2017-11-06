@@ -5,9 +5,11 @@ import android.app.Application
 import android.content.Context
 
 /**
- * RichCrashCollector
- * CrashCollector
- * Created by pyxis on 2017. 3. 17..
+ * RichUtilsKt
+ * Class: CrashConfig
+ * Created by Pyxis on 2017-11-06.
+ *
+ * Description:
  */
 
 object CrashCollector {
@@ -18,12 +20,8 @@ object CrashCollector {
         val pid = android.os.Process.myPid()
 
         val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        for (process in activityManager.runningAppProcesses) {
-            if (process.pid == pid) {
-                if (process.processName.equals(context.packageName, ignoreCase = true)) {
-                    Thread.setDefaultUncaughtExceptionHandler(CrashHandler.getInstance(config))
-                }
-            }
-        }
+        activityManager.runningAppProcesses
+                .filter { it.pid == pid && it.processName.equals(context.packageName, ignoreCase = true) }
+                .forEach { Thread.setDefaultUncaughtExceptionHandler(CrashHandler.getInstance(config)) }
     }
 }

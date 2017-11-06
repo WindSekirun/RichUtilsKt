@@ -1,1 +1,1 @@
-include ':RichUtils', ':sample', ':samplejava'
+include ':RichUtils', ':sample', ':samplejava', ':demo'

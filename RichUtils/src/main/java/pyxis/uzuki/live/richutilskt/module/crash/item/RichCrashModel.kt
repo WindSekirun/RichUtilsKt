@@ -1,24 +1,23 @@
 package pyxis.uzuki.live.richutilskt.module.crash.item
 
-import android.icu.text.SimpleDateFormat
+import android.annotation.SuppressLint
 import android.os.Build
-
-import com.github.windsekirun.richcrashcollector.CrashConfig
-
+import pyxis.uzuki.live.richutilskt.module.crash.CrashConfig
 import java.io.PrintWriter
 import java.io.Serializable
 import java.io.StringWriter
-import java.io.Writer
-import java.util.Date
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
- * RichCrashCollector
- * RichCrashModel
- * Created by DonggilSeo on 2017-03-20.
+ * RichUtilsKt
+ * Class: CrashConfig
+ * Created by Pyxis on 2017-11-06.
+ *
+ * Description:
  */
 
 class RichCrashModel : Serializable, Cloneable {
-
     var packageName: String? = null
         private set
     var versionStr: String? = null
@@ -49,12 +48,9 @@ class RichCrashModel : Serializable, Cloneable {
         val printWriter = PrintWriter(result)
         ex.printStackTrace(printWriter)
 
-        try {
+        printWriter.use {
             val cause = ex.cause
-            cause.printStackTrace(printWriter)
-        } catch (e: NullPointerException) {
-        } finally {
-            printWriter.close()
+            cause?.printStackTrace(it)
         }
 
         this.message = ex.message
@@ -72,80 +68,58 @@ class RichCrashModel : Serializable, Cloneable {
     }
 
     fun setConfig(config: CrashConfig) {
-        this.packageName = config.getPackageName()
-        this.versionStr = config.getVersionStr()
+        this.packageName = config.packageName
+        this.versionStr = config.versionStr
     }
 
+    @SuppressLint("SimpleDateFormat")
     fun setTime(date: Date, crashConfig: CrashConfig) {
-        val dateFormat = SimpleDateFormat(crashConfig.getTimeFormat())
+        val dateFormat = SimpleDateFormat(crashConfig.timeFormat)
         this.timeStr = dateFormat.format(date)
     }
 
-    override fun equals(o: Any?): Boolean {
-        if (this === o) return true
-        if (o == null || javaClass != o.javaClass) return false
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
 
-        val that = o as RichCrashModel?
+        other as RichCrashModel
 
-        if (sdkNum != that!!.sdkNum) return false
-        if (if (packageName != null) packageName != that.packageName else that.packageName != null)
-            return false
-        if (if (versionStr != null) versionStr != that.versionStr else that.versionStr != null)
-            return false
-        if (if (modelStr != null) modelStr != that.modelStr else that.modelStr != null)
-            return false
-        if (if (productStr != null) productStr != that.productStr else that.productStr != null)
-            return false
-        if (if (deviceStr != null) deviceStr != that.deviceStr else that.deviceStr != null)
-            return false
-        if (if (sdkStr != null) sdkStr != that.sdkStr else that.sdkStr != null)
-            return false
-        if (if (manufacturerStr != null) manufacturerStr != that.manufacturerStr else that.manufacturerStr != null)
-            return false
-        if (if (timeStr != null) timeStr != that.timeStr else that.timeStr != null)
-            return false
-        if (if (message != null) message != that.message else that.message != null)
-            return false
-        if (if (localizedMessage != null) localizedMessage != that.localizedMessage else that.localizedMessage != null)
-            return false
-        return if (stackTrace != null) stackTrace == that.stackTrace else that.stackTrace == null
+        if (packageName != other.packageName) return false
+        if (versionStr != other.versionStr) return false
+        if (modelStr != other.modelStr) return false
+        if (productStr != other.productStr) return false
+        if (deviceStr != other.deviceStr) return false
+        if (sdkStr != other.sdkStr) return false
+        if (sdkNum != other.sdkNum) return false
+        if (manufacturerStr != other.manufacturerStr) return false
+        if (timeStr != other.timeStr) return false
+        if (message != other.message) return false
+        if (localizedMessage != other.localizedMessage) return false
+        if (stackTrace != other.stackTrace) return false
 
+        return true
     }
 
     override fun hashCode(): Int {
-        var result = if (packageName != null) packageName!!.hashCode() else 0
-        result = 31 * result + if (versionStr != null) versionStr!!.hashCode() else 0
-        result = 31 * result + if (modelStr != null) modelStr!!.hashCode() else 0
-        result = 31 * result + if (productStr != null) productStr!!.hashCode() else 0
-        result = 31 * result + if (deviceStr != null) deviceStr!!.hashCode() else 0
-        result = 31 * result + if (sdkStr != null) sdkStr!!.hashCode() else 0
+        var result = packageName?.hashCode() ?: 0
+        result = 31 * result + (versionStr?.hashCode() ?: 0)
+        result = 31 * result + (modelStr?.hashCode() ?: 0)
+        result = 31 * result + (productStr?.hashCode() ?: 0)
+        result = 31 * result + (deviceStr?.hashCode() ?: 0)
+        result = 31 * result + (sdkStr?.hashCode() ?: 0)
         result = 31 * result + sdkNum
-        result = 31 * result + if (manufacturerStr != null) manufacturerStr!!.hashCode() else 0
-        result = 31 * result + if (timeStr != null) timeStr!!.hashCode() else 0
-        result = 31 * result + if (message != null) message!!.hashCode() else 0
-        result = 31 * result + if (localizedMessage != null) localizedMessage!!.hashCode() else 0
-        result = 31 * result + if (stackTrace != null) stackTrace!!.hashCode() else 0
+        result = 31 * result + (manufacturerStr?.hashCode() ?: 0)
+        result = 31 * result + (timeStr?.hashCode() ?: 0)
+        result = 31 * result + (message?.hashCode() ?: 0)
+        result = 31 * result + (localizedMessage?.hashCode() ?: 0)
+        result = 31 * result + (stackTrace?.hashCode() ?: 0)
         return result
     }
 
     override fun toString(): String {
-        return "RichCrashModel{" +
-                "packageName='" + packageName + '\'' +
-                ", versionStr='" + versionStr + '\'' +
-                ", modelStr='" + modelStr + '\'' +
-                ", productStr='" + productStr + '\'' +
-                ", deviceStr='" + deviceStr + '\'' +
-                ", sdkStr='" + sdkStr + '\'' +
-                ", sdkNum=" + sdkNum +
-                ", manufacturerStr='" + manufacturerStr + '\'' +
-                ", timeStr='" + timeStr + '\'' +
-                ", message='" + message + '\'' +
-                ", localizedMessage='" + localizedMessage + '\'' +
-                ", stackTrace='" + stackTrace + '\'' +
-                '}'
+        return "RichCrashModel(packageName=$packageName, versionStr=$versionStr, modelStr=$modelStr, productStr=$productStr, " +
+                "deviceStr=$deviceStr, sdkStr=$sdkStr, sdkNum=$sdkNum, manufacturerStr=$manufacturerStr, timeStr=$timeStr, " +
+                "message=$message, localizedMessage=$localizedMessage, stackTrace=$stackTrace)"
     }
 
-    companion object {
-        private const val serialVersionUID = 44612820179919067L
-    }
 }
