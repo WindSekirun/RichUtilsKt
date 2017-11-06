@@ -18,4 +18,7 @@
     <string name="bitmap.message.mediascanning">Request MediaScanning</string>
     <string name="bitmap.message.downloadbitmap">Download bitmap from uri</string>
     <string name="bitmap.message.resize">Resizing image</string>
+    <string name="clipboard.category.content">Tools about Clipboard</string>
+    <string name="clipboard.message.copytext">copy text to clipboard</string>
+    <string name="clipboard.message.gettextfromclipboard">get text of clipboard list</string>
 </resources>
