@@ -21,4 +21,6 @@
     <string name="clipboard.category.content">Tools about Clipboard</string>
     <string name="clipboard.message.copytext">copy text to clipboard</string>
     <string name="clipboard.message.gettextfromclipboard">get text of clipboard list</string>
+    <string name="contact_category_content">get ContactList of Device</string>
+    <string name="contact.message.getcontactslist">load contact data from device</string>
 </resources>
