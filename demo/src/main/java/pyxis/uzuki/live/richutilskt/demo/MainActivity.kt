@@ -12,6 +12,7 @@ import pyxis.uzuki.live.pyxinjector.base.InjectActivity
 import pyxis.uzuki.live.richutilskt.demo.item.CategoryItem
 import pyxis.uzuki.live.richutilskt.demo.item.MainItem
 import pyxis.uzuki.live.richutilskt.demo.set.getMainData
+import pyxis.uzuki.live.richutilskt.utils.browse
 import pyxis.uzuki.live.richutilskt.utils.inflate
 
 class MainActivity : InjectActivity() {
@@ -32,9 +33,13 @@ class MainActivity : InjectActivity() {
 
         itemList.addAll(getMainData())
         adapter.notifyDataSetChanged()
+
+        fab.setOnClickListener {
+            browse("https://github.com/windsekirun/RichUtilsKt")
+        }
     }
 
-    inner class ListAdapter(private val callback: (CategoryItem) -> Unit) : RecyclerView.Adapter<ViewHolder>() {
+    inner class ListAdapter(private val callback: (MainItem) -> Unit) : RecyclerView.Adapter<ViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder =
                 ViewHolder(inflate(R.layout.activity_main_item, parent), callback)
@@ -46,12 +51,12 @@ class MainActivity : InjectActivity() {
         override fun getItemCount(): Int = itemList.size
     }
 
-    class ViewHolder(itemView: View, private val callback: (CategoryItem) -> Unit) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View, private val callback: (MainItem) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
         fun bindData(item: MainItem) {
             itemView.txtTitle.text = item.title
             itemView.txtSummary.text = item.content
-            itemView.setOnClickListener { callback(item.categoryItem) }
+            itemView.setOnClickListener { callback(item) }
         }
     }
 }

@@ -7,10 +7,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.activity_index.*
 import kotlinx.android.synthetic.main.activity_index_item.view.*
-import kotlinx.android.synthetic.main.activity_main.*
 import pyxis.uzuki.live.richutilskt.demo.item.CategoryItem
 import pyxis.uzuki.live.richutilskt.demo.item.ExecuteItem
+import pyxis.uzuki.live.richutilskt.demo.item.MainItem
 import pyxis.uzuki.live.richutilskt.demo.set.getAlertSet
 import pyxis.uzuki.live.richutilskt.utils.inflate
 
@@ -29,12 +30,16 @@ class IndexActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_index)
 
-        val category = intent.getSerializableExtra("index") as CategoryItem
-        itemList.addAll(getItemSet(category))
+        val item = intent.getSerializableExtra("index") as MainItem
+        itemList.addAll(getItemSet(item.categoryItem))
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
         adapter.notifyDataSetChanged()
+
+        fab.setOnClickListener {
+            browseToFile(item.link)
+        }
     }
 
     inner class ListAdapter : RecyclerView.Adapter<ViewHolder>() {
