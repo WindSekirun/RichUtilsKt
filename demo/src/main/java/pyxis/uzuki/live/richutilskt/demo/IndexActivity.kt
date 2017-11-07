@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.transition.TransitionManager
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.activity_index.*
@@ -88,6 +87,7 @@ class IndexActivity : AppCompatActivity() {
         fun bindData(item: ExecuteItem) {
             val isShow = extendedPosition == adapterPosition
 
+            itemView.imgExpand.isSelected = isShow
             itemView.txtTitle.text = item.title
             itemView.txtSummary.text = item.message
 
