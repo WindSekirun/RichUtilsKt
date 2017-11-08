@@ -28,7 +28,7 @@ fun Context.getMainData(): ArrayList<MainItem> {
     list.add(MainItem(CategoryItem.FILE, "utils/RFile.kt", "File", getString(R.string.file_category_content), getFileSet()))
     list.add(MainItem(CategoryItem.FONT, "utils/RFont.kt", "Font", getString(R.string.font_category_content), getFontSet()))
     list.add(MainItem(CategoryItem.HINTSPINNER, "utils/RHintSpinner.kt", "Hint Spinner", "", empty))
-    list.add(MainItem(CategoryItem.INFLATER, "utils/RInflater.kt", "Inflater", "", empty))
+    list.add(MainItem(CategoryItem.INFLATER, "utils/RInflater.kt", "Inflater", "Inflate View", getInflateSet()))
     list.add(MainItem(CategoryItem.INTENT, "utils/RIntent.kt", "Intent", "", empty))
     list.add(MainItem(CategoryItem.JSON, "utils/RJson.kt", "Json", "", empty))
     list.add(MainItem(CategoryItem.KEYBOARD, "utils/RKeyboard.kt", "Keyboard", "", empty))
