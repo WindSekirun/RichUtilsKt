@@ -34,7 +34,7 @@ fun Context.getMainData(): ArrayList<MainItem> {
     list.add(MainItem(CategoryItem.KEYBOARD, "utils/RKeyboard.kt", "Keyboard", "Toggle / Close Keyboard"))
     list.add(MainItem(CategoryItem.KEYHASH, "utils/RKeyHash.kt", "KeyHash", "get KeyHash of Application"))
     list.add(MainItem(CategoryItem.NETWORK, "utils/RNetwork.kt", "Network", "get State of Connection of Network"))
-    list.add(MainItem(CategoryItem.PERMISSION, "utils/RPermission.kt", "Permission", ""))
+    list.add(MainItem(CategoryItem.PERMISSION, "utils/RPermission.kt", "Permission", "RuntimePermission in 1 Line"))
     list.add(MainItem(CategoryItem.PROCESS, "utils/RProcess.kt", "Process", ""))
     list.add(MainItem(CategoryItem.REBOOT, "utils/RReboot.kt", "Reboot", ""))
     list.add(MainItem(CategoryItem.STATUSBAR, "utils/RStatusBar.kt", "Status Bar", ""))
@@ -53,11 +53,13 @@ fun Context.getMainData(): ArrayList<MainItem> {
     list.add(MainItem(CategoryItem.CRASH, "", "CrashHandler", ""))
     list.add(MainItem(CategoryItem.INAPP, "module/iap/RInAppBilling.kt", "InAppBilling", ""))
     list.add(MainItem(CategoryItem.LOCATION, "service/RLocationService.kt", "Location Service", ""))
+    list.add(MainItem(CategoryItem.PHOTO, "utils/RPhoto.kt", "Photo", "get Information of Photo"))
+    list.add(MainItem(CategoryItem.PICKMEDIA, "utils/RPickMedia.kt", "Pick Media", "get Image / Video from storage in 1 Line"))
 
     return list
 }
 
-fun Context.getItemList(categoryItem: CategoryItem) : ArrayList<ExecuteItem> {
+fun Context.getItemList(categoryItem: CategoryItem): ArrayList<ExecuteItem> {
     return when (categoryItem) {
         CategoryItem.ALERT -> getAlertSet()
         CategoryItem.ASSETS -> getAssetsSet()
@@ -76,9 +78,9 @@ fun Context.getItemList(categoryItem: CategoryItem) : ArrayList<ExecuteItem> {
         CategoryItem.KEYBOARD -> getKeyboardSet()
         CategoryItem.KEYHASH -> getKeyHashSet()
         CategoryItem.NETWORK -> getNetworkSet()
-        CategoryItem.PERMISSION -> TODO()
-        CategoryItem.PHOTO -> TODO()
-        CategoryItem.PICKMEDIA -> TODO()
+        CategoryItem.PERMISSION -> getPermissionSet()
+        CategoryItem.PHOTO -> getPhotoSet()
+        CategoryItem.PICKMEDIA -> getPickMediaSet()
         CategoryItem.PREFERENCE -> TODO()
         CategoryItem.PROCESS -> TODO()
         CategoryItem.REBOOT -> TODO()

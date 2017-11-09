@@ -18,7 +18,7 @@ class PickMediaActivity : AppCompatActivity() {
         }
 
         camera.setOnClickListener {
-            RPickMedia.instance.pickFromCamera(this, { resultCode: Int, path: String -> resultMesage(resultCode, path) })
+            RPickMedia.instance.pickFromCamera(this, { resultCode, path -> resultMesage(resultCode, path) })
         }
 
         video.setOnClickListener {
