@@ -114,18 +114,6 @@ class RPickMedia private constructor() {
     private fun requestPhotoPick(context: Context, pickType: Int, callback: (Int, String) -> Unit) {
 
         val fm = getActivity(context)?.fragmentManager
-        val fragment = ResultFragment(fm as FragmentManager, callback)
-
-        fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commitAllowingStateLoss()
-        fm.executePendingTransactions()
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
-                (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-                        ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-                        ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)) {
-            fragment.requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA), pickType)
-            return
-        }
 
         val intent = Intent()
 
@@ -155,6 +143,11 @@ class RPickMedia private constructor() {
             }
         }
 
+        val fragment = ResultFragment(fm as FragmentManager, callback, currentPhotoPath ?: "", currentVideoPath ?: "")
+
+        fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commitAllowingStateLoss()
+        fm.executePendingTransactions()
+
         fragment.startActivityForResult(intent, pickType)
     }
 
@@ -175,26 +168,17 @@ class RPickMedia private constructor() {
     }
 
     @SuppressLint("ValidFragment")
-    inner class ResultFragment() : Fragment() {
+    class ResultFragment() : Fragment() {
         var fm: FragmentManager? = null
         var callback: ((Int, String) -> Unit)? = null
+        var currentPhotoPath = ""
+        var currentVideoPath = ""
 
-        constructor(fm: FragmentManager, callback: (Int, String) -> Unit) : this() {
+        constructor(fm: FragmentManager, callback: (Int, String) -> Unit, currentPhotoPath: String, currentVideoPath: String) : this() {
             this.fm = fm
             this.callback = callback
-        }
-
-        override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-            if (verifyPermissions(grantResults)) {
-                requestPhotoPick(activity, requestCode, callback as ((Int, String) -> Unit))
-            } else {
-                callback?.invoke(PICK_FAILED, "")
-            }
-
-            fm?.beginTransaction()?.remove(this)?.commitAllowingStateLoss()
-
+            this.currentPhotoPath = currentPhotoPath
+            this.currentVideoPath = currentVideoPath
         }
 
         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -202,7 +186,7 @@ class RPickMedia private constructor() {
             when (requestCode) {
                 PICK_FROM_CAMERA ->
                     if (resultCode == Activity.RESULT_OK)
-                        currentPhotoPath?.let { callback?.invoke(PICK_SUCCESS, Uri.parse(it) getRealPath (activity)) }
+                        currentPhotoPath.let { callback?.invoke(PICK_SUCCESS, Uri.parse(it) getRealPath (activity)) }
 
                 PICK_FROM_GALLERY ->
                     if (resultCode == Activity.RESULT_OK)
@@ -216,7 +200,7 @@ class RPickMedia private constructor() {
                     if (resultCode == Activity.RESULT_OK) {
                         var path = data?.data?.getRealPath(activity) as String
                         if (path.isEmpty()) {
-                            path = currentVideoPath as String
+                            path = currentVideoPath
                         }
 
                         path.let {
@@ -226,13 +210,8 @@ class RPickMedia private constructor() {
             }
 
             fm?.beginTransaction()?.remove(this)?.commit()
-
         }
-
     }
-
-    private fun verifyPermissions(grantResults: IntArray): Boolean =
-            if (grantResults.isEmpty()) false else grantResults.none { it != PackageManager.PERMISSION_GRANTED }
 
     companion object {
         @JvmField
