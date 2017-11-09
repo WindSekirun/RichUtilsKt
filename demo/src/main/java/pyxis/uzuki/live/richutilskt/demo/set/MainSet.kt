@@ -29,7 +29,7 @@ fun Context.getMainData(): ArrayList<MainItem> {
     list.add(MainItem(CategoryItem.FONT, "utils/RFont.kt", "Font", getString(R.string.font_category_content)))
     list.add(MainItem(CategoryItem.HINTSPINNER, "utils/RHintSpinner.kt", "Hint Spinner", ""))
     list.add(MainItem(CategoryItem.INFLATER, "utils/RInflater.kt", "Inflater", "Inflate View"))
-    list.add(MainItem(CategoryItem.INTENT, "utils/RIntent.kt", "Intent", ""))
+    list.add(MainItem(CategoryItem.INTENT, "utils/RIntent.kt", "Intent", "Intent to browse, call, dial"))
     list.add(MainItem(CategoryItem.JSON, "utils/RJson.kt", "Json", "Extract objects from JSON"))
     list.add(MainItem(CategoryItem.KEYBOARD, "utils/RKeyboard.kt", "Keyboard", "Toggle / Close Keyboard"))
     list.add(MainItem(CategoryItem.KEYHASH, "utils/RKeyHash.kt", "KeyHash", "get KeyHash of Application"))
@@ -55,6 +55,7 @@ fun Context.getMainData(): ArrayList<MainItem> {
     list.add(MainItem(CategoryItem.LOCATION, "service/RLocationService.kt", "Location Service", ""))
     list.add(MainItem(CategoryItem.PHOTO, "utils/RPhoto.kt", "Photo", "get Information of Photo"))
     list.add(MainItem(CategoryItem.PICKMEDIA, "utils/RPickMedia.kt", "Pick Media", "get Image / Video from storage in 1 Line"))
+    list.add(MainItem(CategoryItem.PREFERENCE, "utils/RPreference.kt", "Preference", "Easy SharedPreferences"))
 
     return list
 }
@@ -81,8 +82,8 @@ fun Context.getItemList(categoryItem: CategoryItem): ArrayList<ExecuteItem> {
         CategoryItem.PERMISSION -> getPermissionSet()
         CategoryItem.PHOTO -> getPhotoSet()
         CategoryItem.PICKMEDIA -> getPickMediaSet()
-        CategoryItem.PREFERENCE -> TODO()
-        CategoryItem.PROCESS -> TODO()
+        CategoryItem.PREFERENCE -> getPreferenceSet()
+        CategoryItem.PROCESS -> getProcessSet()
         CategoryItem.REBOOT -> TODO()
         CategoryItem.STATUSBAR -> TODO()
         CategoryItem.STREAM -> TODO()
@@ -96,7 +97,7 @@ fun Context.getItemList(categoryItem: CategoryItem): ArrayList<ExecuteItem> {
         CategoryItem.CENTERICON -> TODO()
         CategoryItem.COMBINED -> TODO()
         CategoryItem.HTMLTEXTVIEW -> TODO()
-        CategoryItem.INTENT -> TODO()
+        CategoryItem.INTENT -> getIntentSet()
         CategoryItem.THREAD -> TODO()
         CategoryItem.CRASH -> TODO()
         CategoryItem.INAPP -> TODO()

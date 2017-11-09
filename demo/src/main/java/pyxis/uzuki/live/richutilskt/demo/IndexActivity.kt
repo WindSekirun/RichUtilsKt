@@ -117,6 +117,7 @@ class IndexActivity : AppCompatActivity() {
 
             itemView.containerTitle.setOnClickListener {
                 extendedPosition = if (isShow) -1 else adapterPosition
+                recyclerView.layoutManager.scrollToPosition(extendedPosition)
                 adapter.notifyDataSetChanged()
             }
         }

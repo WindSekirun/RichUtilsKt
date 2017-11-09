@@ -13,7 +13,7 @@ import android.net.Uri
  * @param [url] url to browse
  * @param [newTask] flag to newTask
  */
-fun Context.browse(url: String, newTask: Boolean = false): Boolean {
+@JvmOverloads fun Context.browse(url: String, newTask: Boolean = false): Boolean {
     return try {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(url)
