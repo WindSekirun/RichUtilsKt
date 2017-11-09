@@ -95,7 +95,7 @@ class RPermission private constructor() {
     @RequiresApi(Build.VERSION_CODES.M)
     private fun Context.requestPermission(list: List<String>, callback: (Int, ArrayList<String>) -> Unit) {
         val fm = getActivity(this)?.fragmentManager
-        val fragment = RequestFragment(fm as FragmentManager, callback)
+        val fragment = RequestFragment(this, fm as FragmentManager, callback)
 
         fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commitAllowingStateLoss()
         fm.executePendingTransactions()
@@ -104,36 +104,40 @@ class RPermission private constructor() {
     }
 
     @SuppressLint("ValidFragment")
-    inner class RequestFragment() : Fragment() {
+    class RequestFragment() : Fragment() {
         var fm: FragmentManager? = null
         var callback: ((Int, ArrayList<String>) -> Unit)? = null
+        var mContext: Context? = null
 
-        constructor(fm: FragmentManager, callback: (Int, ArrayList<String>) -> Unit) : this() {
+        constructor(context: Context, fm: FragmentManager, callback: (Int, ArrayList<String>) -> Unit) : this() {
+            this.mContext = context
             this.fm = fm
             this.callback = callback
         }
 
         override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-            val permissionList: ArrayList<String> = context.getVerifiedPermissions(permissions)
+            val permissionList: ArrayList<String> = mContext?.getVerifiedPermissions(permissions) ?: arrayListOf()
             val returnCode = if (verifyPermissions(grantResults)) PERMISSION_GRANTED else PERMISSION_FAILED
             callback?.invoke(returnCode, permissionList)
             fm?.beginTransaction()?.remove(this)?.commitAllowingStateLoss()
         }
-    }
 
-    private fun verifyPermissions(grantResults: IntArray): Boolean =
-            if (grantResults.isEmpty()) false else grantResults.none { it != PackageManager.PERMISSION_GRANTED }
+        private fun verifyPermissions(grantResults: IntArray): Boolean =
+                if (grantResults.isEmpty()) false else grantResults.none { it != PackageManager.PERMISSION_GRANTED }
 
-    private fun Context.getVerifiedPermissions(permissions: Array<String>): ArrayList<String> {
-        val permissionList: ArrayList<String> = ArrayList()
-        permissions.forEach {
-            if (ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED)
-                permissionList.add(it)
+        private fun Context.getVerifiedPermissions(permissions: Array<String>): ArrayList<String> {
+            val permissionList: ArrayList<String> = ArrayList()
+            permissions.forEach {
+                if (ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED)
+                    permissionList.add(it)
+            }
+
+            return permissionList
         }
 
-        return permissionList
     }
+
 
     companion object {
         @JvmField
