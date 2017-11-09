@@ -5,6 +5,7 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import org.json.JSONArray
 import org.json.JSONObject
+import pyxis.uzuki.live.richutilskt.impl.F1
 
 /**
  * create JSONObject from String
@@ -199,6 +200,15 @@ fun put(jsonArray: JSONArray?, value: Any) = jsonArray?.put(value)
 inline fun JSONArray.forEach(action: (JSONObject) -> Unit) {
     for (i in 0 until this.length()) action(getJSONObject(i))
 }
+
+/**
+ * invoke [action] every JSONObject
+ */
+@JvmName("forObjectEach")
+inline fun JSONArray.forEach(action: F1<JSONObject>) {
+    for (i in 0 until this.length()) action(getJSONObject(i))
+}
+
 
 /**
  * convert JSONArray to List<JSONObject>

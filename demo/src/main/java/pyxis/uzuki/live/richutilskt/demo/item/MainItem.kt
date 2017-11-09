@@ -10,5 +10,5 @@ import java.io.Serializable
  * Description:
  */
 data class MainItem(val categoryItem: CategoryItem, val link: String = "",
-                    val title: String = categoryItem.name, val content: String = "", val list: ArrayList<ExecuteItem>) : Serializable
+                    val title: String = categoryItem.name, val content: String = "") : Serializable
 

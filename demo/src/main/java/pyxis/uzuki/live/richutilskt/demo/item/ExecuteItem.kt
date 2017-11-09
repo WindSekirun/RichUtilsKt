@@ -1,6 +1,8 @@
 package pyxis.uzuki.live.richutilskt.demo.item
 
 import android.content.Context
+import android.os.Parcel
+import android.os.Parcelable
 import java.io.Serializable
 
 /**

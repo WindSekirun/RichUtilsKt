@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_index_item.view.*
 import pyxis.uzuki.live.richutilskt.demo.item.CategoryItem
 import pyxis.uzuki.live.richutilskt.demo.item.ExecuteItem
 import pyxis.uzuki.live.richutilskt.demo.item.MainItem
+import pyxis.uzuki.live.richutilskt.demo.set.*
 import pyxis.uzuki.live.richutilskt.utils.RPermission
 import pyxis.uzuki.live.richutilskt.utils.inflate
 
@@ -29,12 +30,57 @@ class IndexActivity : AppCompatActivity() {
     private val itemList = ArrayList<ExecuteItem>()
     private val adapter = ListAdapter()
 
+    private fun getItemList(categoryItem: CategoryItem) : ArrayList<ExecuteItem> {
+        return when (categoryItem) {
+            CategoryItem.ALERT -> getAlertSet()
+            CategoryItem.ASSETS -> getAssetsSet()
+            CategoryItem.BITMAP -> getBitmapSet()
+            CategoryItem.CLIPBOARD -> getClipboardSet()
+            CategoryItem.CONTACT -> getContactSet()
+            CategoryItem.DATE -> getDateSet()
+            CategoryItem.DEVICEID -> getDeviceIdSet()
+            CategoryItem.DIMEN -> getDimenSet()
+            CategoryItem.DRAWABLE -> getDrawableSet()
+            CategoryItem.FILE -> getFileSet()
+            CategoryItem.FONT -> getFontSet()
+            CategoryItem.HINTSPINNER -> TODO()
+            CategoryItem.INFLATER -> getInflateSet()
+            CategoryItem.JSON -> getJSONSet()
+            CategoryItem.KEYBOARD -> TODO()
+            CategoryItem.KEYHASH -> TODO()
+            CategoryItem.NETWORK -> TODO()
+            CategoryItem.PERMISSION -> TODO()
+            CategoryItem.PHOTO -> TODO()
+            CategoryItem.PICKMEDIA -> TODO()
+            CategoryItem.PREFERENCE -> TODO()
+            CategoryItem.PROCESS -> TODO()
+            CategoryItem.REBOOT -> TODO()
+            CategoryItem.STATUSBAR -> TODO()
+            CategoryItem.STREAM -> TODO()
+            CategoryItem.SYSTEMSERVICE -> TODO()
+            CategoryItem.TEXT -> TODO()
+            CategoryItem.UNREAD -> TODO()
+            CategoryItem.VERSION -> TODO()
+            CategoryItem.THUMBNAIL -> TODO()
+            CategoryItem.VIBRATE -> TODO()
+            CategoryItem.VIEW -> TODO()
+            CategoryItem.CENTERICON -> TODO()
+            CategoryItem.COMBINED -> TODO()
+            CategoryItem.HTMLTEXTVIEW -> TODO()
+            CategoryItem.INTENT -> TODO()
+            CategoryItem.THREAD -> TODO()
+            CategoryItem.CRASH -> TODO()
+            CategoryItem.INAPP -> TODO()
+            CategoryItem.LOCATION -> TODO()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_index)
 
         val item = intent.getSerializableExtra("index") as MainItem
-        itemList.addAll(item.list)
+        itemList.addAll(getItemList(item.categoryItem))
 
         itemList.sortBy { it.title }
 

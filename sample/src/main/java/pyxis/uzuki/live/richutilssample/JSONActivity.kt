@@ -21,7 +21,7 @@ class JSONActivity : AppCompatActivity() {
         var lastName = jsonObject?.getJSONString(name = "lastName")
         var age = jsonObject?.getJSONInt(name = "age")
 
-        var address = getJSONObject(jsonObject = jsonObject, name = "address")
+        var address = getJSONObject(jsonObject, "address")
         var phoneNumber = getJSONArray(jsonObject, "phoneNumber")
 
         txtResult.text = "firstName -> $firstName\nlastName -> $lastName\nage -> $age"
