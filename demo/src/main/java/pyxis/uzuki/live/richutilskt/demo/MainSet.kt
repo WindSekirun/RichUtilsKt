@@ -35,9 +35,9 @@ fun Context.getMainData(): ArrayList<MainItem> {
     list.add(MainItem(CategoryItem.KEYHASH, "utils/RKeyHash.kt", "KeyHash", "get KeyHash of Application"))
     list.add(MainItem(CategoryItem.NETWORK, "utils/RNetwork.kt", "Network", "get State of Connection of Network"))
     list.add(MainItem(CategoryItem.PERMISSION, "utils/RPermission.kt", "Permission", "RuntimePermission in 1 Line"))
-    list.add(MainItem(CategoryItem.PROCESS, "utils/RProcess.kt", "Process", ""))
-    list.add(MainItem(CategoryItem.REBOOT, "utils/RReboot.kt", "Reboot", ""))
-    list.add(MainItem(CategoryItem.STATUSBAR, "utils/RStatusBar.kt", "Status Bar", ""))
+    list.add(MainItem(CategoryItem.PROCESS, "utils/RProcess.kt", "Process", "get status of application process is running"))
+    list.add(MainItem(CategoryItem.REBOOT, "utils/RReboot.kt", "Reboot", "Reboot application"))
+    list.add(MainItem(CategoryItem.STATUSBAR, "utils/RStatusBar.kt", "Status Bar", "change StatusBar color"))
     list.add(MainItem(CategoryItem.STREAM, "utils/RStream.kt", "Stream", ""))
     list.add(MainItem(CategoryItem.SYSTEMSERVICE, "utils/RSystemService.kt", "System Service", ""))
     list.add(MainItem(CategoryItem.TEXT, "utils/RText.kt", "Text", ""))
@@ -56,6 +56,7 @@ fun Context.getMainData(): ArrayList<MainItem> {
     list.add(MainItem(CategoryItem.PHOTO, "utils/RPhoto.kt", "Photo", "get Information of Photo"))
     list.add(MainItem(CategoryItem.PICKMEDIA, "utils/RPickMedia.kt", "Pick Media", "get Image / Video from storage in 1 Line"))
     list.add(MainItem(CategoryItem.PREFERENCE, "utils/RPreference.kt", "Preference", "Easy SharedPreferences"))
+    list.add(MainItem(CategoryItem.COLOR, "utils/RColor.kt", "Color", "apply Alpha Value into color"))
 
     return list
 }
@@ -84,8 +85,8 @@ fun Context.getItemList(categoryItem: CategoryItem): ArrayList<ExecuteItem> {
         CategoryItem.PICKMEDIA -> getPickMediaSet()
         CategoryItem.PREFERENCE -> getPreferenceSet()
         CategoryItem.PROCESS -> getProcessSet()
-        CategoryItem.REBOOT -> TODO()
-        CategoryItem.STATUSBAR -> TODO()
+        CategoryItem.REBOOT -> getRebootSet()
+        CategoryItem.STATUSBAR -> getStatusBarSet()
         CategoryItem.STREAM -> TODO()
         CategoryItem.SYSTEMSERVICE -> TODO()
         CategoryItem.TEXT -> TODO()
@@ -102,5 +103,6 @@ fun Context.getItemList(categoryItem: CategoryItem): ArrayList<ExecuteItem> {
         CategoryItem.CRASH -> TODO()
         CategoryItem.INAPP -> TODO()
         CategoryItem.LOCATION -> TODO()
+        CategoryItem.COLOR -> getColorSet()
     }
 }
