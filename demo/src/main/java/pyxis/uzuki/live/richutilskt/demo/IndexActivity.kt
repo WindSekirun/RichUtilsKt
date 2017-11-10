@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_index_item.view.*
 import pyxis.uzuki.live.richutilskt.demo.item.CategoryItem
 import pyxis.uzuki.live.richutilskt.demo.item.ExecuteItem
 import pyxis.uzuki.live.richutilskt.demo.item.MainItem
-import pyxis.uzuki.live.richutilskt.demo.set.getItemList
 import pyxis.uzuki.live.richutilskt.utils.RPermission
 import pyxis.uzuki.live.richutilskt.utils.inflate
 
@@ -62,7 +61,6 @@ class IndexActivity : AppCompatActivity() {
         }
 
         val permissionArray = when (item.categoryItem) {
-            CategoryItem.CONTACT -> arrayOf(Manifest.permission.READ_CONTACTS)
             CategoryItem.DEVICEID -> arrayOf(Manifest.permission.READ_PHONE_STATE)
             CategoryItem.PICKMEDIA -> arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE,
                     Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA)

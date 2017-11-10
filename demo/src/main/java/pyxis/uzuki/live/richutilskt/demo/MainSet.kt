@@ -1,10 +1,10 @@
-package pyxis.uzuki.live.richutilskt.demo.set
+package pyxis.uzuki.live.richutilskt.demo
 
 import android.content.Context
-import pyxis.uzuki.live.richutilskt.demo.R
 import pyxis.uzuki.live.richutilskt.demo.item.CategoryItem
 import pyxis.uzuki.live.richutilskt.demo.item.ExecuteItem
 import pyxis.uzuki.live.richutilskt.demo.item.MainItem
+import pyxis.uzuki.live.richutilskt.demo.set.*
 
 /**
  * RichUtilsKt
