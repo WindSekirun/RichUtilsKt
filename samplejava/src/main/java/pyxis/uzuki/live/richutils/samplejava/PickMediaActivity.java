@@ -27,7 +27,9 @@ public class PickMediaActivity extends BaseActivity {
 
         gallery.setOnClickListener(v -> RPickMedia.instance.pickFromGallery(this, this::resultMessage));
 
-        camera.setOnClickListener(v -> RPickMedia.instance.pickFromCamera(this, this::resultMessage));
+        camera.setOnClickListener(v -> RPickMedia.instance.pickFromCamera(this, (code, path) -> {
+            resultMessage(code, path);
+        }));
 
         video.setOnClickListener(v -> RPickMedia.instance.pickFromVideo(this, this::resultMessage));
 

@@ -38,10 +38,10 @@ fun Context.getMainData(): ArrayList<MainItem> {
     list.add(MainItem(CategoryItem.PROCESS, "utils/RProcess.kt", "Process", "get status of application process is running"))
     list.add(MainItem(CategoryItem.REBOOT, "utils/RReboot.kt", "Reboot", "Reboot application"))
     list.add(MainItem(CategoryItem.STATUSBAR, "utils/RStatusBar.kt", "Status Bar", "change StatusBar color"))
-    list.add(MainItem(CategoryItem.STREAM, "utils/RStream.kt", "Stream", ""))
+    list.add(MainItem(CategoryItem.STREAM, "utils/RStream.kt", "Stream", "Tools about InputStream"))
     list.add(MainItem(CategoryItem.SYSTEMSERVICE, "utils/RSystemService.kt", "System Service", ""))
-    list.add(MainItem(CategoryItem.TEXT, "utils/RText.kt", "Text", ""))
-    list.add(MainItem(CategoryItem.THREAD, "utils/RThread.kt", "Thread", ""))
+    list.add(MainItem(CategoryItem.TEXT, "utils/RText.kt", "Text", "get state of empty state of String"))
+    list.add(MainItem(CategoryItem.THREAD, "utils/RThread.kt", "Thread", "run code inside of Thread"))
     list.add(MainItem(CategoryItem.THUMBNAIL, "utils/RThumbnail.kt", "Thumbnail", ""))
     list.add(MainItem(CategoryItem.UNREAD, "utils/RUnReadCount.kt", "UnRead Count", ""))
     list.add(MainItem(CategoryItem.VERSION, "utils/RVersion.kt", "Version", ""))
@@ -56,7 +56,6 @@ fun Context.getMainData(): ArrayList<MainItem> {
     list.add(MainItem(CategoryItem.PHOTO, "utils/RPhoto.kt", "Photo", "get Information of Photo"))
     list.add(MainItem(CategoryItem.PICKMEDIA, "utils/RPickMedia.kt", "Pick Media", "get Image / Video from storage in 1 Line"))
     list.add(MainItem(CategoryItem.PREFERENCE, "utils/RPreference.kt", "Preference", "Easy SharedPreferences"))
-    list.add(MainItem(CategoryItem.COLOR, "utils/RColor.kt", "Color", "apply Alpha Value into color"))
 
     return list
 }
@@ -87,9 +86,9 @@ fun Context.getItemList(categoryItem: CategoryItem): ArrayList<ExecuteItem> {
         CategoryItem.PROCESS -> getProcessSet()
         CategoryItem.REBOOT -> getRebootSet()
         CategoryItem.STATUSBAR -> getStatusBarSet()
-        CategoryItem.STREAM -> TODO()
+        CategoryItem.STREAM -> getStreamSet()
         CategoryItem.SYSTEMSERVICE -> TODO()
-        CategoryItem.TEXT -> TODO()
+        CategoryItem.TEXT -> getTextSet()
         CategoryItem.UNREAD -> TODO()
         CategoryItem.VERSION -> TODO()
         CategoryItem.THUMBNAIL -> TODO()
@@ -99,10 +98,9 @@ fun Context.getItemList(categoryItem: CategoryItem): ArrayList<ExecuteItem> {
         CategoryItem.COMBINED -> TODO()
         CategoryItem.HTMLTEXTVIEW -> TODO()
         CategoryItem.INTENT -> getIntentSet()
-        CategoryItem.THREAD -> TODO()
+        CategoryItem.THREAD -> getThreadSet()
         CategoryItem.CRASH -> TODO()
         CategoryItem.INAPP -> TODO()
         CategoryItem.LOCATION -> TODO()
-        CategoryItem.COLOR -> getColorSet()
     }
 }
