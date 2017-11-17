@@ -8,7 +8,7 @@ import android.text.TextUtils
 /**
  * get string with empty handling
  */
-fun String.isEmptyOrReturn() = if (TextUtils.isEmpty(this)) "" else this
+@JvmOverloads fun String.isEmptyOrReturn(default: String = "") = if (TextUtils.isEmpty(this)) default else this
 
 /**
  * return string empty state
