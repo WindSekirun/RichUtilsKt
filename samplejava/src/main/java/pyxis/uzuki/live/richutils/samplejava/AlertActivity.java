@@ -49,7 +49,7 @@ public class AlertActivity extends BaseActivity {
 
         progress.setOnClickListener(view -> {
             ProgressDialog dialog = (ProgressDialog) RichUtils.progress(this, "Loading...");
-            RichUtils.runDelayed(dialog::dismiss, 10000);
+            RichUtils.runDelayed(10000, dialog::dismiss);
         });
     }
 }

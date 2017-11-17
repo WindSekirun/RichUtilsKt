@@ -13,7 +13,6 @@ import java.util.concurrent.atomic.AtomicInteger
  */
 fun ViewGroup.convertChildrenList() : List<View> = (0 until childCount).map { getChildAt(it) }.toList()
 
-
 private val nextGeneratedId = AtomicInteger(1)
 
 /**

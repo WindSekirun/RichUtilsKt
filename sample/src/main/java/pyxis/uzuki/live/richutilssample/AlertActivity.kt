@@ -16,12 +16,12 @@ class AlertActivity : AppCompatActivity() {
 
         selector.setOnClickListener({
             val items: ArrayList<String> = ArrayList()
-        (1..5).mapTo(items) { it.toString() }
+            (1..5).mapTo(items) { it.toString() }
 
-        selector(items = items, callback = { _: DialogInterface, _,  i: Int ->
-            toast(message = "click item -> $i")
+            selector(items = items, callback = { _: DialogInterface, _, i: Int ->
+                toast(message = "click item -> $i")
+            })
         })
-    })
 
         confirm.setOnClickListener({
             confirm(message = "Hello, world!", callback = {
@@ -32,9 +32,9 @@ class AlertActivity : AppCompatActivity() {
         progress.setOnClickListener({
             val progress = progress(message = "Loading...")
 
-            runDelayed( {
+            runDelayed(10000) {
                 progress.dismiss()
-            }, 10000)
+            }
 
         })
     }

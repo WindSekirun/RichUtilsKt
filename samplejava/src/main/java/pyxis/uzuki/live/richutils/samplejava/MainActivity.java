@@ -41,7 +41,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(RichUtils.setTypeface(this, R.layout.activity_main));
         RichUtils.setStatusNavBarColor(this, Color.parseColor("#303F9F"));
-        RichUtils.runAsync(this::getLatestReleaseFromGitHub, 5);
+        RichUtils.runAsync(5, this::getLatestReleaseFromGitHub);
 
         Log.d("goat", RichUtils.getUserManager(this).isUserAGoat() + "");
         NotificationManager manager = RichUtils.getNotificationManager(this);
