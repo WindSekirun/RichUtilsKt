@@ -8,6 +8,7 @@ import pyxis.uzuki.live.richutilskt.demo.item.ExecuteItem
 import pyxis.uzuki.live.richutilskt.demo.item.generateExecuteItem
 import pyxis.uzuki.live.richutilskt.utils.RPermission
 import pyxis.uzuki.live.richutilskt.utils.alert
+import pyxis.uzuki.live.richutilskt.utils.toast
 
 /**
  * RichUtilsKt
@@ -35,6 +36,17 @@ fun Context.getPermissionSet(): ArrayList<ExecuteItem> {
     }
 
     list.add(checkPermission)
+
+    val checkPermissionGranted = generateExecuteItem(CategoryItem.PERMISSION, "checkPermissionGranted",
+            "check permission is granted",
+            "RPermission.instance.checkPermissionGranted(this, arrays)",
+            "RPermission.instance.checkPermissionGranted(this, arrays);") {
+        val arrays: Array<String> = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA)
+        toast("WRITE/READ EXTERNAL STORAGE, CAMERA IS ${if (RPermission.instance.checkPermissionGranted(this, arrays)) "Granted" else "Not all granted"}")
+    }
+
+    list.add(checkPermissionGranted)
 
     return list
 }
