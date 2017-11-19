@@ -10,14 +10,12 @@ object RichUtilsGlobal {
     fun initializeApplication(context: Context) {
         this.context = context
     }
+}
 
-    fun getContext(): Context {
-        if (context == null) {
-            throw NotInitializedException("Context is not initialized. ")
-        }
-
-        return context as Context
-    }
+fun <R> useGlobalContext(action: (Context) -> R): R {
+    val context = RichUtilsGlobal.context ?:
+            throw NotInitializedException("Not initialized global Context. Please add RichUtilsGlobal.initializeApplication(this) in Application Class")
+    return action(context)
 }
 
 class NotInitializedException(override var message: String) : Exception()

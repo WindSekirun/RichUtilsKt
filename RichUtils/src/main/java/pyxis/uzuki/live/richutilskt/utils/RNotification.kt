@@ -8,6 +8,7 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import android.support.annotation.RequiresApi
+import pyxis.uzuki.live.richutilskt.useGlobalContext
 
 
 /**
@@ -39,4 +40,23 @@ fun Context.createNotificationChannel(id: String = "", name: String = "", descri
     notificationManager.createNotificationChannel(mChannel)
 
     return newId
+}
+
+/**
+ * create Notification Channel for Android Oreo and above.
+ * every options is optional, if you doesn't matter whatever value,
+ * leave them no parameters.
+ *
+ * this methods can use Global [android.content.Context].
+ * You can initialize Global Context by
+ * [RichUtils.initializeApplication][pyxis.uzuki.live.richutilskt.RichUtilsGlobal.initializeApplication]
+ *
+ * @param[id] channel id, if this value is not present, it will be package name
+ * @param[name] channel name, if this value is not present, it will be app name
+ * @param[description] channel description, if this value is not present, it will be app name
+ * @param[importance] importance of channel, if this value is not present, it will be IMPORTANCE_LOW
+ * @return generated channel id
+ */
+fun createNotificationChannel(id: String = "", name: String = "", description: String = "", importance: Int = NotificationManager.IMPORTANCE_LOW): String {
+    return useGlobalContext { createNotificationChannel(id, name, description, importance) }
 }
