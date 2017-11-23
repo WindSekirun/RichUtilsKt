@@ -185,7 +185,7 @@ class RPickMedia private constructor() {
             super.onActivityResult(requestCode, resultCode, data)
             when (requestCode) {
                 PICK_FROM_CAMERA ->
-                    if (resultCode == Activity.RESULT_OK) {
+              if (resultCode == Activity.RESULT_OK) {
                         currentPhotoPath.let { callback?.invoke(PICK_SUCCESS, Uri.parse(it) getRealPath (activity)) }
                     } else {
                         callback?.invoke(PICK_FAILED, "")
