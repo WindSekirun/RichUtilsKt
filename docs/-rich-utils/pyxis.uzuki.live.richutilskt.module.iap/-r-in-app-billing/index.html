@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RInAppBilling - RichUtils</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RichUtils</a>&nbsp;/&nbsp;<a href="../index.html">pyxis.uzuki.live.richutilskt.module.iap</a>&nbsp;/&nbsp;<a href=".">RInAppBilling</a><br/>
+<br/>
+<h1>RInAppBilling</h1>
+<code><span class="keyword">class </span><span class="identifier">RInAppBilling</span></code>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-on-in-app-billing-callback/index.html">OnInAppBillingCallback</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">OnInAppBillingCallback</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-on-in-app-consume-callback/index.html">OnInAppConsumeCallback</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">OnInAppConsumeCallback</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-security/index.html">Security</a></p>
+</td>
+<td>
+<code><span class="keyword">object </span><span class="identifier">Security</span></code>
+<p>Security-related methods. For a secure implementation, all of this code
+should be implemented on a server that communicates with the
+application on the device. For the sake of simplicity and clarity of this
+example, this code is included here and is executed on the device. If you
+must verify the purchases on the phone, you should obfuscate this code to
+make it harder for an attacker to replace the code with stubs that treat all
+purchases as verified.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">RInAppBilling</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$<init>(android.app.Activity, kotlin.String)/activity">activity</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Activity.html"><span class="identifier">Activity</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$<init>(android.app.Activity, kotlin.String)/signatureBase64">signatureBase64</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="bind-in-app-billing.html">bindInAppBilling</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">bindInAppBilling</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Should be initialized in onCreate</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="consume-purchase.html">consumePurchase</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">consumePurchase</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$consumePurchase(pyxis.uzuki.live.richutilskt.module.iap.Transaction)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../-transaction/index.html"><span class="identifier">Transaction</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Consume specific item which consumable item</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="generate-developer-payload.html">generateDeveloperPayload</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">generateDeveloperPayload</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$generateDeveloperPayload(kotlin.String, kotlin.String)/productId">productId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$generateDeveloperPayload(kotlin.String, kotlin.String)/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>generate developerPayload using nonce(UUID)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-available-inapp-package.html">getAvailableInappPackage</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getAvailableInappPackage</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$getAvailableInappPackage(java.util.ArrayList((kotlin.String)))/items">items</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/util/ArrayList.html"><span class="identifier">ArrayList</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/java/util/ArrayList.html"><span class="identifier">ArrayList</span></a><span class="symbol">&lt;</span><a href="../-sku/index.html"><span class="identifier">Sku</span></a><span class="symbol">&gt;</span></code>
+<p>get Available 'inapp' package of own package name.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="is-valid-transaction.html">isValidTransaction</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">isValidTransaction</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$isValidTransaction(pyxis.uzuki.live.richutilskt.module.iap.Transaction)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../-transaction/index.html"><span class="identifier">Transaction</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Checking transaction is valid.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-activity-result.html">onActivityResult</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onActivityResult</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$onActivityResult(kotlin.Int, kotlin.Int, android.content.Intent)/requestCode">requestCode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$onActivityResult(kotlin.Int, kotlin.Int, android.content.Intent)/resultCode">resultCode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$onActivityResult(kotlin.Int, kotlin.Int, android.content.Intent)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Intent.html"><span class="identifier">Intent</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Purchase Result billingCallback, just pass Activity's onActivityResult.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="purchase.html">purchase</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">purchase</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$purchase(kotlin.String, kotlin.String, kotlin.String)/productId">productId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$purchase(kotlin.String, kotlin.String, kotlin.String)/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;"inapp"<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$purchase(kotlin.String, kotlin.String, kotlin.String)/developerPayload">developerPayload</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;generateDeveloperPayload(productId, type)<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Purchase specific item</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-on-in-app-billing-callback.html">setOnInAppBillingCallback</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setOnInAppBillingCallback</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$setOnInAppBillingCallback(kotlin.Function2((kotlin.Int, pyxis.uzuki.live.richutilskt.module.iap.Transaction, kotlin.Unit)))/callback">callback</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../-transaction/index.html"><span class="identifier">Transaction</span></a><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">setOnInAppBillingCallback</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$setOnInAppBillingCallback(pyxis.uzuki.live.richutilskt.impl.F2((kotlin.Int, pyxis.uzuki.live.richutilskt.module.iap.Transaction)))/callback">callback</span><span class="symbol">:</span>&nbsp;<a href="../../pyxis.uzuki.live.richutilskt.impl/-f2/index.html"><span class="identifier">F2</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../-transaction/index.html"><span class="identifier">Transaction</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Using when try to purchase un-consumable item</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-on-in-app-consume-callback.html">setOnInAppConsumeCallback</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setOnInAppConsumeCallback</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$setOnInAppConsumeCallback(kotlin.Function2((kotlin.Int, pyxis.uzuki.live.richutilskt.module.iap.Transaction, kotlin.Unit)))/callback">callback</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../-transaction/index.html"><span class="identifier">Transaction</span></a><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">setOnInAppConsumeCallback</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$setOnInAppConsumeCallback(pyxis.uzuki.live.richutilskt.impl.F2((kotlin.Int, pyxis.uzuki.live.richutilskt.module.iap.Transaction)))/callback">callback</span><span class="symbol">:</span>&nbsp;<a href="../../pyxis.uzuki.live.richutilskt.impl/-f2/index.html"><span class="identifier">F2</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../-transaction/index.html"><span class="identifier">Transaction</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Using when try to purchase consumable item, within using AppBillingUtils.setOnInAppBillingCallback(OnInAppBillingCallback)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="un-bind-in-app-billing.html">unBindInAppBilling</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">unBindInAppBilling</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Should be initialized in onDestroy</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-p-u-r-c-h-a-s-e_-f-a-i-l-e-d_-i-n-v-a-l-i-d.html">PURCHASE_FAILED_INVALID</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">PURCHASE_FAILED_INVALID</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-p-u-r-c-h-a-s-e_-f-a-i-l-e-d_-u-n-k-n-o-w-n.html">PURCHASE_FAILED_UNKNOWN</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">PURCHASE_FAILED_UNKNOWN</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-p-u-r-c-h-a-s-e_-s-u-c-c-e-s-s.html">PURCHASE_SUCCESS</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">PURCHASE_SUCCESS</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
