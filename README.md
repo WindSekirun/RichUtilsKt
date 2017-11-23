@@ -6,6 +6,7 @@
 
 ### About
 Version: 2.0.0 :: **Dreaming Bird** (夢魅鳥, Yumemidori) ::
+* Release Note (한글) : https://blog.uzuki.live/richutils-2-0-0-dreaming-bird-release-note-2017-11-23/
 
 RichUtils is Advancement Utils for Android, written in [Kotlin](http://kotlinlang.org). Everything you need is Here! RichUtils work for you for solve necessary things, bother things in development process. I assure you that RichUtils will help you.
 
