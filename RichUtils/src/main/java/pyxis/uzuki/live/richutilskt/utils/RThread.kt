@@ -27,7 +27,7 @@ fun runOnUiThread(action: F0) = Handler(Looper.getMainLooper()).post({ action.in
  * @param[delayMillis] delay in ms
  * @param[action] code to execute
  */
-fun runDelayed(action: () -> Unit, delayMillis: Long) = Handler().postDelayed(Runnable(action), delayMillis)
+fun runDelayed(delayMillis: Long, action: () -> Unit) = Handler().postDelayed(Runnable(action), delayMillis)
 
 /**
  * run code inside of Background Thread after given delay
@@ -35,7 +35,7 @@ fun runDelayed(action: () -> Unit, delayMillis: Long) = Handler().postDelayed(Ru
  * @param[delayMillis] delay in ms
  * @param[action] code to execute
  */
-fun runDelayed(action: F0, delayMillis: Long) = Handler().postDelayed({ action.invoke() }, delayMillis)
+fun runDelayed( delayMillis: Long, action: F0) = Handler().postDelayed({ action.invoke() }, delayMillis)
 
 /**
  * run code inside of UI Thread after given delay
@@ -57,7 +57,7 @@ fun runDelayedOnUiThread(action: F0, delayMillis: Long) = Handler(Looper.getMain
  * run code inside of Background thread with custom pool size
  * this will help in multi-threading working
  */
-fun runAsync(action: () -> Unit, poolSize: Int = RAsync.instance.settingPoolSize) {
+fun runAsync(poolSize: Int = RAsync.instance.settingPoolSize, action: () -> Unit) {
     RAsync.instance.execute(action, poolSize)
 }
 
@@ -65,7 +65,7 @@ fun runAsync(action: () -> Unit, poolSize: Int = RAsync.instance.settingPoolSize
  * run code inside of Background thread with custom pool size
  * this will help in multi-threading working
  */
-fun runAsync(action: F0, poolSize: Int = RAsync.instance.settingPoolSize) {
+fun runAsync(poolSize: Int = RAsync.instance.settingPoolSize, action: F0) {
     RAsync.instance.execute({action.invoke()}, poolSize)
 }
 

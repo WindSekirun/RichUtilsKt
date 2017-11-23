@@ -29,6 +29,28 @@ class RPermission private constructor() {
     }
 
     /**
+     * check permission is granted
+     *
+     * @param[context] context
+     * @param[array] array of Permission to check
+     */
+    fun checkPermissionGranted(context: Context, array: Array<String>): Boolean {
+        if (Build.VERSION.SDK_INT < 23) {
+            return true
+        }
+
+        val list = List(array.size) { array[it] }
+        val notGranted: ArrayList<String> = ArrayList()
+        list.forEach {
+            val result = ContextCompat.checkSelfPermission(context, it)
+            if (result != PackageManager.PERMISSION_GRANTED)
+                notGranted.add(it)
+        }
+
+        return notGranted.isEmpty()
+    }
+
+    /**
      * check and request Permission which given.
      *
      * @param[array] array of Permission to check
@@ -122,19 +144,18 @@ class RPermission private constructor() {
             callback?.invoke(returnCode, permissionList)
             fm?.beginTransaction()?.remove(this)?.commitAllowingStateLoss()
         }
-
-        private fun verifyPermissions(grantResults: IntArray): Boolean =
-                if (grantResults.isEmpty()) false else grantResults.none { it != PackageManager.PERMISSION_GRANTED }
-
-        private fun Context.getVerifiedPermissions(permissions: Array<String>): ArrayList<String> {
+     
+      private fun Context.getVerifiedPermissions(permissions: Array<String>): ArrayList<String> {
             val permissionList: ArrayList<String> = ArrayList()
             permissions.forEach {
                 if (ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED)
                     permissionList.add(it)
             }
+        return permissionList
+      }
 
-            return permissionList
-        }
+        private fun verifyPermissions(grantResults: IntArray): Boolean =
+                if (grantResults.isEmpty()) false else grantResults.none { it != PackageManager.PERMISSION_GRANTED }
 
     }
 

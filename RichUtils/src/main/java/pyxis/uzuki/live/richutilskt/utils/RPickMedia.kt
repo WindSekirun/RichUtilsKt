@@ -185,16 +185,25 @@ class RPickMedia private constructor() {
             super.onActivityResult(requestCode, resultCode, data)
             when (requestCode) {
                 PICK_FROM_CAMERA ->
-                    if (resultCode == Activity.RESULT_OK)
+              if (resultCode == Activity.RESULT_OK) {
                         currentPhotoPath.let { callback?.invoke(PICK_SUCCESS, Uri.parse(it) getRealPath (activity)) }
+                    } else {
+                        callback?.invoke(PICK_FAILED, "")
+                    }
 
                 PICK_FROM_GALLERY ->
-                    if (resultCode == Activity.RESULT_OK)
+                    if (resultCode == Activity.RESULT_OK) {
                         callback?.invoke(PICK_SUCCESS, data?.data?.getRealPath((activity)) as String)
+                    } else {
+                        callback?.invoke(PICK_FAILED, "")
+                    }
 
                 PICK_FROM_VIDEO ->
-                    if (resultCode == Activity.RESULT_OK)
+                    if (resultCode == Activity.RESULT_OK) {
                         callback?.invoke(PICK_SUCCESS, data?.data?.getRealPath((activity)) as String)
+                    } else {
+                        callback?.invoke(PICK_FAILED, "")
+                    }
 
                 PICK_FROM_CAMERA_VIDEO ->
                     if (resultCode == Activity.RESULT_OK) {
@@ -206,6 +215,8 @@ class RPickMedia private constructor() {
                         path.let {
                             callback?.invoke(PICK_SUCCESS, path)
                         }
+                    } else {
+                        callback?.invoke(PICK_FAILED, "")
                     }
             }
 

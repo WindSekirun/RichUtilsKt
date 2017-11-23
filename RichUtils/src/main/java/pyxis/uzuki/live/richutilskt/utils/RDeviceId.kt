@@ -7,6 +7,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.Settings
+import pyxis.uzuki.live.richutilskt.useGlobalContext
 
 /**
  * get androidId of device
@@ -15,6 +16,17 @@ import android.provider.Settings
  */
 @SuppressLint("HardwareIds")
 fun Context.getAndroidId(): String = Settings.Secure.getString(this.contentResolver, Settings.Secure.ANDROID_ID) ?: ""
+
+/**
+ * get androidId of device
+ *
+ * this methods can use Global [android.content.Context].
+ * You can initialize Global Context by
+ * [RichUtils.initializeApplication][pyxis.uzuki.live.richutilskt.RichUtilsGlobal.initializeApplication]
+ *
+ * @return androidId of device
+ */
+fun getAndroidId() : String = useGlobalContext { getAndroidId() }
 
 /**
  * get IMEI of device
