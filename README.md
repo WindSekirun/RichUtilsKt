@@ -2,28 +2,19 @@
 
 [![Kotlin](https://img.shields.io/badge/kotlin-1.1.5-blue.svg)](http://kotlinlang.org)	[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-RichUtils-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5854) [![Awesome Kotlin Badge](https://kotlin.link/awesome-kotlin.svg)](https://github.com/KotlinBy/awesome-kotlin) [![Mentioned in Awesome Kotlin](https://awesome.re/mentioned-badge.svg)](https://github.com/KotlinBy/awesome-kotlin)
 
-
 <img src="richutils-logo.png" alt="RichUtils logo" height="101" width="220" />
 
-Advancement Utils for Android Developer written in [Kotlin](https://kotlinlang.org)
+### About
+Version: 2.0.0 :: **Dreaming Bird** (夢魅鳥, Yumemidori) ::
 
-Are you tired to write duplicate, dirty code to develop your android application? RichUtils provided fully Documented and high quality of many utils so more! With [Anko](https://github.com/Kotlin/anko) and [Kotlin android extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html), **Your developing time will be happier than before!**
+RichUtils is Advancement Utils for Android, written in [Kotlin](http://kotlinlang.org). Everything you need is Here! RichUtils work for you for solve necessary things, bother things in development process. I assure you that RichUtils will help you.
 
-If you are not ready to accept new language, Kotlin? Don't worry, RichUtils has compatibility both language, Kotlin and **Java**!
-
-Main goals of this library is **Reuse code to help developer can math the due date of Project**
-
-If you have any feature to make useful develop android application, Please leave any feature into issue tracker with **Suggestion** tag!
-
-### Main Feature of Library
-* Provide fully documented and High quality of many utils!
-* Provide [Web Document](https://windsekirun.github.io/RichUtilsKt/)
-* Provide two sample application. one is [**Kotlin**](/sample), another is [**Java**](/samplejava)
-    * Some Utils does not provide Sample yet, but i will working on soon.
-* as Kotlin's main goal, RichUtils interoperable with **Java**
+It provides...
+* Countless high-quality Utils, Widget!
+* KDoc(Kotlin Document) written in [Dokka](https://github.com/Kotlin/dokka), Documentation Engine for Kotlin. https://windsekirun.github.io/RichUtilsKt/-rich-utils/index.html
+* **100% Java Interop Library**, it can use with Java within Kotlin-plugin integrated project
 
 ### Usages
-
 *rootProject/build.gradle*
 ```	
 allprojects {
@@ -36,64 +27,70 @@ allprojects {
 *app/build.gradle*
 ```
 dependencies {
-    implementation 'com.github.WindSekirun:RichUtilsKt:1.8.0'
+    implementation 'com.github.WindSekirun:RichUtilsKt:2.0.0'
 }
 ```
 
 ### Contents
 
-#### Notice
-I'm prepare 'RichUtils 2.0.0 Release' will occur in November 27, 2017. 
-
-Any idea to improve this utils is always welcome! if you don't familiar with Kotlin, just give me as Java. I'll convert them for you.
-
 #### Utils
 Most of methods list within description is [here](https://blog.uzuki.live/richutils-index-eng-kor/)
 
-* [**RAlert**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAlert.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/AlertActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/AlertActivity.java)
-* [**RAssets**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAssets.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/JSONActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/JSONActivity.java)
-* [**RBitmap**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RBitmap.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/BitmapActivity.java)
-* [**RClipboard**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RClipboard.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/DateActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/DateActivity.java)
-* [**RContactProvider**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RContactProvider.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/ContactActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/ContactActivity.java)
-* [**RDate**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RDate.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/DateActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/DateActivity.java)
-* [**RDeviceId**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RDeviceId.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PermissionActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PermissionActivity.java)
-* [**RDimen**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RDimen.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MiscActivity.java)
-* [**RDrawable**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RDrawable.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/BitmapActivity.java)
-* [**RFile**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RFile.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/BitmapActivity.java)
-* [**RFont**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RFont.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
-* [**RHintSpinner**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RHintSpinner.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
-* [**RInflater**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RInflater.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/RefreshRecyclerActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/RefreshRecyclerActivity.java)
-* [**RJson**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RJson.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/JSONActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/JSONActivity.java)
-* [**RKeyboard**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RKeyboard.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PreferenceActivity.kt)  [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PreferenceActivity.java)
-* [**RKeyHash**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RKeyHash.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MiscActivity.java)
-* [**RNetwork**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RNetwork.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MiscActivity.java)
-* [**RPreference**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPreference.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PreferenceActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PreferenceActivity.java)
-* [**RPermission**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPermission.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PermissionActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PermissionActivity.java)
-* [**RPhoto**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPhoto.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PickMediaActivity.java)
-* [**RPickMedia**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPickMedia.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/PickMediaActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/PickMediaActivity.java)
-* [**RReboot**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RReboot.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
-* [**RStatusBar**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RStatusBar.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
-* [**RStream**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RStream.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
-* [**RSystemService**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RSystemService.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
-* [**RThread**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RThread.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/BitmapActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/BitmapActivity.java)
-* [**RUnReadCount**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RUnReadCount.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
-* [**RVersion**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVersion.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MiscActivity.java)
-* [**RVibrate**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVibrate.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
-* [**RView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RView.kt)
+* [RAlert.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAlert.kt)
+* [RAssets.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAssets.kt)
+* [RAsync.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAsync.kt)
+* [RBitmap.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RBitmap.kt)
+* [RClipboard.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RClipboard.kt)
+* [RContactProvider.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RContactProvider.kt)
+* [RDate.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RDate.kt)
+* [RDeviceId.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RDeviceId.kt)
+* [RDimen.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RDimen.kt)
+* [RDrawable.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RDrawable.kt)
+* [RFile.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RFile.kt)
+* [RFont.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RFont.kt)
+* [RHintSpinner.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RHintSpinner.kt)
+* [RInflater.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RInflater.kt)
+* [RIntent.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RIntent.kt)
+* [RInternal.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RInternal.kt)
+* [RJson.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RJson.kt)
+* [RKeyHash.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RKeyHash.kt)
+* [RKeyboard.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RKeyboard.kt)
+* [RNetwork.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RNetwork.kt)
+* [RNotification.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RNotification.kt)
+* [RPermission.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPermission.kt)
+* [RPhoto.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPhoto.kt)
+* [RPickMedia.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPickMedia.kt)
+* [RPreference.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RPreference.kt)
+* [RProcess.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RProcess.kt)
+* [RReboot.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RReboot.kt)
+* [RSize.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RSize.kt)
+* [RStatusBar.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RStatusBar.kt)
+* [RStream.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RStream.kt)
+* [RSystemFontEngine.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RSystemFontEngine.kt)
+* [RSystemService.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RSystemService.kt)
+* [RText.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RText.kt)
+* [RThread.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RThread.kt)
+* [RThumbnail.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RThumbnail.kt)
+* [RUnReadCount.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RUnReadCount.kt)
+* [RVersion.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVersion.kt)
+* [RVibrate.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVibrate.kt)
+* [RVideo.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVideo.kt)
+* [RView.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RView.kt)
 
-#### Widgets
-* [**CenteredIconButton**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CenteredIconButton.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MainActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/MainActivity.java)
-* [**CombinedTextView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedTextView.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
-* [**CombinedButton**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedButton.kt)
-* [**CombinedCheckBox**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedCheckBox.kt)
-* [**CombinedRadioButton**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedRadioButton.kt)
-* [**HTMLTextView**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/HTMLTextView.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/MiscActivity.kt)
+### Widget
+* [CenteredIconButton](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CenteredIconButton.kt)
+* [CombinedTextView](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedTextView.kt)
+* [CombinedButton](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedButton.kt)
+* [CombinedCheckBox](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedCheckBox.kt)
+* [CombinedRadioButton](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedRadioButton.kt)
+* [HTMLTextView](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/HTMLTextView.kt)
 
 #### Service
-* [**RLocationService**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/RLocationService.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/LocationActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/LocationActivity.java)
+* [RLocationService](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/RLocationService.kt)
 
 #### Module
-* [**RInAppBilling**](RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/iap/RInAppBilling.kt) [(Sample)](sample/src/main/java/pyxis/uzuki/live/richutilssample/InAppActivity.kt) [(JavaSample)](samplejava/src/main/java/pyxis/uzuki/live/richutils/samplejava/InAppActivity.java)
+* [RInAppBilling](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/iap/RInAppBilling.kt)
+* [CrashHandler](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/crash/CrashHandler.kt)
 
 ### License 
 ```
