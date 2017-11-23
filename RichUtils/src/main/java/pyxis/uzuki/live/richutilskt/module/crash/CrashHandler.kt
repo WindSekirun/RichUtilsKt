@@ -5,8 +5,8 @@ import android.os.Build
 import pyxis.uzuki.live.richutilskt.module.crash.item.LogLevel
 import pyxis.uzuki.live.richutilskt.module.crash.item.RichCrashModel
 import pyxis.uzuki.live.richutilskt.utils.asDateString
+import pyxis.uzuki.live.richutilskt.utils.tryCatch
 import java.io.File
-import java.io.IOException
 import java.util.*
 
 /**
@@ -54,11 +54,9 @@ internal class CrashHandler private constructor(private val crashConfig: CrashCo
         val file = File(crashConfig.logLocation, fileName)
 
         if (!file.exists()) {
-            try {
+            tryCatch {
                 file.createNewFile()
                 file.setWritable(java.lang.Boolean.TRUE)
-            } catch (e: IOException) {
-                e.printStackTrace()
             }
         }
 
