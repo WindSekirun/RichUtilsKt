@@ -156,8 +156,6 @@ class RPermission private constructor() {
 
         private fun verifyPermissions(grantResults: IntArray): Boolean =
                 if (grantResults.isEmpty()) false else grantResults.none { it != PackageManager.PERMISSION_GRANTED }
-            
-        }
 
     }
 
