@@ -5,6 +5,11 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import java.io.File
 
+/**
+ * get human-readable size string from given file
+ *
+ * @return human-readable string
+ */
 fun File.getSizeByMb(): String {
     var size: Long = 0
 
@@ -15,6 +20,9 @@ fun File.getSizeByMb(): String {
     return size.toNumInUnits()
 }
 
+/**
+ * Calcuate size into human-readable size
+ */
 fun Long.toNumInUnits(): String {
     var bytes = this
     var u = 0
