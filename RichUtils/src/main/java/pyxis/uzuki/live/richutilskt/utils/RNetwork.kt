@@ -17,7 +17,8 @@ import pyxis.uzuki.live.richutilskt.useGlobalContext
  * @return network state (check legend above)
  */
 fun Context.checkNetwork(): Int {
-    return when (connectivityManager.activeNetworkInfo.type) {
+    val info = connectivityManager.activeNetworkInfo ?: return 0
+    return when (info.type) {
         ConnectivityManager.TYPE_WIFI -> 2
         ConnectivityManager.TYPE_MOBILE -> 1
         else -> 0
