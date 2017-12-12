@@ -18,6 +18,14 @@ inline fun <T, R> T.tryCatch(block: (T) -> R): R {
     }
 }
 
+fun tryCatch(block: F0) {
+    try {
+        block.invoke()
+    } catch (e: Exception) {
+        println("catch exception :: ${e.message}")
+    }
+}
+
 internal inline fun <R> getValue(block: () -> R, def: Any?): R =
         try {
             block()
