@@ -58,6 +58,8 @@ fun Context.getImageWidth(@DrawableRes resId: Int): Int {
     return options.outWidth
 }
 
+
+
 /**
  * get Width of Image which given Drawable Resources
  *
@@ -110,6 +112,56 @@ fun Context.getImageMimeType(@DrawableRes resId: Int): String {
  * @return Width of Image
  */
 fun getImageMimeType(@DrawableRes resId: Int): String = useGlobalContext { getImageMimeType(resId) }
+
+/**
+ * get width of photo from ExifInterface
+ *
+ * @param[filePath] real path of photo
+ * @return width of photo
+ */
+fun getPhotoWidth(filePath: String?): Int {
+    var width = 0
+    var exif: ExifInterface? = null
+
+    if (filePath == null)
+        return width
+
+    try {
+        exif = ExifInterface(filePath)
+    } catch (e: IOException) {
+        println("Error: " + e.message)
+    }
+
+    if (exif != null)
+        width = exif.getAttributeInt(ExifInterface.TAG_IMAGE_WIDTH, -1)
+
+    return width
+}
+
+/**
+ * get height of photo from ExifInterface
+ *
+ * @param[filePath] real path of photo
+ * @return height of photo
+ */
+fun getPhotoHeight(filePath: String?): Int {
+    var height = 0
+    var exif: ExifInterface? = null
+
+    if (filePath == null)
+        return height
+
+    try {
+        exif = ExifInterface(filePath)
+    } catch (e: IOException) {
+        println("Error: " + e.message)
+    }
+
+    if (exif != null)
+        height = exif.getAttributeInt(ExifInterface.TAG_IMAGE_LENGTH, -1)
+
+    return height
+}
 
 /**
  * get orientation degree of photo from ExifInterface
