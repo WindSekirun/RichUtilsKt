@@ -32,3 +32,12 @@ dokka {
 }
 
 group = 'com.github.windsekirun'
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
