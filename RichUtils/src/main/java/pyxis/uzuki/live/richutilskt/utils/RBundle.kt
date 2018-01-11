@@ -1,4 +1,5 @@
 @file:JvmName("RichUtils")
+@file:JvmMultifileClass
 
 package pyxis.uzuki.live.richutilskt.utils
 
