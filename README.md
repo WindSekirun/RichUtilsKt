@@ -29,7 +29,7 @@ allprojects {
 *app/build.gradle*
 ```
 dependencies {
-    implementation 'com.github.WindSekirun:RichUtilsKt:2.0.4'
+    implementation 'com.github.WindSekirun:RichUtilsKt:2.0.5'
 }
 ```
 
@@ -42,6 +42,7 @@ Most of methods list within description is [here](https://blog.uzuki.live/richut
 * [RAssets.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAssets.kt)
 * [RAsync.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAsync.kt)
 * [RBitmap.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RBitmap.kt)
+* [RBundle.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RBundle.kt)
 * [RClipboard.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RClipboard.kt)
 * [RContactProvider.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RContactProvider.kt)
 * [RDate.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RDate.kt)
