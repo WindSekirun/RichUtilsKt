@@ -35,8 +35,10 @@ dependencies {
 
 ### Contents
 
+## Full Method List in RichUtils.class
+[Go to WIKI](https://github.com/WindSekirun/RichUtilsKt/wiki/Full-Method-List)
+
 #### Utils
-Most of methods list within description is [here](https://blog.uzuki.live/richutils-index-eng-kor/)
 
 * [RAlert.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAlert.kt)
 * [RAssets.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RAssets.kt)
