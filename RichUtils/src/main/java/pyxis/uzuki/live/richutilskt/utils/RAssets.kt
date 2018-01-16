@@ -5,7 +5,6 @@ package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
 import android.content.res.AssetManager
-import pyxis.uzuki.live.richutilskt.useGlobalContext
 import java.nio.charset.Charset
 
 /**
@@ -47,19 +46,6 @@ fun Context.copyAssets(path: String) {
             copyAssets("$dirPath$it")
         }
     }
-}
-
-/**
- * Assets to Internal Storage
- *
- * this methods can use Global [android.content.Context].
- * You can initialize Global Context by
- * [RichUtils.initializeApplication][pyxis.uzuki.live.richutilskt.RichUtilsGlobal.initializeApplication]
- *
- * @param [path] path to copy
- */
-fun copyAssets(path: String) {
-    useGlobalContext { copyAssets(path) }
 }
 
 private fun Context.copyFile(filename: String) {
