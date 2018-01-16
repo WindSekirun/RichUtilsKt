@@ -9,7 +9,6 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.media.ExifInterface
 import android.support.annotation.DrawableRes
-import pyxis.uzuki.live.richutilskt.useGlobalContext
 import java.io.IOException
 
 private val options: BitmapFactory.Options by lazy {
@@ -59,18 +58,6 @@ fun Context.getImageWidth(@DrawableRes resId: Int): Int {
 }
 
 
-
-/**
- * get Width of Image which given Drawable Resources
- *
- * this methods can use Global [android.content.Context].
- * You can initialize Global Context by
- * [RichUtils.initializeApplication][pyxis.uzuki.live.richutilskt.RichUtilsGlobal.initializeApplication]
- *
- * @return Width of Image
- */
-fun getImageWidth(@DrawableRes resId: Int): Int = useGlobalContext { getImageWidth(resId) }
-
 /**
  * get Height of Image which given Drawable Resources
  *
@@ -82,17 +69,6 @@ fun Context.getImageHeight(@DrawableRes resId: Int): Int {
 }
 
 /**
- * get Height of Image which given Drawable Resources
- *
- * this methods can use Global [android.content.Context].
- * You can initialize Global Context by
- * [RichUtils.initializeApplication][pyxis.uzuki.live.richutilskt.RichUtilsGlobal.initializeApplication]
- *
- * @return Width of Image
- */
-fun getImageHeight(@DrawableRes resId: Int): Int = useGlobalContext { getImageHeight(resId) }
-
-/**
  * get MimeType of Image which given Drawable Resources
  *
  * @return MimeType of Image
@@ -101,17 +77,6 @@ fun Context.getImageMimeType(@DrawableRes resId: Int): String {
     BitmapFactory.decodeResource(this.resources, resId, options)
     return options.outMimeType ?: ""
 }
-
-/**
- * get MimeType of Image which given Drawable Resources
- *
- * this methods can use Global [android.content.Context].
- * You can initialize Global Context by
- * [RichUtils.initializeApplication][pyxis.uzuki.live.richutilskt.RichUtilsGlobal.initializeApplication]
- *
- * @return Width of Image
- */
-fun getImageMimeType(@DrawableRes resId: Int): String = useGlobalContext { getImageMimeType(resId) }
 
 /**
  * get width of photo from ExifInterface

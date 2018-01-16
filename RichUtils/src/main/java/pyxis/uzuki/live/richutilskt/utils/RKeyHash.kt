@@ -7,7 +7,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.util.Base64
-import pyxis.uzuki.live.richutilskt.useGlobalContext
 import java.security.MessageDigest
 
 /**
@@ -31,16 +30,3 @@ fun Context.getKeyHash(): String {
         return if (hashList.isNotEmpty()) hashList[0] else ""
     }
 }
-
-/**
- * get key hash of application
- *
- * it will help to integrate with Facebook, Kakao SDK
- *
- * this methods can use Global [android.content.Context].
- * You can initialize Global Context by
- * [RichUtils.initializeApplication][pyxis.uzuki.live.richutilskt.RichUtilsGlobal.initializeApplication]
- *
- * @return key hash of application
- */
-fun getKeyHash() : String = useGlobalContext { getKeyHash() }

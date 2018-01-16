@@ -4,7 +4,6 @@
 package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.Context
-import pyxis.uzuki.live.richutilskt.useGlobalContext
 
 /**
  * Vibrate
@@ -20,38 +19,12 @@ fun Context.vibrate(millSec: Long) {
  * Vibrate
  * need VIBRATE permission
  *
- * @param[millSec] duration of vibrate
- */
-fun vibrate(millSec: Long) {
-    useGlobalContext { vibrate(millSec) }
-}
-
-/**
- * Vibrate
- * need VIBRATE permission
- *
  * @param[pattern] vibrate pattern
  * @param[repeat] count of repeat, if once, give repeat as -1
  */
 @JvmOverloads
 fun Context.vibrate(pattern: LongArray, repeat: Int = -1) {
     vibrator.vibrate(pattern, repeat)
-}
-
-/**
- * Vibrate
- * need VIBRATE permission
- *
- * this methods can use Global [android.content.Context].
- * You can initialize Global Context by
- * [RichUtils.initializeApplication][pyxis.uzuki.live.richutilskt.RichUtilsGlobal.initializeApplication]
- *
- * @param[pattern] vibrate pattern
- * @param[repeat] count of repeat, if once, give repeat as -1
- */
-@JvmOverloads
-fun vibrate(pattern: LongArray, repeat: Int = -1) {
-    useGlobalContext { vibrate(pattern, repeat) }
 }
 
 /**
