@@ -120,36 +120,25 @@ class CombinedRadioButton constructor(context: Context, private val attrs: Attri
      * Inflate SpannableString using provided value (either TypedArray(XML) or setter(Java)
      */
     fun apply() {
-        if (textPrimary.isEmpty()) {
-            return
+        val combindedItem = CombinedItem()
+        combindedItem.view = this
+        combindedItem.fontSecondaryTypeface = fontSecondaryTypeface
+        combindedItem.fontPrimaryTypeface = fontPrimaryTypeface
+        combindedItem.textPrimary = textPrimary
+        combindedItem.textSecondary = textSecondary
+        combindedItem.textPrimaryColor = textPrimaryColor
+        combindedItem.textSecondaryColor = textSecondaryColor
+        combindedItem.textPrimarySize = textPrimarySize
+        combindedItem.textSecondarySize = textSecondarySize
+        combindedItem.textExtraSpace = textExtraSpace
+        combindedItem.fontPrimaryText = fontPrimaryText
+        combindedItem.fontSecondaryText = fontSecondaryText
+        combindedItem.textPrimaryStyle = textPrimaryStyle
+        combindedItem.textSecondaryStyle = textSecondaryStyle
+
+        val builder = combindedItem.applyCombined()
+        if (builder != null) {
+            text = builder
         }
-
-        if (textSecondary.isEmpty()) {
-            return
-        }
-
-        var contentString = textPrimary
-        if (textExtraSpace != 0) {
-            for (i in 0 until textExtraSpace) {
-                contentString += " "
-            }
-        }
-
-        contentString += textSecondary
-
-        val primarySpan = getTypefaceSpan(fontPrimaryText, fontPrimaryTypeface)
-        val secondarySpan =  getTypefaceSpan(fontSecondaryText, fontSecondaryTypeface)
-
-        val builder = SpannableStringBuilder(contentString)
-        builder.clearSpans()
-
-        builder.setSizeSpan(textPrimarySize, 0, textPrimary.length)
-        builder.setSizeSpan(textSecondarySize, textPrimary.length, contentString.length)
-        builder.setColorSpan(textPrimaryColor, 0, textPrimary.length)
-        builder.setColorSpan(textSecondaryColor, textPrimary.length, contentString.length)
-        builder.setFontSpan(primarySpan, textPrimaryStyle, 0, textPrimary.length)
-        builder.setFontSpan(secondarySpan, textSecondaryStyle, textPrimary.length, contentString.length)
-
-        text = builder
     }
 }
