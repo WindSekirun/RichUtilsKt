@@ -13,8 +13,9 @@ class CenteredIconButton @JvmOverloads constructor(context: Context, attrs: Attr
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
 
-        if (!changed)
+        if (!changed) {
             return
+        }
 
         val text = text
         if (text.isEmpty().not()) {

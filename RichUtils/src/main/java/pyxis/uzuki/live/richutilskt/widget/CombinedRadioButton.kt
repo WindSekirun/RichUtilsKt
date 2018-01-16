@@ -120,16 +120,20 @@ class CombinedRadioButton constructor(context: Context, private val attrs: Attri
      * Inflate SpannableString using provided value (either TypedArray(XML) or setter(Java)
      */
     fun apply() {
-        if (textPrimary.isEmpty())
+        if (textPrimary.isEmpty()) {
             return
+        }
 
-        if (textSecondary.isEmpty())
+        if (textSecondary.isEmpty()) {
             return
+        }
 
         var contentString = textPrimary
-        if (textExtraSpace != 0)
-            for (i in 0 until textExtraSpace)
+        if (textExtraSpace != 0) {
+            for (i in 0 until textExtraSpace) {
                 contentString += " "
+            }
+        }
 
         contentString += textSecondary
 
