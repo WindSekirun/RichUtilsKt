@@ -202,7 +202,12 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
             return
         }
 
-        val transaction = Transaction("", jsonObject.getJSONString("orderId"),
+        var autoRenewing = false
+        if (jsonObject.has("autoRenewing")) {
+            autoRenewing = jsonObject.getJSONBoolean("autoRenewing", false);
+        }
+
+        val transaction = Transaction(autoRenewing.toString(), jsonObject.getJSONString("orderId"),
                 jsonObject.getJSONString("packageName"), jsonObject.getJSONString("productId"),
                 jsonObject.getJSONLong("purchaseTime"), jsonObject.getJSONInt("purchaseState"),
                 jsonObject.getJSONString("developerPayload"), jsonObject.getJSONString("purchaseToken"),
