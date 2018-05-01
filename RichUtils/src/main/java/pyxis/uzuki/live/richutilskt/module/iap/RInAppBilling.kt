@@ -205,7 +205,7 @@ class RInAppBilling(private val activity: Activity, private val signatureBase64:
         val transaction = Transaction("", jsonObject.getJSONString("orderId"),
                 jsonObject.getJSONString("packageName"), jsonObject.getJSONString("productId"),
                 jsonObject.getJSONLong("purchaseTime"), jsonObject.getJSONInt("purchaseState"),
-                jsonObject.getJSONString("developerPayload"), jsonObject.getJSONString("purcahseToken"),
+                jsonObject.getJSONString("developerPayload"), jsonObject.getJSONString("purchaseToken"),
                 jsonObject.toString(), dataSignature)
 
         if (isValidTransaction(transaction)) {
