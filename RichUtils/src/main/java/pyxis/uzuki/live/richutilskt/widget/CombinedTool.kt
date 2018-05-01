@@ -51,6 +51,57 @@ fun View.getTypefaceSpan(fontTypefaceText: String, fontTypeface: Typeface?): Typ
             TypefaceSpan(typeface)
         }
 
+fun CombinedItem.applyCombined(): SpannableStringBuilder? {
+    if (textPrimary.isEmpty()) {
+        return null
+    }
+
+    if (textSecondary.isEmpty()) {
+        return null
+    }
+
+    var contentString = textPrimary
+    if (textExtraSpace != 0) {
+        for (i in 0 until textExtraSpace) {
+            contentString += " "
+        }
+    }
+
+    contentString += textSecondary
+
+    val primarySpan = this.view?.getTypefaceSpan(fontPrimaryText, fontPrimaryTypeface)
+    val secondarySpan = this.view?.getTypefaceSpan(fontSecondaryText, fontSecondaryTypeface)
+
+    val builder = SpannableStringBuilder(contentString)
+    builder.clearSpans()
+
+    builder.setSizeSpan(textPrimarySize, 0, textPrimary.length)
+    builder.setSizeSpan(textSecondarySize, textPrimary.length, contentString.length)
+    builder.setColorSpan(textPrimaryColor, 0, textPrimary.length)
+    builder.setColorSpan(textSecondaryColor, textPrimary.length, contentString.length)
+    builder.setFontSpan(primarySpan, textPrimaryStyle, 0, textPrimary.length)
+    builder.setFontSpan(secondarySpan, textSecondaryStyle, textPrimary.length, contentString.length)
+
+    return builder
+}
+
+class CombinedItem() {
+    var view: View? = null
+    var fontPrimaryTypeface: Typeface? = null
+    var fontSecondaryTypeface: Typeface? = null
+    var textPrimary: String = ""
+    var textSecondary = ""
+    var textPrimaryColor: Int = 0
+    var textSecondaryColor: Int = 0
+    var textPrimarySize: Float = 0.toFloat()
+    var textSecondarySize: Float = 0.toFloat()
+    var textExtraSpace: Int = 0
+    var fontPrimaryText: String = ""
+    var fontSecondaryText: String = ""
+    var textPrimaryStyle = 0
+    var textSecondaryStyle = 0
+
+}
 
 class FontCache {
     companion object {
