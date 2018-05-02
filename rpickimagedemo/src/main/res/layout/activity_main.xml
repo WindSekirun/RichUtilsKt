@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <Button
@@ -12,10 +13,11 @@
         android:id="@+id/btnSelect"
         android:textAllCaps="false" />
 
-    <TextView
+    <pyxis.uzuki.live.richutilskt.widget.CombinedTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtPath"
+        app:textPrimary="result will display in here"
         android:gravity="center"/>
 
     <ImageView

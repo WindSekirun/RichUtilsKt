@@ -18,7 +18,7 @@ class CombinedTextView constructor(context: Context, private val attrs: Attribut
             apply()
         }
 
-    var textSecondary = ""
+    var textSecondary: String? = ""
         set(value) {
             field = value
             apply()
@@ -54,13 +54,13 @@ class CombinedTextView constructor(context: Context, private val attrs: Attribut
             apply()
         }
 
-    var fontPrimaryText: String = ""
+    var fontPrimaryText: String? = ""
         set(value) {
             field = value
             apply()
         }
 
-    var fontSecondaryText: String = ""
+    var fontSecondaryText: String? = ""
         set(value) {
             field = value
             apply()
@@ -116,8 +116,8 @@ class CombinedTextView constructor(context: Context, private val attrs: Attribut
             return
         }
 
-        if (textSecondary.isEmpty()) {
-            return
+        if (textSecondary == null) {
+            textSecondary = ""
         }
 
         var contentString = textPrimary

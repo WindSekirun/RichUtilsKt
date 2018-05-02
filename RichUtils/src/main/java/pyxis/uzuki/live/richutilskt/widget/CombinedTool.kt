@@ -43,13 +43,16 @@ fun SpannableStringBuilder.setColorSpan(color: Int, start: Int, end: Int) {
     this.setSpan(ForegroundColorSpan(color), start, end)
 }
 
-fun View.getTypefaceSpan(fontTypefaceText: String, fontTypeface: Typeface?): TypefaceSpan? =
-        if (fontTypefaceText.isEmpty()) {
-            if (fontTypeface != null) TypefaceSpan(fontTypeface) else null
-        } else {
-            val typeface = FontCache.getTypefaceFromAsset(this.context, fontTypefaceText)
-            TypefaceSpan(typeface)
-        }
+fun View.getTypefaceSpan(fontTypefaceText: String?, fontTypeface: Typeface?): TypefaceSpan? {
+    val fontTypefaceTextWrapped = if (fontTypefaceText == null) "" else fontTypefaceText
+
+    return if (fontTypefaceTextWrapped.isEmpty()) {
+        if (fontTypeface != null) TypefaceSpan(fontTypeface) else null
+    } else {
+        val typeface = FontCache.getTypefaceFromAsset(this.context, fontTypefaceTextWrapped)
+        TypefaceSpan(typeface)
+    }
+}
 
 
 class FontCache {
