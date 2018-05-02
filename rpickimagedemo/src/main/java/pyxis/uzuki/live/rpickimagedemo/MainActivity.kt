@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnSelect.setOnClickListener {
-            RPickMedia.instance.pickFromGallery(this, { code, path ->
+            RPickMedia.instance.pickFromCamera(this, { code, path ->
                 txtPath.text = "code: $code, path: $path"
                 Glide.with(this).load(path).into(imgPicture)
             })

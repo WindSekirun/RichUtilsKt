@@ -10,6 +10,7 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
@@ -18,7 +19,7 @@ import pyxis.uzuki.live.richutilskt.impl.F2
 import java.text.SimpleDateFormat
 import java.util.*
 
-class RPickMedia private constructor() {
+class RPickMedia private constructor(private val bundle: Bundle = Bundle()) {
     private var IMAGE_CONTENT_URL = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
     private var VIDEO_CONTENT_URL = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
     private val PERMISSION_ARRAY = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -127,7 +128,7 @@ class RPickMedia private constructor() {
      *
      * @param[callback] callback
      */
-    fun pickFromVideo(context: Context, callback: (Int, String) -> Unit)  {
+    fun pickFromVideo(context: Context, callback: (Int, String) -> Unit) {
         context.requestPermission {
             if (!it) {
                 callback.invoke(PICK_FAILED, "")
@@ -220,6 +221,10 @@ class RPickMedia private constructor() {
                 currentVideoPath = captureUri.toString()
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, captureUri)
             }
+        }
+
+        if (!bundle.isEmpty) {
+            intent.putExtras(bundle)
         }
 
         val fragment = ResultFragment(fm as FragmentManager, callback, currentPhotoPath ?: "", currentVideoPath ?: "")
