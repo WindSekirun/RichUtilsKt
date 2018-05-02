@@ -21,7 +21,7 @@ class CombinedRadioButton constructor(context: Context, private val attrs: Attri
             apply()
         }
 
-    var textSecondary = ""
+    var textSecondary: String? = ""
         set(value) {
             field = value
             apply()
@@ -57,13 +57,13 @@ class CombinedRadioButton constructor(context: Context, private val attrs: Attri
             apply()
         }
 
-    var fontPrimaryText: String = ""
+    var fontPrimaryText: String? = ""
         set(value) {
             field = value
             apply()
         }
 
-    var fontSecondaryText: String = ""
+    var fontSecondaryText: String? = ""
         set(value) {
             field = value
             apply()
@@ -124,8 +124,8 @@ class CombinedRadioButton constructor(context: Context, private val attrs: Attri
             return
         }
 
-        if (textSecondary.isEmpty()) {
-            return
+        if (textSecondary == null) {
+            textSecondary = ""
         }
 
         var contentString = textPrimary

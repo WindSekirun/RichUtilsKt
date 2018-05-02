@@ -1,1 +1,1 @@
-include ':RichUtils', ':demo'
+include ':RichUtils', ':demo', ':rpickimagedemo'

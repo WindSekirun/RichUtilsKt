@@ -21,7 +21,7 @@ class CombinedButton constructor(context: Context, private val attrs: AttributeS
             apply()
         }
 
-    var textSecondary = ""
+    var textSecondary: String? = ""
         set(value) {
             field = value
             apply()
@@ -57,13 +57,13 @@ class CombinedButton constructor(context: Context, private val attrs: AttributeS
             apply()
         }
 
-    var fontPrimaryText: String = ""
+    var fontPrimaryText: String? = ""
         set(value) {
             field = value
             apply()
         }
 
-    var fontSecondaryText: String = ""
+    var fontSecondaryText: String? = ""
         set(value) {
             field = value
             apply()
@@ -122,8 +122,8 @@ class CombinedButton constructor(context: Context, private val attrs: AttributeS
             return
         }
 
-        if (textSecondary.isEmpty()) {
-            return
+        if (textSecondary == null) {
+            textSecondary = ""
         }
 
         var contentString = textPrimary

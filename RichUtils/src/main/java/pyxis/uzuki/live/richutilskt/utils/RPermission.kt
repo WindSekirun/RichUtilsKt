@@ -3,24 +3,24 @@
 package pyxis.uzuki.live.richutilskt.utils
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.app.Fragment
-import android.app.FragmentManager
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.pm.PackageManager
 import android.os.Build
 import android.support.annotation.RequiresApi
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
+import android.support.v4.app.FragmentManager
 import android.support.v4.content.ContextCompat
 import pyxis.uzuki.live.richutilskt.impl.F2
 
 class RPermission private constructor() {
 
-    private fun getActivity(context: Context): Activity? {
+    private fun getActivity(context: Context): FragmentActivity? {
         var c = context
 
         while (c is ContextWrapper) {
-            if (c is Activity) {
+            if (c is FragmentActivity) {
                 return c
             }
             c = c.baseContext
@@ -116,7 +116,7 @@ class RPermission private constructor() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun Context.requestPermission(list: List<String>, callback: (Int, ArrayList<String>) -> Unit) {
-        val fm = getActivity(this)?.fragmentManager
+        val fm = getActivity(this)?.supportFragmentManager
         val fragment = RequestFragment(this, fm as FragmentManager, callback)
 
         fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commitAllowingStateLoss()
@@ -144,15 +144,15 @@ class RPermission private constructor() {
             callback?.invoke(returnCode, permissionList)
             fm?.beginTransaction()?.remove(this)?.commitAllowingStateLoss()
         }
-     
-      private fun Context.getVerifiedPermissions(permissions: Array<String>): ArrayList<String> {
+
+        private fun Context.getVerifiedPermissions(permissions: Array<String>): ArrayList<String> {
             val permissionList: ArrayList<String> = ArrayList()
             permissions.forEach {
                 if (ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED)
                     permissionList.add(it)
             }
-        return permissionList
-      }
+            return permissionList
+        }
 
         private fun verifyPermissions(grantResults: IntArray): Boolean =
                 if (grantResults.isEmpty()) false else grantResults.none { it != PackageManager.PERMISSION_GRANTED }

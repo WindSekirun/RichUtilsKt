@@ -18,7 +18,7 @@ class CombinedCheckBox constructor(context: Context, private val attrs: Attribut
             apply()
         }
 
-    var textSecondary = ""
+    var textSecondary: String? = ""
         set(value) {
             field = value
             apply()
@@ -54,13 +54,13 @@ class CombinedCheckBox constructor(context: Context, private val attrs: Attribut
             apply()
         }
 
-    var fontPrimaryText: String = ""
+    var fontPrimaryText: String? = ""
         set(value) {
             field = value
             apply()
         }
 
-    var fontSecondaryText: String = ""
+    var fontSecondaryText: String? = ""
         set(value) {
             field = value
             apply()
@@ -121,8 +121,8 @@ class CombinedCheckBox constructor(context: Context, private val attrs: Attribut
             return
         }
 
-        if (textSecondary.isEmpty()) {
-            return
+        if (textSecondary == null) {
+            textSecondary = ""
         }
 
         var contentString = textPrimary
@@ -135,7 +135,7 @@ class CombinedCheckBox constructor(context: Context, private val attrs: Attribut
         contentString += textSecondary
 
         val primarySpan = getTypefaceSpan(fontPrimaryText, fontPrimaryTypeface)
-        val secondarySpan =  getTypefaceSpan(fontSecondaryText, fontSecondaryTypeface)
+        val secondarySpan = getTypefaceSpan(fontSecondaryText, fontSecondaryTypeface)
 
         val builder = SpannableStringBuilder(contentString)
         builder.clearSpans()

@@ -50,11 +50,11 @@ class MainActivity : InjectActivity() {
 
     inner class ListAdapter(private val callback: (MainItem) -> Unit) : RecyclerView.Adapter<ViewHolder>() {
 
-        override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder =
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
                 ViewHolder(inflate(R.layout.activity_main_item, parent), callback)
 
-        override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-            holder?.bindData(itemList[position])
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            holder.bindData(itemList[position])
         }
 
         override fun getItemCount(): Int = itemList.size

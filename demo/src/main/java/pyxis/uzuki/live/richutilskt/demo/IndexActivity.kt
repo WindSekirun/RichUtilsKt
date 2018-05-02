@@ -75,12 +75,14 @@ class IndexActivity : AppCompatActivity() {
 
     inner class ListAdapter : RecyclerView.Adapter<ViewHolder>() {
 
-        override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder =
-                ViewHolder(this@IndexActivity, inflate(R.layout.activity_index_item, parent))
-
-        override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-            holder?.bindData(itemList[position])
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            holder.bindData(itemList[position])
         }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            return ViewHolder(this@IndexActivity, inflate(R.layout.activity_index_item, parent))
+        }
+
 
         override fun getItemCount(): Int = itemList.size
     }
