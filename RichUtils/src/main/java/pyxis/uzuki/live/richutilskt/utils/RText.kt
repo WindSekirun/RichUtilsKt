@@ -4,6 +4,9 @@
 package pyxis.uzuki.live.richutilskt.utils
 
 import android.text.TextUtils
+import android.support.annotation.StringRes
+
+
 
 /**
  * get string with empty handling
@@ -34,3 +37,88 @@ fun anyMatchRegex(regex: String, items: Array<String>) = items.any { it.contains
  * Returns `true` if at least one element matches condition of matches regex
  */
 fun anyMatchRegex(regex: String, items: List<String>) = items.any { it.contains(regex) }
+
+/**
+ * Test `target` equals all condition of `items`
+ *
+ * @param target
+ * @param items
+ * @return
+ */
+fun allEquals(target: String, vararg items: String): Boolean {
+    return items.map { target == it }.all { true }
+}
+
+/**
+ * Test `target` equals any condition of `items`
+ *
+ * @param target
+ * @param items
+ * @return
+ */
+fun anyEquals(target: String, vararg items: String): Boolean {
+    return items.map { target == it }.any { true }
+}
+
+/**
+ * Test `target` contains all condition of `items`
+ *
+ * @param target
+ * @param items
+ * @return
+ */
+fun allContains(target: String, vararg items: String): Boolean {
+    return items.map { target.contains(it, true) }.all { true }
+}
+
+
+/**
+ * Test `target` contains any condition of `items`
+ *
+ * @param target
+ * @param items
+ * @return
+ */
+fun anyContains(target: String, vararg items: String): Boolean {
+    return items.map { target.contains(it, true) }.any { true }
+}
+
+/**
+ * Test all element of target is empty
+ *
+ * @param target
+ * @return
+ */
+fun allEmpty(vararg target: String): Boolean {
+    return target.map { it.isEmpty() }.all { true }
+}
+
+/**
+ * Test any element of target is empty
+ *
+ * @param target
+ * @return
+ */
+fun anyEmpty(vararg target: String): Boolean {
+    return target.map { it.isEmpty() }.any { true }
+}
+
+/**
+ * Test all element of target is not empty
+ *
+ * @param target
+ * @return
+ */
+fun allNotEmpty(vararg target: String): Boolean {
+    return target.map { it.isNotEmpty() }.all { true }
+}
+
+/**
+ * Test any element of target is not empty
+ *
+ * @param target
+ * @return
+ */
+fun anyNotEmpty(vararg target: String): Boolean {
+    return target.map { it.isNotEmpty() }.any { true }
+}
