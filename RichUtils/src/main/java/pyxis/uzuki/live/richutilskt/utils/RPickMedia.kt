@@ -10,7 +10,6 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
 import android.net.Uri
-import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
@@ -63,15 +62,14 @@ class RPickMedia private constructor() {
      *
      * @param[callback] callback
      */
-    @JvmOverloads
-    fun pickFromCamera(context: Context, bundle: Bundle = Bundle(), callback: (Int, String) -> Unit) {
+    fun pickFromCamera(context: Context, callback: (Int, String) -> Unit) {
         context.requestPermission {
             if (!it) {
                 callback.invoke(PICK_FAILED, "")
                 return@requestPermission
             }
 
-            requestPhotoPick(context, PICK_FROM_CAMERA, bundle, callback)
+            requestPhotoPick(context, PICK_FROM_CAMERA, callback)
         }
 
     }
@@ -81,15 +79,14 @@ class RPickMedia private constructor() {
      *
      * @param[callback] callback
      */
-    @JvmOverloads
-    fun pickFromCamera(context: Context, bundle: Bundle = Bundle(), callback: F2<Int, String>?) {
+    fun pickFromCamera(context: Context, callback: F2<Int, String>?) {
         context.requestPermission {
             if (!it) {
                 callback?.invoke(PICK_FAILED, "")
                 return@requestPermission
             }
 
-            requestPhotoPick(context, PICK_FROM_CAMERA, bundle, { code, uri -> callback?.invoke(code, uri) })
+            requestPhotoPick(context, PICK_FROM_CAMERA, { code, uri -> callback?.invoke(code, uri) })
         }
     }
 
@@ -98,15 +95,14 @@ class RPickMedia private constructor() {
      *
      * @param[callback] callback
      */
-    @JvmOverloads
-    fun pickFromGallery(context: Context, bundle: Bundle = Bundle(), callback: (Int, String) -> Unit) {
+    fun pickFromGallery(context: Context, callback: (Int, String) -> Unit) {
         context.requestPermission {
             if (!it) {
                 callback.invoke(PICK_FAILED, "")
                 return@requestPermission
             }
 
-            requestPhotoPick(context, PICK_FROM_GALLERY, bundle, callback)
+            requestPhotoPick(context, PICK_FROM_GALLERY, callback)
         }
     }
 
@@ -115,15 +111,14 @@ class RPickMedia private constructor() {
      *
      * @param[callback] callback
      */
-    @JvmOverloads
-    fun pickFromGallery(context: Context, bundle: Bundle = Bundle(), callback: F2<Int, String>?) {
+    fun pickFromGallery(context: Context, callback: F2<Int, String>?) {
         context.requestPermission {
             if (!it) {
                 callback?.invoke(PICK_FAILED, "")
                 return@requestPermission
             }
 
-            requestPhotoPick(context, PICK_FROM_GALLERY, bundle, { code, uri -> callback?.invoke(code, uri) })
+            requestPhotoPick(context, PICK_FROM_GALLERY, { code, uri -> callback?.invoke(code, uri) })
         }
     }
 
@@ -132,15 +127,14 @@ class RPickMedia private constructor() {
      *
      * @param[callback] callback
      */
-    @JvmOverloads
-    fun pickFromVideo(context: Context, bundle: Bundle = Bundle(), callback: (Int, String) -> Unit)  {
+    fun pickFromVideo(context: Context, callback: (Int, String) -> Unit)  {
         context.requestPermission {
             if (!it) {
                 callback.invoke(PICK_FAILED, "")
                 return@requestPermission
             }
 
-            requestPhotoPick(context, PICK_FROM_VIDEO, bundle, callback)
+            requestPhotoPick(context, PICK_FROM_VIDEO, callback)
         }
     }
 
@@ -149,15 +143,14 @@ class RPickMedia private constructor() {
      *
      * @param[callback] callback
      */
-    @JvmOverloads
-    fun pickFromVideo(context: Context, bundle: Bundle = Bundle(), callback: F2<Int, String>?) {
+    fun pickFromVideo(context: Context, callback: F2<Int, String>?) {
         context.requestPermission {
             if (!it) {
                 callback?.invoke(PICK_FAILED, "")
                 return@requestPermission
             }
 
-            requestPhotoPick(context, PICK_FROM_VIDEO, bundle, { code, uri -> callback?.invoke(code, uri) })
+            requestPhotoPick(context, PICK_FROM_VIDEO, { code, uri -> callback?.invoke(code, uri) })
         }
     }
 
@@ -166,15 +159,14 @@ class RPickMedia private constructor() {
      *
      * @param[callback] callback
      */
-    @JvmOverloads
-    fun pickFromVideoCamera(context: Context, bundle: Bundle = Bundle(), callback: (Int, String) -> Unit) {
+    fun pickFromVideoCamera(context: Context, callback: (Int, String) -> Unit) {
         context.requestPermission {
             if (!it) {
                 callback.invoke(PICK_FAILED, "")
                 return@requestPermission
             }
 
-            requestPhotoPick(context, PICK_FROM_CAMERA_VIDEO, bundle, callback)
+            requestPhotoPick(context, PICK_FROM_CAMERA_VIDEO, callback)
         }
     }
 
@@ -183,15 +175,14 @@ class RPickMedia private constructor() {
      *
      * @param[callback] callback
      */
-    @JvmOverloads
-    fun pickFromVideoCamera(context: Context, bundle: Bundle = Bundle(), callback: F2<Int, String>?) {
+    fun pickFromVideoCamera(context: Context, callback: F2<Int, String>?) {
         context.requestPermission {
             if (!it) {
                 callback?.invoke(PICK_FAILED, "")
                 return@requestPermission
             }
 
-            requestPhotoPick(context, PICK_FROM_CAMERA_VIDEO, bundle, { code, uri -> callback?.invoke(code, uri) })
+            requestPhotoPick(context, PICK_FROM_CAMERA_VIDEO, { code, uri -> callback?.invoke(code, uri) })
         }
     }
 
@@ -199,7 +190,7 @@ class RPickMedia private constructor() {
     private var currentVideoPath: String? = null
 
     @SuppressLint("ValidFragment")
-    private fun requestPhotoPick(context: Context, pickType: Int, bundle: Bundle, callback: (Int, String) -> Unit) {
+    private fun requestPhotoPick(context: Context, pickType: Int, callback: (Int, String) -> Unit) {
 
         val fm = getActivity(context)?.supportFragmentManager
 
@@ -229,10 +220,6 @@ class RPickMedia private constructor() {
                 currentVideoPath = captureUri.toString()
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, captureUri)
             }
-        }
-
-        if (!bundle.isEmpty) {
-            intent.putExtras(bundle)
         }
 
         val fragment = ResultFragment(fm as FragmentManager, callback, currentPhotoPath ?: "", currentVideoPath ?: "")
