@@ -125,6 +125,7 @@ $dokka.location:pyxis.uzuki.live.richutilskt.utils$searchManager#android.content
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$selector(android.content.Context, kotlin.collections.List((pyxis.uzuki.live.richutilskt.utils.selector.T)), kotlin.Function3((android.content.DialogInterface, pyxis.uzuki.live.richutilskt.utils.selector.T, kotlin.Int, kotlin.Unit)), kotlin.String, kotlin.Boolean)pyxis.uzuki.live.richutilskt.utils/android.content.-context/selector.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$selector(android.content.Context, kotlin.collections.List((pyxis.uzuki.live.richutilskt.utils.selector.T)), pyxis.uzuki.live.richutilskt.impl.F3((android.content.DialogInterface, pyxis.uzuki.live.richutilskt.utils.selector.T, kotlin.Int)), kotlin.String, kotlin.Boolean)pyxis.uzuki.live.richutilskt.utils/android.content.-context/selector.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$sensorManager#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/sensor-manager.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$setStatusBarTheme(android.app.Activity, kotlin.Boolean)pyxis.uzuki.live.richutilskt.utils/android.app.-activity/set-status-bar-theme.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$setStatusNavBarColor(android.app.Activity, kotlin.Int, android.view.Window, kotlin.Int)pyxis.uzuki.live.richutilskt.utils/android.app.-activity/set-status-nav-bar-color.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$setTypeface(android.content.Context, android.view.ViewGroup, android.view.ViewGroup, kotlin.Boolean)pyxis.uzuki.live.richutilskt.utils/android.content.-context/set-typeface.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$setTypeface(android.content.Context, kotlin.Int, android.view.ViewGroup, kotlin.Boolean)pyxis.uzuki.live.richutilskt.utils/android.content.-context/set-typeface.html
@@ -161,11 +162,11 @@ $dokka.location:pyxis.uzuki.live.richutilskt.widget$setColorSpan(android.text.Sp
 $dokka.location:pyxis.uzuki.live.richutilskt.widget$setFontSpan(android.text.SpannableStringBuilder, pyxis.uzuki.live.richutilskt.widget.TypefaceSpan, kotlin.Int, kotlin.Int, kotlin.Int)pyxis.uzuki.live.richutilskt.widget/android.text.-spannable-string-builder/set-font-span.html
 $dokka.location:pyxis.uzuki.live.richutilskt.widget$setSizeSpan(android.text.SpannableStringBuilder, kotlin.Float, kotlin.Int, kotlin.Int)pyxis.uzuki.live.richutilskt.widget/android.text.-spannable-string-builder/set-size-span.html
 $dokka.location:pyxis.uzuki.live.richutilskt.widget$setSpan(android.text.SpannableStringBuilder, kotlin.Any, kotlin.Int, kotlin.Int)pyxis.uzuki.live.richutilskt.widget/android.text.-spannable-string-builder/set-span.html
-pyxis.uzuki.live.richutilskt
 pyxis.uzuki.live.richutilskt.impl
 pyxis.uzuki.live.richutilskt.module.crash
 pyxis.uzuki.live.richutilskt.module.crash.item
 pyxis.uzuki.live.richutilskt.module.iap
+pyxis.uzuki.live.richutilskt.module.reference
 pyxis.uzuki.live.richutilskt.service
 pyxis.uzuki.live.richutilskt.utils
 pyxis.uzuki.live.richutilskt.widget

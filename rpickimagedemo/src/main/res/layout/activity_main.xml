@@ -13,6 +13,13 @@
         android:id="@+id/btnSelect"
         android:textAllCaps="false" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Test Method"
+        android:id="@+id/btnTest"
+        android:textAllCaps="false" />
+
     <pyxis.uzuki.live.richutilskt.widget.CombinedTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

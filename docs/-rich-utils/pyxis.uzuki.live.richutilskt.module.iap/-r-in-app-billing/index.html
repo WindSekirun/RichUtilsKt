@@ -2,7 +2,7 @@
 <HEAD>
 <meta charset="UTF-8">
 <title>RInAppBilling - RichUtils</title>
-<link rel="stylesheet" href="..\..\..\style.css">
+<link rel="stylesheet" href="../../../style.css">
 </HEAD>
 <BODY>
 <a href="../../index.html">RichUtils</a>&nbsp;/&nbsp;<a href="../index.html">pyxis.uzuki.live.richutilskt.module.iap</a>&nbsp;/&nbsp;<a href=".">RInAppBilling</a><br/>
@@ -14,17 +14,24 @@
 <tbody>
 <tr>
 <td>
-<p><a href="-on-in-app-billing-callback/index.html">OnInAppBillingCallback</a></p>
+<p><a href="-consume-purchase-result/index.html">ConsumePurchaseResult</a></p>
 </td>
 <td>
-<code><span class="keyword">interface </span><span class="identifier">OnInAppBillingCallback</span></code></td>
+<code><span class="keyword">interface </span><span class="identifier">ConsumePurchaseResult</span></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="-on-in-app-consume-callback/index.html">OnInAppConsumeCallback</a></p>
+<p><a href="-purchase-result/index.html">PurchaseResult</a></p>
 </td>
 <td>
-<code><span class="keyword">interface </span><span class="identifier">OnInAppConsumeCallback</span></code></td>
+<code><span class="keyword">interface </span><span class="identifier">PurchaseResult</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-query-purchase-result/index.html">QueryPurchaseResult</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">QueryPurchaseResult</span></code></td>
 </tr>
 <tr>
 <td>
@@ -64,7 +71,7 @@ purchases as verified.</p>
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">bindInAppBilling</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Should be initialized in onCreate</p>
+<p>Should be invoke in onCreate</p>
 </td>
 </tr>
 <tr>
@@ -72,7 +79,7 @@ purchases as verified.</p>
 <p><a href="consume-purchase.html">consumePurchase</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">consumePurchase</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$consumePurchase(pyxis.uzuki.live.richutilskt.module.iap.Transaction)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../-transaction/index.html"><span class="identifier">Transaction</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<code><span class="keyword">fun </span><span class="identifier">consumePurchase</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$consumePurchase(pyxis.uzuki.live.richutilskt.module.iap.Transaction, pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.ConsumePurchaseResult)/transaction">transaction</span><span class="symbol">:</span>&nbsp;<a href="../-transaction/index.html"><span class="identifier">Transaction</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$consumePurchase(pyxis.uzuki.live.richutilskt.module.iap.Transaction, pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.ConsumePurchaseResult)/callback">callback</span><span class="symbol">:</span>&nbsp;<a href="-consume-purchase-result/index.html"><span class="identifier">ConsumePurchaseResult</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
 <p>Consume specific item which consumable item</p>
 </td>
 </tr>
@@ -96,6 +103,15 @@ purchases as verified.</p>
 </tr>
 <tr>
 <td>
+<p><a href="get-purchase.html">getPurchase</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getPurchase</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$getPurchase(kotlin.String, kotlin.String, pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.QueryPurchaseResult)/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;"inapp"<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$getPurchase(kotlin.String, kotlin.String, pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.QueryPurchaseResult)/continuationToken">continuationToken</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$getPurchase(kotlin.String, kotlin.String, pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.QueryPurchaseResult)/callback">callback</span><span class="symbol">:</span>&nbsp;<a href="-query-purchase-result/index.html"><span class="identifier">QueryPurchaseResult</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>query purchased item which not consumed</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="is-valid-transaction.html">isValidTransaction</a></p>
 </td>
 <td>
@@ -109,7 +125,7 @@ purchases as verified.</p>
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">onActivityResult</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$onActivityResult(kotlin.Int, kotlin.Int, android.content.Intent)/requestCode">requestCode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$onActivityResult(kotlin.Int, kotlin.Int, android.content.Intent)/resultCode">resultCode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$onActivityResult(kotlin.Int, kotlin.Int, android.content.Intent)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Intent.html"><span class="identifier">Intent</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Purchase Result billingCallback, just pass Activity's onActivityResult.</p>
+<p>Purchase Result purchaseResult, just pass Activity's onActivityResult.</p>
 </td>
 </tr>
 <tr>
@@ -123,22 +139,11 @@ purchases as verified.</p>
 </tr>
 <tr>
 <td>
-<p><a href="set-on-in-app-billing-callback.html">setOnInAppBillingCallback</a></p>
+<p><a href="set-purchase-result.html">setPurchaseResult</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">setOnInAppBillingCallback</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$setOnInAppBillingCallback(kotlin.Function2((kotlin.Int, pyxis.uzuki.live.richutilskt.module.iap.Transaction, kotlin.Unit)))/callback">callback</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../-transaction/index.html"><span class="identifier">Transaction</span></a><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
-<code><span class="keyword">fun </span><span class="identifier">setOnInAppBillingCallback</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$setOnInAppBillingCallback(pyxis.uzuki.live.richutilskt.impl.F2((kotlin.Int, pyxis.uzuki.live.richutilskt.module.iap.Transaction)))/callback">callback</span><span class="symbol">:</span>&nbsp;<a href="../../pyxis.uzuki.live.richutilskt.impl/-f2/index.html"><span class="identifier">F2</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../-transaction/index.html"><span class="identifier">Transaction</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<code><span class="keyword">fun </span><span class="identifier">setPurchaseResult</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$setPurchaseResult(pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling.PurchaseResult)/callback">callback</span><span class="symbol">:</span>&nbsp;<a href="-purchase-result/index.html"><span class="identifier">PurchaseResult</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
 <p>Using when try to purchase un-consumable item</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="set-on-in-app-consume-callback.html">setOnInAppConsumeCallback</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">setOnInAppConsumeCallback</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$setOnInAppConsumeCallback(kotlin.Function2((kotlin.Int, pyxis.uzuki.live.richutilskt.module.iap.Transaction, kotlin.Unit)))/callback">callback</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../-transaction/index.html"><span class="identifier">Transaction</span></a><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
-<code><span class="keyword">fun </span><span class="identifier">setOnInAppConsumeCallback</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.module.iap.RInAppBilling$setOnInAppConsumeCallback(pyxis.uzuki.live.richutilskt.impl.F2((kotlin.Int, pyxis.uzuki.live.richutilskt.module.iap.Transaction)))/callback">callback</span><span class="symbol">:</span>&nbsp;<a href="../../pyxis.uzuki.live.richutilskt.impl/-f2/index.html"><span class="identifier">F2</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="../-transaction/index.html"><span class="identifier">Transaction</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Using when try to purchase consumable item, within using AppBillingUtils.setOnInAppBillingCallback(OnInAppBillingCallback)</p>
 </td>
 </tr>
 <tr>
@@ -147,7 +152,7 @@ purchases as verified.</p>
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">unBindInAppBilling</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Should be initialized in onDestroy</p>
+<p>Should be invoke in onDestroy</p>
 </td>
 </tr>
 </tbody>
@@ -161,6 +166,13 @@ purchases as verified.</p>
 </td>
 <td>
 <code><span class="keyword">val </span><span class="identifier">PURCHASE_FAILED_INVALID</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-p-u-r-c-h-a-s-e_-f-a-i-l-e-d_-t-o_-g-e-t_-e-m-p-t-y.html">PURCHASE_FAILED_TO_GET_EMPTY</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">PURCHASE_FAILED_TO_GET_EMPTY</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
 </tr>
 <tr>
 <td>

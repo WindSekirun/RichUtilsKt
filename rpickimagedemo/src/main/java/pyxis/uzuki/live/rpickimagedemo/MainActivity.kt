@@ -1,6 +1,7 @@
 package pyxis.uzuki.live.rpickimagedemo
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -15,10 +16,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnSelect.setOnClickListener {
-            RPickMedia.instance.pickFromGallery(this, { code, path ->
+            RPickMedia.instance.pickFromCamera(this, { code, path ->
                 txtPath.text = "code: $code, path: $path"
                 Glide.with(this).load(path).into(imgPicture)
             })
+        }
+
+        btnTest.setOnClickListener {
+            startActivity(Intent(this, JavaActivity::class.java))
         }
     }
 }

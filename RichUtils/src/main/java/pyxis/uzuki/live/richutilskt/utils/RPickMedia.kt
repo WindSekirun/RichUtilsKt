@@ -10,6 +10,7 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
@@ -127,7 +128,7 @@ class RPickMedia private constructor() {
      *
      * @param[callback] callback
      */
-    fun pickFromVideo(context: Context, callback: (Int, String) -> Unit)  {
+    fun pickFromVideo(context: Context, callback: (Int, String) -> Unit) {
         context.requestPermission {
             if (!it) {
                 callback.invoke(PICK_FAILED, "")
