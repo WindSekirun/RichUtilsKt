@@ -102,6 +102,7 @@ dependencies {
 #### Module
 * [RInAppBilling](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/iap/RInAppBilling.kt)
 * [CrashHandler](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/crash/CrashHandler.kt)
+* [ActivityReference](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/module/reference/ActivityReference.kt)
 
 ### License 
 ```
