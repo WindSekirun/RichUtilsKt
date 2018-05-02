@@ -5,14 +5,15 @@ package pyxis.uzuki.live.richutilskt.utils
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.Fragment
-import android.app.FragmentManager
 import android.content.ContentValues
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
+import android.support.v4.app.FragmentManager
 import pyxis.uzuki.live.richutilskt.impl.F2
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,11 +24,11 @@ class RPickMedia private constructor() {
     private val PERMISSION_ARRAY = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
 
-    private fun getActivity(context: Context): Activity? {
+    private fun getActivity(context: Context): FragmentActivity? {
         var c = context
 
         while (c is ContextWrapper) {
-            if (c is Activity) {
+            if (c is FragmentActivity) {
                 return c
             }
             c = c.baseContext
@@ -191,7 +192,7 @@ class RPickMedia private constructor() {
     @SuppressLint("ValidFragment")
     private fun requestPhotoPick(context: Context, pickType: Int, callback: (Int, String) -> Unit) {
 
-        val fm = getActivity(context)?.fragmentManager
+        val fm = getActivity(context)?.supportFragmentManager
 
         val intent = Intent()
 
@@ -264,28 +265,28 @@ class RPickMedia private constructor() {
             when (requestCode) {
                 PICK_FROM_CAMERA ->
                     if (resultCode == Activity.RESULT_OK) {
-                        currentPhotoPath.let { callback?.invoke(PICK_SUCCESS, Uri.parse(it) getRealPath (activity)) }
+                        currentPhotoPath.let { callback?.invoke(PICK_SUCCESS, Uri.parse(it) getRealPath (context!!)) }
                     } else {
                         callback?.invoke(PICK_FAILED, "")
                     }
 
                 PICK_FROM_GALLERY ->
                     if (resultCode == Activity.RESULT_OK) {
-                        callback?.invoke(PICK_SUCCESS, data?.data?.getRealPath((activity)) as String)
+                        callback?.invoke(PICK_SUCCESS, data?.data?.getRealPath(context!!) as String)
                     } else {
                         callback?.invoke(PICK_FAILED, "")
                     }
 
                 PICK_FROM_VIDEO ->
                     if (resultCode == Activity.RESULT_OK) {
-                        callback?.invoke(PICK_SUCCESS, data?.data?.getRealPath((activity)) as String)
+                        callback?.invoke(PICK_SUCCESS, data?.data?.getRealPath(context!!) as String)
                     } else {
                         callback?.invoke(PICK_FAILED, "")
                     }
 
                 PICK_FROM_CAMERA_VIDEO ->
                     if (resultCode == Activity.RESULT_OK) {
-                        var path = data?.data?.getRealPath(activity) as String
+                        var path = data?.data?.getRealPath(context!!) as String
                         if (path.isEmpty()) {
                             path = currentVideoPath
                         }
