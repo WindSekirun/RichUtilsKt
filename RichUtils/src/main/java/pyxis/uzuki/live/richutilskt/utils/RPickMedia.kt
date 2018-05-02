@@ -19,7 +19,7 @@ import pyxis.uzuki.live.richutilskt.impl.F2
 import java.text.SimpleDateFormat
 import java.util.*
 
-class RPickMedia private constructor(private val bundle: Bundle = Bundle()) {
+class RPickMedia private constructor() {
     private var IMAGE_CONTENT_URL = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
     private var VIDEO_CONTENT_URL = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
     private val PERMISSION_ARRAY = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -221,10 +221,6 @@ class RPickMedia private constructor(private val bundle: Bundle = Bundle()) {
                 currentVideoPath = captureUri.toString()
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, captureUri)
             }
-        }
-
-        if (!bundle.isEmpty) {
-            intent.putExtras(bundle)
         }
 
         val fragment = ResultFragment(fm as FragmentManager, callback, currentPhotoPath ?: "", currentVideoPath ?: "")
