@@ -109,6 +109,8 @@ $dokka.location:pyxis.uzuki.live.richutilskt.utils$parseDate(kotlin.String, kotl
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$powerManager#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/power-manager.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$printManager#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/print-manager.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$progress(android.content.Context, kotlin.String, kotlin.Boolean, kotlin.String)pyxis.uzuki.live.richutilskt.utils/android.content.-context/progress.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$put(android.os.Bundle, kotlin.String, kotlin.Any)pyxis.uzuki.live.richutilskt.utils/android.os.-bundle/put.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$put(android.os.Bundle, kotlin.collections.Map((kotlin.String, kotlin.Any)))pyxis.uzuki.live.richutilskt.utils/android.os.-bundle/put.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$px2dip(android.content.Context, kotlin.Int)pyxis.uzuki.live.richutilskt.utils/android.content.-context/px2dip.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$px2sp(android.content.Context, kotlin.Int)pyxis.uzuki.live.richutilskt.utils/android.content.-context/px2sp.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$readFile(java.io.File)pyxis.uzuki.live.richutilskt.utils/java.io.-file/read-file.html
@@ -135,6 +137,7 @@ $dokka.location:pyxis.uzuki.live.richutilskt.utils$textServicesManager#android.c
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$toDateString(kotlin.String, kotlin.String, kotlin.String)pyxis.uzuki.live.richutilskt.utils/kotlin.-string/to-date-string.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$toFile(kotlin.String)pyxis.uzuki.live.richutilskt.utils/kotlin.-string/to-file.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$toList(org.json.JSONArray)pyxis.uzuki.live.richutilskt.utils/org.json.-j-s-o-n-array/to-list.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$toMap(android.os.Bundle)pyxis.uzuki.live.richutilskt.utils/android.os.-bundle/to-map.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$toNumInUnits(kotlin.Long)pyxis.uzuki.live.richutilskt.utils/kotlin.-long/to-num-in-units.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$toRoundCorner(android.graphics.Bitmap, kotlin.Float)pyxis.uzuki.live.richutilskt.utils/android.graphics.-bitmap/to-round-corner.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$toast(android.content.Context, kotlin.Int, kotlin.Int)pyxis.uzuki.live.richutilskt.utils/android.content.-context/toast.html

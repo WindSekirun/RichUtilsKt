@@ -16,6 +16,11 @@ It provides...
 * KDoc(Kotlin Document) written in [Dokka](https://github.com/Kotlin/dokka), Documentation Engine for Kotlin. https://windsekirun.github.io/RichUtilsKt/-rich-utils/index.html
 * **100% Java Interop Library**, it can use with Java within Kotlin-plugin integrated project
 
+#### Important changes 2.0.0 -> 2.1.0
+* minSdkVersion will increase 16 (Android 4.1) from 14 (Android 4.0)
+* targetSdkVersion will increase 27 (Android 8.1) from 26 (Android 8.0)
+* Having 'appcompat-v7:27.1.1' as Dependency
+
 ### Usages
 *rootProject/build.gradle*
 ```	

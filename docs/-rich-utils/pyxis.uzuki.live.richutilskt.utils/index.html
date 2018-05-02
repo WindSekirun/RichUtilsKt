@@ -2,7 +2,7 @@
 <HEAD>
 <meta charset="UTF-8">
 <title>pyxis.uzuki.live.richutilskt.utils - RichUtils</title>
-<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="..\..\style.css">
 </HEAD>
 <BODY>
 <a href="../index.html">RichUtils</a>&nbsp;/&nbsp;<a href=".">pyxis.uzuki.live.richutilskt.utils</a><br/>
@@ -24,13 +24,6 @@
 </td>
 <td>
 <code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Intensity</span></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="-r-hint-spinner/index.html">RHintSpinner</a></p>
-</td>
-<td>
-<code><span class="keyword">class </span><span class="identifier">RHintSpinner</span></code></td>
 </tr>
 <tr>
 <td>
@@ -116,6 +109,13 @@
 </tr>
 <tr>
 <td>
+<p><a href="android.os.-bundle/index.html">android.os.Bundle</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="android.view.-view-group/index.html">android.view.ViewGroup</a></p>
 </td>
 <td>
@@ -191,59 +191,22 @@
 <tbody>
 <tr>
 <td>
-<p><a href="bitmap-to-drawable.html">bitmapToDrawable</a></p>
+<p><a href="any-contains-string.html">anyContainsString</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">bitmapToDrawable</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$bitmapToDrawable(android.graphics.Bitmap)/bitmap">bitmap</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/graphics/drawable/Drawable.html"><span class="identifier">Drawable</span></a></code>
-<p>Bitmap to Drawable</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="copy-assets.html">copyAssets</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">copyAssets</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$copyAssets(kotlin.String)/path">path</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Assets to Internal Storage</p>
+<code><span class="keyword">fun </span><span class="identifier">anyContainsString</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$anyContainsString(kotlin.String, kotlin.Array((kotlin.String)))/inputStr">inputStr</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$anyContainsString(kotlin.String, kotlin.Array((kotlin.String)))/items">items</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">anyContainsString</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$anyContainsString(kotlin.String, kotlin.collections.List((kotlin.String)))/inputStr">inputStr</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$anyContainsString(kotlin.String, kotlin.collections.List((kotlin.String)))/items">items</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Returns <code>true</code> if at least one element matches condition of contains string</p>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="copy-text.html">copyText</a></p>
+<p><a href="any-match-regex.html">anyMatchRegex</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">copyText</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$copyText(kotlin.CharSequence)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html"><span class="identifier">CharSequence</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>copy text to clipboard</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="create-notification-channel.html">createNotificationChannel</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">createNotificationChannel</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$createNotificationChannel(kotlin.String, kotlin.String, kotlin.String, kotlin.Int)/id">id</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$createNotificationChannel(kotlin.String, kotlin.String, kotlin.String, kotlin.Int)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$createNotificationChannel(kotlin.String, kotlin.String, kotlin.String, kotlin.Int)/description">description</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$createNotificationChannel(kotlin.String, kotlin.String, kotlin.String, kotlin.Int)/importance">importance</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;NotificationManager.IMPORTANCE_LOW<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
-<p>create Notification Channel for Android Oreo and above.
-every options is optional, if you doesn't matter whatever value,
-leave them no parameters.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="dimen.html">dimen</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">dimen</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$dimen(kotlin.Int)/resource">resource</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
-<p>get pixel size from DimenRes</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="dip2px.html">dip2px</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">dip2px</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$dip2px(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code><br/>
-<code><span class="keyword">fun </span><span class="identifier">dip2px</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$dip2px(kotlin.Float)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
-<p>convert dip to px</p>
+<code><span class="keyword">fun </span><span class="identifier">anyMatchRegex</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$anyMatchRegex(kotlin.String, kotlin.Array((kotlin.String)))/regex">regex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$anyMatchRegex(kotlin.String, kotlin.Array((kotlin.String)))/items">items</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">anyMatchRegex</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$anyMatchRegex(kotlin.String, kotlin.collections.List((kotlin.String)))/regex">regex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$anyMatchRegex(kotlin.String, kotlin.collections.List((kotlin.String)))/items">items</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Returns <code>true</code> if at least one element matches condition of matches regex</p>
 </td>
 </tr>
 <tr>
@@ -285,42 +248,6 @@ leave them no parameters.</p>
 </tr>
 <tr>
 <td>
-<p><a href="get-android-id.html">getAndroidId</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">getAndroidId</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
-<p>get androidId of device</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="get-image-height.html">getImageHeight</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">getImageHeight</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getImageHeight(kotlin.Int)/resId">resId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
-<p>get Height of Image which given Drawable Resources</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="get-image-mime-type.html">getImageMimeType</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">getImageMimeType</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getImageMimeType(kotlin.Int)/resId">resId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
-<p>get MimeType of Image which given Drawable Resources</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="get-image-width.html">getImageWidth</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">getImageWidth</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getImageWidth(kotlin.Int)/resId">resId</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
-<p>get Width of Image which given Drawable Resources</p>
-</td>
-</tr>
-<tr>
-<td>
 <p><a href="get-j-s-o-n-array.html">getJSONArray</a></p>
 </td>
 <td>
@@ -343,11 +270,11 @@ leave them no parameters.</p>
 </tr>
 <tr>
 <td>
-<p><a href="get-key-hash.html">getKeyHash</a></p>
+<p><a href="get-photo-height.html">getPhotoHeight</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">getKeyHash</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
-<p>get key hash of application</p>
+<code><span class="keyword">fun </span><span class="identifier">getPhotoHeight</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getPhotoHeight(kotlin.String)/filePath">filePath</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>get height of photo from ExifInterface</p>
 </td>
 </tr>
 <tr>
@@ -361,11 +288,11 @@ leave them no parameters.</p>
 </tr>
 <tr>
 <td>
-<p><a href="get-text-from-clipboard.html">getTextFromClipboard</a></p>
+<p><a href="get-photo-width.html">getPhotoWidth</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">getTextFromClipboard</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
-<p>get text of clipboard list</p>
+<code><span class="keyword">fun </span><span class="identifier">getPhotoWidth</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getPhotoWidth(kotlin.String)/filePath">filePath</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>get width of photo from ExifInterface</p>
 </td>
 </tr>
 <tr>
@@ -392,15 +319,6 @@ Normal Way, just use getVibratorPattern(Intensity, long) for easy work.</p>
 </tr>
 <tr>
 <td>
-<p><a href="is-connected.html">isConnected</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">isConnected</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
-<p>get state of connected</p>
-</td>
-</tr>
-<tr>
-<td>
 <p><a href="is-media-uri.html">isMediaUri</a></p>
 </td>
 <td>
@@ -410,60 +328,17 @@ Normal Way, just use getVibratorPattern(Intensity, long) for easy work.</p>
 </tr>
 <tr>
 <td>
-<p><a href="is-mobile-connected.html">isMobileConnected</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">isMobileConnected</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
-<p>get Mobile connection check</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="is-not-connected.html">isNotConnected</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">isNotConnected</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
-<p>get state of not connected</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="is-wifi-connected.html">isWifiConnected</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">isWifiConnected</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
-<p>get Wifi connection check</p>
-</td>
-</tr>
-<tr>
-<td>
 <p><a href="put.html">put</a></p>
 </td>
 <td>
+<code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(kotlin.collections.Map((kotlin.String, kotlin.Any)))/map">map</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/os/Bundle.html"><span class="identifier">Bundle</span></a></code>
+<p>return Bundle which contain contents of Map&lt;String, Any&gt;</p>
 <code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONObject, kotlin.String, kotlin.Any)/jsonObject">jsonObject</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/org/json/JSONObject.html"><span class="identifier">JSONObject</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONObject, kotlin.String, kotlin.Any)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONObject, kotlin.String, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/org/json/JSONObject.html"><span class="identifier">JSONObject</span></a><span class="symbol">?</span></code>
 <p>put value to JSONObject</p>
 <code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONArray, kotlin.Int, kotlin.Any)/jsonArray">jsonArray</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/org/json/JSONArray.html"><span class="identifier">JSONArray</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONArray, kotlin.Int, kotlin.Any)/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONArray, kotlin.Int, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/org/json/JSONArray.html"><span class="identifier">JSONArray</span></a><span class="symbol">?</span></code>
 <p>put value to JSONArray</p>
 <code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONArray, kotlin.Any)/jsonArray">jsonArray</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/org/json/JSONArray.html"><span class="identifier">JSONArray</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONArray, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/org/json/JSONArray.html"><span class="identifier">JSONArray</span></a><span class="symbol">?</span></code>
 <p>put value to JSONArray without ordering</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="px2dip.html">px2dip</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">px2dip</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$px2dip(kotlin.Int)/px">px</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a></code>
-<p>convert px to dip</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="px2sp.html">px2sp</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">px2sp</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$px2sp(kotlin.Int)/px">px</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a></code>
-<p>convert px to sp</p>
 </td>
 </tr>
 <tr>
@@ -531,16 +406,6 @@ this will help in multi-threading working</p>
 </tr>
 <tr>
 <td>
-<p><a href="sp2px.html">sp2px</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">sp2px</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$sp2px(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code><br/>
-<code><span class="keyword">fun </span><span class="identifier">sp2px</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$sp2px(kotlin.Float)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
-<p>convert sp to px</p>
-</td>
-</tr>
-<tr>
-<td>
 <p><a href="to-num-format.html">toNumFormat</a></p>
 </td>
 <td>
@@ -553,36 +418,8 @@ this will help in multi-threading working</p>
 <p><a href="try-catch.html">tryCatch</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">, </span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">tryCatch</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$tryCatch(pyxis.uzuki.live.richutilskt.utils.tryCatch.T, kotlin.Function1((pyxis.uzuki.live.richutilskt.utils.tryCatch.T, pyxis.uzuki.live.richutilskt.utils.tryCatch.R)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">R</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="version-code.html">versionCode</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">versionCode</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
-<p>get version code of this application</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="version-name.html">versionName</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">versionName</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
-<p>get version name of this application</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="vibrate.html">vibrate</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">vibrate</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$vibrate(kotlin.Long)/millSec">millSec</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code><br/>
-<code><span class="keyword">fun </span><span class="identifier">vibrate</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$vibrate(kotlin.LongArray, kotlin.Int)/pattern">pattern</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long-array/index.html"><span class="identifier">LongArray</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$vibrate(kotlin.LongArray, kotlin.Int)/repeat">repeat</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;-1<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Vibrate
-need VIBRATE permission</p>
-</td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">, </span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">tryCatch</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$tryCatch(pyxis.uzuki.live.richutilskt.utils.tryCatch.T, kotlin.Function1((pyxis.uzuki.live.richutilskt.utils.tryCatch.T, pyxis.uzuki.live.richutilskt.utils.tryCatch.R)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">R</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">R</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">tryCatch</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$tryCatch(pyxis.uzuki.live.richutilskt.impl.F0)/block">block</span><span class="symbol">:</span>&nbsp;<a href="../pyxis.uzuki.live.richutilskt.impl/-f0/index.html"><span class="identifier">F0</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>
 </table>
