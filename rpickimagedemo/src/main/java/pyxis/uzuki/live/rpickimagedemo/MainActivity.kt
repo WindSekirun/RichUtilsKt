@@ -1,6 +1,7 @@
 package pyxis.uzuki.live.rpickimagedemo
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -19,6 +20,10 @@ class MainActivity : AppCompatActivity() {
                 txtPath.text = "code: $code, path: $path"
                 Glide.with(this).load(path).into(imgPicture)
             })
+        }
+
+        btnTest.setOnClickListener {
+            startActivity(Intent(this, JavaActivity::class.java))
         }
     }
 }

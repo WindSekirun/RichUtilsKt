@@ -1,7 +1,6 @@
 package pyxis.uzuki.live.richutilskt.demo
 
 import android.app.Application
-import pyxis.uzuki.live.richutilskt.RichUtilsGlobal
 import pyxis.uzuki.live.richutilskt.module.crash.CrashCollector
 
 /**
@@ -17,6 +16,5 @@ class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         CrashCollector.initCrashCollector(this)
-        RichUtilsGlobal.initializeApplication(this)
     }
 }
