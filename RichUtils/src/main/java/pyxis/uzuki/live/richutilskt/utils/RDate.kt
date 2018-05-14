@@ -13,7 +13,8 @@ import java.util.*
  * @param[format] optional. default is yyyy-MM-dd HH:mm:ss (2017-06-02 19:20:00)
  * @return Formatted Date
  */
-@JvmOverloads fun Date.asDateString(format: String? = "yyyy-MM-dd HH:mm:ss"): String = SimpleDateFormat(format, Locale.getDefault()).format(this)
+@JvmOverloads
+fun Date.asDateString(format: String? = "yyyy-MM-dd HH:mm:ss"): String = SimpleDateFormat(format, Locale.getDefault()).format(this)
 
 /**
  * get readable string of given timestamp.
@@ -21,19 +22,29 @@ import java.util.*
  * @param[format] optional. default is yyyy-MM-dd HH:mm:ss (2017-06-02 19:20:00)
  * @return Formatted Date
  */
-@JvmOverloads fun Long.asDateString(format: String? = "yyyy-MM-dd HH:mm:ss"): String = Date(this).asDateString(format)
+@JvmOverloads
+fun Long.asDateString(format: String? = "yyyy-MM-dd HH:mm:ss"): String = Date(this).asDateString(format)
 
 /**
  * parsing date from String
  *
  * @param[format] optional. default is yyyy-MM-dd HH:mm:ss (2017-06-02 19:20:00)
  * @return Date object, Nullable
-*/
-@JvmOverloads fun String.parseDate(format: String? = "yyyy-MM-dd HH:mm:ss"): Date? = try {
+ */
+@JvmOverloads
+fun String.parseDate(format: String? = "yyyy-MM-dd HH:mm:ss"): Date? = try {
     SimpleDateFormat(format, Locale.getDefault()).parse(this)
 } catch (e: Exception) {
     null
 }
+
+/**
+ * generate Date String in currentTImeMillis
+ *
+ * @param[format] optional. default is yyyy-MM-dd HH:mm:ss (2017-06-02 19:20:00)
+ */
+@JvmOverloads
+fun nowDateString(format: String? = "yyyy-MM-dd HH:mm:ss") = System.currentTimeMillis().asDateString(format)
 
 /**
  * format formatted date to another formatted date

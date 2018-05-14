@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Build
 import pyxis.uzuki.live.richutilskt.module.crash.item.LogLevel
 import pyxis.uzuki.live.richutilskt.module.crash.item.RichCrashModel
-import pyxis.uzuki.live.richutilskt.utils.asDateString
+import pyxis.uzuki.live.richutilskt.utils.nowDateString
 import pyxis.uzuki.live.richutilskt.utils.tryCatch
 import java.io.File
 import java.util.*
@@ -22,7 +22,7 @@ internal class CrashHandler private constructor(private val crashConfig: CrashCo
     private lateinit var richCrashModel: RichCrashModel
 
     private val fileName: String
-        get() = "crash_$timeForPrint.md"
+        get() = "crash_${nowDateString()}.md"
 
     private val lineBreak: String
         get() = System.getProperty("line.separator")
@@ -158,8 +158,5 @@ internal class CrashHandler private constructor(private val crashConfig: CrashCo
 
             return instance as CrashHandler
         }
-
-        private val timeForPrint: String
-            get() = System.currentTimeMillis().asDateString("yyyyMMddHHmmss")
     }
 }

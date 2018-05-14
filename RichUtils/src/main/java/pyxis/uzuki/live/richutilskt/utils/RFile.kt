@@ -8,6 +8,7 @@ import android.content.ContentUris
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
@@ -19,6 +20,7 @@ import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
 import java.nio.charset.Charset
+
 
 /**
  * Download file from uri
@@ -117,24 +119,10 @@ private fun getDataColumn(context: Context, uri: Uri?, selection: String?, selec
  */
 @TargetApi(Build.VERSION_CODES.KITKAT)
 infix fun Uri.getRealPath(context: Context): String {
-    val isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
-
-    if (cloudAuthorityProvider.containsIgnoreCase(authority)) {
-        return getImageUrlWithAuthority(context, this) ?: ""
-    }
-
-    if (isKitKat && DocumentsContract.isDocumentUri(context, this)) {
-        return checkAuthority(context)
-    }
-
-    if (this.scheme.equals("content", ignoreCase = true)) {
-        return getDataColumn(context, this, null, null)
-    }
-
-    if (this.scheme.equals("file", ignoreCase = true)) {
-        return this.path
-    }
-
+    if (cloudAuthorityProvider.containsIgnoreCase(authority)) return getImageUrlWithAuthority(context, this) ?: ""
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DocumentsContract.isDocumentUri(context, this)) return checkAuthority(context)
+    if (this.scheme.equals("content", ignoreCase = true)) return getDataColumn(context, this, null, null)
+    if (this.scheme.equals("file", ignoreCase = true)) return this.path
     return this.path
 }
 
@@ -150,18 +138,29 @@ private fun getImageUrlWithAuthority(context: Context, uri: Uri): String? {
     uri.tryCatch {
         val inputStream = context.contentResolver.openInputStream(uri)
         val bmp = BitmapFactory.decodeStream(inputStream)
-        val url = bmp.writeImageIntoMediaStore(context)
-        inputStream.close()
+        val url = insertImage(context, bmp)
+        val path = getDataColumn(context, url, null, null)
+        val orientation = getOrientation(context, uri)
+        val exifInterface = ExifInterface(path)
+        exifInterface.setAttribute(ExifInterface.TAG_ORIENTATION, orientation.toString())
+        exifInterface.saveAttributes()
 
-        return getDataColumn(context, url, null, null)
+        inputStream.close()
+        return path
     }
 }
 
-private fun Bitmap.writeImageIntoMediaStore(inContext: Context): Uri {
-    val bytes = ByteArrayOutputStream()
-    this.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-    val path = MediaStore.Images.Media.insertImage(inContext.contentResolver, this, System.currentTimeMillis().asDateString(), null)
-    return Uri.parse(path)
+private fun getOrientation(context: Context, uri: Uri): Int {
+    var orientation = 0
+    uri.tryCatch {
+        val cursor = context.contentResolver.query(uri, arrayOf(MediaStore.Images.ImageColumns.ORIENTATION),
+                null, null, null)
+        cursor?.use {
+            orientation = if (!cursor.moveToFirst()) 0 else cursor.getInt(0)
+        }
+    }
+
+    return orientation
 }
 
 private fun Uri.checkAuthority(context: Context): String {
@@ -172,8 +171,7 @@ private fun Uri.checkAuthority(context: Context): String {
 
         val type = split[0]
 
-        if ("primary".equals(type, ignoreCase = true))
-            return Environment.getExternalStorageDirectory().toString() + "/" + split[1]
+        if ("primary".equals(type, ignoreCase = true)) return Environment.getExternalStorageDirectory().toString() + "/" + split[1]
 
     } else if ("com.android.providers.downloads.documents" == this.authority) {
         return getDataColumn(context, ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), docId.toLong()), null, null)

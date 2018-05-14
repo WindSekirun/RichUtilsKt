@@ -5,23 +5,18 @@ package pyxis.uzuki.live.richutilskt.utils
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.ContentValues
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
 import android.net.Uri
-import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
 import pyxis.uzuki.live.richutilskt.impl.F2
-import java.text.SimpleDateFormat
-import java.util.*
 
 class RPickMedia private constructor() {
-    private var IMAGE_CONTENT_URL = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-    private var VIDEO_CONTENT_URL = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+    private var mInternalStorage: Boolean = false;
     private val PERMISSION_ARRAY = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
 
@@ -49,13 +44,7 @@ class RPickMedia private constructor() {
      * @param [isInternal] capture Image/Video in internal storage
      */
     fun setInternalStorage(isInternal: Boolean) {
-        if (isInternal) {
-            IMAGE_CONTENT_URL = MediaStore.Images.Media.INTERNAL_CONTENT_URI
-            VIDEO_CONTENT_URL = MediaStore.Video.Media.INTERNAL_CONTENT_URI
-        } else {
-            IMAGE_CONTENT_URL = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            VIDEO_CONTENT_URL = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-        }
+        mInternalStorage = isInternal
     }
 
     /**
@@ -200,7 +189,7 @@ class RPickMedia private constructor() {
         when (pickType) {
             PICK_FROM_CAMERA -> {
                 intent.action = MediaStore.ACTION_IMAGE_CAPTURE
-                val captureUri = createImageUri(context)
+                val captureUri = createUri(context, false, mInternalStorage)
                 currentPhotoPath = captureUri.toString()
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, captureUri)
             }
@@ -217,34 +206,19 @@ class RPickMedia private constructor() {
 
             PICK_FROM_CAMERA_VIDEO -> {
                 intent.action = MediaStore.ACTION_VIDEO_CAPTURE
-                val captureUri = createVideoUri(context)
+                val captureUri = createUri(context, true, mInternalStorage)
                 currentVideoPath = captureUri.toString()
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, captureUri)
             }
         }
 
-        val fragment = ResultFragment(fm as FragmentManager, callback, currentPhotoPath ?: "", currentVideoPath ?: "")
+        val fragment = ResultFragment(fm as FragmentManager, callback, currentPhotoPath
+                ?: "", currentVideoPath ?: "")
 
         fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commitAllowingStateLoss()
         fm.executePendingTransactions()
 
         fragment.startActivityForResult(intent, pickType)
-    }
-
-    private fun createImageUri(context: Context): Uri {
-        val contentResolver = context.contentResolver
-        val cv = ContentValues()
-        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-        cv.put(MediaStore.Images.Media.TITLE, timeStamp)
-        return contentResolver.insert(IMAGE_CONTENT_URL, cv)
-    }
-
-    private fun createVideoUri(context: Context): Uri {
-        val contentResolver = context.contentResolver
-        val cv = ContentValues()
-        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-        cv.put(MediaStore.Images.Media.TITLE, timeStamp)
-        return contentResolver.insert(VIDEO_CONTENT_URL, cv)
     }
 
     @SuppressLint("ValidFragment")
@@ -263,43 +237,39 @@ class RPickMedia private constructor() {
 
         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
             super.onActivityResult(requestCode, resultCode, data)
-            when (requestCode) {
-                PICK_FROM_CAMERA ->
-                    if (resultCode == Activity.RESULT_OK) {
-                        currentPhotoPath.let { callback?.invoke(PICK_SUCCESS, Uri.parse(it) getRealPath (context!!)) }
-                    } else {
-                        callback?.invoke(PICK_FAILED, "")
-                    }
-
-                PICK_FROM_GALLERY ->
-                    if (resultCode == Activity.RESULT_OK) {
-                        callback?.invoke(PICK_SUCCESS, data?.data?.getRealPath(context!!) as String)
-                    } else {
-                        callback?.invoke(PICK_FAILED, "")
-                    }
-
-                PICK_FROM_VIDEO ->
-                    if (resultCode == Activity.RESULT_OK) {
-                        callback?.invoke(PICK_SUCCESS, data?.data?.getRealPath(context!!) as String)
-                    } else {
-                        callback?.invoke(PICK_FAILED, "")
-                    }
-
-                PICK_FROM_CAMERA_VIDEO ->
-                    if (resultCode == Activity.RESULT_OK) {
-                        var path = data?.data?.getRealPath(context!!) as String
-                        if (path.isEmpty()) {
-                            path = currentVideoPath
-                        }
-
-                        path.let {
-                            callback?.invoke(PICK_SUCCESS, path)
-                        }
-                    } else {
-                        callback?.invoke(PICK_FAILED, "")
-                    }
+            if (callback == null) {
+                return
             }
 
+            val callback = callback!! // implicit cast to non-null cause checking pre-processing
+
+            if (resultCode != Activity.RESULT_OK || context == null) {
+                callback.invoke(PICK_FAILED, "")
+                return
+            }
+
+            val context = context!! // implicit cast to non-null cause checking pre-processing
+            var realPath: String? = ""
+
+            if (requestCode == PICK_FROM_CAMERA) {
+                realPath = Uri.parse(currentPhotoPath) getRealPath context
+            } else if (requestCode == PICK_FROM_CAMERA_VIDEO && data != null && data.data != null) {
+                realPath = data.data.getRealPath(context)
+                if (realPath.isEmpty()) {
+                    realPath = Uri.parse(currentVideoPath) getRealPath context
+                }
+            } else if (requestCode == PICK_FROM_CAMERA_VIDEO) {
+                realPath = Uri.parse(currentVideoPath) getRealPath context
+            } else if (data != null && data.data != null) {
+                realPath = data.data.getRealPath(context)
+            }
+
+            if (realPath?.isEmpty() != false) {
+                callback.invoke(PICK_FAILED, "")
+                return
+            }
+
+            callback.invoke(PICK_SUCCESS, realPath)
             fm?.beginTransaction()?.remove(this)?.commit()
         }
     }

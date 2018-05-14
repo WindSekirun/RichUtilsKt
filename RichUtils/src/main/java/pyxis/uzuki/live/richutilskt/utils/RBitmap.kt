@@ -12,7 +12,6 @@ import android.net.Uri
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
-import java.util.*
 
 
 /**
@@ -47,9 +46,7 @@ fun Bitmap.toRoundCorner(radius: Float): Bitmap? {
  */
 fun Context.saveBitmapToFile(bitmap: Bitmap): File? {
     val file = getOutputMediaFile()
-    file.outputStream().use {
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
-    }
+    file.saveBitmapToFile(bitmap)
     return file
 }
 
@@ -64,7 +61,7 @@ fun File.saveBitmapToFile(bitmap: Bitmap): File? {
 }
 
 private fun Context.getOutputMediaFile(): File {
-    val picName = UUID.randomUUID().toString().replace("-".toRegex(), "") + ".jpg"
+    val picName = nowDateString() + ".jpg"
 
     val folder = this.getExternalFilesDir(null)
     if (!folder.isDirectory) {
@@ -129,7 +126,6 @@ fun downloadBitmap(imageUrl: String): Bitmap? {
     return bitmap
 }
 
-
 /**
  * Resizing image
  *
@@ -167,12 +163,9 @@ private fun calculateResizeMode(width: Int, height: Int): ResizeMode =
             ResizeMode.FIT_TO_HEIGHT
         }
 
-private fun calculateWidth(originalWidth: Int, originalHeight: Int, height: Int): Int
-        = Math.ceil(originalWidth / (originalHeight.toDouble() / height)).toInt()
+private fun calculateWidth(originalWidth: Int, originalHeight: Int, height: Int): Int = Math.ceil(originalWidth / (originalHeight.toDouble() / height)).toInt()
 
-
-private fun calculateHeight(originalWidth: Int, originalHeight: Int, width: Int): Int
-        = Math.ceil(originalHeight / (originalWidth.toDouble() / width)).toInt()
+private fun calculateHeight(originalWidth: Int, originalHeight: Int, width: Int): Int = Math.ceil(originalHeight / (originalWidth.toDouble() / width)).toInt()
 
 enum class ResizeMode {
     AUTOMATIC, FIT_TO_WIDTH, FIT_TO_HEIGHT, FIT_EXACT
@@ -185,5 +178,4 @@ private enum class ImageOrientation {
         fun getOrientation(width: Int, height: Int): ImageOrientation =
                 if (width >= height) ImageOrientation.LANDSCAPE else ImageOrientation.PORTRAIT
     }
-
 }
