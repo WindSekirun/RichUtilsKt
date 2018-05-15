@@ -126,7 +126,7 @@ infix fun Uri.getRealPath(context: Context): String {
     return this.path
 }
 
-private fun List<String>.containsIgnoreCase(item: String): Boolean {
+private fun List<String>.containsIgnoreCase(item: String?): Boolean {
     return this.map { it.equals(item, true) }.any { true }
 }
 
