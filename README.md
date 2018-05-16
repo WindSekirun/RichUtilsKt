@@ -97,6 +97,10 @@ dependencies {
 * [CombinedCheckBox](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedCheckBox.kt)
 * [CombinedRadioButton](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/CombinedRadioButton.kt)
 * [HTMLTextView](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/HTMLTextView.kt)
+* [RatioLinearLayout](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/ratio/RatioLinearLayout.kt)
+* [RatioFrameLayout](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/ratio/RatioFrameLayout.kt)
+* [RatioRelativeLayout](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/ratio/RatioRelativeLayout.kt)
+* [RatioView](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/widget/ratio/RatioView.kt)
 
 #### Service
 * [RLocationService](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/service/RLocationService.kt)
