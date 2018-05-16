@@ -6,7 +6,6 @@ package pyxis.uzuki.live.richutilskt.utils
 import android.app.ActivityManager
 import android.content.Context
 
-
 /**
  * get boolean value for whatever application process is running
  *
