@@ -27,7 +27,7 @@ object PrintMethodList {
         for (method in methods) {
             if (method.name.contains("\$default")) continue
             if (method.name.contains("hashCode")) continue
-            if (method.name.contains("getClaass")) continue
+            if (method.name.contains("getClass")) continue
             if (method.name.contains("equals")) continue
             if (method.name.contains("notify")) continue
             if (method.name.contains("toString")) continue

@@ -85,6 +85,15 @@ fun File.readFile(): String = this.readText(Charset.defaultCharset())
 fun String.isExistReadFile() = File(this).exists() && File(this).canRead()
 
 /**
+ * get extensions of given file path
+ */
+fun String.getFileExtension(): String {
+    val lastPoi = this.lastIndexOf('.')
+    val lastSep = this.lastIndexOf(File.separator)
+    return if (lastPoi == -1 || lastSep >= lastPoi) "" else this.substring(lastPoi + 1)
+}
+
+/**
  * Get the value of the data column for this Uri. This is useful for
  * MediaStore Uris, and other file-based ContentProviders.
 
