@@ -65,7 +65,8 @@ fun <T : Annotation> findAnnotationInFields(target: Any, annotation: Class<T>, i
  * @param annotation target KClass of annotation
  * @param includeSuperClass optional, true - increase scope into their superclass, default is true
  */
-fun <T : Annotation> findAnnotationInFields(target: Any, annotation: KClass<T>, includeSuperClass: Boolean = true) = findAnnotationInFields(target, annotation.java, includeSuperClass)
+fun <T : Annotation> findAnnotationInFields(target: Any, annotation: KClass<T>, includeSuperClass: Boolean = true)
+        = findAnnotationInFields(target, annotation.java, includeSuperClass)
 
 /**
  * get list of Method which attached given annotation in Runtime
@@ -89,5 +90,6 @@ fun <T : Annotation> findAnnotationInMethods(target: Any, annotation: Class<T>, 
  * @param annotation target KClass of annotation
  * @param includeSuperClass optional, true - increase scope into their superclass, default is true
  */
-fun <T : Annotation> findAnnotationInMethods(target: Any, annotation: KClass<T>, includeSuperClass: Boolean = true) = findAnnotationInMethods(target, annotation.java, includeSuperClass)
+fun <T : Annotation> findAnnotationInMethods(target: Any, annotation: KClass<T>, includeSuperClass: Boolean = true)
+        = findAnnotationInMethods(target, annotation.java, includeSuperClass)
 
