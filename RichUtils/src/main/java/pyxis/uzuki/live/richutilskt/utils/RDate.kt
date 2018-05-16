@@ -73,7 +73,7 @@ fun String.toDateString(fromFormat: String, toFormat: String): String {
  */
 @JvmOverloads
 fun Long.normalizeDate(timeZone: String = "UTC"): Long {
-    val date = GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC")) as GregorianCalendar
+    val date = GregorianCalendar.getInstance(TimeZone.getTimeZone(timeZone)) as GregorianCalendar
     date.time = Date(this)
     date.set(Calendar.HOUR_OF_DAY, 0)
     date.set(Calendar.MINUTE, 0)
