@@ -1,69 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="CombinedTextView">
-        <attr name="textPrimary" format="string"/>
-        <attr name="textSecondary" format="string"/>
-        <attr name="textPrimaryColor" format="color"/>
-        <attr name="textSecondaryColor" format="color"/>
-        <attr name="textPrimarySize" format="dimension"/>
-        <attr name="textSecondarySize" format="dimension"/>
-        <attr name="textExtraSpace" format="integer"/>
-        <attr name="fontPrimaryText" format="string"/>
-        <attr name="fontSecondaryText" format="string"/>
+        <attr name="textPrimary" format="string" />
+        <attr name="textSecondary" format="string" />
+        <attr name="textPrimaryColor" format="color" />
+        <attr name="textSecondaryColor" format="color" />
+        <attr name="textPrimarySize" format="dimension" />
+        <attr name="textSecondarySize" format="dimension" />
+        <attr name="textExtraSpace" format="integer" />
+        <attr name="fontPrimaryText" format="string" />
+        <attr name="fontSecondaryText" format="string" />
         <attr name="textPrimaryStyle" format="enum">
-            <enum name="normal" value="0"/>
-            <enum name="bold" value="1"/>
-            <enum name="italic" value="2"/>
-            <enum name="boldItalic" value="3"/>
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+            <enum name="italic" value="2" />
+            <enum name="boldItalic" value="3" />
         </attr>
         <attr name="textSecondaryStyle" format="enum">
-            <enum name="normal" value="0"/>
-            <enum name="bold" value="1"/>
-            <enum name="italic" value="2"/>
-            <enum name="boldItalic" value="3"/>
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+            <enum name="italic" value="2" />
+            <enum name="boldItalic" value="3" />
         </attr>
     </declare-styleable>
 
     <declare-styleable name="CombinedButton">
-        <attr name="textPrimary"/>
+        <attr name="textPrimary" />
         <attr name="textSecondary" />
-        <attr name="textPrimaryColor"/>
+        <attr name="textPrimaryColor" />
         <attr name="textSecondaryColor" />
         <attr name="textPrimarySize" />
         <attr name="textSecondarySize" />
         <attr name="textExtraSpace" />
-        <attr name="fontPrimaryText"/>
+        <attr name="fontPrimaryText" />
         <attr name="fontSecondaryText" />
         <attr name="textPrimaryStyle" />
         <attr name="textSecondaryStyle" />
     </declare-styleable>
 
     <declare-styleable name="CombinedCheckBox">
-        <attr name="textPrimary"/>
+        <attr name="textPrimary" />
         <attr name="textSecondary" />
-        <attr name="textPrimaryColor"/>
+        <attr name="textPrimaryColor" />
         <attr name="textSecondaryColor" />
         <attr name="textPrimarySize" />
         <attr name="textSecondarySize" />
         <attr name="textExtraSpace" />
-        <attr name="fontPrimaryText"/>
+        <attr name="fontPrimaryText" />
         <attr name="fontSecondaryText" />
         <attr name="textPrimaryStyle" />
         <attr name="textSecondaryStyle" />
     </declare-styleable>
 
     <declare-styleable name="CombinedRadioButton">
-        <attr name="textPrimary"/>
+        <attr name="textPrimary" />
         <attr name="textSecondary" />
-        <attr name="textPrimaryColor"/>
+        <attr name="textPrimaryColor" />
         <attr name="textSecondaryColor" />
         <attr name="textPrimarySize" />
         <attr name="textSecondarySize" />
         <attr name="textExtraSpace" />
-        <attr name="fontPrimaryText"/>
+        <attr name="fontPrimaryText" />
         <attr name="fontSecondaryText" />
         <attr name="textPrimaryStyle" />
         <attr name="textSecondaryStyle" />
+    </declare-styleable>
+
+    <declare-styleable name="RatioLinearLayout">
+        <attr name="axis" format="enum">
+            <enum name="VERTICAL" value="0" />
+            <enum name="HORIZONTAL" value="1" />
+        </attr>
+        <attr name="horizontalRatio" format="float" />
+        <attr name="verticalRatio" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="RatioFrameLayout">
+        <attr name="axis" format="enum">
+            <enum name="VERTICAL" />
+            <enum name="HORIZONTAL" />
+        </attr>
+        <attr name="horizontalRatio" />
+        <attr name="verticalRatio" />
+    </declare-styleable>
+
+    <declare-styleable name="RatioRelativeLayout">
+        <attr name="axis" format="enum">
+            <enum name="VERTICAL" />
+            <enum name="HORIZONTAL" />
+        </attr>
+        <attr name="horizontalRatio" />
+        <attr name="verticalRatio" />
+    </declare-styleable>
+
+    <declare-styleable name="RatioView">
+        <attr name="axis" format="enum">
+            <enum name="VERTICAL" />
+            <enum name="HORIZONTAL" />
+        </attr>
+        <attr name="horizontalRatio" />
+        <attr name="verticalRatio" />
     </declare-styleable>
 
     <dimen name="combined_text_view_default_size">12sp</dimen>
