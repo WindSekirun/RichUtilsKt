@@ -6,7 +6,6 @@ package pyxis.uzuki.live.richutilskt.utils
 import android.annotation.TargetApi
 import android.content.ContentUris
 import android.content.Context
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.media.ExifInterface
 import android.net.Uri
@@ -15,7 +14,6 @@ import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import pyxis.uzuki.live.richutilskt.impl.F1
-import java.io.ByteArrayOutputStream
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
@@ -82,6 +80,11 @@ fun saveFile(fullPath: String, content: String): File = fullPath.toFile().apply 
 fun File.readFile(): String = this.readText(Charset.defaultCharset())
 
 /**
+ * Test given path is exists and can read
+ */
+fun String.isExistReadFile() = File(this).exists() && File(this).canRead()
+
+/**
  * Get the value of the data column for this Uri. This is useful for
  * MediaStore Uris, and other file-based ContentProviders.
 
@@ -119,7 +122,8 @@ private fun getDataColumn(context: Context, uri: Uri?, selection: String?, selec
  */
 @TargetApi(Build.VERSION_CODES.KITKAT)
 infix fun Uri.getRealPath(context: Context): String {
-    if (cloudAuthorityProvider.containsIgnoreCase(authority)) return getImageUrlWithAuthority(context, this) ?: ""
+    if (cloudAuthorityProvider.containsIgnoreCase(authority)) return getImageUrlWithAuthority(context, this)
+            ?: ""
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DocumentsContract.isDocumentUri(context, this)) return checkAuthority(context)
     if (this.scheme.equals("content", ignoreCase = true)) return getDataColumn(context, this, null, null)
     if (this.scheme.equals("file", ignoreCase = true)) return this.path

@@ -11,14 +11,13 @@ import java.io.Serializable
 /**
  * return Bundle which contain contents of Map<String, Any>
  */
-fun put(map: Map<String, Any>): Bundle = Bundle().apply { put(map) }
-
+fun putMap(map: Map<String, Any>): Bundle = Bundle().apply { putMap(map) }
 
 /**
  * put contents of Map<String, Any> into given Bundle
  *
  */
-fun Bundle.put(map: Map<String, Any>) {
+fun Bundle.putMap(map: Map<String, Any>) {
     map.entries.forEach { this.put(it.key, it.value) }
 }
 

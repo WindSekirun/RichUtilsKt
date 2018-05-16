@@ -82,6 +82,7 @@ dependencies {
 * [RText.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RText.kt)
 * [RThread.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RThread.kt)
 * [RThumbnail.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RThumbnail.kt)
+* [RTime.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RTime.kt)
 * [RUnReadCount.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RUnReadCount.kt)
 * [RVersion.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVersion.kt)
 * [RVibrate.kt](https://github.com/WindSekirun/RichUtilsKt/blob/master/RichUtils/src/main/java/pyxis/uzuki/live/richutilskt/utils/RVibrate.kt)
@@ -106,7 +107,7 @@ dependencies {
 
 ### License 
 ```
-Copyright 2017 WindSekirun (DongGil, Seo)
+Copyright 2017-2018 WindSekirun (DongGil, Seo)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
