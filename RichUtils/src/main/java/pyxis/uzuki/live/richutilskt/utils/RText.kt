@@ -4,14 +4,12 @@
 package pyxis.uzuki.live.richutilskt.utils
 
 import android.text.TextUtils
-import android.support.annotation.StringRes
-
-
 
 /**
  * get string with empty handling
  */
-@JvmOverloads fun String.isEmptyOrReturn(default: String = "") = if (TextUtils.isEmpty(this)) default else this
+@JvmOverloads
+fun String.isEmptyOrReturn(default: String = "") = if (TextUtils.isEmpty(this)) default else this
 
 /**
  * return string empty state
@@ -21,7 +19,7 @@ fun String.isEmpty() = TextUtils.isEmpty(this)
 /**
  * Returns `true` if at least one element matches condition of contains string
  */
-fun anyContainsString(inputStr: String, items: Array<String>) = items.any { inputStr.contains(it, false) }
+fun anyContainsString(inputStr: String, items: Array<String>) = matchAnyPredicate({ inputStr.contains(it, false) }, *items)
 
 /**
  * Returns `true` if at least one element matches condition of contains string
@@ -31,7 +29,7 @@ fun anyContainsString(inputStr: String, items: List<String>) = items.any { input
 /**
  * Returns `true` if at least one element matches condition of matches regex
  */
-fun anyMatchRegex(regex: String, items: Array<String>) = items.any { it.contains(regex) }
+fun anyMatchRegex(regex: String, items: Array<String>) = matchAnyPredicate({ it.contains(regex) }, *items)
 
 /**
  * Returns `true` if at least one element matches condition of matches regex

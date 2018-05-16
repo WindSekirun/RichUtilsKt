@@ -11,20 +11,20 @@ import java.io.Serializable
 /**
  * return Bundle which contain contents of Map<String, Any>
  */
-fun putMap(map: Map<String, Any>): Bundle = Bundle().apply { putMap(map) }
+fun <T> putMap(map: Map<T, Any>): Bundle = Bundle().apply { putMap(map) }
 
 /**
  * put contents of Map<String, Any> into given Bundle
  *
  */
-fun Bundle.putMap(map: Map<String, Any>) {
-    map.entries.forEach { this.put(it.key, it.value) }
+fun <T> Bundle.putMap(map: Map<T, Any>) {
+    map.entries.forEach { this.put(it.key.toString(), it.value) }
 }
 
 /**
  * Convert Bundle to HashMap<String, Any>
  */
-fun Bundle.toMap(): HashMap<String, Any> = hashMapOf<String, Any>().apply {
+fun <T> Bundle.toMap(): HashMap<T, Any> = hashMapOf<T, Any>().apply {
     val keySet = keySet()
     for (item in keySet) {
         put(item, this@toMap.get(item))
