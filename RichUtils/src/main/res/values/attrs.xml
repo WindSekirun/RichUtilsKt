@@ -76,28 +76,19 @@
     </declare-styleable>
 
     <declare-styleable name="RatioFrameLayout">
-        <attr name="axis" format="enum">
-            <enum name="VERTICAL" />
-            <enum name="HORIZONTAL" />
-        </attr>
+        <attr name="axis"/>
         <attr name="horizontalRatio" />
         <attr name="verticalRatio" />
     </declare-styleable>
 
     <declare-styleable name="RatioRelativeLayout">
-        <attr name="axis" format="enum">
-            <enum name="VERTICAL" />
-            <enum name="HORIZONTAL" />
-        </attr>
+        <attr name="axis"/>
         <attr name="horizontalRatio" />
         <attr name="verticalRatio" />
     </declare-styleable>
 
     <declare-styleable name="RatioView">
-        <attr name="axis" format="enum">
-            <enum name="VERTICAL" />
-            <enum name="HORIZONTAL" />
-        </attr>
+        <attr name="axis"/>
         <attr name="horizontalRatio" />
         <attr name="verticalRatio" />
     </declare-styleable>
