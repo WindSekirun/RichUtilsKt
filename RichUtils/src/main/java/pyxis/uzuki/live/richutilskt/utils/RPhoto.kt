@@ -157,6 +157,10 @@ fun getPhotoOrientationDegree(filePath: String?): Int {
                 ExifInterface.ORIENTATION_ROTATE_270, ExifInterface.ORIENTATION_TRANSVERSE -> 270
                 else -> 0
             }
+
+            if (degree == 0 && orientation != -1) {
+                degree = orientation
+            }
         }
     }
     return degree
