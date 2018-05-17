@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RConstructorBuilder.<init> - RichUtils</title>
+<link rel="stylesheet" href="..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RichUtils</a>&nbsp;/&nbsp;<a href="../index.html">pyxis.uzuki.live.richutilskt.utils</a>&nbsp;/&nbsp;<a href="index.html">RConstructorBuilder</a>&nbsp;/&nbsp;<a href=".">&lt;init&gt;</a><br/>
+<br/>
+<h1>&lt;init&gt;</h1>
+<a name="pyxis.uzuki.live.richutilskt.utils.RConstructorBuilder$&lt;init&gt;(java.lang.Class((pyxis.uzuki.live.richutilskt.utils.RConstructorBuilder.T)))"></a>
+<code><span class="identifier">RConstructorBuilder</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils.RConstructorBuilder$<init>(java.lang.Class((pyxis.uzuki.live.richutilskt.utils.RConstructorBuilder.T)))/targetCls">targetCls</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Class for generate Instance of given Class object</p>
+<p>Usages:</p>
+<ol><li>Constructor hasn't any parameter
+val sampleClassObj = RConstructorBuilder(SampleClass::class.java).newInstance()</li>
+
+<li>Constructor has at least one parameter
+val sampleClass2Obj = RConstructorBuilder(SampleClass2::class.java)
+    .addParameter(String::class.java, "ABC")
+    .addParameter(Int::class, 20)
+    .newInstance()</li>
+</ol>
+</BODY>
+</HTML>

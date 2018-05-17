@@ -2,7 +2,7 @@
 <HEAD>
 <meta charset="UTF-8">
 <title>pyxis.uzuki.live.richutilskt.utils - RichUtils</title>
-<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="..\..\style.css">
 </HEAD>
 <BODY>
 <a href="../index.html">RichUtils</a>&nbsp;/&nbsp;<a href=".">pyxis.uzuki.live.richutilskt.utils</a><br/>
@@ -24,6 +24,15 @@
 </td>
 <td>
 <code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Intensity</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-r-constructor-builder/index.html">RConstructorBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">RConstructorBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Class for generate Instance of given Class object</p>
+</td>
 </tr>
 <tr>
 <td>
@@ -283,6 +292,34 @@
 </tr>
 <tr>
 <td>
+<p><a href="array-list-of.html">arrayListOf</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">arrayListOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$arrayListOf(kotlin.Array((pyxis.uzuki.live.richutilskt.utils.arrayListOf.T)))/items">items</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/java/util/ArrayList.html"><span class="identifier">ArrayList</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Return an ArrayLIit containing vararg parameter</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="array-of.html">arrayOf</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">arrayOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$arrayOf(kotlin.Array((pyxis.uzuki.live.richutilskt.utils.arrayOf.T)))/items">items</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Return an Array containing vararg parameter</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="create-uri.html">createUri</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createUri</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$createUri(android.content.Context, kotlin.Boolean, kotlin.Boolean)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$createUri(android.content.Context, kotlin.Boolean, kotlin.Boolean)/videoUri">videoUri</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$createUri(android.content.Context, kotlin.Boolean, kotlin.Boolean)/internalStorage">internalStorage</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/net/Uri.html"><span class="identifier">Uri</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">createUri</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$createUri(android.content.Context, android.net.Uri)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$createUri(android.content.Context, android.net.Uri)/uri">uri</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/net/Uri.html"><span class="identifier">Uri</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/net/Uri.html"><span class="identifier">Uri</span></a></code>
+<p>create empty Uri in MediaStore</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="download-bitmap.html">downloadBitmap</a></p>
 </td>
 <td>
@@ -369,6 +406,24 @@
 </tr>
 <tr>
 <td>
+<p><a href="get-time-zone.html">getTimeZone</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getTimeZone</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/java/util/TimeZone.html"><span class="identifier">TimeZone</span></a></code>
+<p>get TimeZone on system</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-time-zone-id.html">getTimeZoneId</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getTimeZoneId</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>get id of TimeZone on system</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="get-uri.html">getUri</a></p>
 </td>
 <td>
@@ -391,6 +446,15 @@ Normal Way, just use getVibratorPattern(Intensity, long) for easy work.</p>
 </tr>
 <tr>
 <td>
+<p><a href="insert-image.html">insertImage</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">insertImage</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$insertImage(android.content.Context, android.graphics.Bitmap)/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$insertImage(android.content.Context, android.graphics.Bitmap)/bitmap">bitmap</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/graphics/Bitmap.html"><span class="identifier">Bitmap</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/net/Uri.html"><span class="identifier">Uri</span></a></code>
+<p>Insert Bitmap into MediaStore</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="is-media-uri.html">isMediaUri</a></p>
 </td>
 <td>
@@ -400,17 +464,60 @@ Normal Way, just use getVibratorPattern(Intensity, long) for easy work.</p>
 </tr>
 <tr>
 <td>
+<p><a href="list-of.html">listOf</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">listOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$listOf(kotlin.Array((pyxis.uzuki.live.richutilskt.utils.listOf.T)))/items">items</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Return an immutable list containing vararg parameter</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="match-all-predicate.html">matchAllPredicate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">matchAllPredicate</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$matchAllPredicate(kotlin.Function1((pyxis.uzuki.live.richutilskt.utils.matchAllPredicate.T, kotlin.Boolean)), kotlin.Array((pyxis.uzuki.live.richutilskt.utils.matchAllPredicate.T)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$matchAllPredicate(kotlin.Function1((pyxis.uzuki.live.richutilskt.utils.matchAllPredicate.T, kotlin.Boolean)), kotlin.Array((pyxis.uzuki.live.richutilskt.utils.matchAllPredicate.T)))/items">items</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Test if given all of vararg parameter are match given predicate</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="match-any-predicate.html">matchAnyPredicate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">matchAnyPredicate</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$matchAnyPredicate(kotlin.Function1((pyxis.uzuki.live.richutilskt.utils.matchAnyPredicate.T, kotlin.Boolean)), kotlin.Array((pyxis.uzuki.live.richutilskt.utils.matchAnyPredicate.T)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$matchAnyPredicate(kotlin.Function1((pyxis.uzuki.live.richutilskt.utils.matchAnyPredicate.T, kotlin.Boolean)), kotlin.Array((pyxis.uzuki.live.richutilskt.utils.matchAnyPredicate.T)))/items">items</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Test if given any of vararg parameter are match given predicate</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="now-date-string.html">nowDateString</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">nowDateString</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$nowDateString(kotlin.String)/format">format</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;"yyyy-MM-dd HH:mm:ss"<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>generate Date String in currentTImeMillis</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="put.html">put</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(kotlin.collections.Map((kotlin.String, kotlin.Any)))/map">map</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/os/Bundle.html"><span class="identifier">Bundle</span></a></code>
-<p>return Bundle which contain contents of Map&lt;String, Any&gt;</p>
 <code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONObject, kotlin.String, kotlin.Any)/jsonObject">jsonObject</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/org/json/JSONObject.html"><span class="identifier">JSONObject</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONObject, kotlin.String, kotlin.Any)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONObject, kotlin.String, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/org/json/JSONObject.html"><span class="identifier">JSONObject</span></a><span class="symbol">?</span></code>
 <p>put value to JSONObject</p>
 <code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONArray, kotlin.Int, kotlin.Any)/jsonArray">jsonArray</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/org/json/JSONArray.html"><span class="identifier">JSONArray</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONArray, kotlin.Int, kotlin.Any)/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONArray, kotlin.Int, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/org/json/JSONArray.html"><span class="identifier">JSONArray</span></a><span class="symbol">?</span></code>
 <p>put value to JSONArray</p>
 <code><span class="keyword">fun </span><span class="identifier">put</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONArray, kotlin.Any)/jsonArray">jsonArray</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/org/json/JSONArray.html"><span class="identifier">JSONArray</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$put(org.json.JSONArray, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/org/json/JSONArray.html"><span class="identifier">JSONArray</span></a><span class="symbol">?</span></code>
 <p>put value to JSONArray without ordering</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="put-map.html">putMap</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">putMap</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$putMap(kotlin.collections.Map((pyxis.uzuki.live.richutilskt.utils.putMap.T, kotlin.Any)))/map">map</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/os/Bundle.html"><span class="identifier">Bundle</span></a></code>
+<p>return Bundle which contain contents of Map&lt;String, Any&gt;</p>
 </td>
 </tr>
 <tr>
