@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="num_seconds_ago">
+        <item quantity="one">1s</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g>s</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="one">1m</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g>m</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="one">1h</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g>h</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="one">1d</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g>d</item>
+    </plurals>
+    <plurals name="in_num_seconds">
+        <item quantity="one">@string/rtime_now</item>
+        <item quantity="other">@string/rtime_now</item>
+    </plurals>
+    <plurals name="in_num_minutes">
+        <item quantity="one">in 1 min</item>
+        <item quantity="other">in <xliff:g id="count">%d</xliff:g> mins</item>
+    </plurals>
+    <plurals name="in_num_hours">
+        <item quantity="one">in 1 hour</item>
+        <item quantity="other">in <xliff:g id="count">%d</xliff:g> hours</item>
+    </plurals>
+    <plurals name="in_num_days">
+        <item quantity="one">@string/rtime_tomorrow</item>
+        <item quantity="other">in <xliff:g id="count">%d</xliff:g> days</item>
+    </plurals>
+
+    <string name="rtime_yesterday">Yesterday</string>
+    <string name="rtime_today">Today</string>
+    <string name="rtime_now">Now</string>
+    <string name="rtime_tomorrow">Tomorrow</string>
+</resources>

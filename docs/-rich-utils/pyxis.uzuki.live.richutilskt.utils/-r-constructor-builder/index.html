@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>RConstructorBuilder - RichUtils</title>
+<link rel="stylesheet" href="..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RichUtils</a>&nbsp;/&nbsp;<a href="../index.html">pyxis.uzuki.live.richutilskt.utils</a>&nbsp;/&nbsp;<a href=".">RConstructorBuilder</a><br/>
+<br/>
+<h1>RConstructorBuilder</h1>
+<code><span class="keyword">class </span><span class="identifier">RConstructorBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Class for generate Instance of given Class object</p>
+<p>Usages:</p>
+<ol><li>Constructor hasn't any parameter
+val sampleClassObj = RConstructorBuilder(SampleClass::class.java).newInstance()</li>
+
+<li>Constructor has at least one parameter
+val sampleClass2Obj = RConstructorBuilder(SampleClass2::class.java)
+    .addParameter(String::class.java, "ABC")
+    .addParameter(Int::class, 20)
+    .newInstance()</li>
+</ol>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">RConstructorBuilder</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils.RConstructorBuilder$<init>(java.lang.Class((pyxis.uzuki.live.richutilskt.utils.RConstructorBuilder.T)))/targetCls">targetCls</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<p>Class for generate Instance of given Class object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="add-parameter.html">addParameter</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">addParameter</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils.RConstructorBuilder$addParameter(java.lang.Class((kotlin.Any)), kotlin.Any)/cls">cls</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils.RConstructorBuilder$addParameter(java.lang.Class((kotlin.Any)), kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">RConstructorBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">addParameter</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils.RConstructorBuilder$addParameter(kotlin.reflect.KClass((kotlin.Any)), kotlin.Any)/cls">cls</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils.RConstructorBuilder$addParameter(kotlin.reflect.KClass((kotlin.Any)), kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">RConstructorBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="new-instance.html">newInstance</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">newInstance</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils.RConstructorBuilder$newInstance(kotlin.collections.Map((java.lang.Class((kotlin.Any)), kotlin.Any)))/map">map</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://developer.android.com/reference/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;mMap<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -64,3 +64,40 @@ fun String.toDateString(fromFormat: String, toFormat: String): String {
     }
     return result
 }
+
+/**
+ * normalize the date to the beginning of the day with given timeZone
+ * it equals to Time.getJulianDay()
+ *
+ * @param timeZone optional, default is "UTC"
+ */
+@JvmOverloads
+fun Long.normalizeDate(timeZone: String = "UTC"): Long {
+    val date = GregorianCalendar.getInstance(TimeZone.getTimeZone(timeZone)) as GregorianCalendar
+    date.time = Date(this)
+    date.set(Calendar.HOUR_OF_DAY, 0)
+    date.set(Calendar.MINUTE, 0)
+    date.set(Calendar.SECOND, 0)
+    date.set(Calendar.MILLISECOND, 0)
+
+    return date.timeInMillis
+}
+
+/**
+ * normalize the date to the beginning of the day with given timeZone
+ * it equals to Time.getJulianDay()
+ *
+ * @param timeZone optional, default is "UTC"
+ */
+@JvmOverloads
+fun Date.normalizeDate(timeZone: String = "UTC"): Date = Date(this.time.normalizeDate(timeZone))
+
+/**
+ * get TimeZone on system
+ */
+fun getTimeZone() = TimeZone.getDefault()
+
+/**
+ * get id of TimeZone on system
+ */
+fun getTimeZoneId() = TimeZone.getDefault().id

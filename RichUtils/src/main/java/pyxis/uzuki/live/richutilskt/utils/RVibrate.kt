@@ -64,7 +64,7 @@ fun getVibratorPattern(intensity: Float, duration: Long): LongArray {
         val pulseCount = (2.0f * (duration.toFloat() / (hWidth + lWidth).toFloat())).toInt()
         pattern = LongArray(pulseCount)
 
-        for (i in 0..pulseCount - 1)
+        for (i in 0 until pulseCount)
             pattern[i] = if (intensity < 0.5f) if (i % 2 == 0) hWidth else lWidth else if (i % 2 == 0) lWidth else hWidth
 
         return pattern

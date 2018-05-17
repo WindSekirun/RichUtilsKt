@@ -16,6 +16,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Getting Image - Gallery"
+        android:id="@+id/btnSelectGallery"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Test Method"
         android:id="@+id/btnTest"
         android:textAllCaps="false" />

@@ -1,13 +1,21 @@
 package pyxis.uzuki.live.rpickimagedemo
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.bumptech.glide.Glide
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import pyxis.uzuki.live.richutilskt.module.image.OrientationFixer
 import pyxis.uzuki.live.richutilskt.utils.RPickMedia
+import pyxis.uzuki.live.richutilskt.utils.getPhotoOrientationDegree
+import pyxis.uzuki.live.richutilskt.utils.runAsync
+import pyxis.uzuki.live.richutilskt.utils.toFile
+import java.io.ByteArrayOutputStream
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,12 +25,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnSelect.setOnClickListener {
+            RPickMedia.instance.pickFromCamera(this, { code, path ->
+                val fixedPath = OrientationFixer.execute(path, this)
+                txtPath.text = "code: $code, path: $fixedPath"
+                imgPicture.setImageURI(Uri.fromFile(fixedPath.toFile()))
+            })
+        }
+
+        btnSelectGallery.setOnClickListener {
             RPickMedia.instance.pickFromGallery(this, { code, path ->
                 val fixedPath = OrientationFixer.execute(path, this)
                 txtPath.text = "code: $code, path: $fixedPath"
-                Glide.with(this).load(path).into(imgPicture)
+                imgPicture.setImageURI(Uri.fromFile(fixedPath.toFile()))
             })
         }
+
 
         btnTest.setOnClickListener {
             startActivity(Intent(this, JavaActivity::class.java))

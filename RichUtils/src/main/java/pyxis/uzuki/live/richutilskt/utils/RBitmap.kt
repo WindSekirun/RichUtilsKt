@@ -44,24 +44,36 @@ fun Bitmap.toRoundCorner(radius: Float): Bitmap? {
 /**
  * Save Bitmap to generated File
  */
-fun Context.saveBitmapToFile(bitmap: Bitmap): File? {
-    val file = getOutputMediaFile()
-    file.saveBitmapToFile(bitmap)
+@JvmOverloads
+fun Context.saveBitmapToFile(bitmap: Bitmap,
+                             format: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG,
+                             quality: Int = 100): File? {
+    val file = getOutputMediaFile(format)
+    file.saveBitmapToFile(bitmap, format, quality)
     return file
 }
 
 /**
  * Save Bitmap to given File
  */
-fun File.saveBitmapToFile(bitmap: Bitmap): File? {
+@JvmOverloads
+fun File.saveBitmapToFile(bitmap: Bitmap,
+                          format: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG,
+                          quality: Int = 100): File? {
     this.outputStream().use {
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
+        bitmap.compress(format, quality, it)
     }
     return this
 }
 
-private fun Context.getOutputMediaFile(): File {
-    val picName = nowDateString() + ".jpg"
+private fun Context.getOutputMediaFile(format: Bitmap.CompressFormat): File {
+    val extension = when (format) {
+        Bitmap.CompressFormat.JPEG -> ".jpg"
+        Bitmap.CompressFormat.PNG -> ".png"
+        Bitmap.CompressFormat.WEBP -> ".webp"
+    }
+
+    val picName = nowDateString() + extension
 
     val folder = this.getExternalFilesDir(null)
     if (!folder.isDirectory) {
