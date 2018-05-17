@@ -26,6 +26,7 @@ $dokka.location:pyxis.uzuki.live.richutilskt.utils$confirm(android.content.Conte
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$connectivityManager#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/connectivity-manager.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$consumerIrManager#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/consumer-ir-manager.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$convertChildrenList(android.view.ViewGroup)pyxis.uzuki.live.richutilskt.utils/android.view.-view-group/convert-children-list.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$convertToRelativeTime(kotlin.Long, android.content.Context)pyxis.uzuki.live.richutilskt.utils/kotlin.-long/convert-to-relative-time.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$copyAssets(android.content.Context, kotlin.String)pyxis.uzuki.live.richutilskt.utils/android.content.-context/copy-assets.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$copyText(android.content.Context, kotlin.CharSequence)pyxis.uzuki.live.richutilskt.utils/android.content.-context/copy-text.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$createJSONArray(kotlin.String)pyxis.uzuki.live.richutilskt.utils/kotlin.-string/create-j-s-o-n-array.html
@@ -48,6 +49,7 @@ $dokka.location:pyxis.uzuki.live.richutilskt.utils$getAndroidId(android.content.
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$getBitmap(kotlin.String)pyxis.uzuki.live.richutilskt.utils/kotlin.-string/get-bitmap.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$getContactsList(android.content.Context)pyxis.uzuki.live.richutilskt.utils/android.content.-context/get-contacts-list.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$getExtension(android.content.Context, kotlin.String)pyxis.uzuki.live.richutilskt.utils/android.content.-context/get-extension.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$getFileExtension(kotlin.String)pyxis.uzuki.live.richutilskt.utils/kotlin.-string/get-file-extension.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$getIMEI(android.content.Context)pyxis.uzuki.live.richutilskt.utils/android.content.-context/get-i-m-e-i.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$getImageHeight(android.content.Context, kotlin.Int)pyxis.uzuki.live.richutilskt.utils/android.content.-context/get-image-height.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$getImageHeight(kotlin.String)pyxis.uzuki.live.richutilskt.utils/kotlin.-string/get-image-height.html
@@ -76,7 +78,10 @@ $dokka.location:pyxis.uzuki.live.richutilskt.utils$getTextFromClipboard(android.
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$getThumbnail(android.content.Context, android.net.Uri)pyxis.uzuki.live.richutilskt.utils/android.content.-context/get-thumbnail.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$getThumbnail(android.content.Context, android.net.Uri, kotlin.String)pyxis.uzuki.live.richutilskt.utils/android.content.-context/get-thumbnail.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$getThumbnail(android.content.Context, java.io.File)pyxis.uzuki.live.richutilskt.utils/android.content.-context/get-thumbnail.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$getVideoDuration(android.content.Context, kotlin.String)pyxis.uzuki.live.richutilskt.utils/android.content.-context/get-video-duration.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$getVideoFileId(android.content.Context, kotlin.String)pyxis.uzuki.live.richutilskt.utils/android.content.-context/get-video-file-id.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$getVideoHeight(kotlin.String)pyxis.uzuki.live.richutilskt.utils/kotlin.-string/get-video-height.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$getVideoThumbsPath(android.content.Context, kotlin.String)pyxis.uzuki.live.richutilskt.utils/android.content.-context/get-video-thumbs-path.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$getVideoWidth(kotlin.String)pyxis.uzuki.live.richutilskt.utils/kotlin.-string/get-video-width.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$hideKeyboard(android.app.Activity)pyxis.uzuki.live.richutilskt.utils/android.app.-activity/hide-keyboard.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$hideKeyboard(android.app.Dialog)pyxis.uzuki.live.richutilskt.utils/android.app.-dialog/hide-keyboard.html
@@ -87,6 +92,7 @@ $dokka.location:pyxis.uzuki.live.richutilskt.utils$inputMethodManager#android.co
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$isConnected(android.content.Context)pyxis.uzuki.live.richutilskt.utils/android.content.-context/is-connected.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$isEmpty(kotlin.String)pyxis.uzuki.live.richutilskt.utils/kotlin.-string/is-empty.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$isEmptyOrReturn(kotlin.String, kotlin.String)pyxis.uzuki.live.richutilskt.utils/kotlin.-string/is-empty-or-return.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$isExistReadFile(kotlin.String)pyxis.uzuki.live.richutilskt.utils/kotlin.-string/is-exist-read-file.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$isMobileConnected(android.content.Context)pyxis.uzuki.live.richutilskt.utils/android.content.-context/is-mobile-connected.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$isNotConnected(android.content.Context)pyxis.uzuki.live.richutilskt.utils/android.content.-context/is-not-connected.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$isProcessRunning(android.content.Context)pyxis.uzuki.live.richutilskt.utils/android.content.-context/is-process-running.html
@@ -101,6 +107,8 @@ $dokka.location:pyxis.uzuki.live.richutilskt.utils$mediaProjectionManager#androi
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$mediaRouter#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/media-router.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$mediaSessionManager#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/media-session-manager.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$nfcManager#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/nfc-manager.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$normalizeDate(java.util.Date, kotlin.String)pyxis.uzuki.live.richutilskt.utils/java.util.-date/normalize-date.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$normalizeDate(kotlin.Long, kotlin.String)pyxis.uzuki.live.richutilskt.utils/kotlin.-long/normalize-date.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$notificationManager#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/notification-manager.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$nsdManager#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/nsd-manager.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$outAsBitmap(java.io.InputStream)pyxis.uzuki.live.richutilskt.utils/java.io.-input-stream/out-as-bitmap.html
@@ -110,7 +118,7 @@ $dokka.location:pyxis.uzuki.live.richutilskt.utils$powerManager#android.content.
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$printManager#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/print-manager.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$progress(android.content.Context, kotlin.String, kotlin.Boolean, kotlin.String)pyxis.uzuki.live.richutilskt.utils/android.content.-context/progress.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$put(android.os.Bundle, kotlin.String, kotlin.Any)pyxis.uzuki.live.richutilskt.utils/android.os.-bundle/put.html
-$dokka.location:pyxis.uzuki.live.richutilskt.utils$put(android.os.Bundle, kotlin.collections.Map((kotlin.String, kotlin.Any)))pyxis.uzuki.live.richutilskt.utils/android.os.-bundle/put.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$putMap(android.os.Bundle, kotlin.collections.Map((pyxis.uzuki.live.richutilskt.utils.putMap.T, kotlin.Any)))pyxis.uzuki.live.richutilskt.utils/android.os.-bundle/put-map.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$px2dip(android.content.Context, kotlin.Int)pyxis.uzuki.live.richutilskt.utils/android.content.-context/px2dip.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$px2sp(android.content.Context, kotlin.Int)pyxis.uzuki.live.richutilskt.utils/android.content.-context/px2sp.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$readFile(java.io.File)pyxis.uzuki.live.richutilskt.utils/java.io.-file/read-file.html
@@ -119,8 +127,8 @@ $dokka.location:pyxis.uzuki.live.richutilskt.utils$removeUnReadCount(android.con
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$requestMediaScanner(android.content.Context, kotlin.String)pyxis.uzuki.live.richutilskt.utils/android.content.-context/request-media-scanner.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$resize(android.graphics.Bitmap, kotlin.Int, kotlin.Int, pyxis.uzuki.live.richutilskt.utils.ResizeMode, kotlin.Boolean)pyxis.uzuki.live.richutilskt.utils/android.graphics.-bitmap/resize.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$restrictionsManager#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/restrictions-manager.html
-$dokka.location:pyxis.uzuki.live.richutilskt.utils$saveBitmapToFile(android.content.Context, android.graphics.Bitmap)pyxis.uzuki.live.richutilskt.utils/android.content.-context/save-bitmap-to-file.html
-$dokka.location:pyxis.uzuki.live.richutilskt.utils$saveBitmapToFile(java.io.File, android.graphics.Bitmap)pyxis.uzuki.live.richutilskt.utils/java.io.-file/save-bitmap-to-file.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$saveBitmapToFile(android.content.Context, android.graphics.Bitmap, android.graphics.Bitmap.CompressFormat, kotlin.Int)pyxis.uzuki.live.richutilskt.utils/android.content.-context/save-bitmap-to-file.html
+$dokka.location:pyxis.uzuki.live.richutilskt.utils$saveBitmapToFile(java.io.File, android.graphics.Bitmap, android.graphics.Bitmap.CompressFormat, kotlin.Int)pyxis.uzuki.live.richutilskt.utils/java.io.-file/save-bitmap-to-file.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$searchManager#android.content.Contextpyxis.uzuki.live.richutilskt.utils/android.content.-context/search-manager.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$selector(android.content.Context, kotlin.collections.List((pyxis.uzuki.live.richutilskt.utils.selector.T)), kotlin.Function3((android.content.DialogInterface, pyxis.uzuki.live.richutilskt.utils.selector.T, kotlin.Int, kotlin.Unit)), kotlin.String, kotlin.Boolean)pyxis.uzuki.live.richutilskt.utils/android.content.-context/selector.html
 $dokka.location:pyxis.uzuki.live.richutilskt.utils$selector(android.content.Context, kotlin.collections.List((pyxis.uzuki.live.richutilskt.utils.selector.T)), pyxis.uzuki.live.richutilskt.impl.F3((android.content.DialogInterface, pyxis.uzuki.live.richutilskt.utils.selector.T, kotlin.Int)), kotlin.String, kotlin.Boolean)pyxis.uzuki.live.richutilskt.utils/android.content.-context/selector.html
@@ -166,7 +174,9 @@ pyxis.uzuki.live.richutilskt.impl
 pyxis.uzuki.live.richutilskt.module.crash
 pyxis.uzuki.live.richutilskt.module.crash.item
 pyxis.uzuki.live.richutilskt.module.iap
+pyxis.uzuki.live.richutilskt.module.image
 pyxis.uzuki.live.richutilskt.module.reference
 pyxis.uzuki.live.richutilskt.service
 pyxis.uzuki.live.richutilskt.utils
 pyxis.uzuki.live.richutilskt.widget
+pyxis.uzuki.live.richutilskt.widget.ratio

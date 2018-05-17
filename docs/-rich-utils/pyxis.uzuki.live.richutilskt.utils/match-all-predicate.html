@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>matchAllPredicate - RichUtils</title>
+<link rel="stylesheet" href="..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">RichUtils</a>&nbsp;/&nbsp;<a href="index.html">pyxis.uzuki.live.richutilskt.utils</a>&nbsp;/&nbsp;<a href=".">matchAllPredicate</a><br/>
+<br/>
+<h1>matchAllPredicate</h1>
+<a name="pyxis.uzuki.live.richutilskt.utils$matchAllPredicate(kotlin.Function1((pyxis.uzuki.live.richutilskt.utils.matchAllPredicate.T, kotlin.Boolean)), kotlin.Array((pyxis.uzuki.live.richutilskt.utils.matchAllPredicate.T)))"></a>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">matchAllPredicate</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$matchAllPredicate(kotlin.Function1((pyxis.uzuki.live.richutilskt.utils.matchAllPredicate.T, kotlin.Boolean)), kotlin.Array((pyxis.uzuki.live.richutilskt.utils.matchAllPredicate.T)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$matchAllPredicate(kotlin.Function1((pyxis.uzuki.live.richutilskt.utils.matchAllPredicate.T, kotlin.Boolean)), kotlin.Array((pyxis.uzuki.live.richutilskt.utils.matchAllPredicate.T)))/items">items</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Test if given all of vararg parameter are match given predicate</p>
+<p>Usages
+testWithParams({ it.length &gt; 3 }, "Steve", "Bobs") -&gt; true
+testWithParams({ it.length &gt; 3 }, "Steve", "Bob") -&gt; false</p>
+<h3>Parameters</h3>
+<p><a name="predicate"></a>
+<code>predicate</code> - : Higher-order function that given single  and return as Boolean</p>
+<p><strong>Parameters</strong><br/>
+</p>
+</BODY>
+</HTML>
