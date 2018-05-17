@@ -9,11 +9,14 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
 import android.net.Uri
+import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
 import pyxis.uzuki.live.richutilskt.impl.F2
+import java.io.File
+
 
 class RPickMedia private constructor() {
     private var mInternalStorage: Boolean = false;
@@ -221,6 +224,7 @@ class RPickMedia private constructor() {
         fragment.startActivityForResult(intent, pickType)
     }
 
+
     @SuppressLint("ValidFragment")
     class ResultFragment() : Fragment() {
         var fm: FragmentManager? = null
@@ -252,7 +256,9 @@ class RPickMedia private constructor() {
             var realPath: String? = ""
 
             if (requestCode == PICK_FROM_CAMERA) {
-                realPath = Uri.parse(currentPhotoPath) getRealPath context
+                val uri = Uri.parse(currentPhotoPath)
+                val orientation = getOrientation(context, uri)
+                realPath = uri getRealPath context
             } else if (requestCode == PICK_FROM_CAMERA_VIDEO && data != null && data.data != null) {
                 realPath = data.data.getRealPath(context)
                 if (realPath.isEmpty()) {
@@ -271,6 +277,21 @@ class RPickMedia private constructor() {
 
             callback.invoke(PICK_SUCCESS, realPath)
             fm?.beginTransaction()?.remove(this)?.commit()
+        }
+
+        private fun getOrientation(context: Context, photoUri: Uri): Int {
+            var cursor = context.contentResolver.query(photoUri,
+                    arrayOf(MediaStore.Images.ImageColumns.ORIENTATION), null, null, null)
+
+            if (cursor!!.count != 1) {
+                cursor.close()
+                return -1
+            }
+
+            cursor.moveToFirst()
+            val orientation = cursor.getInt(0)
+            cursor.close()
+            return orientation
         }
     }
 

@@ -131,8 +131,8 @@ private fun getDataColumn(context: Context, uri: Uri?, selection: String?, selec
  */
 @TargetApi(Build.VERSION_CODES.KITKAT)
 infix fun Uri.getRealPath(context: Context): String {
-    if (cloudAuthorityProvider.containsIgnoreCase(authority)) return getImageUrlWithAuthority(context, this)
-            ?: ""
+    if (!authority.isEmpty() && authority != "media" &&
+            cloudAuthorityProvider.containsIgnoreCase(authority)) return getImageUrlWithAuthority(context, this) ?: ""
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DocumentsContract.isDocumentUri(context, this)) return checkAuthority(context)
     if (this.scheme.equals("content", ignoreCase = true)) return getDataColumn(context, this, null, null)
     if (this.scheme.equals("file", ignoreCase = true)) return this.path

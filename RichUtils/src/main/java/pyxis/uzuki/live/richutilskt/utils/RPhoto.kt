@@ -7,8 +7,8 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
-import android.media.ExifInterface
 import android.support.annotation.DrawableRes
+import android.support.media.ExifInterface
 import java.io.IOException
 
 private val options: BitmapFactory.Options by lazy {
@@ -156,10 +156,6 @@ fun getPhotoOrientationDegree(filePath: String?): Int {
                 ExifInterface.ORIENTATION_ROTATE_90, ExifInterface.ORIENTATION_TRANSPOSE -> 90
                 ExifInterface.ORIENTATION_ROTATE_270, ExifInterface.ORIENTATION_TRANSVERSE -> 270
                 else -> 0
-            }
-
-            if (degree == 0 && orientation != -1) {
-                degree = orientation
             }
         }
     }
