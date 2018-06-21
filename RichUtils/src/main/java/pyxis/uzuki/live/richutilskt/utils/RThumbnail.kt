@@ -1,3 +1,6 @@
+@file:JvmName("RichUtils")
+@file:JvmMultifileClass
+
 package pyxis.uzuki.live.richutilskt.utils
 
 import android.content.ContentValues.TAG
