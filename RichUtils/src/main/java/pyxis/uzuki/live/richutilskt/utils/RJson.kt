@@ -215,3 +215,17 @@ inline fun JSONArray.forEach(action: F1<JSONObject>) {
  */
 @JvmName("toObjectList")
 fun JSONArray.toList(): List<JSONObject> = List<JSONObject>(length()) { index -> getJSONObject(index) }
+
+/**
+ * DSL-Style JSONObject builder
+ */
+class Json() : JSONObject() {
+
+    constructor(init: Json.() -> Unit) : this() {
+        this.init()
+    }
+
+    infix fun <T> String.to(value: T) {
+        put(this, value)
+    }
+}
