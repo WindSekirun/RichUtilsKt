@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Json - RichUtils</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">RichUtils</a>&nbsp;/&nbsp;<a href="../index.html">pyxis.uzuki.live.richutilskt.utils</a>&nbsp;/&nbsp;<a href=".">Json</a><br/>
+<br/>
+<h1>Json</h1>
+<code><span class="keyword">class </span><span class="identifier">Json</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/org/json/JSONObject.html"><span class="identifier">JSONObject</span></a></code>
+<p>DSL-Style JSONObject builder</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">Json</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils.Json$<init>(kotlin.Function1((pyxis.uzuki.live.richutilskt.utils.Json, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">Json</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span></code><code><span class="identifier">Json</span><span class="symbol">(</span><span class="symbol">)</span></code>
+<p>DSL-Style JSONObject builder</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="to.html">to</a></p>
+</td>
+<td>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">to</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils.Json$to(kotlin.String, pyxis.uzuki.live.richutilskt.utils.Json.to.T)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../org.json.-j-s-o-n-object/get-j-s-o-n-boolean.html">getJSONBoolean</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://developer.android.com/reference/org/json/JSONObject.html"><span class="identifier">JSONObject</span></a><span class="symbol">.</span><span class="identifier">getJSONBoolean</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getJSONBoolean(org.json.JSONObject, kotlin.String, kotlin.Boolean)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getJSONBoolean(org.json.JSONObject, kotlin.String, kotlin.Boolean)/def">def</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>get Boolean from JSONObject</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../org.json.-j-s-o-n-object/get-j-s-o-n-double.html">getJSONDouble</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://developer.android.com/reference/org/json/JSONObject.html"><span class="identifier">JSONObject</span></a><span class="symbol">.</span><span class="identifier">getJSONDouble</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getJSONDouble(org.json.JSONObject, kotlin.String, kotlin.Double)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getJSONDouble(org.json.JSONObject, kotlin.String, kotlin.Double)/def">def</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.toDouble()<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>get Double from JSONObject</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../org.json.-j-s-o-n-object/get-j-s-o-n-int.html">getJSONInt</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://developer.android.com/reference/org/json/JSONObject.html"><span class="identifier">JSONObject</span></a><span class="symbol">.</span><span class="identifier">getJSONInt</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getJSONInt(org.json.JSONObject, kotlin.String, kotlin.Int)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getJSONInt(org.json.JSONObject, kotlin.String, kotlin.Int)/def">def</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>get Int from JSONObject</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../org.json.-j-s-o-n-object/get-j-s-o-n-long.html">getJSONLong</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://developer.android.com/reference/org/json/JSONObject.html"><span class="identifier">JSONObject</span></a><span class="symbol">.</span><span class="identifier">getJSONLong</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getJSONLong(org.json.JSONObject, kotlin.String, kotlin.Long)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getJSONLong(org.json.JSONObject, kotlin.String, kotlin.Long)/def">def</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.toLong()<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code>
+<p>get Long from JSONObject</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../org.json.-j-s-o-n-object/get-j-s-o-n-string.html">getJSONString</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://developer.android.com/reference/org/json/JSONObject.html"><span class="identifier">JSONObject</span></a><span class="symbol">.</span><span class="identifier">getJSONString</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getJSONString(org.json.JSONObject, kotlin.String, kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$getJSONString(org.json.JSONObject, kotlin.String, kotlin.String)/def">def</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code>
+<p>get String from JSONObject</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

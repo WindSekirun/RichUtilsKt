@@ -2,7 +2,7 @@
 <HEAD>
 <meta charset="UTF-8">
 <title>pyxis.uzuki.live.richutilskt.utils.kotlin.String - RichUtils</title>
-<link rel="stylesheet" href="..\..\..\style.css">
+<link rel="stylesheet" href="../../../style.css">
 </HEAD>
 <BODY>
 <a href="../../index.html">RichUtils</a>&nbsp;/&nbsp;<a href="../index.html">pyxis.uzuki.live.richutilskt.utils</a>&nbsp;/&nbsp;<a href=".">kotlin.String</a><br/>
@@ -125,6 +125,78 @@
 <td>
 <code><span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">parseDate</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$parseDate(kotlin.String, kotlin.String)/format">format</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;"yyyy-MM-dd HH:mm:ss"<span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/java/util/Date.html"><span class="identifier">Date</span></a><span class="symbol">?</span></code>
 <p>parsing date from String</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="safe-big-decimal.html">safeBigDecimal</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">safeBigDecimal</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeBigDecimal(kotlin.String, java.math.BigDecimal)/default">default</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a>&nbsp;<span class="symbol">=</span>&nbsp;BigDecimal.ZERO<span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/java/math/BigDecimal.html"><span class="identifier">BigDecimal</span></a></code>
+<p>safe cast String to BigDecimal</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="safe-big-integer.html">safeBigInteger</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">safeBigInteger</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeBigInteger(kotlin.String, kotlin.Int, java.math.BigInteger)/radix">radix</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;10<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeBigInteger(kotlin.String, kotlin.Int, java.math.BigInteger)/default">default</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a>&nbsp;<span class="symbol">=</span>&nbsp;BigInteger.ZERO<span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/java/math/BigInteger.html"><span class="identifier">BigInteger</span></a></code>
+<p>safe cast String to BigInteger</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="safe-byte.html">safeByte</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">safeByte</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeByte(kotlin.String, kotlin.Int, kotlin.Byte)/radix">radix</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;10<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeByte(kotlin.String, kotlin.Int, kotlin.Byte)/default">default</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><span class="identifier">Byte</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte/index.html"><span class="identifier">Byte</span></a></code>
+<p>safe cast String to Byte</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="safe-double.html">safeDouble</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">safeDouble</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeDouble(kotlin.String, kotlin.Double)/default">default</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.0<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code>
+<p>safe cast String to Double</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="safe-float.html">safeFloat</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">safeFloat</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeFloat(kotlin.String, kotlin.Float)/default">default</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.0f<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a></code>
+<p>safe cast String to Float</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="safe-int.html">safeInt</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">safeInt</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeInt(kotlin.String, kotlin.Int, kotlin.Int)/radix">radix</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;10<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeInt(kotlin.String, kotlin.Int, kotlin.Int)/default">default</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code>
+<p>safe cast String to Int</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="safe-long.html">safeLong</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">safeLong</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeLong(kotlin.String, kotlin.Int, kotlin.Long)/radix">radix</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;10<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeLong(kotlin.String, kotlin.Int, kotlin.Long)/default">default</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0L<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a></code>
+<p>safe cast String to Long</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="safe-short.html">safeShort</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">safeShort</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeShort(kotlin.String, kotlin.Int, kotlin.Short)/radix">radix</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;10<span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$safeShort(kotlin.String, kotlin.Int, kotlin.Short)/default">default</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html"><span class="identifier">Short</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html"><span class="identifier">Short</span></a></code>
+<p>safe cast String to Short</p>
 </td>
 </tr>
 <tr>

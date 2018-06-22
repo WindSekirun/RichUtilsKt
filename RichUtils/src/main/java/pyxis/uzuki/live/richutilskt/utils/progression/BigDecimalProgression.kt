@@ -1,36 +1,24 @@
 @file:JvmName("BigDecimalProgression")
 @file:JvmMultifileClass
+@file:Suppress("MemberVisibilityCanBePrivate")
 
 package pyxis.uzuki.live.richutilskt.utils.progression
 
 import java.math.BigDecimal
 
 open class BigDecimalProgression
-internal constructor(start: BigDecimal, endInclusive: BigDecimal, step: BigDecimal)
-    : Iterable<BigDecimal> {
+internal constructor(start: BigDecimal, endInclusive: BigDecimal, val step: BigDecimal) : Iterable<BigDecimal> {
     init {
         if (step == BigDecimal.ZERO) throw IllegalArgumentException("Step must be non-zero")
     }
 
-    /**
-     * The first element in the progression.
-     */
     val first: BigDecimal = start
-
-    /**
-     * The last element in the progression.
-     */
     val last: BigDecimal = getProgressionLastElement(start, endInclusive, step)
-
-    /**
-     * The step of the progression.
-     */
-    val step: BigDecimal = step
 
     override fun iterator(): BigDecimalIterator = BigDecimalProgressionIterator(first, last, step)
 
     /** Checks if the progression is empty. */
-    public open fun isEmpty(): Boolean = if (step > BigDecimal.ZERO) first > last else first < last
+    open fun isEmpty(): Boolean = if (step > BigDecimal.ZERO) first > last else first < last
 
     override fun equals(other: Any?) =
             other is BigDecimalProgression && (isEmpty() && other.isEmpty() ||
@@ -50,21 +38,20 @@ internal constructor(start: BigDecimal, endInclusive: BigDecimal, step: BigDecim
 
     companion object {
         /**
-         * Creates IntProgression within the specified bounds of a closed range.
+         * Creates BigDecimalProgression within the specified bounds of a closed range.
 
          * The progression starts with the [rangeStart] value and goes toward the [rangeEnd] value not excluding it, with the specified [step].
          * In order to go backwards the [step] must be negative.
          */
-        fun fromClosedRange(rangeStart: BigDecimal, rangeEnd: BigDecimal, step: BigDecimal): BigDecimalProgression = BigDecimalProgression(rangeStart, rangeEnd, step)
+        fun fromClosedRange(rangeStart: BigDecimal, rangeEnd: BigDecimal, step: BigDecimal) = BigDecimalProgression(rangeStart, rangeEnd, step)
     }
 }
 
 /** An iterator over a sequence of values of type `BigDecimal`. */
 abstract class BigDecimalIterator : Iterator<BigDecimal> {
-    override final fun next() = nextBigDecimal()
+    final override fun next() = nextBigDecimal()
 
-    /** Returns the next value in the sequence without boxing. */
-    public abstract fun nextBigDecimal(): BigDecimal
+    abstract fun nextBigDecimal(): BigDecimal
 }
 
 /**
