@@ -13,7 +13,7 @@ import pyxis.uzuki.live.richutilskt.utils.progression.BigDecimalProgression
  * @return List<Int>
  */
 @JvmOverloads
-fun list(start: Int, end: Int, step: Int = 1) = IntProgression.fromClosedRange(start, end, step).toList()
+fun rangeList(start: Int, end: Int, step: Int = 1) = IntProgression.fromClosedRange(start, end, step).toList()
 
 /**
  * generate list with given start, end, step
@@ -23,7 +23,7 @@ fun list(start: Int, end: Int, step: Int = 1) = IntProgression.fromClosedRange(s
  * @return List<Double>
  */
 @JvmOverloads
-fun list(start: Double, end: Double, step: Double = 1.0): List<Double> =
+fun rangeList(start: Double, end: Double, step: Double = 1.0): List<Double> =
         BigDecimalProgression.fromClosedRange(start.toBigDecimal(), end.toBigDecimal(), step.toBigDecimal())
                 .toList()
                 .map { it.toDouble() }
