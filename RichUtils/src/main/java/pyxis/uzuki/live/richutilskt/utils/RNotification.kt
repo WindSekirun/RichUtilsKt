@@ -22,7 +22,7 @@ import android.support.annotation.RequiresApi
  */
 @RequiresApi(Build.VERSION_CODES.O)
 @JvmOverloads
-fun Context.createNotificationChannel(id: String = "", name: String = "", description: String = "", importance: Int = NotificationManager.IMPORTANCE_LOW): String {
+fun Context.createNotificationChannel(id: String = "", name: String = "", description: String = "", importance: Int = NotificationManager.IMPORTANCE_HIGH): String {
     if (Build.VERSION.SDK_INT < 26) {
         return ""
     }

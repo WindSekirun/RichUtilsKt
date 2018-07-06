@@ -1,5 +1,3 @@
-@file:JvmName("RAsync")
-
 package pyxis.uzuki.live.richutilskt.utils
 
 import kotlin.reflect.KClass

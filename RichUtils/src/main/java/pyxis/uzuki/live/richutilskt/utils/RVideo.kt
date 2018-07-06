@@ -54,6 +54,8 @@ fun Context.getVideoFileId(videoPath: String): String {
  * @param videoId Video ID
  */
 fun Context.getVideoThumbsPath(videoId: String): String {
+    MediaStore.Video.Thumbnails.getThumbnail(contentResolver, videoId.toLong(),
+            MediaStore.Video.Thumbnails.MINI_KIND, null)
     val projection = arrayOf(MediaStore.Video.Thumbnails.DATA)
     val where = MediaStore.Video.Thumbnails.VIDEO_ID + "=?"
     val cursor = queryVideo(videoId, projection, where)

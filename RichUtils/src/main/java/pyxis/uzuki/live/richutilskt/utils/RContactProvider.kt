@@ -26,7 +26,7 @@ fun Context.getContactsList() : List<ContactItem> {
 
     val cursor = this.contentResolver.query(uri, projection, "", emptyArray<String>(), sortOrder)
     val list = generateSequence { if (cursor.moveToNext()) cursor else null }
-            .map { ContactItem(it.getString(it.getColumnIndex(numberColumn)), it.getString(cursor.getColumnIndex(displayNameColumn))) }
+            .map { ContactItem(it.getString(it.getColumnIndex(displayNameColumn)), it.getString(cursor.getColumnIndex(numberColumn))) }
             .toList()
 
     cursor.close()

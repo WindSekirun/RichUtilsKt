@@ -15,6 +15,9 @@ import java.lang.reflect.Method
  */
 
 object PrintMethodList {
+    private val excludedName = arrayOf("\$default", "hashCode", "getClass", "equals", "notify",
+            "toString", "wait")
+
     data class MethodsInfo(val modifier: String, val returnName: String, val name: String, val parameters: String) {
         override fun toString(): String {
             return "$modifier $returnName $name($parameters)"
@@ -25,13 +28,7 @@ object PrintMethodList {
         val list = arrayListOf<MethodsInfo>()
 
         for (method in methods) {
-            if (method.name.contains("\$default")) continue
-            if (method.name.contains("hashCode")) continue
-            if (method.name.contains("getClass")) continue
-            if (method.name.contains("equals")) continue
-            if (method.name.contains("notify")) continue
-            if (method.name.contains("toString")) continue
-            if (method.name.contains("wait")) continue
+            if (excludedName.map { method.name.contains(it, true) }.any { it }) continue
 
             val parameters = method.parameters
             val pairs = parameters.map { "${it.type.simpleName} ${it.name}" }
@@ -43,7 +40,7 @@ object PrintMethodList {
     }
 
     @JvmStatic
-    fun writeMethods(context: Context, methods: Array<Method>) {
+    fun writeMethods(methods: Array<Method>) : String{
         val list = parser(methods)
         val folder = Environment.getExternalStorageDirectory()
         val file = File(folder, "RichUtils.txt")
@@ -60,6 +57,8 @@ object PrintMethodList {
                 }
 
         file.writeText(builder.toString())
+
+        return builder.toString()
     }
 }
 

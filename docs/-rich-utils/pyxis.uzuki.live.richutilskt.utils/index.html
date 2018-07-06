@@ -2,7 +2,7 @@
 <HEAD>
 <meta charset="UTF-8">
 <title>pyxis.uzuki.live.richutilskt.utils - RichUtils</title>
-<link rel="stylesheet" href="..\..\style.css">
+<link rel="stylesheet" href="../../style.css">
 </HEAD>
 <BODY>
 <a href="../index.html">RichUtils</a>&nbsp;/&nbsp;<a href=".">pyxis.uzuki.live.richutilskt.utils</a><br/>
@@ -24,6 +24,15 @@
 </td>
 <td>
 <code><span class="keyword">enum</span> <span class="keyword">class </span><span class="identifier">Intensity</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-json/index.html">Json</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">Json</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/org/json/JSONObject.html"><span class="identifier">JSONObject</span></a></code>
+<p>DSL-Style JSONObject builder</p>
+</td>
 </tr>
 <tr>
 <td>
@@ -147,6 +156,27 @@
 <tr>
 <td>
 <p><a href="java.util.-date/index.html">java.util.Date</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="kotlin.-double/index.html">kotlin.Double</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="kotlin.-float/index.html">kotlin.Float</a></p>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="kotlin.-int/index.html">kotlin.Int</a></p>
 </td>
 <td>
 </td>
@@ -464,6 +494,16 @@ Normal Way, just use getVibratorPattern(Intensity, long) for easy work.</p>
 </tr>
 <tr>
 <td>
+<p><a href="list.html">list</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">list</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$list(kotlin.Int, kotlin.Int, kotlin.Int)/start">start</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$list(kotlin.Int, kotlin.Int, kotlin.Int)/end">end</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$list(kotlin.Int, kotlin.Int, kotlin.Int)/step">step</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">list</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$list(kotlin.Double, kotlin.Double, kotlin.Double)/start">start</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$list(kotlin.Double, kotlin.Double, kotlin.Double)/end">end</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">, </span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$list(kotlin.Double, kotlin.Double, kotlin.Double)/step">step</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1.0<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">&gt;</span></code>
+<p>generate list with given start, end, step</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="list-of.html">listOf</a></p>
 </td>
 <td>
@@ -516,7 +556,7 @@ Normal Way, just use getVibratorPattern(Intensity, long) for easy work.</p>
 <p><a href="put-map.html">putMap</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">putMap</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$putMap(kotlin.collections.Map((pyxis.uzuki.live.richutilskt.utils.putMap.T, kotlin.Any)))/map">map</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/os/Bundle.html"><span class="identifier">Bundle</span></a></code>
+<code><span class="keyword">fun </span><span class="identifier">putMap</span><span class="symbol">(</span><span class="identifier" id="pyxis.uzuki.live.richutilskt.utils$putMap(kotlin.collections.Map((kotlin.String, kotlin.Any)))/map">map</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/os/Bundle.html"><span class="identifier">Bundle</span></a></code>
 <p>return Bundle which contain contents of Map&lt;String, Any&gt;</p>
 </td>
 </tr>
