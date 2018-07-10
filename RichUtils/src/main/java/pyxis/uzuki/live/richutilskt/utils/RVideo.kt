@@ -54,13 +54,18 @@ fun Context.getVideoFileId(videoPath: String): String {
  * @param videoId Video ID
  */
 fun Context.getVideoThumbsPath(videoId: String): String {
-    MediaStore.Video.Thumbnails.getThumbnail(contentResolver, videoId.toLong(),
+    val bitmap = MediaStore.Video.Thumbnails.getThumbnail(contentResolver, videoId.toLong(),
             MediaStore.Video.Thumbnails.MINI_KIND, null)
-    val projection = arrayOf(MediaStore.Video.Thumbnails.DATA)
-    val where = MediaStore.Video.Thumbnails.VIDEO_ID + "=?"
-    val cursor = queryVideo(videoId, projection, where)
 
-    return cursor?.use { it.getString(0) } ?: ""
+    return try {
+        val projection = arrayOf(MediaStore.Video.Thumbnails.DATA)
+        val where = MediaStore.Video.Thumbnails.VIDEO_ID + "=?"
+        val cursor = queryVideo(videoId, projection, where)
+
+        cursor?.use { it.getString(0) } ?: ""
+    } catch (e: Exception) {
+        saveBitmapToFile(bitmap)?.absolutePath ?: ""
+    }
 }
 
 /**

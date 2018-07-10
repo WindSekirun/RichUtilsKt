@@ -11,10 +11,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import pyxis.uzuki.live.richutilskt.module.image.OrientationFixer
-import pyxis.uzuki.live.richutilskt.utils.RPickMedia
-import pyxis.uzuki.live.richutilskt.utils.getPhotoOrientationDegree
-import pyxis.uzuki.live.richutilskt.utils.runAsync
-import pyxis.uzuki.live.richutilskt.utils.toFile
+import pyxis.uzuki.live.richutilskt.utils.*
 import java.io.ByteArrayOutputStream
 
 class MainActivity : AppCompatActivity() {
@@ -43,6 +40,9 @@ class MainActivity : AppCompatActivity() {
         btnSelectGalleryVideo.setOnClickListener {
             RPickMedia.instance.pickFromVideo(this) { code, path ->
                 txtPath.text = "code: $code, path: $path"
+                val fileId = getVideoFileId(path)
+                val thumbnailPath = getVideoThumbsPath(fileId)
+                Log.d(MainActivity::class.java.simpleName, "onCreate: thubnailPath: $thumbnailPath");
             }
         }
 
