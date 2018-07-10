@@ -23,6 +23,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Getting Video - Gallery"
+        android:id="@+id/btnSelectGalleryVideo"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Test Method"
         android:id="@+id/btnTest"
         android:textAllCaps="false" />

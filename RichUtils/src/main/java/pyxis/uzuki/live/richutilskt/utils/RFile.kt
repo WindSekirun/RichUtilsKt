@@ -131,11 +131,26 @@ private fun getDataColumn(context: Context, uri: Uri?, selection: String?, selec
  */
 @TargetApi(Build.VERSION_CODES.KITKAT)
 infix fun Uri.getRealPath(context: Context): String {
-    if (!authority.isEmpty() && authority != "media" &&
-            cloudAuthorityProvider.containsIgnoreCase(authority)) return getImageUrlWithAuthority(context, this) ?: ""
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DocumentsContract.isDocumentUri(context, this)) return checkAuthority(context)
-    if (this.scheme.equals("content", ignoreCase = true)) return getDataColumn(context, this, null, null)
-    if (this.scheme.equals("file", ignoreCase = true)) return this.path
+    if (authority != null && !authority.isEmpty() && authority != "media" && cloudAuthorityProvider.containsIgnoreCase(authority)) {
+        // for support grab video
+        return if (path.contains("video%2F", true) || path.contains("video/", true)) {
+            getDataColumn(context, this, null, null)
+        } else {
+            getImageUrlWithAuthority(context, this) ?: ""
+        }
+    }
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && DocumentsContract.isDocumentUri(context, this)) {
+        return checkAuthority(context)
+    }
+
+    if (this.scheme.equals("content", ignoreCase = true)) {
+        return getDataColumn(context, this, null, null)
+    }
+
+    if (this.scheme.equals("file", ignoreCase = true)) {
+        return this.path
+    }
     return this.path
 }
 

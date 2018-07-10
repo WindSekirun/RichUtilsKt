@@ -25,19 +25,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnSelect.setOnClickListener {
-            RPickMedia.instance.pickFromCamera(this, { code, path ->
+            RPickMedia.instance.pickFromCamera(this) { code, path ->
                 val fixedPath = OrientationFixer.execute(path, this)
                 txtPath.text = "code: $code, path: $fixedPath"
                 imgPicture.setImageURI(Uri.fromFile(fixedPath.toFile()))
-            })
+            }
         }
 
         btnSelectGallery.setOnClickListener {
-            RPickMedia.instance.pickFromGallery(this, { code, path ->
+            RPickMedia.instance.pickFromGallery(this) { code, path ->
                 val fixedPath = OrientationFixer.execute(path, this)
                 txtPath.text = "code: $code, path: $fixedPath"
                 imgPicture.setImageURI(Uri.fromFile(fixedPath.toFile()))
-            })
+            }
+        }
+
+        btnSelectGalleryVideo.setOnClickListener {
+            RPickMedia.instance.pickFromVideo(this) { code, path ->
+                txtPath.text = "code: $code, path: $path"
+            }
         }
 
 
