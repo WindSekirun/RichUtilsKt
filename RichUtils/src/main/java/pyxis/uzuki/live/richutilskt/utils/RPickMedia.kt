@@ -9,17 +9,17 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
 import android.net.Uri
-import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
 import pyxis.uzuki.live.richutilskt.impl.F2
-import java.io.File
+import pyxis.uzuki.live.richutilskt.module.image.OrientationFixer
 
 
 class RPickMedia private constructor() {
-    private var mInternalStorage: Boolean = false;
+    private var mInternalStorage: Boolean = false
+    private var fixPhotoOrientation: Boolean = false
     private val PERMISSION_ARRAY = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
 
@@ -36,9 +36,9 @@ class RPickMedia private constructor() {
     }
 
     private fun Context.requestPermission(listener: (Boolean) -> Unit) {
-        RPermission.instance.checkPermission(this, PERMISSION_ARRAY, { code, _ ->
+        RPermission.instance.checkPermission(this, PERMISSION_ARRAY) { code, _ ->
             listener.invoke(code == RPermission.PERMISSION_GRANTED)
-        })
+        }
     }
 
     /**
@@ -48,6 +48,10 @@ class RPickMedia private constructor() {
      */
     fun setInternalStorage(isInternal: Boolean) {
         mInternalStorage = isInternal
+    }
+
+    fun setFixPhotoOrientation(enable: Boolean) {
+        this.fixPhotoOrientation = enable
     }
 
     /**
@@ -79,7 +83,7 @@ class RPickMedia private constructor() {
                 return@requestPermission
             }
 
-            requestPhotoPick(context, PICK_FROM_CAMERA, { code, uri -> callback?.invoke(code, uri) })
+            requestPhotoPick(context, PICK_FROM_CAMERA) { code, uri -> callback?.invoke(code, uri) }
         }
     }
 
@@ -111,7 +115,7 @@ class RPickMedia private constructor() {
                 return@requestPermission
             }
 
-            requestPhotoPick(context, PICK_FROM_GALLERY, { code, uri -> callback?.invoke(code, uri) })
+            requestPhotoPick(context, PICK_FROM_GALLERY) { code, uri -> callback?.invoke(code, uri) }
         }
     }
 
@@ -218,6 +222,8 @@ class RPickMedia private constructor() {
         val fragment = ResultFragment(fm as FragmentManager, callback, currentPhotoPath
                 ?: "", currentVideoPath ?: "")
 
+        fragment.fixPhotoOrientation = fixPhotoOrientation
+
         fm.beginTransaction().add(fragment, "FRAGMENT_TAG").commitAllowingStateLoss()
         fm.executePendingTransactions()
 
@@ -231,6 +237,7 @@ class RPickMedia private constructor() {
         var callback: ((Int, String) -> Unit)? = null
         var currentPhotoPath = ""
         var currentVideoPath = ""
+        var fixPhotoOrientation: Boolean = false
 
         constructor(fm: FragmentManager, callback: (Int, String) -> Unit, currentPhotoPath: String, currentVideoPath: String) : this() {
             this.fm = fm
@@ -258,15 +265,27 @@ class RPickMedia private constructor() {
             if (requestCode == PICK_FROM_CAMERA) {
                 val uri = Uri.parse(currentPhotoPath)
                 realPath = uri getRealPath context
+
+                if (fixPhotoOrientation) {
+                    realPath = OrientationFixer.execute(realPath, context)
+                }
+
             } else if (requestCode == PICK_FROM_CAMERA_VIDEO && data != null && data.data != null) {
                 realPath = data.data.getRealPath(context)
                 if (realPath.isEmpty()) {
                     realPath = Uri.parse(currentVideoPath) getRealPath context
                 }
+
             } else if (requestCode == PICK_FROM_CAMERA_VIDEO) {
                 realPath = Uri.parse(currentVideoPath) getRealPath context
+
             } else if (data != null && data.data != null) {
                 realPath = data.data.getRealPath(context)
+
+                if (fixPhotoOrientation) {
+                    realPath = OrientationFixer.execute(realPath, context)
+                }
+
             }
 
             if (realPath?.isEmpty() != false) {
