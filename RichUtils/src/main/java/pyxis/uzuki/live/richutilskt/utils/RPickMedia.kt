@@ -257,7 +257,6 @@ class RPickMedia private constructor() {
 
             if (requestCode == PICK_FROM_CAMERA) {
                 val uri = Uri.parse(currentPhotoPath)
-                val orientation = getOrientation(context, uri)
                 realPath = uri getRealPath context
             } else if (requestCode == PICK_FROM_CAMERA_VIDEO && data != null && data.data != null) {
                 realPath = data.data.getRealPath(context)
@@ -277,21 +276,6 @@ class RPickMedia private constructor() {
 
             callback.invoke(PICK_SUCCESS, realPath)
             fm?.beginTransaction()?.remove(this)?.commit()
-        }
-
-        private fun getOrientation(context: Context, photoUri: Uri): Int {
-            var cursor = context.contentResolver.query(photoUri,
-                    arrayOf(MediaStore.Images.ImageColumns.ORIENTATION), null, null, null)
-
-            if (cursor!!.count != 1) {
-                cursor.close()
-                return -1
-            }
-
-            cursor.moveToFirst()
-            val orientation = cursor.getInt(0)
-            cursor.close()
-            return orientation
         }
     }
 
