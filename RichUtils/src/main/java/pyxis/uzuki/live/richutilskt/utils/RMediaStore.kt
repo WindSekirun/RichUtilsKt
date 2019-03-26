@@ -25,7 +25,8 @@ import java.io.ByteArrayOutputStream
  * @param videoUri flag on kind of class. true - MediaStore.Video false - MediaStore.Images
  * @param internalStorage flag on saved at internal storage
  */
-fun createUri(context: Context, videoUri: Boolean = false, internalStorage: Boolean = false): Uri {
+@JvmOverloads
+fun createUri(context: Context, videoUri: Boolean = false, internalStorage: Boolean = false, title: String = nowDateString()): Uri {
     val uri = if (videoUri && internalStorage) MediaStore.Video.Media.INTERNAL_CONTENT_URI
     else if (videoUri) MediaStore.Video.Media.EXTERNAL_CONTENT_URI
     else if (!videoUri && internalStorage) MediaStore.Images.Media.INTERNAL_CONTENT_URI
@@ -40,9 +41,10 @@ fun createUri(context: Context, videoUri: Boolean = false, internalStorage: Bool
  * @param context Context object
  * @param uri MediaStore Uri
  */
-fun createUri(context: Context, uri: Uri): Uri {
+@JvmOverloads
+fun createUri(context: Context, uri: Uri, title: String = nowDateString()): Uri {
     val cv = ContentValues()
-    cv.put(MediaStore.Images.Media.TITLE, nowDateString())
+    cv.put(MediaStore.Images.Media.TITLE, title)
     return context.contentResolver.insert(uri, cv)
 }
 

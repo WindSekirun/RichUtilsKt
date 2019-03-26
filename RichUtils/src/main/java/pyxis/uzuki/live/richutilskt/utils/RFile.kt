@@ -140,7 +140,7 @@ infix fun Uri.getRealPath(context: Context): String {
 }
 
 private fun List<String>.containsIgnoreCase(item: String?): Boolean {
-    return this.map { it.equals(item, true) }.any { true }
+    return this.map { it.equals(item, true) }.any { it }
 }
 
 private val cloudAuthorityProvider = arrayListOf("com.google.android.apps.photos.content",

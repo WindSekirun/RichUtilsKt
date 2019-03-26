@@ -8,6 +8,7 @@ package pyxis.uzuki.live.richutilskt.utils
 import android.util.Log
 import pyxis.uzuki.live.richutilskt.impl.F0
 import java.io.File
+import java.math.BigDecimal
 import java.text.DecimalFormat
 
 inline fun <T, R> T.tryCatch(block: (T) -> R): R {
@@ -52,7 +53,8 @@ internal inline fun <T, R> T.convertAcceptNull(block: (T) -> R, def: Any?): R? =
 /**
  * formatting number like 1,000,000
  */
-fun toNumFormat(num: String): String {
+@JvmOverloads
+fun toNumFormat(num: String, format: String = "#,###"): String {
     val df = DecimalFormat("#,###")
-    return df.format(Integer.parseInt(num))
+    return df.format(BigDecimal(num))
 }

@@ -22,6 +22,7 @@ class RPickMedia private constructor() {
     private var fixPhotoOrientation: Boolean = false
     private val PERMISSION_ARRAY = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+    private lateinit var title: String
 
     private fun getActivity(context: Context): FragmentActivity? {
         var c = context
@@ -50,8 +51,20 @@ class RPickMedia private constructor() {
         mInternalStorage = isInternal
     }
 
+    /**
+     * enable fixing orientation
+     *
+     * @param [enable] fixing orientation
+     */
     fun setFixPhotoOrientation(enable: Boolean) {
         this.fixPhotoOrientation = enable
+    }
+
+    /**
+     * set title of media when capture using PICK_FROM_CAMERA and PICK_FROM_CAMERA_VIDEO
+     */
+    fun setTitle(title: String) {
+        this.title = title
     }
 
     /**
@@ -192,11 +205,14 @@ class RPickMedia private constructor() {
         val fm = getActivity(context)?.supportFragmentManager
 
         val intent = Intent()
+        if (!::title.isInitialized) {
+            title = nowDateString()
+        }
 
         when (pickType) {
             PICK_FROM_CAMERA -> {
                 intent.action = MediaStore.ACTION_IMAGE_CAPTURE
-                val captureUri = createUri(context, false, mInternalStorage)
+                val captureUri = createUri(context, false, mInternalStorage, title)
                 currentPhotoPath = captureUri.toString()
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, captureUri)
             }
@@ -213,7 +229,7 @@ class RPickMedia private constructor() {
 
             PICK_FROM_CAMERA_VIDEO -> {
                 intent.action = MediaStore.ACTION_VIDEO_CAPTURE
-                val captureUri = createUri(context, true, mInternalStorage)
+                val captureUri = createUri(context, true, mInternalStorage, title)
                 currentVideoPath = captureUri.toString()
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, captureUri)
             }

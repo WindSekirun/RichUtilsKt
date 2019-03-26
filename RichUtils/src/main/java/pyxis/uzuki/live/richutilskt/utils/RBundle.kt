@@ -11,20 +11,20 @@ import java.io.Serializable
 /**
  * return Bundle which contain contents of Map<String, Any>
  */
-fun putMap(map: Map<String, Any>): Bundle = Bundle().apply { putMap(map) }
+fun putMap(map: Map<String, Any?>): Bundle = Bundle().apply { putMap(map) }
 
 /**
  * put contents of Map<String, Any> into given Bundle
  *
  */
-fun Bundle.putMap(map: Map<String, Any>) {
+fun Bundle.putMap(map: Map<String, Any?>) {
     map.entries.forEach { this.put(it.key, it.value) }
 }
 
 /**
  * Convert Bundle to HashMap<String, Any>
  */
-fun Bundle.toMap(): HashMap<String, Any> = hashMapOf<String, Any>().apply {
+fun Bundle.toMap(): HashMap<String, Any?> = hashMapOf<String, Any?>().apply {
     val keySet = keySet()
     for (item in keySet) {
         put(item, this@toMap.get(item))
@@ -34,7 +34,9 @@ fun Bundle.toMap(): HashMap<String, Any> = hashMapOf<String, Any>().apply {
 /**
  * put 'key to value' into Bundle with automatically smart castig
  */
-fun Bundle.put(key: String, value: Any) {
+fun Bundle.put(key: String, value: Any?) {
+    if (value == null) return
+
     if (value is Array<*>) {
         this.putExtraArray(key, value)
         return
